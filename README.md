@@ -1,2 +1,2 @@
 # GamePipe
-A game in USCGamePipe
+A EVE-based RTS-like TD game at USCGamePipe
