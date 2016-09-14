@@ -1,0 +1,6 @@
+[submodule "models/reference/eve-stls"]
+	path = models/reference/eve-stls
+	url = git@github.com:Drewzar/eve-stls.git
+[submodule "models/reference/EVE-Online-Models-Textures"]
+	path = models/reference/EVE-Online-Models-Textures
+	url = git@github.com:JustinFincher/EVE-Online-Models-Textures.git
