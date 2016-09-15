@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ship_move : MonoBehaviour {
+public class Dispatcher : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
