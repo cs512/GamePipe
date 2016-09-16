@@ -28,7 +28,7 @@ public class TimerManager : PureSingleton<TimerManager>, IAnimatable
     /** 用数组保证按放入顺序执行*/
     private List<TimerHandler> _handlers = new List<TimerHandler>();
     private int _currFrame = 0;
-    private uint _index = 0;
+    // private uint _index = 0;
 
     public void AdvanceTime()
     {
