@@ -79,6 +79,7 @@
     <Compile Include="Assets\Script\Manager\PureSingleton.cs" />
     <Compile Include="Assets\Script\Manager\TimerManager.cs" />
     <Compile Include="Assets\Script\Manager\Victim.cs" />
+    <Compile Include="Assets\Script\Manager\scoreBoard.cs" />
     <Compile Include="Assets\Script\Movement\BulletMover.cs" />
     <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
     <Compile Include="Assets\Script\Movement\SphereRotate.cs" />
