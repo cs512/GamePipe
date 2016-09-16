@@ -12,7 +12,7 @@ public class Shots : MonoBehaviour {
 		this.victim = vic;
 	}
 
-    public void setDamage(int damage) {
+    public void SetDamage(int damage) {
         this.damage = damage;
     }
 	// Use this for initialization
