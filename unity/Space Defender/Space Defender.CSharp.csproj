@@ -73,28 +73,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Mover.cs" />
-    <Compile Include="Assets\Script\GUI\CircleButton.cs" />
-    <Compile Include="Assets\Script\GUI\CircleMenu.cs" />
-    <Compile Include="Assets\Script\GUI\CircleSpwaner.cs" />
-    <Compile Include="Assets\Script\GUI\Interactable.cs" />
-    <Compile Include="Assets\Script\Manager\Attacker.cs" />
-    <Compile Include="Assets\Script\Manager\Bullet.cs" />
-    <Compile Include="Assets\Script\Manager\Defender.cs" />
-    <Compile Include="Assets\Script\Manager\Dispatcher.cs" />
-    <Compile Include="Assets\Script\Manager\EnemyBuilder.cs" />
-    <Compile Include="Assets\Script\Manager\Killer.cs" />
-    <Compile Include="Assets\Script\Manager\PureSingleton.cs" />
-    <Compile Include="Assets\Script\Manager\TimerManager.cs" />
-    <Compile Include="Assets\Script\Manager\Victim.cs" />
-    <Compile Include="Assets\Script\Manager\scoreBoard.cs" />
-    <Compile Include="Assets\Script\Movement\BulletMover.cs" />
-    <Compile Include="Assets\Script\Movement\DragTurret.cs" />
-    <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
-    <Compile Include="Assets\Script\Movement\SphereRotate.cs" />
-    <Compile Include="Assets\Script\Mover.cs" />
-    <Compile Include="Assets\Script\ResRotate.cs" />
-    <Compile Include="Assets\Script\Ships\Naga.cs" />
-    <Compile Include="Assets\Script\Turret\HybirdTurret425.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
