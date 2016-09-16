@@ -534,7 +534,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1352309658}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 791f49cea65f043468f977d8f9b1a299, type: 3}
+  m_Script: {fileID: 11500000, guid: ab9aefa0e0c652b4c8b418e3d1eea4bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!199 &1352309660
@@ -2350,7 +2350,7 @@ GameObject:
   - 114: {fileID: 1585968978}
   m_Layer: 0
   m_Name: Dispatcher
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

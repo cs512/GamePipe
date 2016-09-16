@@ -5,9 +5,9 @@ using System.Text;
 
 public interface Victim {
 
-    int GetHealth();
+    float GetHealth();
 
     void DealDamage(float damage);
 
-    string GetInstanceID();
+    int GetID();
 }
