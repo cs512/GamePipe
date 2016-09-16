@@ -5,6 +5,10 @@ public class EnemyBuilder : MonoBehaviour {
 
 	public float nextWaveTime=5f;
 	public float intervelTime=0.5f;
+	public float damage=0.5f;
+	public float speed=0.5f;
+	GameObject target;
+	Transform sourcePlanet;
 
 	[System.Serializable]
 	public class WaveComponent{
@@ -15,7 +19,8 @@ public class EnemyBuilder : MonoBehaviour {
 	public WaveComponent[] wave;
 	// Use this for initialization
 	void Start() {
-	
+		target = GameObject.Find ("SourcePlanet");
+		sourcePlanet=target.transform;
 	}
 	
 	// Update is called once per frame
@@ -30,7 +35,11 @@ public class EnemyBuilder : MonoBehaviour {
 					//shoot it, enenmyPrefab is a prefab object
 					finised = false;
 					wc.shooted++;
-					Instantiate(wc.enenmyPrefab,this.transform.position, this.transform.rotation);
+					GameObject enemyGO = Instantiate(wc.enenmyPrefab,this.transform.position, this.transform.rotation);
+					Bullet b = enemyGO.GetComponent<Bullet>();
+					b.target = sourcePlanet;
+					b.damage = damage;
+					b.speed = speed;
 					break;
 				}
 			}
