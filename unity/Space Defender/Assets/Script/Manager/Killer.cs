@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-interface Killer {
+public interface Killer {
 
-    int getFireInterval();
+    int GetFireInterval();
 
-    void attack(Dictionary<string, Victim> victims);
+    void Attack(Dictionary<string, Victim> victims);
 
-    void shotSpawn();
+    void ShotSpawn();
 
 }

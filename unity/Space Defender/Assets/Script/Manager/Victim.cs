@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-interface Victim {
+public interface Victim {
 
-    int getHealth();
+    int GetHealth();
 
-    void dealDamage(int damage);
+    void DealDamage(int damage);
 
+    string GetInstanceID();
 }

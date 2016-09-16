@@ -4,34 +4,37 @@ using System.Collections;
 public class Shots : MonoBehaviour {
 	GameObject targetObject;
 	Transform target;
-	float speed=5f;
-	public static string targetName;
-	public Victim victim;
+	private float speed=5f;
+    private int damage = 0;
+	private Victim victim;
 
 	public Shots(Victim vic){
-		victim = vic;
-		targetName = vic.gameObjectName;
+		this.victim = vic;
 	}
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
 	// Use this for initialization
-	void Start () {
-		targetObject = GameObject.Find (targetName);
+	void Start() {
+		targetObject = GameObject.Find(victim.GetInstanceID());
 	}
 
 	// Update is called once per frame
-	void Update () {
+	void Update() {
 		target = target.transform;
 		//Debug.Log(target.position);
 		Vector3 dir = target.position - this.transform.position;
 		float framDist = speed * Time.deltaTime;
 		if (dir.magnitude <= framDist) {
 			SelfDestruct();
-			victim.dealDamage ();
+			victim.DealDamage(this.damage);
 		} else {
 			transform.Translate(dir.normalized * framDist,Space.World);
-			this.transform.rotation = Quaternion.LookRotation (dir);
+			this.transform.rotation = Quaternion.LookRotation(dir);
 		}
 	}
 	void SelfDestruct(){
-		Destroy (gameObject);
+		Destroy(gameObject);
 	}
 }

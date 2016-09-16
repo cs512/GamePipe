@@ -18,22 +18,28 @@ public class Dispatcher : MonoBehaviour {
 
     }
 
-    void registeKiller(string instanceID, Killer killer) {
+    public void RegisteKiller(string instanceID, Killer killer) {
+        if (this.killers.ContainsKey(instanceID)) {
+            return;
+        } else {
+            this.killers.Add(instanceID, killer);
+            return;
+        }
+    }
+
+    public void DeregisterAttacker(string instanceID) {
+        if (this.killers.ContainsKey(instanceID)) {
+            this.killers.Remove(instanceID);
+        }
+        return;
+    }
+
+    public void RegisteVictim(string instanceID, Victim victim) {
 
         return;
     }
 
-    void deregisterAttacker(string instanceID) {
-
-        return;
-    }
-
-    void registeVictim(string instanceID, Victim victim) {
-
-        return;
-    }
-
-    void deregisterDefender(string instanceID) {
+    public void DeregisterDefender(string instanceID) {
 
         return;
     }

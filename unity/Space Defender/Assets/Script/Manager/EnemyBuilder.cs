@@ -14,28 +14,28 @@ public class EnemyBuilder : MonoBehaviour {
 	}
 	public WaveComponent[] wave;
 	// Use this for initialization
-	void Start () {
+	void Start() {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update() {
 		nextWaveTime -= Time.deltaTime;
 		if (nextWaveTime < 0) {
 			nextWaveTime = intervelTime;
 			bool finised = true;
 			//This wave Enemy Comes
-			foreach(WaveComponent wc in wave ){
-				if(wc.shooted<wc.num){
+			foreach (WaveComponent wc in wave ){
+				if (wc.shooted<wc.num){
 					//shoot it, enenmyPrefab is a prefab object
-					finised=false;
+					finised = false;
 					wc.shooted++;
 					Instantiate(wc.enenmyPrefab,this.transform.position, this.transform.rotation);
 					break;
 				}
 			}
 			if (finised == true) {
-				Destroy (gameObject);
+				Destroy(gameObject);
 				//or Instantiate the next wave enemy
 			}
 		}
