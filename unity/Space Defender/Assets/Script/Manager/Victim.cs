@@ -7,7 +7,7 @@ public interface Victim {
 
     int GetHealth();
 
-	void DealDamage(float damage);
+    void DealDamage(float damage);
 
     string GetInstanceID();
 }
