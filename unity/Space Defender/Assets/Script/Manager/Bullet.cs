@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour {
 
 	public Transform target;
 	public float speed;
-    public int damage;
+	public float damage;
 
 	// Use this for initialization
 	void Start() {

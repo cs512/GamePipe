@@ -35,7 +35,7 @@ public class EnemyBuilder : MonoBehaviour {
 					//shoot it, enenmyPrefab is a prefab object
 					finised = false;
 					wc.shooted++;
-					GameObject enemyGO = Instantiate(wc.enenmyPrefab,this.transform.position, this.transform.rotation);
+					GameObject enemyGO = (GameObject)Instantiate(wc.enenmyPrefab,this.transform.position, this.transform.rotation);
 					Bullet b = enemyGO.GetComponent<Bullet>();
 					b.target = sourcePlanet;
 					b.damage = damage;
