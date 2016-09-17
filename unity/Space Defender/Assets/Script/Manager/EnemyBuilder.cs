@@ -3,12 +3,12 @@ using System.Collections;
 
 public class EnemyBuilder : MonoBehaviour {
 
-	public float nextWaveTime=5f;
-	public float intervelTime=0.5f;
-	public float damage=0.5f;
-	public float speed=0.5f;
+	public float nextWaveTime;
+	public float intervelTime;
+	public float damage;
+	public float speed;
 	GameObject target;
-	Transform sourcePlanet;
+	public Transform sourcePlanet;
 
 	[System.Serializable]
 	public class WaveComponent{
@@ -19,8 +19,12 @@ public class EnemyBuilder : MonoBehaviour {
 	public WaveComponent[] wave;
 	// Use this for initialization
 	void Start() {
+		gameObject.GetComponent<MeshRenderer>().enabled=false;
 		target = GameObject.Find ("SourcePlanet");
 		sourcePlanet=target.transform;
+		Debug.Log(sourcePlanet.position);
+		Vector3 dir = sourcePlanet.position - this.transform.position;
+		this.transform.rotation = Quaternion.LookRotation(dir);
 	}
 	
 	// Update is called once per frame
@@ -37,7 +41,7 @@ public class EnemyBuilder : MonoBehaviour {
 					wc.shooted++;
 					GameObject enemyGO = (GameObject)Instantiate(wc.enenmyPrefab,this.transform.position, this.transform.rotation);
 					Bullet b = enemyGO.GetComponent<Bullet>();
-					b.target = sourcePlanet;
+					b.target=sourcePlanet;
 					b.damage = damage;
 					b.speed = speed;
 					break;

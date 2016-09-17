@@ -22,15 +22,18 @@ public class Bullet : MonoBehaviour {
 		//Debug.Log(target.position);
 		Vector3 dir = target.position - this.transform.position;
 		float framDist = speed * Time.deltaTime;
-		if (dir.magnitude <= framDist) {
-			Shoot();
-		} else {
-			transform.Translate(dir.normalized * framDist,Space.World);
-			this.transform.rotation = Quaternion.LookRotation(dir);
-		}
+		transform.Translate(dir.normalized * framDist,Space.World);
+		this.transform.rotation = Quaternion.LookRotation(dir);
+
 	}
-	void Shoot(){
-		target.GetComponent<Victim>().DealDamage(damage);
-		Destroy(gameObject);
+
+	void OnCollisionEnter(Collision collisionInfo)
+	{
+		//Debug.Log(collisionInfo.gameObject.transform.name);
+		//Debug.Log(target.name);
+		if(collisionInfo.gameObject.transform.name==target.name){
+			Destroy(gameObject);
+		}
+		//target.GetComponent<Victim>().DealDamage(damage);
 	}
 }
