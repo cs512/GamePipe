@@ -18,19 +18,18 @@ class EnemyActionAndAttribution : MonoBehaviour, Victim {
 
     void Start() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-        dispatcher.RegisteVictim(this.GetInstanceID().ToString(), this);
+        dispatcher.RegisteVictim(this);
     }
 
     void Victim.DealDamage(float damage) {
         health -= damage;
     }
 
-    int Victim.GetHealth() {
-        return (int)health;
+    float Victim.GetHealth() {
+        return health;
     }
 
-    string Victim.GetInstanceID() {
-        return GetInstanceID().ToString();
+    int Victim.GetID() {
+        return GetInstanceID();
     }
 }
-

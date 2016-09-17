@@ -7,8 +7,9 @@ public interface Killer {
 
     int GetFireInterval();
 
-    void Attack(Dictionary<string, Victim> victims);
+    void Attack(Dictionary<int, Victim> victims);
 
     void ShotSpawn();
 
+    int GetID();
 }

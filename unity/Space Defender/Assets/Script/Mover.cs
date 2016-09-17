@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyMovement : MonoBehaviour {
+public class Mover : MonoBehaviour {
 
-    public float movementSpeed = 10f;
     // Use this for initialization
     void Start() {
 
@@ -11,6 +10,6 @@ public class EnemyMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        transform.Translate(Vector3.left * movementSpeed * Time.deltaTime, Space.World);
+
     }
 }
