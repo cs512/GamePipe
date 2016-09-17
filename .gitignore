@@ -40,3 +40,8 @@ captures/
 *.jks
 *.suo
 unity/Space Defender/ProjectSettings/ProjectSettings.asset
+/.idea/compiler.xml
+/.idea/copyright/profiles_settings.xml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
