@@ -51,9 +51,10 @@ public class Dispatcher : MonoBehaviour {
     }
 
     private void TriggerAttack(int instanceID, Killer killer) {
-        if (this.killers.ContainsKey(instanceID))
-        killer.Attack(this.victims);
-        this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.TriggerAttack, instanceID, killer);
+        if (this.killers.ContainsKey(instanceID)) {
+            killer.Attack(this.victims);
+            this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.TriggerAttack, instanceID, killer);
+        }
         return;
     }
 }
