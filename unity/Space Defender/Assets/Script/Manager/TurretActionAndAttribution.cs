@@ -7,14 +7,15 @@ using System.Collections.Generic;
 public class TurretActionAndAttribution : MonoBehaviour, Killer{
 
 	public Transform shotSpawn;
+	public GameObject shot;
 	public float rotateSpeed = 5;
 	public int fireInterval = 1;
-	public GameObject shot;
 
 	private GameObject currentTarget = null;
 	private Victim currentVictim = null;
 	private float nextFire = 0;
 	private Quaternion lastRotation;
+	private bool startFire = false;
 
 	// Use this for initialization
 	void Start () {
@@ -23,10 +24,13 @@ public class TurretActionAndAttribution : MonoBehaviour, Killer{
 	}
 
 	void Killer.Attack(Dictionary<int, Victim> victims){
-		if (victims.Count == 0)
+		if (victims.Count == 0){
+			startFire = false;
+			return;
+		}
 			return;
 		if(currentVictim == null || currentVictim.GetHealth() <= 0){
-			float min_dist = float.MaxValue;
+            float min_dist = float.MaxValue;
 			int targetId = 0;
 			foreach (int id in victims.Keys) {
 				GameObject target = (GameObject)EditorUtility.InstanceIDToObject (id);
@@ -39,19 +43,17 @@ public class TurretActionAndAttribution : MonoBehaviour, Killer{
 			currentVictim = victims [targetId];
 		}
 
-		if(!roatateToTarget ())
-			this.fire ();
-	}
-
-	void fire(){
-		if(Time.time > nextFire){
-			nextFire = Time.time + fireInterval;
-			Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
-		}
+		if (!roatateToTarget ())
+			startFire = true;
+		else
+			startFire = false;
 	}
 
 	void Killer.ShotSpawn(){
-		// 
+		if(Time.time > nextFire){
+			nextFire = Time.time + fireInterval;
+			Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
+		} 
 	}
 
 	bool roatateToTarget(){
