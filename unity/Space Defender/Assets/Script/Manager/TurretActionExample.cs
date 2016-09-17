@@ -4,7 +4,7 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
-public class TurretActionAndAttribution : MonoBehaviour, Killer{
+public class TurretActionExample : MonoBehaviour, Killer{
 
 	public Transform shotSpawn;
 	public GameObject shot;
@@ -22,31 +22,22 @@ public class TurretActionAndAttribution : MonoBehaviour, Killer{
 
 	public void init(){
 		lastRotation = transform.rotation;
-
-		Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-		dispatcher.RegisteKiller(this);
 	}
 
 	public void Attack(Dictionary<int, Victim> victims){
-		if (victims.Count == 0)
-			return;
-		
-		if(currentVictim == null || currentVictim.GetHealth() <= 0){
-            float min_dist = float.MaxValue;
-			int targetId = 0;
-			foreach (int id in victims.Keys) {
-				GameObject target = (GameObject)EditorUtility.InstanceIDToObject (id);
-				float distance = Vector3.Distance (target.transform.position, transform.position);
-				if (min_dist >= distance) {
-					currentTarget = target;
-					targetId = id;
-				}
+		float min_dist = float.MaxValue;
+		foreach(int id in targetArray){
+			GameObject target = (GameObject)EditorUtility.InstanceIDToObject (id);
+			float distance = Vector3.Distance (target.transform.position, transform.position);
+			if(min_dist >= distance){
+				currentTarget = target;
+				min_dist = distance;
 			}
-			currentVictim = victims [targetId];
 		}
-
-		if (!roatateToTarget ())
+		print (currentTarget.name);
+		if(!roatateToTarget ()){
 			ShotSpawn ();
+		}
 	}
 
 	public void ShotSpawn(){
@@ -65,7 +56,7 @@ public class TurretActionAndAttribution : MonoBehaviour, Killer{
 
 		if(lastRotation == transform.rotation)  // check if turret is facing target
 			return false;
-		
+
 		lastRotation = transform.rotation;
 		return true;
 	}
