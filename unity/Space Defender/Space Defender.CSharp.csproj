@@ -90,6 +90,7 @@
     <Compile Include="Assets\Script\ResRotate.cs" />
     <Compile Include="Assets\Script\Ships\Naga.cs" />
     <Compile Include="Assets\Script\Turret\HybirdTurret425.cs" />
+    <Compile Include="Assets\Script\Turret\newTurret.cs" />
     <Compile Include="Assets\Script\Turret\turret.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
