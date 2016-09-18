@@ -92,7 +92,7 @@
     <Compile Include="Assets\Script\Movement\BulletMover.cs" />
     <Compile Include="Assets\Script\Movement\DragTurret.cs" />
     <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
-    <Compile Include="Assets\Script\Movement\SphereRotate.cs" />
+    <Compile Include="Assets\Script\Basement\Basement.cs" />
     <Compile Include="Assets\Script\Mover.cs" />
     <Compile Include="Assets\Script\ResRotate.cs" />
     <Compile Include="Assets\Script\Ships\Naga.cs" />
