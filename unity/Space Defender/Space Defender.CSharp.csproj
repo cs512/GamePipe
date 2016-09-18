@@ -78,7 +78,6 @@
     <Compile Include="Assets\Script\GUI\CircleMenu.cs" />
     <Compile Include="Assets\Script\GUI\CircleSpwaner.cs" />
     <Compile Include="Assets\Script\GUI\Interactable.cs" />
-    <Compile Include="Assets\Script\Manager\Defender.cs" />
     <Compile Include="Assets\Script\Manager\Dispatcher.cs" />
     <Compile Include="Assets\Script\Manager\Enemy.cs" />
     <Compile Include="Assets\Script\Manager\EnemyActionAndAttribution.cs" />
