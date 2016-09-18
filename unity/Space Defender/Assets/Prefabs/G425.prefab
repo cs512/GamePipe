@@ -229,6 +229,8 @@ MonoBehaviour:
   rotateSpeed: 3
   target1: {fileID: 0}
   target2: {fileID: 0}
+  range: 20
+  showRange: 1
 --- !u!135 &135000010052360370
 SphereCollider:
   m_ObjectHideFlags: 1

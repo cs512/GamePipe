@@ -15,21 +15,24 @@ public class DoubleBarrelsTurret : MonoBehaviour, Killer {
     public GameObject shot;
     public float rotateSpeed;
 
-    private GameObject currentTarget = null;
+    private Transform currentTarget = null;
     private Victim currentVictim = null;
-    private float nextFire = 0;
+    private float nextFire = 1;
     private Quaternion lastRotation;
 
     public GameObject target1;
     public GameObject target2;
     public ArrayList targetArray;
 
+    public bool showRange;
+    public float range;
+
 
     // Use this for initialization
     void Start() {
         targetArray = new ArrayList();
-        targetArray.Add(GameObject.Find("Armageddon").GetInstanceID());
-        targetArray.Add(GameObject.Find("Naga").GetInstanceID());
+        targetArray.Add(target1.GetInstanceID());
+        targetArray.Add(target2.GetInstanceID());
         init();
     }
 
@@ -58,16 +61,19 @@ public class DoubleBarrelsTurret : MonoBehaviour, Killer {
 
     public void Attack(Dictionary<int, Victim> victims) {
         float min_dist = float.MaxValue;
-        foreach (int id in targetArray) {
-            GameObject target = (GameObject)EditorUtility.InstanceIDToObject(id);
-            float distance = Vector3.Distance(target.transform.position, transform.position);
-            if (min_dist >= distance) {
-                currentTarget = target;
-                min_dist = distance;
+        if (currentTarget == null || range < Vector3.Distance(currentTarget.position, transform.position)) {
+            foreach (int id in targetArray) {
+                Transform target = ((GameObject)EditorUtility.InstanceIDToObject(id)).transform;
+                float distance = Vector3.Distance(target.position, transform.position);
+                if (range < distance)
+                    continue;
+                if (min_dist >= distance) {
+                    currentTarget = target;
+                    min_dist = distance;
+                }
             }
-        }
-        print(currentTarget.name);
-        if (!roatateToTarget()) {
+        } else {
+            targetLockOn();
             ShotSpawn();
         }
     }
@@ -96,6 +102,19 @@ public class DoubleBarrelsTurret : MonoBehaviour, Killer {
 
         lastRotation = transform.rotation;
         return true;
+    }
+
+    void targetLockOn() {
+        Vector3 targetDir = currentTarget.position - transform.position;
+        Quaternion lookRotation = Quaternion.LookRotation(targetDir);
+        Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * rotateSpeed).eulerAngles;
+        transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
+    }
+    void OnDrawGizmosSelected() {
+        if (showRange) {
+            Gizmos.color = Color.white;
+            Gizmos.DrawWireSphere(transform.position, range);
+        }
     }
 
     public int GetFireInterval() {
