@@ -23,7 +23,7 @@ public class TurretActionExample : MonoBehaviour, Killer{
 
 	public void Attack(Dictionary<int, Victim> victims){
 		float min_dist = float.MaxValue;
-		if(currentTarget == null || range < Vector3.Distance (currentTarget.position, transform.position)){
+		if ( == null || range < Vector3.Distance (currentTarget.position, transform.position)){
 			foreach(int id in targetArray){
 				Transform target = ((GameObject)EditorUtility.InstanceIDToObject(id)).transform;
 				float distance = Vector3.Distance (target.position, transform.position);
