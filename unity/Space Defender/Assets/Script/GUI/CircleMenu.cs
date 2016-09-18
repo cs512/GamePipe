@@ -5,6 +5,7 @@ public class CircleMenu : MonoBehaviour {
 
     public CircleButton buttonPrefab;
     public CircleButton selected;
+    public GameObject newObject;
 
 	// Use this for initialization
 	public void SpawnButtons (Interactable obj) {
@@ -30,13 +31,32 @@ public class CircleMenu : MonoBehaviour {
             if (selected)
             {
                 Debug.Log(selected.title + " was selected");
+                transform.position = new Vector3 (380f, 0f, 120f);
+                transform.localRotation = new Quaternion(0f, 90f, 0f, 0f);
                 if (selected.title == "trtLrg")
                 {
-                    Instantiate(GameObject.Find("Naga"), transform.position, transform.rotation);
+                    Object prefab = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Prefabs/G425.prefab", typeof(GameObject));
+                    newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
+                    DragTurret dt = newObject.GetComponent<DragTurret>();
+                    Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+                    dispatcher.RegisteKiller(dt);
+
                 }
                 else if (selected.title == "trtMd")
                 {
-                    Instantiate(GameObject.Find("Armageddon"), transform.position, transform.rotation);
+                    Object prefab = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Prefabs/G150dual.prefab", typeof(GameObject));
+                    newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
+                    DragTurret dt = newObject.GetComponent<DragTurret>();
+                    Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+                    dispatcher.RegisteKiller(dt);
+                }
+                else if (selected.title == "trtSml")
+                {
+                    Object prefab = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Prefabs/G75.prefab", typeof(GameObject));
+                    newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
+                    DragTurret dt = newObject.GetComponent<DragTurret>();
+                    Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+                    dispatcher.RegisteKiller(dt);
                 }
                 Destroy(gameObject);
             }
