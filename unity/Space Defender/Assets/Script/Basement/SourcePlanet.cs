@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Basement : MonoBehaviour, Victim {
+public class SourcePlanet : MonoBehaviour, Victim {
 
     private float rotateSpeed = 1f;
     private float health = 10f;
