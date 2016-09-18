@@ -10,33 +10,32 @@ public class TurretActionExample : MonoBehaviour, Killer{
 	public GameObject shot;
 	public float rotateSpeed = 5;
 	public int fireInterval = 1;
+	public float range = 15f;
+	public bool showRange = true;
 
-	private GameObject currentTarget = null;
+	private Transform currentTarget = null;
 	private Victim currentVictim = null;
 	private float nextFire = 0;
-	private Quaternion lastRotation;
 
 	public GameObject target1;
 	public GameObject target2;
 	public ArrayList targetArray;
 
-	public void init(){
-		lastRotation = transform.rotation;
-	}
-
 	public void Attack(Dictionary<int, Victim> victims){
 		float min_dist = float.MaxValue;
-		foreach(int id in targetArray){
-			GameObject target = (GameObject)EditorUtility.InstanceIDToObject (id);
-			float distance = Vector3.Distance (target.transform.position, transform.position);
-			if(min_dist >= distance){
-				currentTarget = target;
-				min_dist = distance;
+		if(currentTarget == null || range < Vector3.Distance (currentTarget.position, transform.position)){
+			foreach(int id in targetArray){
+				Transform target = ((GameObject)EditorUtility.InstanceIDToObject(id)).transform;
+				float distance = Vector3.Distance (target.position, transform.position);
+				if (range < distance)
+					continue;
+				if(min_dist >= distance){
+					currentTarget = target;
+					min_dist = distance;}
 			}
-		}
-		print (currentTarget.name);
-		if(!roatateToTarget ()){
-			ShotSpawn ();
+		} else {
+			targetLockOn();
+			ShotSpawn();
 		}
 	}
 
@@ -47,18 +46,11 @@ public class TurretActionExample : MonoBehaviour, Killer{
 		} 
 	}
 
-	bool roatateToTarget(){
-		Vector3 targetDir = currentTarget.transform.position - transform.position;
-		float step = rotateSpeed * Time.deltaTime;
-		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
-		Debug.DrawRay(transform.position, newDir, Color.red);
-		transform.rotation = Quaternion.LookRotation(newDir);
-
-		if(lastRotation == transform.rotation)  // check if turret is facing target
-			return false;
-
-		lastRotation = transform.rotation;
-		return true;
+	void targetLockOn(){
+		Vector3 targetDir = currentTarget.position - transform.position;
+		Quaternion lookRotation = Quaternion.LookRotation (targetDir);
+		Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * rotateSpeed).eulerAngles;
+		transform.rotation = Quaternion.Euler (0f, rotation.y, 0f);
 	}
 
 	public int GetFireInterval(){
@@ -67,5 +59,12 @@ public class TurretActionExample : MonoBehaviour, Killer{
 
 	public int GetID() {
 		return GetInstanceID();
+	}
+
+	void OnDrawGizmosSelected(){
+		if(showRange){
+			Gizmos.color = Color.white;
+			Gizmos.DrawWireSphere(transform.position, range);
+		}
 	}
 }

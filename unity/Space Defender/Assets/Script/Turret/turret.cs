@@ -12,7 +12,6 @@ public class turret : TurretActionExample {
 		targetArray = new ArrayList ();
 		targetArray.Add (target2.GetInstanceID());
 		targetArray.Add (target1.GetInstanceID());
-		init ();
 	}
 	
 	// Update is called once per frame

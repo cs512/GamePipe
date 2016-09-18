@@ -8,19 +8,15 @@ public class TurretActionAndAttribution : DragTurret{
 
 	public Transform shotSpawn;
 	public GameObject shot;
-	public float rotateSpeed = 5;
+	public float rotateSpeed = 5f;
+	public float range = 200f;
+	public bool showRange = true;
 
-	private GameObject currentTarget = null;
+	private Transform currentTarget = null;
 	private Victim currentVictim = null;
 	private float nextFire = 0;
-	private Quaternion lastRotation;
-
-	public GameObject target1;
-	public GameObject target2;
-	public ArrayList targetArray;
 
 	public void init() {
-		lastRotation = transform.rotation;
 		Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
 		dispatcher.RegisteKiller(this);
 	}
@@ -28,23 +24,24 @@ public class TurretActionAndAttribution : DragTurret{
 	override public void Attack(Dictionary<int, Victim> victims) {
 		if (victims.Count == 0)
 			return;
-		
-		if(currentVictim == null || currentVictim.GetHealth() <= 0){
-            float min_dist = float.MaxValue;
-			int targetId = 0;
-			foreach (int id in victims.Keys) {
-				GameObject target = (GameObject)EditorUtility.InstanceIDToObject (id);
-				float distance = Vector3.Distance(target.transform.position, transform.position);
-				if (min_dist >= distance) {
-					currentTarget = target;
-					targetId = id;
-				}
-			}
-			currentVictim = victims [targetId];
-		}
+		float min_dist = float.MaxValue;
 
-		if (!roatateToTarget())
+		// only pick new target when 1) no target right now; 2) target out of range; 3) target's hearlth equals 0
+		if(currentTarget == null || range < Vector3.Distance (currentTarget.position, transform.position) || currentVictim.GetHealth() == 0f){
+			foreach(int id in victims.Keys){
+				Transform target = ((GameObject)EditorUtility.InstanceIDToObject(id)).transform;
+				currentVictim = victims[id];
+				float distance = Vector3.Distance (target.position, transform.position);
+				if (range < distance)
+					continue;
+				if(min_dist >= distance){
+					currentTarget = target;
+					min_dist = distance;}
+			}
+		} else {
+			targetLockOn();
 			ShotSpawn();
+		}
 	}
 
 	override public void ShotSpawn() {
@@ -54,18 +51,19 @@ public class TurretActionAndAttribution : DragTurret{
 		} 
 	}
 
-	bool roatateToTarget() {
-		Vector3 targetDir = currentTarget.transform.position - transform.position;
-		float step = rotateSpeed * Time.deltaTime;
-		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
-		Debug.DrawRay(transform.position, newDir, Color.red);
-		transform.rotation = Quaternion.LookRotation(newDir);
+	void targetLockOn() {
+		Vector3 targetDir = currentTarget.position - transform.position;
+		Quaternion lookRotation = Quaternion.LookRotation (targetDir);
+		Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * rotateSpeed).eulerAngles;
+		transform.rotation = Quaternion.Euler (0f, rotation.y, 0f);
+	}
 
-		if(lastRotation == transform.rotation)  // check if turret is facing target
-			return false;
-		
-		lastRotation = transform.rotation;
-		return true;
+
+	void OnDrawGizmos() {
+		if(showRange){
+			Gizmos.color = Color.white;
+			Gizmos.DrawWireSphere(transform.position, range);
+		}
 	}
 
 }
