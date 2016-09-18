@@ -89,7 +89,9 @@
     <Compile Include="Assets\Script\Mover.cs" />
     <Compile Include="Assets\Script\ResRotate.cs" />
     <Compile Include="Assets\Script\Ships\Naga.cs" />
+    <Compile Include="Assets\Script\Turret\DoubleBarrelsTurret.cs" />
     <Compile Include="Assets\Script\Turret\HybirdTurret425.cs" />
+    <Compile Include="Assets\Script\Turret\SingleBarrelTurret.cs" />
     <Compile Include="Assets\Script\Turret\newTurret.cs" />
     <Compile Include="Assets\Script\Turret\turret.cs" />
   </ItemGroup>

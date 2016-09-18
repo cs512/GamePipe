@@ -3,16 +3,17 @@ using System.Collections;
 using UnityEditor;
 using System.Collections.Generic;
 
-public class newTurret : MonoBehaviour, Killer {
+public class DoubleBarrelsTurret : MonoBehaviour, Killer {
 
     private Vector3 screenPoint;
     private Vector3 offset;
 
     public int fireInterval;
     Dictionary<int, Victim> victims;
-    public Transform shotSpawn;
+    public Transform shotSpawnR;
+    public Transform shotSpawnL;
     public GameObject shot;
-    public float rotateSpeed = 5;
+    public float rotateSpeed;
 
     private GameObject currentTarget = null;
     private Victim currentVictim = null;
@@ -49,7 +50,7 @@ public class newTurret : MonoBehaviour, Killer {
     }
 
 
-    
+
 
     public void init() {
         lastRotation = transform.rotation;
@@ -76,7 +77,8 @@ public class newTurret : MonoBehaviour, Killer {
         if (Time.time > nextFire) {
             Debug.Log(Time.time);
             nextFire = Time.time + fireInterval;
-            Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
+            Instantiate(shot, shotSpawnR.position, shotSpawnR.rotation);
+            Instantiate(shot, shotSpawnL.position, shotSpawnL.rotation);
             AudioSource audio = GetComponent<AudioSource>();
             audio.Play();
         }
@@ -104,3 +106,4 @@ public class newTurret : MonoBehaviour, Killer {
         return GetInstanceID();
     }
 }
+

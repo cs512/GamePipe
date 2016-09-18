@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEditor;
 using System.Collections.Generic;
 
-public class newTurret : MonoBehaviour, Killer {
+public class SingleBarrelTurret : MonoBehaviour, Killer {
 
     private Vector3 screenPoint;
     private Vector3 offset;
@@ -12,7 +12,7 @@ public class newTurret : MonoBehaviour, Killer {
     Dictionary<int, Victim> victims;
     public Transform shotSpawn;
     public GameObject shot;
-    public float rotateSpeed = 5;
+    public float rotateSpeed;
 
     private GameObject currentTarget = null;
     private Victim currentVictim = null;
@@ -49,7 +49,7 @@ public class newTurret : MonoBehaviour, Killer {
     }
 
 
-    
+
 
     public void init() {
         lastRotation = transform.rotation;
