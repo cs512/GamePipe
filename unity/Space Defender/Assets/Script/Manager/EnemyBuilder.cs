@@ -43,6 +43,8 @@ public class EnemyBuilder : MonoBehaviour {
 					b.target = sourcePlanet;
 					b.damage = damage;
 					b.speed = speed;
+					//Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+					//dispatcher.RegisteVictim(b);
 					break;
 				}
 			}

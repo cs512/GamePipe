@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : MonoBehaviour,Victim {
 
 	public Transform target;
 	public float speed;
 	public float damage;
+	private float health;
 
 	// Use this for initialization
 	void Start() {
@@ -35,5 +36,16 @@ public class Bullet : MonoBehaviour {
 			Destroy(gameObject);
 		}
 		//target.GetComponent<Victim>().DealDamage(damage);
+	}
+	void Victim.DealDamage(float damage) {
+		health -= damage;
+	}
+
+	float Victim.GetHealth() {
+		return health;
+	}
+
+	int Victim.GetID() {
+		return GetInstanceID();
 	}
 }
