@@ -120,6 +120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fireInterval: 100
+  shotSpawn: {fileID: 0}
+  shot: {fileID: 0}
+  rotateSpeed: 5
+  target1: {fileID: 0}
+  target2: {fileID: 0}
 --- !u!135 &135000012568256922
 SphereCollider:
   m_ObjectHideFlags: 1

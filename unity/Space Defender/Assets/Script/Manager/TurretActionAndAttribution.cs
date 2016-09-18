@@ -4,12 +4,11 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
-public class TurretActionAndAttribution : MonoBehaviour, Killer{
+public class TurretActionAndAttribution : DragTurret{
 
 	public Transform shotSpawn;
 	public GameObject shot;
 	public float rotateSpeed = 5;
-	public int fireInterval = 1;
 
 	private GameObject currentTarget = null;
 	private Victim currentVictim = null;
@@ -20,14 +19,13 @@ public class TurretActionAndAttribution : MonoBehaviour, Killer{
 	public GameObject target2;
 	public ArrayList targetArray;
 
-	public void init(){
+	public void init() {
 		lastRotation = transform.rotation;
-
 		Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
 		dispatcher.RegisteKiller(this);
 	}
 
-	public void Attack(Dictionary<int, Victim> victims){
+	override public void Attack(Dictionary<int, Victim> victims) {
 		if (victims.Count == 0)
 			return;
 		
@@ -36,7 +34,7 @@ public class TurretActionAndAttribution : MonoBehaviour, Killer{
 			int targetId = 0;
 			foreach (int id in victims.Keys) {
 				GameObject target = (GameObject)EditorUtility.InstanceIDToObject (id);
-				float distance = Vector3.Distance (target.transform.position, transform.position);
+				float distance = Vector3.Distance(target.transform.position, transform.position);
 				if (min_dist >= distance) {
 					currentTarget = target;
 					targetId = id;
@@ -45,18 +43,18 @@ public class TurretActionAndAttribution : MonoBehaviour, Killer{
 			currentVictim = victims [targetId];
 		}
 
-		if (!roatateToTarget ())
-			ShotSpawn ();
+		if (!roatateToTarget())
+			ShotSpawn();
 	}
 
-	public void ShotSpawn(){
+	override public void ShotSpawn() {
 		if(Time.time > nextFire){
 			nextFire = Time.time + fireInterval;
 			Instantiate (shot, shotSpawn.position, shotSpawn.rotation);
 		} 
 	}
 
-	bool roatateToTarget(){
+	bool roatateToTarget() {
 		Vector3 targetDir = currentTarget.transform.position - transform.position;
 		float step = rotateSpeed * Time.deltaTime;
 		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
@@ -70,11 +68,4 @@ public class TurretActionAndAttribution : MonoBehaviour, Killer{
 		return true;
 	}
 
-	public int GetFireInterval(){
-		return fireInterval;
-	}
-
-	public int GetID() {
-		return GetInstanceID();
-	}
 }

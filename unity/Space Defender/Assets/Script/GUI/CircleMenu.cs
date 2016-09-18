@@ -38,8 +38,6 @@ public class CircleMenu : MonoBehaviour {
                     Object prefab = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Prefabs/G425.prefab", typeof(GameObject));
                     newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
                     DragTurret dt = newObject.GetComponent<DragTurret>();
-                    Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-                    dispatcher.RegisteKiller(dt);
 
                 }
                 else if (selected.title == "trtMd")
@@ -47,16 +45,12 @@ public class CircleMenu : MonoBehaviour {
                     Object prefab = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Prefabs/G150dual.prefab", typeof(GameObject));
                     newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
                     DragTurret dt = newObject.GetComponent<DragTurret>();
-                    Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-                    dispatcher.RegisteKiller(dt);
                 }
                 else if (selected.title == "trtSml")
                 {
                     Object prefab = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Prefabs/G75.prefab", typeof(GameObject));
                     newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
                     DragTurret dt = newObject.GetComponent<DragTurret>();
-                    Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-                    dispatcher.RegisteKiller(dt);
                 }
                 Destroy(gameObject);
             }
