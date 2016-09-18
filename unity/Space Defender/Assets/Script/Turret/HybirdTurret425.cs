@@ -4,26 +4,20 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-public class HybirdTurret425: MonoBehaviour, Killer {
+public class HybirdTurret425: DragTurret {
 
     void Start() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.RegisteKiller(this);
+        this.fireInterval = 2000;
     }
 
-    int Killer.GetFireInterval() {
-        return 500;
-    }
-
-    int Killer.GetID() {
-        return GetInstanceID();
-    }
-
-    void Killer.Attack(Dictionary<int, Victim> victims) {
+    override public void Attack(Dictionary<int, Victim> victims) {
+        Debug.Log("Attack!");
         return;
     }
 
-    void Killer.ShotSpawn() {
+    override public void ShotSpawn() {
         return;
     }
 }
