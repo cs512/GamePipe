@@ -39,12 +39,10 @@ public class EnemyBuilder : MonoBehaviour {
 					finised = false;
 					wc.shooted++;
 					GameObject enemyGO = (GameObject)Instantiate(wc.enenmyPrefab,this.transform.position, this.transform.rotation);
-					Bullet b = enemyGO.GetComponent<Bullet>();
+					Enemy b = enemyGO.GetComponent<Enemy>();
 					b.target = sourcePlanet;
 					b.damage = damage;
 					b.speed = speed;
-					//Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-					//dispatcher.RegisteVictim(b);
 					break;
 				}
 			}

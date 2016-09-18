@@ -28,6 +28,7 @@ GameObject:
   - 65: {fileID: 65000013337463286}
   - 54: {fileID: 54000011097650128}
   - 114: {fileID: 114000012002566164}
+  - 114: {fileID: 114000011682399948}
   m_Layer: 0
   m_Name: Fleet
   m_TagString: Untagged
@@ -126,7 +127,7 @@ MonoBehaviour:
   target: {fileID: 0}
   speed: 0
   damage: 0
---- !u!114 &114000012002566164
+--- !u!114 &114000011682399948
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -134,12 +135,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000014101297842}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ed8d924ba19c41998a486d755333400, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  speed: 0
+  damage: 0
+--- !u!114 &114000012002566164
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000014101297842}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 52b03df3538d8a74eb4d55b6edbeecc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   speed: 0
   damage: 0
+  health: 0
 --- !u!114 &114000013427873522
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -157,7 +173,7 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000014101297842}
-  serializedVersion: 2
+  serializedVersion: 4
   lengthInSec: 5
   startDelay:
     scalar: 0
@@ -195,12 +211,13 @@ ParticleSystem:
       m_RotationOrder: 4
     minMaxState: 0
   speed: 1
-  randomSeed: 1111302400
   looping: 1
   prewarm: 0
   playOnAwake: 1
   moveWithTransform: 1
+  autoRandomSeed: 0
   scalingMode: 1
+  randomSeed: 1111302400
   InitialModule:
     serializedVersion: 2
     enabled: 1

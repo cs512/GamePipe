@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet : MonoBehaviour,Victim {
+public class Enemy : MonoBehaviour,Victim {
 
 	public Transform target;
 	public float speed;
@@ -10,7 +10,8 @@ public class Bullet : MonoBehaviour,Victim {
 
 	// Use this for initialization
 	void Start() {
-		
+		Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+		dispatcher.RegisteVictim(this);
 	}
 
 	// Update is called once per frame
@@ -36,6 +37,8 @@ public class Bullet : MonoBehaviour,Victim {
 			Destroy(gameObject);
 		}
 		//target.GetComponent<Victim>().DealDamage(damage);
+		Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+		dispatcher.RegisteVictim(this);
 	}
 	void Victim.DealDamage(float damage) {
 		health -= damage;
