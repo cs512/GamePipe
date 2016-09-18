@@ -6,8 +6,8 @@ using System.Collections.Generic;
 public class Dispatcher : MonoBehaviour {
 
     private TimerManager tm = new TimerManager();
-    private Dictionary<string, Killer> killers = new Dictionary<string, Killer>();
-    private Dictionary<string, Victim> victims = new Dictionary<string, Victim>();
+    private Dictionary<int, Killer> killers = new Dictionary<int, Killer>();
+    private Dictionary<int, Victim> victims = new Dictionary<int, Victim>();
     // Use this for initialization
     void Start() {
         print("Dispatcher start");
@@ -15,37 +15,45 @@ public class Dispatcher : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-
-    }
-
-    public void RegisteKiller(string instanceID, Killer killer) {
-        if (this.killers.ContainsKey(instanceID)) {
-            return;
-        } else {
-            this.killers.Add(instanceID, killer);
-            return;
+        foreach (IAnimatable animatable in TimerManager.timerList) {
+            animatable.AdvanceTime();
         }
     }
 
-    public void DeregisterKiller(string instanceID) {
-        if (this.killers.ContainsKey(instanceID)) {
-            this.killers.Remove(instanceID);
+    public void RegisteKiller(Killer killer) {
+        if (!this.killers.ContainsKey(killer.GetID())) {
+            this.killers.Add(killer.GetID(), killer);
+            this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.TriggerAttack, killer.GetID(), killer);
         }
         return;
     }
 
-    public void RegisteVictim(string instanceID, Victim victim) {
-        if (this.victims.ContainsKey(instanceID)) {
-            return;
-        } else {
-            this.victims.Add(instanceID, victim);
-            return;
+    public void DeregisteKiller(Killer killer) {
+        if (this.killers.ContainsKey(killer.GetID())) {
+            this.killers.Remove(killer.GetID());
         }
+        return;
     }
 
-    public void DeregisterVictim(string instanceID) {
-        if (this.victims.ContainsKey(instanceID)) {
-            this.victims.Remove(instanceID);
+    public void RegisteVictim(Victim victim) {
+        print("Register: " + victim.GetID().ToString());
+        if (!this.victims.ContainsKey(victim.GetID())) {
+            this.victims.Add(victim.GetID(), victim);
+        }
+        return;
+    }
+
+    public void DeregisteVictim(Victim victim) {
+        if (this.victims.ContainsKey(victim.GetID())) {
+            this.victims.Remove(victim.GetID());
+        }
+        return;
+    }
+
+    private void TriggerAttack(int instanceID, Killer killer) {
+        if (this.killers.ContainsKey(instanceID)) {
+            killer.Attack(this.victims);
+            this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.TriggerAttack, instanceID, killer);
         }
         return;
     }
