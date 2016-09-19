@@ -16,7 +16,7 @@ public class CircleMenu : MonoBehaviour {
             float theta = (2 * Mathf.PI / obj.options.Length) * i;
             float xPos = Mathf.Sin(theta);
             float yPos = Mathf.Cos(theta);
-            newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * 10f;
+            newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * 15f;
             newButton.circle.color = obj.options[i].color;
             newButton.icon.sprite = obj.options[i].sprite;
             newButton.title = obj.options[i].title;
