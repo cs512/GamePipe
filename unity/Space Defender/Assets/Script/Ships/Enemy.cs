@@ -19,14 +19,14 @@ public abstract class Enemy : MonoBehaviour, Victim {
     void Update() {
         if (target == null) {
             // the enemy went away!
-            Destroy(gameObject);
+            Destroy(this);
             return;
         }
         //Debug.Log(target.position);
         Vector3 dir = target.position - this.transform.position;
         float framDist = speed * Time.deltaTime;
         transform.Translate(dir.normalized * framDist, Space.World);
-        this.transform.rotation = Quaternion.LookRotation(dir);
+        this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(90f, 0f, 0f);
     }
 
     void OnCollisionEnter(Collision collisionInfo) {
@@ -76,6 +76,10 @@ public abstract class Enemy : MonoBehaviour, Victim {
 
     public void SetSpeed(float speed) {
         this.speed = speed;
+    }
+
+    GameObject Victim.GetGameObject() {
+        return this.gameObject;
     }
 
     abstract public void SetUpDefaultAttributions();

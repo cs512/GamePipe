@@ -10,6 +10,7 @@ public class SingleBarrel : TurretBase {
     public GameObject shot;
 
     public override void SetUpAttributions() {
+        this.fireInterval = 1000;
         return;
     }
     override public void ShotSpawn() {

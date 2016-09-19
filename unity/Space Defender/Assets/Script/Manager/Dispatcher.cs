@@ -21,6 +21,7 @@ public class Dispatcher : MonoBehaviour {
     }
 
     public void RegisteKiller(Killer killer) {
+        print("Register: " + killer.GetID().ToString());
         if (!this.killers.ContainsKey(killer.GetID())) {
             this.killers.Add(killer.GetID(), killer);
             this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.TriggerAttack, killer.GetID(), killer);

@@ -45,3 +45,6 @@ unity/Space Defender/ProjectSettings/ProjectSettings.asset
 /.idea/misc.xml
 /.idea/modules.xml
 /.idea/vcs.xml
+
+*.DS_Store
+

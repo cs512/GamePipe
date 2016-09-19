@@ -16,10 +16,6 @@ public abstract class TurretBase : MonoBehaviour, Killer {
     private Victim currentVictim = null;
     public float nextFire = 1;
     private Quaternion lastRotation;
-
-    public GameObject target1;
-    public GameObject target2;
-    public ArrayList targetArray;
     private Transform currentTarget = null;
 
     public bool showRange;
@@ -29,6 +25,12 @@ public abstract class TurretBase : MonoBehaviour, Killer {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.RegisteKiller(this);
         this.SetUpAttributions();
+    }
+
+    void Update() {
+        if (currentTarget != null) {
+            targetLockOn();
+        }
     }
 
     void DestroySelf() {
@@ -50,25 +52,29 @@ public abstract class TurretBase : MonoBehaviour, Killer {
         transform.position = cursorPosition;
     }
 
-    public void Attack(Dictionary<int, Victim> victims) {
+    void Killer.Attack(Dictionary<int, Victim> victims) {
         float min_dist = float.MaxValue;
-        if (currentTarget != null && (range < Vector3.Distance(currentTarget.position, transform.position) || currentVictim.GetHealth() == 0f)) {
+        print("current target: " + currentTarget);
+        if (currentTarget != null && (range < Vector3.Distance(currentTarget.position, transform.position) || currentVictim.GetHealth() <= 0f)) {
             currentTarget = null;
             currentVictim = null;
         }
         if (currentTarget == null) {
             foreach (int id in victims.Keys) {
-                Transform target = ((GameObject)EditorUtility.InstanceIDToObject(id)).transform;
+                print(id + " : " + victims[id]);
+                GameObject targetObj = victims[id].GetGameObject();
+                Transform target = targetObj.transform;
                 float distance = Vector3.Distance(target.position, transform.position);
                 if (range < distance)
                     continue;
                 if (min_dist >= distance) {
                     currentTarget = target;
+                    currentVictim = victims[id];
                     min_dist = distance;
                 }
             }
-        } else {
-            targetLockOn();
+        }
+        if (currentTarget != null) {
             ShotSpawn();
         }
     }
@@ -88,11 +94,11 @@ public abstract class TurretBase : MonoBehaviour, Killer {
         }
     }
 
-    public int GetFireInterval() {
+    int Killer.GetFireInterval() {
         return fireInterval;
     }
 
-    public int GetID() {
+    int Killer.GetID() {
         return GetInstanceID();
     }
 }

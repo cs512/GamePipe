@@ -3,8 +3,8 @@ using System.Collections;
 
 public class SourcePlanet : MonoBehaviour, Victim {
 
-    private float rotateSpeed = 1f;
-    private float health = 10f;
+    public float rotateSpeed;
+    public float health;
     // Use this for initialization
     void Start() {
 
@@ -25,5 +25,9 @@ public class SourcePlanet : MonoBehaviour, Victim {
 
     float Victim.GetHealth() {
         return this.health;
+    }
+
+    GameObject Victim.GetGameObject() {
+        return this.gameObject;
     }
 }
