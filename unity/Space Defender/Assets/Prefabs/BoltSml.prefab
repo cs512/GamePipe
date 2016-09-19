@@ -24,7 +24,7 @@ GameObject:
   - 54: {fileID: 54000013510820750}
   m_Layer: 0
   m_Name: BoltSml
-  m_TagString: Untagged
+  m_TagString: Bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39,9 +39,10 @@ GameObject:
   - 4: {fileID: 4000010778407072}
   - 33: {fileID: 33000013754799058}
   - 23: {fileID: 23000011864240342}
+  - 136: {fileID: 136000013908621464}
   m_Layer: 0
   m_Name: VFX
-  m_TagString: Untagged
+  m_TagString: Bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,4 +149,17 @@ CapsuleCollider:
   m_Radius: 0.02
   m_Height: 0.54
   m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136000013908621464
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012853628926}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 1.0000001
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

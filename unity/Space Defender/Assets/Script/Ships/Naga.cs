@@ -10,5 +10,10 @@ class Naga: Enemy  {
         this.SetSpeed(10f);
         this.SetDamage(1f);
     }
+    void OnTriggerEnter(Collider other)
+    {
+        Destroy(other.gameObject);
 
+        Destroy(this.gameObject);
+    }
 }
