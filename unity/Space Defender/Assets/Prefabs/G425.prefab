@@ -9,51 +9,19 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1000014095784398}
+  m_RootGameObject: {fileID: 1000010568674748}
   m_IsPrefabParent: 1
---- !u!1 &1000010169898964
+--- !u!1 &1000010568674748
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 4000013356434590}
-  - 33: {fileID: 33000013415803292}
-  - 23: {fileID: 23000013353946306}
-  m_Layer: 0
-  m_Name: temp:blinn1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1000011272155584
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 4000012211782410}
-  m_Layer: 0
-  m_Name: Shot Spwan
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1000014095784398
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 4000012983392698}
-  - 135: {fileID: 135000010052360370}
-  - 82: {fileID: 82000012286827818}
-  - 114: {fileID: 114000012189629390}
+  - 4: {fileID: 4000012856917864}
+  - 135: {fileID: 135000012715887420}
+  - 82: {fileID: 82000012769306722}
+  - 114: {fileID: 114000010903269602}
   m_Layer: 0
   m_Name: G425
   m_TagString: Untagged
@@ -61,53 +29,85 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4000012211782410
+--- !u!1 &1000011030887406
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013801253848}
+  - 33: {fileID: 33000010778996966}
+  - 23: {fileID: 23000014179979080}
+  m_Layer: 0
+  m_Name: temp:blinn1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1000011677107358
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013095569072}
+  m_Layer: 0
+  m_Name: Shot Spwan
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000012856917864
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011272155584}
+  m_GameObject: {fileID: 1000010568674748}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -5.0523376, y: -0.00025568044, z: -96.80292}
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 4000013801253848}
+  - {fileID: 4000013095569072}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &4000013095569072
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011677107358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 4.92, z: 21.67}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 4000012983392698}
+  m_Father: {fileID: 4000012856917864}
   m_RootOrder: 1
---- !u!4 &4000012983392698
+--- !u!4 &4000013801253848
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014095784398}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.46602, y: -0.0002385762, z: 46.67769}
-  m_LocalScale: {x: 3, y: 3, z: 3}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 4000013356434590}
-  - {fileID: 4000012211782410}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
---- !u!4 &4000013356434590
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010169898964}
+  m_GameObject: {fileID: 1000011030887406}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 4000012983392698}
+  m_Father: {fileID: 4000012856917864}
   m_RootOrder: 0
---- !u!23 &23000013353946306
+--- !u!23 &23000014179979080
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010169898964}
+  m_GameObject: {fileID: 1000011030887406}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -131,19 +131,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &33000013415803292
+--- !u!33 &33000010778996966
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010169898964}
+  m_GameObject: {fileID: 1000011030887406}
   m_Mesh: {fileID: 4300000, guid: a3add35241612ce4e934fc262cd0f800, type: 3}
---- !u!82 &82000012286827818
+--- !u!82 &82000012769306722
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014095784398}
+  m_GameObject: {fileID: 1000010568674748}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -212,29 +212,32 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114000012189629390
+--- !u!114 &114000010903269602
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014095784398}
+  m_GameObject: {fileID: 1000010568674748}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bbf3125caaf5294c9cf2c58c0b21226, type: 3}
+  m_Script: {fileID: 11500000, guid: f41bd6768056c9544aef632eb04cfaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireInterval: 2
-  shotSpawn: {fileID: 4000012211782410}
-  shot: {fileID: 1000011942975244, guid: 937e3c0c242d76e40bbe1bb8a0045644, type: 2}
-  rotateSpeed: 3
+  fireInterval: 1
+  rotateSpeed: 5
+  nextFire: 1
   target1: {fileID: 0}
   target2: {fileID: 0}
---- !u!135 &135000010052360370
+  showRange: 1
+  range: 500
+  shotSpawn: {fileID: 4000013095569072}
+  shot: {fileID: 1000011942975244, guid: 937e3c0c242d76e40bbe1bb8a0045644, type: 2}
+--- !u!135 &135000012715887420
 SphereCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000014095784398}
+  m_GameObject: {fileID: 1000010568674748}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
