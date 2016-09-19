@@ -23,8 +23,8 @@ public class EnemyBuilder : MonoBehaviour {
 		gameObject.GetComponent<MeshRenderer>().enabled = false;
         target = GameObject.Find("SourcePlanet");
         sourcePlanet = target.transform;
-		Vector3 dir = sourcePlanet.position - this.transform.localPosition;
-		gameObject.transform.rotation = Quaternion.LookRotation(dir);
+        Vector3 dir = sourcePlanet.position - this.transform.position;
+        this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(90f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -39,7 +39,7 @@ public class EnemyBuilder : MonoBehaviour {
                     //shoot it, enenmyPrefab is a prefab object
                     finised = false;
                     wc.shooted++;
-                    GameObject enemyGO = Instantiate(wc.enenmyPrefab, this.transform.position, this.transform.rotation) as GameObject;
+                    GameObject enemyGO = Instantiate(wc.enenmyPrefab, this.transform.position, this.transform.rotation * Quaternion.Euler(-90f, 0f, 0f)) as GameObject;
                     Enemy b = enemyGO.GetComponent<Enemy>();
                     b.SetTarget(sourcePlanet);
                     break;
