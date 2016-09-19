@@ -26,7 +26,7 @@ public abstract class Enemy : MonoBehaviour, Victim {
         Vector3 dir = target.position - this.transform.position;
         float framDist = speed * Time.deltaTime;
         transform.Translate(dir.normalized * framDist, Space.World);
-        this.transform.rotation = Quaternion.LookRotation(dir);
+        this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(90f, 0f, 0f);
     }
 
     void OnCollisionEnter(Collision collisionInfo) {
