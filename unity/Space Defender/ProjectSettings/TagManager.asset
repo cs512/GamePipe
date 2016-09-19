@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Bullets
-  - New Tag
+  - Bullet
+  - Planet
   layers:
   - Default
   - TransparentFX
