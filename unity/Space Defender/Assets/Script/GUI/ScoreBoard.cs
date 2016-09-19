@@ -3,11 +3,11 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour {
-    int live = 20;
-    int fund = 100;
-    int wave = 10;
-    public Text Funds;
-    public Text Lives;
+    private int live = 20;
+    private int fund = 100;
+    private int wave = 10;
+    private Text Funds;
+    private Text Lives;
     //initial game with life and funds and waves
     public void initGame(int lives, int funds, int waves) {
         live = lives;
@@ -52,6 +52,5 @@ public class ScoreBoard : MonoBehaviour {
     void Update() {
         Funds.text = "Funds: $" + fund.ToString();
         Lives.text = "Lives: " + live.ToString();
-        // loseLife(50);
     }
 }
