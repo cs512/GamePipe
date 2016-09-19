@@ -10,6 +10,7 @@ public class DoubleBarrels : TurretBase {
     public GameObject shot;
 
     public override void SetUpAttributions() {
+        this.fireInterval = 1000;
         return;
     }
 

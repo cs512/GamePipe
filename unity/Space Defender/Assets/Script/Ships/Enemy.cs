@@ -19,7 +19,7 @@ public abstract class Enemy : MonoBehaviour, Victim {
     void Update() {
         if (target == null) {
             // the enemy went away!
-            Destroy(gameObject);
+            Destroy(this);
             return;
         }
         //Debug.Log(target.position);
@@ -76,6 +76,10 @@ public abstract class Enemy : MonoBehaviour, Victim {
 
     public void SetSpeed(float speed) {
         this.speed = speed;
+    }
+
+    GameObject Victim.GetGameObject() {
+        return this.gameObject;
     }
 
     abstract public void SetUpDefaultAttributions();
