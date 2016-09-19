@@ -39,9 +39,10 @@ GameObject:
   - 4: {fileID: 4000014198572094}
   - 33: {fileID: 33000014232411300}
   - 23: {fileID: 23000012087655128}
+  - 136: {fileID: 136000013394668962}
   m_Layer: 0
   m_Name: VFX
-  m_TagString: Untagged
+  m_TagString: Bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -148,4 +149,17 @@ CapsuleCollider:
   m_Radius: 0.02
   m_Height: 0.54
   m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!136 &136000013394668962
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000012069694030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 0.99999994
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}

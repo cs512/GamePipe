@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Assets\BGM.cs" />
     <Compile Include="Assets\Script\Basement\SourcePlanet.cs" />
+    <Compile Include="Assets\Script\BulletCollision\BulletCollision.cs" />
     <Compile Include="Assets\Script\GUI\CircleButton.cs" />
     <Compile Include="Assets\Script\GUI\CircleMenu.cs" />
     <Compile Include="Assets\Script\GUI\CircleSpwaner.cs" />
