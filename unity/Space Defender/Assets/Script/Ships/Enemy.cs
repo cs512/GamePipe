@@ -78,9 +78,12 @@ public abstract class Enemy : MonoBehaviour, Victim {
         this.speed = speed;
     }
 
+    public void SetHealth(float health)
+    {
+        this.health = health;
+    }
     GameObject Victim.GetGameObject() {
         return this.gameObject;
     }
-
     abstract public void SetUpDefaultAttributions();
 }

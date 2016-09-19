@@ -7,4 +7,5 @@ public class BulletMover : MonoBehaviour {
     void Start(){
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
     }
+    publc 
 }
