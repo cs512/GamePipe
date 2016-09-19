@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -25,7 +24,7 @@ public class TurretActionExample : MonoBehaviour, Killer{
 		float min_dist = float.MaxValue;
 		if (currentTarget == null || range < Vector3.Distance (currentTarget.position, transform.position)){
 			foreach(int id in targetArray){
-				Transform target = ((GameObject)EditorUtility.InstanceIDToObject(id)).transform;
+				Transform target = victims[id].GetGameObject().transform;
 				float distance = Vector3.Distance (target.position, transform.position);
 				if (range < distance)
 					continue;
