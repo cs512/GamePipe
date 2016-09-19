@@ -27,6 +27,12 @@ public abstract class TurretBase : MonoBehaviour, Killer {
         this.SetUpAttributions();
     }
 
+    void Update() {
+        if (currentTarget != null) {
+            targetLockOn();
+        }
+    }
+
     void DestroySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.DeregisteKiller(this);
@@ -48,6 +54,7 @@ public abstract class TurretBase : MonoBehaviour, Killer {
 
     void Killer.Attack(Dictionary<int, Victim> victims) {
         float min_dist = float.MaxValue;
+        print("current target: " + currentTarget);
         if (currentTarget != null && (range < Vector3.Distance(currentTarget.position, transform.position) || currentVictim.GetHealth() <= 0f)) {
             currentTarget = null;
             currentVictim = null;
@@ -66,8 +73,8 @@ public abstract class TurretBase : MonoBehaviour, Killer {
                     min_dist = distance;
                 }
             }
-        } else {
-            targetLockOn();
+        }
+        if (currentTarget != null) {
             ShotSpawn();
         }
     }
