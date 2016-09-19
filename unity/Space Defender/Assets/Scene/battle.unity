@@ -160,87 +160,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 12965244}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &272500648
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 100000, guid: 491fa17b23d9afc45a624a5ebca7cd74, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1352309664}
-  - 33: {fileID: 272500650}
-  - 23: {fileID: 272500649}
-  - 65: {fileID: 272500652}
-  - 114: {fileID: 272500651}
-  m_Layer: 0
-  m_Name: Naga
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!23 &272500649
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 2300000, guid: 491fa17b23d9afc45a624a5ebca7cd74,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 272500648}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_Materials:
-  - {fileID: 2100000, guid: a030a9772ddd0454cbd16527bbbbd4ff, type: 2}
-  - {fileID: 2100000, guid: a030a9772ddd0454cbd16527bbbbd4ff, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedWireframeHidden: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
---- !u!33 &272500650
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 3300000, guid: 491fa17b23d9afc45a624a5ebca7cd74,
-    type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 272500648}
-  m_Mesh: {fileID: 4300000, guid: 491fa17b23d9afc45a624a5ebca7cd74, type: 3}
---- !u!114 &272500651
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 272500648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a241facfdfcc033498535a11b29abfc4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!65 &272500652
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 272500648}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 175.49905, y: 609.6074, z: 141.73149}
-  m_Center: {x: 8.968311, y: 28.936844, z: -6.1091385}
 --- !u!1 &376794570
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,11 +376,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaveTime: 2
-  intervelTime: 5
+  intervelTime: 10
   damage: 5
   speed: 50
   wave:
-  - enenmyPrefab: {fileID: 1000014101297842, guid: e47f5b18a8557454caddade0f2d16b66,
+  - enenmyPrefab: {fileID: 1000011943214932, guid: 4d9d2a28a757de64cb34414fa348cf25,
       type: 2}
     num: 5
     shooted: 0
@@ -705,6 +624,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 669294245}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &740396847
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4000012026513170, guid: 4d9d2a28a757de64cb34414fa348cf25, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -85
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012026513170, guid: 4d9d2a28a757de64cb34414fa348cf25, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 38.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012026513170, guid: 4d9d2a28a757de64cb34414fa348cf25, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -82.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012026513170, guid: 4d9d2a28a757de64cb34414fa348cf25, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012026513170, guid: 4d9d2a28a757de64cb34414fa348cf25, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012026513170, guid: 4d9d2a28a757de64cb34414fa348cf25, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012026513170, guid: 4d9d2a28a757de64cb34414fa348cf25, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4000012026513170, guid: 4d9d2a28a757de64cb34414fa348cf25, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4d9d2a28a757de64cb34414fa348cf25, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &742315046
 GameObject:
   m_ObjectHideFlags: 0
@@ -736,11 +697,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaveTime: 2
-  intervelTime: 5
+  intervelTime: 8
   damage: 5
   speed: 50
   wave:
-  - enenmyPrefab: {fileID: 1000014101297842, guid: e47f5b18a8557454caddade0f2d16b66,
+  - enenmyPrefab: {fileID: 1000011943214932, guid: 4d9d2a28a757de64cb34414fa348cf25,
       type: 2}
     num: 5
     shooted: 0
@@ -1033,21 +994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e4ffa64de23a4d43adea636e215ab83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 5
---- !u!4 &1352309664
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 400000, guid: 491fa17b23d9afc45a624a5ebca7cd74, type: 3}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 272500648}
-  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -85, y: 38.83, z: -82.3}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
-  m_Children:
-  - {fileID: 2078678573}
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!1 &1585968977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,11 +1235,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaveTime: 2
-  intervelTime: 5
+  intervelTime: 7
   damage: 5
   speed: 50
   wave:
-  - enenmyPrefab: {fileID: 1000014101297842, guid: e47f5b18a8557454caddade0f2d16b66,
+  - enenmyPrefab: {fileID: 1000011943214932, guid: 4d9d2a28a757de64cb34414fa348cf25,
       type: 2}
     num: 5
     shooted: 0
@@ -1358,31 +1304,3 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
---- !u!1 &2078678572
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 2078678573}
-  m_Layer: 0
-  m_Name: Shot Spwan
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2078678573
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2078678572}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 354.4, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_Children: []
-  m_Father: {fileID: 1352309664}
-  m_RootOrder: 0
