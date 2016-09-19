@@ -29,16 +29,14 @@ public abstract class Enemy : MonoBehaviour, Victim {
         this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(90f, 0f, 0f);
     }
 
-    void OnCollisionEnter(Collision collisionInfo) {
-        if (collisionInfo.gameObject.transform.name == target.name) {
-            Victim victim = collisionInfo.gameObject.GetComponent<Victim>();
-            if (victim != null) {
-                victim.DealDamage(this.damage);
-                this.DestorySelf();
-            }
+	void OnTriggerEnter(Collider colliderObject){
+		if (colliderObject.tag == "Planet") {
+			Victim victim = colliderObject.gameObject.GetComponent<SourcePlanet>();
+            victim.DealDamage(this.damage);
+            this.DestorySelf();
         }
-        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-        dispatcher.RegisteVictim(this);
+//        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+//        dispatcher.RegisteVictim(this);
     }
 
     void Victim.DealDamage(float damage) {
@@ -78,9 +76,12 @@ public abstract class Enemy : MonoBehaviour, Victim {
         this.speed = speed;
     }
 
+    public void SetHealth(float health)
+    {
+        this.health = health;
+    }
     GameObject Victim.GetGameObject() {
         return this.gameObject;
     }
-
     abstract public void SetUpDefaultAttributions();
 }

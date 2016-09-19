@@ -7,13 +7,8 @@ using UnityEngine;
 class Naga: Enemy  {
 
     public override void SetUpDefaultAttributions() {
-        this.SetSpeed(10f);
+        this.SetSpeed(300f);
         this.SetDamage(1f);
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        Destroy(other.gameObject);
-
-        Destroy(this.gameObject);
+        this.SetHealth(5f);
     }
 }
