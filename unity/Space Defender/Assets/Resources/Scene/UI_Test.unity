@@ -102,7 +102,7 @@ GameObject:
   - 114: {fileID: 376794573}
   - 114: {fileID: 376794572}
   - 114: {fileID: 376794571}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CircleMenuCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -416,7 +416,7 @@ GameObject:
   - 64: {fileID: 669294249}
   - 23: {fileID: 669294248}
   - 114: {fileID: 669294247}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,6 +448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 855e72c2f110f174683041504a0fee3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touchInputMask:
+    serializedVersion: 2
+    m_Bits: 0
   options:
   - color: {r: 0.2709342, g: 0.7941176, b: 0.1401384, a: 0}
     sprite: {fileID: 21300000, guid: 40b172ef130c5424eba9b3347dad475a, type: 3}
@@ -788,6 +791,7 @@ GameObject:
   - 92: {fileID: 2017193301}
   - 124: {fileID: 2017193300}
   - 81: {fileID: 2017193299}
+  - 114: {fileID: 2017193304}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -864,3 +868,17 @@ Transform:
   - {fileID: 425754760}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &2017193304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2017193298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3baa1adee25cc3458db191c71904674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  touchInputMask:
+    serializedVersion: 2
+    m_Bits: 256
