@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class CircleMenu : MonoBehaviour {
 
@@ -35,17 +34,17 @@ public class CircleMenu : MonoBehaviour {
                 transform.localRotation = new Quaternion(0f, 90f, 0f, 0f);
                 if (selected.title == "trtLrg")
                 {
-                    Object prefab = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Prefabs/G425.prefab", typeof(GameObject));
+                    Object prefab = Resources.Load("Prefabs/G425", typeof(GameObject)) as GameObject;
                     newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
                 }
                 else if (selected.title == "trtMd")
                 {
-                    Object prefab = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Prefabs/G150dual.prefab", typeof(GameObject));
+                    Object prefab = Resources.Load("Prefabs/G150dual", typeof(GameObject)) as GameObject;
                     newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
                 }
                 else if (selected.title == "trtSml")
                 {
-                    Object prefab = UnityEditor.AssetDatabase.LoadAssetAtPath("Assets/Prefabs/G75.prefab", typeof(GameObject));
+                    Object prefab = Resources.Load("Prefabs/G75", typeof(GameObject)) as GameObject;
                     newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
                 }
                 

@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEditor;
-using System.Collections.Generic;
 
 public class DoubleBarrels : TurretBase {
 

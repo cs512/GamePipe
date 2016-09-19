@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
-using UnityEditor;
 using System.Collections.Generic;
 
 public abstract class TurretBase : MonoBehaviour, Killer {
