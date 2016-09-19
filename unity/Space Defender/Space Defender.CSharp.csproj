@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
     <UnityVersion>5.4.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -93,13 +91,11 @@
     <Compile Include="Assets\Script\Ships\Enemy.cs" />
     <Compile Include="Assets\Script\Ships\Naga.cs" />
     <Compile Include="Assets\Script\Testing\TurretActionExample.cs" />
-    <Compile Include="Assets\Script\Turret\DoubleBarrelsTurret.cs" />
+    <Compile Include="Assets\Script\Turret\DoubleBarrels.cs" />
     <Compile Include="Assets\Script\Turret\DragTurret.cs" />
-    <Compile Include="Assets\Script\Turret\HybirdTurret425.cs" />
-    <Compile Include="Assets\Script\Turret\SingleBarrelTurret.cs" />
+    <Compile Include="Assets\Script\Turret\SingleBarrel.cs" />
     <Compile Include="Assets\Script\Turret\TurretActionAndAttribution.cs" />
-    <Compile Include="Assets\Script\Turret\newTurret.cs" />
-    <Compile Include="Assets\Script\Turret\turret.cs" />
+    <Compile Include="Assets\Script\Turret\TurretBase.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
