@@ -16,10 +16,6 @@ public abstract class TurretBase : MonoBehaviour, Killer {
     private Victim currentVictim = null;
     public float nextFire = 1;
     private Quaternion lastRotation;
-
-    public GameObject target1;
-    public GameObject target2;
-    public ArrayList targetArray;
     private Transform currentTarget = null;
 
     public bool showRange;
@@ -58,12 +54,17 @@ public abstract class TurretBase : MonoBehaviour, Killer {
         }
         if (currentTarget == null) {
             foreach (int id in victims.Keys) {
-                Transform target = ((GameObject)EditorUtility.InstanceIDToObject(id)).transform;
+                Debug.Log("Victim id is:" + id);
+                GameObject targetObj = EditorUtility.InstanceIDToObject(id) as GameObject;
+                Transform target = targetObj.transform;
+                Debug.Log(target.position.x);
+
                 float distance = Vector3.Distance(target.position, transform.position);
                 if (range < distance)
                     continue;
                 if (min_dist >= distance) {
                     currentTarget = target;
+                    currentVictim = victims[id];
                     min_dist = distance;
                 }
             }
