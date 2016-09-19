@@ -23,10 +23,10 @@ public abstract class Enemy : MonoBehaviour, Victim {
             return;
         }
         //Debug.Log(target.position);
-        Vector3 dir = target.position - this.transform.position;
+		Vector3 dir = target.position - this.transform.localPosition;
         float framDist = speed * Time.deltaTime;
-        transform.Translate(dir.normalized * framDist, Space.World);
-        this.transform.rotation = Quaternion.LookRotation(dir);
+        transform.Translate(dir.normalized * framDist,Space.World);
+		gameObject.transform.rotation = Quaternion.LookRotation(dir);
     }
 
     void OnCollisionEnter(Collision collisionInfo) {
@@ -51,7 +51,7 @@ public abstract class Enemy : MonoBehaviour, Victim {
     void DestorySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.DeregisteVictim(this);
-        Destroy(this);
+		Destroy(gameObject);
     }
 
     float Victim.GetHealth() {

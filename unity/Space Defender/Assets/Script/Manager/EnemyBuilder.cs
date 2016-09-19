@@ -19,11 +19,12 @@ public class EnemyBuilder : MonoBehaviour {
     public WaveComponent[] wave;
     // Use this for initialization
     void Start() {
-        gameObject.GetComponent<MeshRenderer>().enabled = false;
+		//gameObject.transform.Rotate(0,90 * Time.deltaTime,0);
+		gameObject.GetComponent<MeshRenderer>().enabled = false;
         target = GameObject.Find("SourcePlanet");
         sourcePlanet = target.transform;
-        Vector3 dir = sourcePlanet.position - this.transform.position;
-        this.transform.rotation = Quaternion.LookRotation(dir);
+		Vector3 dir = sourcePlanet.position - this.transform.localPosition;
+		gameObject.transform.rotation = Quaternion.LookRotation(dir);
     }
 
     // Update is called once per frame
