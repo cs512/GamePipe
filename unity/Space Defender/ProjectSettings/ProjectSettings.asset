@@ -510,7 +510,7 @@ PlayerSettings:
   XboxOne::VR::enabledDevices: []
   iOS::VR::enabledDevices: []
   tvOS::VR::enabledDevices: []
-  cloudProjectId: d0d20bf4-1097-41b1-bbc5-0149774bb074
-  projectName: Space Defender
-  organizationId: junzhuo_austin_wang
+  cloudProjectId: 5342122d-1691-4e6c-ab14-6873eccd01dd
+  projectName: Space Defender (1)
+  organizationId: blakestingray
   cloudEnabled: 0
