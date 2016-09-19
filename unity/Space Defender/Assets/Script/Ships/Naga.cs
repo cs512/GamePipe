@@ -7,7 +7,7 @@ using UnityEngine;
 class Naga: Enemy  {
 
     public override void SetUpDefaultAttributions() {
-        this.SetSpeed(100f);
+        this.SetSpeed(20f);
         this.SetDamage(1f);
         this.SetHealth(5f);
     }

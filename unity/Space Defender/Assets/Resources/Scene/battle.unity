@@ -306,9 +306,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaveTime: 2
-  intervelTime: 10
+  intervelTime: 5
   damage: 5
-  speed: 50
+  speed: 100
   wave:
   - enenmyPrefab: {fileID: 1000011943214932, guid: 4d9d2a28a757de64cb34414fa348cf25,
       type: 2}

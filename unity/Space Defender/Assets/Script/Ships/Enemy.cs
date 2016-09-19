@@ -51,7 +51,7 @@ public abstract class Enemy : MonoBehaviour, Victim {
     void DestorySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.DeregisteVictim(this);
-		Destroy(gameObject);
+		Destroy(this.gameObject);
     }
 
     float Victim.GetHealth() {
