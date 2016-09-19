@@ -27,6 +27,12 @@ public abstract class TurretBase : MonoBehaviour, Killer {
         this.SetUpAttributions();
     }
 
+    void Update() {
+        if (currentTarget != null) {
+            targetLockOn();
+        }
+    }
+
     void DestroySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.DeregisteKiller(this);
@@ -46,19 +52,18 @@ public abstract class TurretBase : MonoBehaviour, Killer {
         transform.position = cursorPosition;
     }
 
-    public void Attack(Dictionary<int, Victim> victims) {
+    void Killer.Attack(Dictionary<int, Victim> victims) {
         float min_dist = float.MaxValue;
-        if (currentTarget != null && (range < Vector3.Distance(currentTarget.position, transform.position) || currentVictim.GetHealth() == 0f)) {
+        print("current target: " + currentTarget);
+        if (currentTarget != null && (range < Vector3.Distance(currentTarget.position, transform.position) || currentVictim.GetHealth() <= 0f)) {
             currentTarget = null;
             currentVictim = null;
         }
         if (currentTarget == null) {
             foreach (int id in victims.Keys) {
-                Debug.Log("Victim id is:" + id);
-                GameObject targetObj = EditorUtility.InstanceIDToObject(id) as GameObject;
+                print(id + " : " + victims[id]);
+                GameObject targetObj = victims[id].GetGameObject();
                 Transform target = targetObj.transform;
-                Debug.Log(target.position.x);
-
                 float distance = Vector3.Distance(target.position, transform.position);
                 if (range < distance)
                     continue;
@@ -68,8 +73,8 @@ public abstract class TurretBase : MonoBehaviour, Killer {
                     min_dist = distance;
                 }
             }
-        } else {
-            targetLockOn();
+        }
+        if (currentTarget != null) {
             ShotSpawn();
         }
     }
@@ -89,11 +94,11 @@ public abstract class TurretBase : MonoBehaviour, Killer {
         }
     }
 
-    public int GetFireInterval() {
+    int Killer.GetFireInterval() {
         return fireInterval;
     }
 
-    public int GetID() {
+    int Killer.GetID() {
         return GetInstanceID();
     }
 }

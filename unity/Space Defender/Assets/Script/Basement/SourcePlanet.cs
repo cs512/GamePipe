@@ -26,4 +26,8 @@ public class SourcePlanet : MonoBehaviour, Victim {
     float Victim.GetHealth() {
         return this.health;
     }
+
+    GameObject Victim.GetGameObject() {
+        return this.gameObject;
+    }
 }
