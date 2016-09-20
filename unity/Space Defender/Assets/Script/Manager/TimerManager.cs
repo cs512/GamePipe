@@ -41,14 +41,14 @@ public class TimerManager : PureSingleton<TimerManager>, IAnimatable {
                         method.DynamicInvoke(args);
                     }
                 } else {
-                    clear(handler.method);
+                    clear(handler);
                     method.DynamicInvoke(args);
                 }
             }
         }
     }
 
-    private object create(bool useFrame, bool repeat, int delay, Delegate method, params object[] args) {
+    private TimerHandler create(bool useFrame, bool repeat, int delay, Delegate method, params object[] args) {
         if (method == null) {
             return null;
         }
@@ -56,7 +56,7 @@ public class TimerManager : PureSingleton<TimerManager>, IAnimatable {
         //如果执行时间小于1，直接执行
         if (delay < 1) {
             method.DynamicInvoke(args);
-            return -1;
+            return null;
         }
         TimerHandler handler;
         if (_pool.Count > 0) {
@@ -72,7 +72,7 @@ public class TimerManager : PureSingleton<TimerManager>, IAnimatable {
         handler.args = args;
         handler.exeTime = delay + (useFrame ? _currFrame : currentTime);
         _handlers.Add(handler);
-        return method;
+        return handler;
     }
 
     /// /// <summary>
@@ -81,17 +81,17 @@ public class TimerManager : PureSingleton<TimerManager>, IAnimatable {
     /// <param name="delay">延迟时间(单位毫秒)</param>
     /// <param name="method">结束时的回调方法</param>
     /// <param name="args">回调参数</param>
-    public void doOnce(int delay, Handler method) {
-        create(false, false, delay, method);
+    public TimerHandler doOnce(int delay, Handler method) {
+        return create(false, false, delay, method);
     }
-    public void doOnce<T1>(int delay, Handler<T1> method, params object[] args) {
-        create(false, false, delay, method, args);
+    public TimerHandler doOnce<T1>(int delay, Handler<T1> method, params object[] args) {
+        return create(false, false, delay, method, args);
     }
-    public void doOnce<T1, T2>(int delay, Handler<T1, T2> method, params object[] args) {
-        create(false, false, delay, method, args);
+    public TimerHandler doOnce<T1, T2>(int delay, Handler<T1, T2> method, params object[] args) {
+        return create(false, false, delay, method, args);
     }
-    public void doOnce<T1, T2, T3>(int delay, Handler<T1, T2, T3> method, params object[] args) {
-        create(false, false, delay, method, args);
+    public TimerHandler doOnce<T1, T2, T3>(int delay, Handler<T1, T2, T3> method, params object[] args) {
+        return create(false, false, delay, method, args);
     }
 
     /// /// <summary>
@@ -100,17 +100,17 @@ public class TimerManager : PureSingleton<TimerManager>, IAnimatable {
     /// <param name="delay">延迟时间(单位毫秒)</param>
     /// <param name="method">结束时的回调方法</param>
     /// <param name="args">回调参数</param>
-    public void doLoop(int delay, Handler method) {
-        create(false, true, delay, method);
+    public TimerHandler doLoop(int delay, Handler method) {
+        return create(false, true, delay, method);
     }
-    public void doLoop<T1>(int delay, Handler<T1> method, params object[] args) {
-        create(false, true, delay, method, args);
+    public TimerHandler doLoop<T1>(int delay, Handler<T1> method, params object[] args) {
+        return create(false, true, delay, method, args);
     }
-    public void doLoop<T1, T2>(int delay, Handler<T1, T2> method, params object[] args) {
-        create(false, true, delay, method, args);
+    public TimerHandler doLoop<T1, T2>(int delay, Handler<T1, T2> method, params object[] args) {
+        return create(false, true, delay, method, args);
     }
-    public void doLoop<T1, T2, T3>(int delay, Handler<T1, T2, T3> method, params object[] args) {
-        create(false, true, delay, method, args);
+    public TimerHandler doLoop<T1, T2, T3>(int delay, Handler<T1, T2, T3> method, params object[] args) {
+        return create(false, true, delay, method, args);
     }
 
 
@@ -120,17 +120,17 @@ public class TimerManager : PureSingleton<TimerManager>, IAnimatable {
     /// <param name="delay">延迟时间(单位为帧)</param>
     /// <param name="method">结束时的回调方法</param>
     /// <param name="args">回调参数</param>
-    public void doFrameOnce(int delay, Handler method) {
-        create(true, false, delay, method);
+    public TimerHandler doFrameOnce(int delay, Handler method) {
+        return create(true, false, delay, method);
     }
-    public void doFrameOnce<T1>(int delay, Handler<T1> method, params object[] args) {
-        create(true, false, delay, method, args);
+    public TimerHandler doFrameOnce<T1>(int delay, Handler<T1> method, params object[] args) {
+        return create(true, false, delay, method, args);
     }
-    public void doFrameOnce<T1, T2>(int delay, Handler<T1, T2> method, params object[] args) {
-        create(true, false, delay, method, args);
+    public TimerHandler doFrameOnce<T1, T2>(int delay, Handler<T1, T2> method, params object[] args) {
+        return create(true, false, delay, method, args);
     }
-    public void doFrameOnce<T1, T2, T3>(int delay, Handler<T1, T2, T3> method, params object[] args) {
-        create(true, false, delay, method, args);
+    public TimerHandler doFrameOnce<T1, T2, T3>(int delay, Handler<T1, T2, T3> method, params object[] args) {
+        return create(true, false, delay, method, args);
     }
 
     /// <summary>
@@ -139,38 +139,20 @@ public class TimerManager : PureSingleton<TimerManager>, IAnimatable {
     /// <param name="delay">延迟时间(单位为帧)</param>
     /// <param name="method">结束时的回调方法</param>
     /// <param name="args">回调参数</param>
-    public void doFrameLoop(int delay, Handler method) {
-        create(true, true, delay, method);
+    public TimerHandler doFrameLoop(int delay, Handler method) {
+        return create(true, true, delay, method);
     }
-    public void doFrameLoop<T1>(int delay, Handler<T1> method, params object[] args) {
-        create(true, true, delay, method, args);
+    public TimerHandler doFrameLoop<T1>(int delay, Handler<T1> method, params object[] args) {
+        return create(true, true, delay, method, args);
     }
-    public void doFrameLoop<T1, T2>(int delay, Handler<T1, T2> method, params object[] args) {
-        create(true, true, delay, method, args);
+    public TimerHandler doFrameLoop<T1, T2>(int delay, Handler<T1, T2> method, params object[] args) {
+        return create(true, true, delay, method, args);
     }
-    public void doFrameLoop<T1, T2, T3>(int delay, Handler<T1, T2, T3> method, params object[] args) {
-        create(true, true, delay, method, args);
-    }
-
-    /// <summary>
-    /// 清理定时器
-    /// </summary>
-    /// <param name="method">method为回调函数本身</param>
-    public void clearTimer(Handler method) {
-        clear(method);
-    }
-    public void clearTimer<T1>(Handler<T1> method) {
-        clear(method);
-    }
-    public void clearTimer<T1, T2>(Handler<T1, T2> method) {
-        clear(method);
-    }
-    public void clearTimer<T1, T2, T3>(Handler<T1, T2, T3> method) {
-        clear(method);
+    public TimerHandler doFrameLoop<T1, T2, T3>(int delay, Handler<T1, T2, T3> method, params object[] args) {
+        return create(true, true, delay, method, args);
     }
 
-    private void clear(Delegate method) {
-        TimerHandler handler = _handlers.FirstOrDefault(t => t.method == method);
+    private void clear(TimerHandler handler) {
         if (handler != null) {
             _handlers.Remove(handler);
             handler.clear();
@@ -183,7 +165,7 @@ public class TimerManager : PureSingleton<TimerManager>, IAnimatable {
     /// </summary>
     public void clearAllTimer() {
         foreach (TimerHandler handler in _handlers) {
-            clear(handler.method);
+            clear(handler);
             clearAllTimer();
             return;
         }
@@ -202,7 +184,7 @@ public class TimerManager : PureSingleton<TimerManager>, IAnimatable {
 
     /**定时处理器*/
 
-    private class TimerHandler {
+    public class TimerHandler {
         /**执行间隔*/
         public int delay;
         /**是否重复执行*/
