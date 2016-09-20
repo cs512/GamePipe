@@ -4,13 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 0
-    path: Assets/Scene/battle.unity
-<<<<<<< HEAD
-=======
-  - enabled: 0
-    path: Assets/Resources/Scene/battle.unity
->>>>>>> 2879ec365ea4fda1c13ac4481360ef18c45e142a
-  - enabled: 1
-    path: Assets/Resources/Scene/UI_Test.unity
+  m_Scenes: []

@@ -25,7 +25,7 @@ public class Interactable : MonoBehaviour {
             CircleSpwaner.ins.SpawnMenu(this);
         }
     }
-#else
+#endif
     void Update()
     {
         if (Input.touchCount > 0) {
@@ -42,7 +42,7 @@ public class Interactable : MonoBehaviour {
                     GameObject recipient = hit.transform.gameObject;
                     touchList.Add(recipient);
 
-                    if (touch.phase == TouchPhase.Began) {
+                    if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary) {
                         CircleSpwaner.ins.SpawnMenu(this);
                     }
                 }
@@ -54,5 +54,4 @@ public class Interactable : MonoBehaviour {
             }
         }
     }
-#endif
 }
