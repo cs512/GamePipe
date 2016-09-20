@@ -28,30 +28,47 @@ public class Interactable : MonoBehaviour {
 #endif
     void Update()
     {
-        if (Input.touchCount > 0) {
+//		Touch touch = Input.GetTouch(0);
+//		if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary) {
+//			Debug.Log ("33333");
+//			Ray ray = GetComponent<Camera> ().ScreenPointToRay (touch.position);
+//			Debug.Log ("touch's position is:" + touch.position.x + " " + touch.position.y);
+//			if (Physics.Raycast (ray, out hit, touchInputMask)) {
+//				Debug.Log ("33333");
+//				GameObject recipient = hit.transform.gameObject;
+//				if (recipient!=null) {
+//					Debug.Log(recipient.name);
+//					Debug.Log("44444");
+//				}
+//				if(recipient.name == this.gameObject.name){
+//					CircleSpwaner.ins.SpawnMenu (this);
+//				}
+//			}
+//				   
+//		}
+//	}
 
-            touchesOld = new GameObject[touchList.Count];
+		int nbTouches = Input.touchCount;
 
-            touchList.CopyTo(touchesOld);
-            touchList.Clear();
+		if(nbTouches > 0)
+		{
+			for (int i = 0; i < nbTouches; i++)
+			{
+				Touch touch = Input.GetTouch(i);
 
-            foreach (Touch touch in Input.touches) {
-                Ray ray = GetComponent<Camera>().ScreenPointToRay(touch.position);
-                if (Physics.Raycast(ray, out hit, touchInputMask)) {
+				if(touch.phase == TouchPhase.Began)
+				{
+					Ray screenRay = Camera.main.ScreenPointToRay(touch.position);
+					RaycastHit hit;
+					if (Physics.Raycast(screenRay, out hit))
+					{
+						if(hit.collider.gameObject.name == "Quad"){
+							CircleSpwaner.ins.SpawnMenu(this);
+						}
+					}
+				}
 
-                    GameObject recipient = hit.transform.gameObject;
-                    touchList.Add(recipient);
-
-                    if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary) {
-                        CircleSpwaner.ins.SpawnMenu(this);
-                    }
-                }
-            }
-            foreach (GameObject g in touchesOld) {
-                if (!touchList.Contains(g)) {
-                    g.SendMessage("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
-                }
-            }
-        }
-    }
+			}
+		}
+}
 }

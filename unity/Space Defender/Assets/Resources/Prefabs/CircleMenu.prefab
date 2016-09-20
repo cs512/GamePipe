@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 224000010011462368}
   - 114: {fileID: 114000014283855930}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CircleMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,6 +41,10 @@ MonoBehaviour:
   buttonPrefab: {fileID: 114000010727281966, guid: c64bf7afaa1a6ae4785a99356b45765c,
     type: 2}
   selected: {fileID: 0}
+  newObject: {fileID: 0}
+  touchInputMask:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!224 &224000010011462368
 RectTransform:
   m_ObjectHideFlags: 1

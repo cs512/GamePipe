@@ -14,7 +14,7 @@ public class CircleSpwaner : MonoBehaviour {
     {
         CircleMenu newMenu = Instantiate(menuPrefab) as CircleMenu;
         newMenu.transform.SetParent(transform, false);
-        newMenu.transform.localPosition = new Vector3 (0f, 0f, 0f);
+        newMenu.transform.localPosition = new Vector3(0f, 0f, 0f);
         newMenu.SpawnButtons(obj);
     }
 }

@@ -33,47 +33,50 @@ public class CircleMenu : MonoBehaviour {
 
     void Update()
     {
-        if (Input.touchCount > 0) {
+		int nbTouches = Input.touchCount;
 
-            touchesOld = new GameObject[touchList.Count];
+		if(nbTouches > 0)
+		{
+			for (int i = 0; i < nbTouches; i++)
+			{
+				Touch touch = Input.GetTouch(i);
 
-            touchList.CopyTo(touchesOld);
-            touchList.Clear();
+				if(touch.phase == TouchPhase.Ended)
+				{
+					if (selected) {
+						Debug.Log (selected.title + " was selected");
+						transform.position = new Vector3 (380f, 0f, 120f);
+						transform.localRotation = new Quaternion (0f, 90f, 0f, 0f);
+						if (selected.title == "trtLrg") {
+							Object prefab = Resources.Load ("Prefabs/G425", typeof(GameObject)) as GameObject;
+							newObject = Instantiate (prefab, transform.position, transform.localRotation) as GameObject;
+						} else if (selected.title == "trtMd") {
+							Object prefab = Resources.Load ("Prefabs/G150dual", typeof(GameObject)) as GameObject;
+							newObject = Instantiate (prefab, transform.position, transform.localRotation) as GameObject;
+						} else if (selected.title == "trtSml") {
+							Object prefab = Resources.Load ("Prefabs/G75", typeof(GameObject)) as GameObject;
+							newObject = Instantiate (prefab, transform.position, transform.localRotation) as GameObject;
+						}
+						selected = null;
 
-            foreach (Touch touch in Input.touches) {
-                Ray ray = GetComponent<Camera>().ScreenPointToRay(touch.position);
-                if (Physics.Raycast(ray, out hit, touchInputMask)) {
+					}
+					Destroy (gameObject);
+				}
 
-                    GameObject recipient = hit.transform.gameObject;
-                    touchList.Add(recipient);
-
-                    if (touch.phase == TouchPhase.Ended) {
-                        if (selected) {
-                            Debug.Log(selected.title + " was selected");
-                            transform.position = new Vector3(380f, 0f, 120f);
-                            transform.localRotation = new Quaternion(0f, 90f, 0f, 0f);
-                            if (selected.title == "trtLrg") {
-                                Object prefab = Resources.Load("Prefabs/G425", typeof(GameObject)) as GameObject;
-                                newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
-                            } else if (selected.title == "trtMd") {
-                                Object prefab = Resources.Load("Prefabs/G150dual", typeof(GameObject)) as GameObject;
-                                newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
-                            } else if (selected.title == "trtSml") {
-                                Object prefab = Resources.Load("Prefabs/G75", typeof(GameObject)) as GameObject;
-                                newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
-                            }
-
-                        }
-                        Destroy(gameObject);
-                    }
-                }
-            }
-            foreach (GameObject g in touchesOld) {
-                if (!touchList.Contains(g)) {
-                    g.SendMessage("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
-                }
-            }
-        }
+			}
+		}
+//		foreach (Touch touch in Input.touches) {
+//			Ray ray = GetComponent<Camera> ().ScreenPointToRay (touch.position);
+//			if (Physics.Raycast (ray, out hit, touchInputMask)) {
+//
+//				GameObject recipient = hit.transform.gameObject;
+//				touchList.Add (recipient);
+//
+//				if (touch.phase == TouchPhase.Ended) {
+//					
+//				}
+//			}
+//		}
 #if UNITY_EDITOR
         if (Input.GetMouseButtonUp(0)){
             if (selected) {
@@ -93,6 +96,6 @@ public class CircleMenu : MonoBehaviour {
             }
             Destroy(gameObject);
         }
-    }
 #endif
+    }
 }
