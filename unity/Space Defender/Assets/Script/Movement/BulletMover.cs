@@ -5,8 +5,10 @@ public class BulletMover : MonoBehaviour {
 
     public float speed  =20f;
     public float damage = 1f;
+
     void Start(){
         GetComponent<Rigidbody>().velocity = transform.forward * speed;
+        Destroy(gameObject, 10);
     }
     public float setDamage(float inputDamage) {
         damage = inputDamage; 

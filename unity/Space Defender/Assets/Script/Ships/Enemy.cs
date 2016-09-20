@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour, Victim {
     protected float speed;
     protected float damage;
     protected float health;
+    public GameObject explosion;
 
     // Use this for initialization
     void Start() {
@@ -49,7 +50,9 @@ public abstract class Enemy : MonoBehaviour, Victim {
     void DestorySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.DeregisteVictim(this);
-		Destroy(gameObject);
+        GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+        Destroy(gameObject);
+        Destroy(boom, 2);
     }
 
     float Victim.GetHealth() {
