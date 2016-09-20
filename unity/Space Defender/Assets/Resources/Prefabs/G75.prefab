@@ -56,7 +56,7 @@ GameObject:
   - 114: {fileID: 114000010022626498}
   m_Layer: 0
   m_Name: G75
-  m_TagString: Untagged
+  m_TagString: Turrets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

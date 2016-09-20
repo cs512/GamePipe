@@ -24,7 +24,7 @@ GameObject:
   - 54: {fileID: 54000014131613620}
   m_Layer: 0
   m_Name: BoltLrg
-  m_TagString: Untagged
+  m_TagString: Bullets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

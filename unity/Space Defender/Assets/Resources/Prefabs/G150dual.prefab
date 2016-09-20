@@ -41,7 +41,7 @@ GameObject:
   - 114: {fileID: 114000011403510668}
   m_Layer: 0
   m_Name: G150dual
-  m_TagString: Untagged
+  m_TagString: Turrets
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
