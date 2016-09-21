@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 public class ScoreBoard : MonoBehaviour {
     public float live = 0;
     private float staticLive = 0;
@@ -36,7 +37,10 @@ public class ScoreBoard : MonoBehaviour {
         return Funds;
     }
     public Text getWaves() {
-        Waves.text = "Wave remains: " + wave.ToString();
+        wave = GameObject.Find("EnemyTower1").GetComponent<EnemyBuilder>().wave.Length+ GameObject.Find("EnemyTower2").GetComponent<EnemyBuilder>().wave.Length+ GameObject.Find("EnemyTower3").GetComponent<EnemyBuilder>().wave.Length;
+        Debug.Log(wave);
+        Waves.text = "Bridges remains:" + wave.ToString();
+
         return Waves;
     }
 
@@ -45,7 +49,7 @@ public class ScoreBoard : MonoBehaviour {
         float temp = fund;
         fund -= i;
         if (fund <= 0) {
-            fund = temp;
+            fund = temp;    
             Debug.Log("no enough money");
             return fund;
         }

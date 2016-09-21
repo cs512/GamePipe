@@ -28,7 +28,7 @@ public class SourcePlanet : MonoBehaviour, Victim {
         if (health <= 0f) {
             GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             Destroy(boom, 2);
-            Destroy(gameObject);
+            GetComponent<Renderer>().enabled =false;
         }
     }
 
