@@ -26,5 +26,6 @@ public class BulletMover : MonoBehaviour {
             victim.DealDamage(this.damage);
             Debug.Log(victim.GetHealth());
         }
+        
     }
 }

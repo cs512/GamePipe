@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41bd6768056c9544aef632eb04cfaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireInterval: 1
+  fireInterval: 1500
   rotateSpeed: 5
   nextFire: 1
   showRange: 1

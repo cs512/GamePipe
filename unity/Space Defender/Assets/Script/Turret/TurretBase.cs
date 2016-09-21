@@ -22,7 +22,6 @@ public abstract class TurretBase : MonoBehaviour, Killer {
     void Start() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.RegisteKiller(this);
-        this.SetUpAttributions();
     }
 
     void Update() {

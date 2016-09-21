@@ -8,12 +8,6 @@ public class CircleMenu : MonoBehaviour {
     public CircleButton selected;
     public GameObject newObject;
 
-    public LayerMask touchInputMask;
-
-    private List<GameObject> touchList = new List<GameObject>();
-    private GameObject[] touchesOld;
-    private RaycastHit hit;
-
     // Use this for initialization
     public void SpawnButtons (Interactable obj) {
         for (int i = 0;i < obj.options.Length; i++)
@@ -65,18 +59,7 @@ public class CircleMenu : MonoBehaviour {
 
 			}
 		}
-//		foreach (Touch touch in Input.touches) {
-//			Ray ray = GetComponent<Camera> ().ScreenPointToRay (touch.position);
-//			if (Physics.Raycast (ray, out hit, touchInputMask)) {
-//
-//				GameObject recipient = hit.transform.gameObject;
-//				touchList.Add (recipient);
-//
-//				if (touch.phase == TouchPhase.Ended) {
-//					
-//				}
-//			}
-//		}
+
 #if UNITY_EDITOR
         if (Input.GetMouseButtonUp(0)){
             if (selected) {
