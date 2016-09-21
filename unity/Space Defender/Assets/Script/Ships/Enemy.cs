@@ -4,9 +4,9 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour, Victim {
 
     private Transform target;
-    protected float speed;
-    protected float damage;
-    protected float health;
+    public float speed;
+    public float damage;
+    public float health;
     public GameObject explosion;
 
     // Use this for initialization
