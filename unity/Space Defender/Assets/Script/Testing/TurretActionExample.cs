@@ -12,7 +12,6 @@ public class TurretActionExample : MonoBehaviour, Killer{
 	public bool showRange = true;
 
 	private Transform currentTarget = null;
-	private Victim currentVictim = null;
 	private float nextFire = 0;
 
 	public GameObject target1;

@@ -1045,9 +1045,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2017193298}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3baa1adee25cc3458db191c71904674, type: 3}
+  m_Script: {fileID: 11500000, guid: f6ace8d28c8dc154f9d481dc2a32445b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  touchInputMask:
-    serializedVersion: 2
-    m_Bits: 256
+  prespectiveZoomSpeed: 0.5
+  orthoZoomSpeed: 0.5
