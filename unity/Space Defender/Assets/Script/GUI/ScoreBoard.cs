@@ -4,44 +4,45 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour {
-    private int live = 30;
-    private int staticLive = 0;
-    private int fund = 100;
-    private int wave = 10;
+    public float live = 0;
+    private float staticLive = 0;
+    public float fund = 100;
+    public float wave = 10;
     public Text Waves;
     public Text Funds;
     public Text Lives;
     //initial game with life and funds and waves
-    public void initGame(int lives, int funds,int waves) {
-        live = lives;
-        fund = funds;
-        wave = waves;
-        staticLive = lives;
+    public void initGame() {
+        if (GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health == 0)
+            live = 0;
+        else
+            live = GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health;
+        staticLive = live;
     }
     public Text getLive() {
+        if (GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health == 0)
+            live = 0;
+        else
+            live = GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health;
         Lives.text = "Life :" + live.ToString();
-        return Lives;
+        if (live <= 0)
+        {
+            gameOver();
+        }
+            return Lives;  
     }
     public Text getFund() {
         Funds.text = "Funds: $" + fund.ToString();
         return Funds;
     }
-    public Text getWave() {
+    public Text getWaves() {
         Waves.text = "Wave remains: " + wave.ToString();
         return Waves;
     }
 
-    // loseLife， >0 lose，<0 add 
-    public int loseLife(int i) {
-        live -= i;
-        if (live <= 0) {
-            gameOver();
-        }
-        return live;
-    }
     //loseFund, >0 lose，<0 add, if money is not enough alert and nothing happend
-    public int loseFund(int i) {
-        int temp = fund;
+    public float loseFund(float i) {
+        float temp = fund;
         fund -= i;
         if (fund <= 0) {
             fund = temp;
@@ -76,13 +77,12 @@ public class ScoreBoard : MonoBehaviour {
         SceneManager.LoadScene("GameEnd");
     }
     void Start() {
-        initGame(50, 1000,30);
-        Debug.Log(Funds.text);
+        initGame();
     }
     //Update is called once per frame
     void Update() {
-        getFund();
         getLive();
-        getWave();
+        getFund();
+        getWaves();
     }
 }
