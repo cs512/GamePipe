@@ -25,7 +25,7 @@ public class ScoreBoard : MonoBehaviour {
             live = 0;
         else
             live = GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health;
-        Lives.text = "Life :" + live.ToString();
+        Lives.text = "Health :" + live.ToString();
         if (live <= 0)
         {
             gameOver();
@@ -33,13 +33,13 @@ public class ScoreBoard : MonoBehaviour {
             return Lives;  
     }
     public Text getFund() {
-        Funds.text = "Funds: $" + fund.ToString();
+        Funds.text = "Resource: " + fund.ToString();
         return Funds;
     }
     public Text getWaves() {
         wave = GameObject.Find("EnemyTower1").GetComponent<EnemyBuilder>().wave.Length+ GameObject.Find("EnemyTower2").GetComponent<EnemyBuilder>().wave.Length+ GameObject.Find("EnemyTower3").GetComponent<EnemyBuilder>().wave.Length;
         Debug.Log(wave);
-        Waves.text = "Bridges remains:" + wave.ToString();
+        Waves.text = "Gates: " + wave.ToString();
 
         return Waves;
     }
