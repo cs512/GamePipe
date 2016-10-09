@@ -19,6 +19,10 @@ public abstract class TurretBase : MonoBehaviour, Killer {
     public bool showRange;
     public float range;
 
+    public float fundSum = 0;
+    public int intervalRate = 3;
+    public float fund = 5.0f;
+
     void Start() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.RegisteKiller(this);
@@ -27,6 +31,7 @@ public abstract class TurretBase : MonoBehaviour, Killer {
     void Update() {
         if (currentTarget != null) {
             targetLockOn();
+            mining();
         }
     }
 
@@ -97,5 +102,18 @@ public abstract class TurretBase : MonoBehaviour, Killer {
 
     int Killer.GetID() {
         return GetInstanceID();
+    }
+
+    void mining()
+    {
+        if (Time.frameCount % intervalRate == 0)
+        {
+            fundSum += fund;
+        }
+    }
+
+    float getFund()
+    {
+        return fundSum;
     }
 }
