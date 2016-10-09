@@ -89,12 +89,14 @@
     <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
     <Compile Include="Assets\Script\Mover.cs" />
     <Compile Include="Assets\Script\ResRotate.cs" />
+    <Compile Include="Assets\Script\Scene\loadSceneSelection.cs" />
     <Compile Include="Assets\Script\Ships\Enemy.cs" />
     <Compile Include="Assets\Script\Ships\Naga.cs" />
     <Compile Include="Assets\Script\Testing\TurretActionExample.cs" />
     <Compile Include="Assets\Script\Turret\DoubleBarrels.cs" />
     <Compile Include="Assets\Script\Turret\SingleBarrel.cs" />
     <Compile Include="Assets\Script\Turret\TurretBase.cs" />
+    <Compile Include="Assets\subMenu.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

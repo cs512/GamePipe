@@ -11,10 +11,10 @@ public abstract class TurretBase : MonoBehaviour, Killer {
 
     public float rotateSpeed;
 
-    private Victim currentVictim = null;
+    public Victim currentVictim = null;
     public float nextFire = 1;
     private Quaternion lastRotation;
-    private Transform currentTarget = null;
+    public Transform currentTarget = null;
 
     public bool showRange;
     public float range;
