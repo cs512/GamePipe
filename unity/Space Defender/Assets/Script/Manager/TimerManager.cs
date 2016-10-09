@@ -13,9 +13,9 @@ public interface IAnimatable {
 }
 
 /**时钟管理器[同一函数多次计时，默认会被后者覆盖,delay小于1会立即执行]*/
-public class TimerManager : PureSingleton<TimerManager>, IAnimatable {
+public class TimerManager : IAnimatable {
 
-    public static List<IAnimatable> timerList = new List<IAnimatable>();
+    public List<IAnimatable> timerList = new List<IAnimatable>();
 
     public TimerManager() {
         timerList.Add(this);
@@ -171,7 +171,7 @@ public class TimerManager : PureSingleton<TimerManager>, IAnimatable {
         }
     }
 
-    public static void RemoveTimerMgr(TimerManager timerMgr) {
+    public void RemoveTimerMgr(TimerManager timerMgr) {
         timerList.Remove(timerMgr);
     }
 

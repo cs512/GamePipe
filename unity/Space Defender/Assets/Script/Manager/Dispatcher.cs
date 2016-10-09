@@ -15,7 +15,7 @@ public class Dispatcher : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        foreach (IAnimatable animatable in TimerManager.timerList) {
+        foreach (IAnimatable animatable in tm.timerList) {
             animatable.AdvanceTime();
         }
     }
