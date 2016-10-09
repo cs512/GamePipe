@@ -13,6 +13,8 @@ public class DoubleBarrels : TurretBase {
     override public void ShotSpawn() {
         Instantiate(shot, shotSpawnR.position, shotSpawnR.rotation);
         Instantiate(shot, shotSpawnL.position, shotSpawnL.rotation);
+		BulletMover bullet = shot.GetComponent<BulletMover>();
+		bullet.setTarget(currentTarget);
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
     }
