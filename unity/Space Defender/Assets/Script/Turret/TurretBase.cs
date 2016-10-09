@@ -14,11 +14,7 @@ public abstract class TurretBase : MonoBehaviour, Killer {
     public Victim currentVictim = null;
     public float nextFire = 1;
     private Quaternion lastRotation;
-<<<<<<< HEAD
-	public Transform currentTarget = null;
-=======
     public Transform currentTarget = null;
->>>>>>> 295d326847fe367a10ac50b31c5310752ca5fdd3
 
     public bool showRange;
     public float range;
@@ -116,7 +112,7 @@ public abstract class TurretBase : MonoBehaviour, Killer {
         }
     }
 
-    float getFund()
+    public float getFund()
     {
         return fundSum;
     }
