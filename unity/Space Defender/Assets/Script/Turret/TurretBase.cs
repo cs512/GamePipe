@@ -11,13 +11,21 @@ public abstract class TurretBase : MonoBehaviour, Killer {
 
     public float rotateSpeed;
 
-    private Victim currentVictim = null;
+    public Victim currentVictim = null;
     public float nextFire = 1;
     private Quaternion lastRotation;
-    private Transform currentTarget = null;
+<<<<<<< HEAD
+	public Transform currentTarget = null;
+=======
+    public Transform currentTarget = null;
+>>>>>>> 295d326847fe367a10ac50b31c5310752ca5fdd3
 
     public bool showRange;
     public float range;
+
+    public float fundSum = 0;
+    public int intervalRate = 3;
+    public float fund = 5.0f;
 
     void Start() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
@@ -27,6 +35,7 @@ public abstract class TurretBase : MonoBehaviour, Killer {
     void Update() {
         if (currentTarget != null) {
             targetLockOn();
+            mining();
         }
     }
 
@@ -97,5 +106,18 @@ public abstract class TurretBase : MonoBehaviour, Killer {
 
     int Killer.GetID() {
         return GetInstanceID();
+    }
+
+    void mining()
+    {
+        if (Time.frameCount % intervalRate == 0)
+        {
+            fundSum += fund;
+        }
+    }
+
+    float getFund()
+    {
+        return fundSum;
     }
 }
