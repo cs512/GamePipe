@@ -112,7 +112,7 @@ public abstract class TurretBase : MonoBehaviour, Killer {
         }
     }
 
-    float getFund()
+    public float getFund()
     {
         return fundSum;
     }

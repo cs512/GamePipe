@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour {
     public float live = 0;
     private float staticLive = 0;
-    public float fund = 100;
+    //public float fund = 100;
     public float wave = 10;
     public Text Waves;
     public Text Funds;
@@ -33,6 +33,7 @@ public class ScoreBoard : MonoBehaviour {
             return Lives;  
     }
     public Text getFund() {
+        float fund = GameObject.Find("TurretBase").GetComponent<TurretBase>().getFund();
         Funds.text = "Resource: " + fund.ToString();
         return Funds;
     }
@@ -45,7 +46,7 @@ public class ScoreBoard : MonoBehaviour {
     }
 
     //loseFund, >0 lose，<0 add, if money is not enough alert and nothing happend
-    public float loseFund(float i) {
+    /*public float loseFund(float i) {
         float temp = fund;
         fund -= i;
         if (fund <= 0) {
@@ -54,7 +55,8 @@ public class ScoreBoard : MonoBehaviour {
             return fund;
         }
         return fund;
-    }
+    }*/
+
     // working on, call this whenever a wave of enemies are  purged
     public void gameEnd() {
         wave -= 1;

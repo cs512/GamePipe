@@ -55,7 +55,7 @@ public class SourcePlanet : MonoBehaviour, Victim {
         }
     }
 
-    float getFund()
+    public float getFund()
     {
         return fund;
     }
