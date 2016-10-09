@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.4.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -81,11 +79,13 @@
     <Compile Include="Assets\Script\GUI\Interactable.cs" />
     <Compile Include="Assets\Script\GUI\ScoreBoard.cs" />
     <Compile Include="Assets\Script\GUI\TouchControl.cs" />
+    <Compile Include="Assets\Script\GUI\Turtorial.cs" />
+    <Compile Include="Assets\Script\Manager\Delay.cs" />
     <Compile Include="Assets\Script\Manager\Dispatcher.cs" />
     <Compile Include="Assets\Script\Manager\EnemyBuilder.cs" />
-    <Compile Include="Assets\Script\Manager\Utility\Killer.cs" />
     <Compile Include="Assets\Script\Manager\LevelManager.cs" />
     <Compile Include="Assets\Script\Manager\TimerManager.cs" />
+    <Compile Include="Assets\Script\Manager\Utility\Killer.cs" />
     <Compile Include="Assets\Script\Manager\Utility\MonoBehaviourExtended.cs" />
     <Compile Include="Assets\Script\Manager\Utility\Singleton.cs" />
     <Compile Include="Assets\Script\Manager\Utility\Toolbox.cs" />
