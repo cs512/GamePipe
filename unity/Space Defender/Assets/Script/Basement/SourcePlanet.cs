@@ -8,20 +8,18 @@ public class SourcePlanet : MonoBehaviour, Victim {
     public GameObject shockHit;
     public GameObject explosion;
     public float fund;
-    public float fund_lost;
     public int intervalRate;
 
     // Use this for initialization
     void Start() {
-        intervalRate = 3;
-        fund_lost = 5.0f;
-        fund = 100.0f;
+        intervalRate = 30;   
+        fund = -1.0f;
     }
 
     // Update is called once per frame
     void Update() {
         transform.Rotate(Vector3.forward * Time.deltaTime * rotateSpeed, Space.World);
-        loseFund();
+        generateFund();
     }
 
     int Victim.GetID() {
@@ -47,16 +45,13 @@ public class SourcePlanet : MonoBehaviour, Victim {
         return this.gameObject;
     }
 
-    void loseFund() 
+    void generateFund() 
     {
         if (Time.frameCount % intervalRate == 0)
         {
-            fund -= fund_lost;
-        }
+            GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(fund);
+        }          
     }
 
-    public float getFund()
-    {
-        return fund;
-    }
+ 
 }
