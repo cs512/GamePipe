@@ -49,7 +49,7 @@ class LevelManager : MonoBehaviour {
         }
         return res;
     }
-    
+
     // Use this for initialization
     void Start() {
 
