@@ -45,10 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BGM.cs" />
-     <Compile Include="Assets\PinchZoom.cs" />
      <Compile Include="Assets\Script\Basement\SourcePlanet.cs" />
      <Compile Include="Assets\Script\BulletCollision\BulletCollision.cs" />
+     <Compile Include="Assets\Script\GUI\BGM.cs" />
      <Compile Include="Assets\Script\GUI\CircleButton.cs" />
      <Compile Include="Assets\Script\GUI\CircleMenu.cs" />
      <Compile Include="Assets\Script\GUI\CircleSpwaner.cs" />
@@ -58,7 +57,9 @@
      <Compile Include="Assets\Script\GUI\Turtorial.cs" />
      <Compile Include="Assets\Script\Manager\Dispatcher.cs" />
      <Compile Include="Assets\Script\Manager\EnemyBuilder.cs" />
-     <Compile Include="Assets\Script\Manager\LevelManager.cs" />
+     <Compile Include="Assets\Script\Manager\GameInitializator.cs" />
+     <Compile Include="Assets\Script\Manager\LevelManager\Level.cs" />
+     <Compile Include="Assets\Script\Manager\LevelManager\LevelManager.cs" />
      <Compile Include="Assets\Script\Manager\TimerManager.cs" />
      <Compile Include="Assets\Script\Manager\Utility\Killer.cs" />
      <Compile Include="Assets\Script\Manager\Utility\MonoBehaviourExtended.cs" />
@@ -69,8 +70,6 @@
      <Compile Include="Assets\Script\Movement\EnemyBullet.cs" />
      <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
      <Compile Include="Assets\Script\Movement\TurretBullet.cs" />
-     <Compile Include="Assets\Script\Mover.cs" />
-     <Compile Include="Assets\Script\ResRotate.cs" />
      <Compile Include="Assets\Script\Scene\loadSceneSelection.cs" />
      <Compile Include="Assets\Script\Ships\Enemy.cs" />
      <Compile Include="Assets\Script\Ships\Naga.cs" />
@@ -78,13 +77,19 @@
      <Compile Include="Assets\Script\Turret\DoubleBarrels.cs" />
      <Compile Include="Assets\Script\Turret\SingleBarrel.cs" />
      <Compile Include="Assets\Script\Turret\TurretBase.cs" />
-     <Compile Include="Assets\subMenu.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
+ <Reference Include="ICSharpCode.SharpZipLib">
+ <HintPath>/Users/liangruiwen/Desktop/new526/GamePipe/unity/Space Defender/Assets/plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{0E529BC0-C473-6895-04BF-90A617C2F387}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

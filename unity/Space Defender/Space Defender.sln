@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{C0F45102-F302-6236-ADB8-73EB307B99FF}") = "Space Defender", "Assembly-CSharp-firstpass.csproj", "{0E529BC0-C473-6895-04BF-90A617C2F387}"
+EndProject
 Project("{C0F45102-F302-6236-ADB8-73EB307B99FF}") = "Space Defender", "Assembly-CSharp.csproj", "{8BEBBDD9-AB20-AB52-2C7C-B318659E42F0}"
 EndProject
 Global
@@ -9,6 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E529BC0-C473-6895-04BF-90A617C2F387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E529BC0-C473-6895-04BF-90A617C2F387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E529BC0-C473-6895-04BF-90A617C2F387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E529BC0-C473-6895-04BF-90A617C2F387}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8BEBBDD9-AB20-AB52-2C7C-B318659E42F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8BEBBDD9-AB20-AB52-2C7C-B318659E42F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BEBBDD9-AB20-AB52-2C7C-B318659E42F0}.Release|Any CPU.ActiveCfg = Release|Any CPU

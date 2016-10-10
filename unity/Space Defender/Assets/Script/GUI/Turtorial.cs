@@ -4,31 +4,54 @@ using UnityEngine.UI;
 using System;
 
 public class Turtorial : MonoBehaviour {
-    public Transform trans;
-    public TextMesh tText;
-    public void transPos1() {
-        trans.position = new Vector3(-600, 0, 270); ;
+    public Transform transBut;
+    public Transform transTex;
+    public Text tText;
+    private int i = 0;
+    public void timeReturn() {
+
     }
-    public void chText1() {
-        tText.text = "You can check your resource health \n and how many enemy's gates remain here.";
+    public void chTrText() {
+        i++;
+        if(i == 1) {
+            tText.text = "You can check your resource health \nand how many enemy's gates here.";
+            tText.fontSize = 25;
+            transBut.position = new Vector3(-300, 0, 250);
+            transTex.position = new Vector3(-300, 0, 250);
+        }
+        if(i == 2) {
+            tText.text = "This is your sourcePlanet, also your basement.\nYou can upgrade it to gain resources quickly.\nBeware, you must protect it from enemies!";
+            tText.color = Color.red;
+            tText.fontSize = 25;
+            transBut.position = new Vector3(-20, 0, 40);
+            transTex.position = new Vector3(-20, 0, 40);
+        }
+        if (i == 3)
+        {
+            //transBut.width
+            tText.text = "Now try to point on your planet.\nFind one of your faviourate SACS\n(space auto-counterattack system).\nHold and drag it to a good position.\nOnce you finished,click the text.";
+        }
+        if(i ==4) {
+            tText.color = Color.blue;
+            tText.text = "Enemy is coming!\nMaybe one is far from enough.";
+            
+            Time.timeScale = 1;
+        }
     }
-    public void transPos2() {
-        trans.position = new Vector3(0,0,0);
-    }
-    public void chText2() {
-        tText.fontSize = 400;
-        tText.color = Color.red;
-        tText.text = "This is your sourcePlanet, also your basement.\n You can upgrade it to gain resources quickly.\n Be ware, you must protect it from enemies!";
-    }
-  
+    //public void transPos2() {
+    //    trans.position = new Vector3(0,0,0);
+    //}
+    //public void chText2() {
+    //    tText.fontSize = 400;
+    //    tText.color = Color.red;
+    //    tText.text = "This is your sourcePlanet, also your basement.\n You can upgrade it to gain resources quickly.\n Be ware, you must protect it from enemies!";
+    //}
+
     // Use this for initialization
     void Start () {
         tText.text = "Hello, Commander!";
-        tText.fontSize = 500;
-        Invoke("transPos1", 2);
-        Invoke("chText1", 2);
-        Invoke("transPos2", 4);
-        Invoke("chText2", 4);
+        tText.fontSize = 40;
+        Time.timeScale = 0;
     }
 	
 	// Update is called once per frame
