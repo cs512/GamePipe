@@ -10,8 +10,6 @@ class LevelManager : MonoBehaviour {
 
         // Update is called once per frame
         void Update() {
-            foreach (IAnimatable animatable in TimerManager.timerList) {
-                animatable.AdvanceTime();
-            }
+
         }
 }

@@ -65,22 +65,21 @@ public class ScoreBoard : MonoBehaviour {
             float cases = live / staticLive;
             if (cases == 1) {
                 Debug.Log("3 stars！");
-                SceneManager.LoadScene("GameEnd");
             }
             else if (cases >=2 / 3) {
-                Debug.Log("2stars!");
-                SceneManager.LoadScene("GameEnd");
+                Debug.Log("2 stars!");
             }
             else
                 Debug.Log("1 stars!");
-                SceneManager.LoadScene("GameEnd");
         }
     }
 
     //working on 
     public void gameOver() {
         Debug.Log("Game Over!");
-        SceneManager.LoadScene("GameEnd");
+
+        Time.timeScale = 0;
+        //SceneManager.LoadScene("GameEnd");
     }
     void Start() {
         initGame();
