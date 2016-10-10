@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class BulletMover : TurretBase {
-
     public float speed;
     public float damage;
     public float bulletRotateSpeed = 100f;
@@ -10,22 +9,21 @@ public class BulletMover : TurretBase {
     void Start() {
         //GetComponent<Rigidbody>().velocity = transform.forward * speed;
         //Destroy(gameObject, 10);
+        InvokeRepeating("changeDirection",0.1f,0.05f);
     }
-
-    // Update is called once per frame
-    void Update() {
+    public void changeDirection(){
         if (target == null) {
             // the enemy went away!
-            Destroy(this.gameObject);
+            Destroy (this.gameObject);
             return;
         }
         //Debug.Log(target.position);
         Vector3 dir = target.position - this.transform.localPosition;
         float framDist = speed * Time.deltaTime;
-        transform.Translate(dir.normalized * framDist, Space.World);
-        this.transform.rotation = Quaternion.LookRotation(dir);
+        transform.Translate (dir.normalized * framDist, Space.World);
+        this.transform.rotation = Quaternion.LookRotation (dir);
     }
-
+    
     public float setDamage(float inputDamage) {
         damage = inputDamage;
         return damage;
