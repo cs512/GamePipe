@@ -80,7 +80,6 @@
     <Compile Include="Assets\Script\GUI\ScoreBoard.cs" />
     <Compile Include="Assets\Script\GUI\TouchControl.cs" />
     <Compile Include="Assets\Script\GUI\Turtorial.cs" />
-    <Compile Include="Assets\Script\Manager\Delay.cs" />
     <Compile Include="Assets\Script\Manager\Dispatcher.cs" />
     <Compile Include="Assets\Script\Manager\EnemyBuilder.cs" />
     <Compile Include="Assets\Script\Manager\LevelManager.cs" />
