@@ -11,7 +11,7 @@ public class loadSceneSelection : MonoBehaviour {
         }
         else if (gameObject.name == "tutorial")
         {
-            SceneManager.LoadScene("UI_Test");
+            SceneManager.LoadScene("Tutorial");
         }
         else if (gameObject.name == "Story")
         {

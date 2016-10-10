@@ -28,7 +28,7 @@ public class Turtorial : MonoBehaviour {
         }
         if (i == 3)
         {
-            transBut.width
+            //transBut.width
             tText.text = "Now try to point on your planet.\nFind one of your faviourate SACS\n(space auto-counterattack system).\nHold and drag it to a good position.\nOnce you finished,click the text.";
         }
         if(i ==4) {
