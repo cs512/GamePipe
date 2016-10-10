@@ -19,7 +19,6 @@ public abstract class TurretBase : MonoBehaviour, Killer {
     public bool showRange;
     public float range;
 
-    public int intervalRate = 3;
     public float turretCost = 5.0f;
 
     void Start() {

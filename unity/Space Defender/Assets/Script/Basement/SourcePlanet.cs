@@ -12,8 +12,8 @@ public class SourcePlanet : MonoBehaviour, Victim {
 
     // Use this for initialization
     void Start() {
-        intervalRate = 3;   
-        fund = 1.0f;
+        intervalRate = 30;   
+        fund = -1.0f;
     }
 
     // Update is called once per frame
@@ -47,7 +47,10 @@ public class SourcePlanet : MonoBehaviour, Victim {
 
     void generateFund() 
     {
-        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(fund);
+        if (Time.frameCount % intervalRate == 0)
+        {
+            GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(fund);
+        }          
     }
 
  

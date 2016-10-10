@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ScoreBoard : MonoBehaviour {
     public float live = 0;
     private float staticLive = 0;
-    public float fund = 100;
+    public float fund = 10.0f;
     public float wave = 10;
     public Text Waves;
     public Text Funds;
