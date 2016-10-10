@@ -1,5 +1,5 @@
 {
-    "levelCount":3, 
+    "levelCount":1, 
     "levels":[
         {"name":"Level 1", "fileName":"level1"},
         // {"name":"Level 2", "fileName":"level2"},
