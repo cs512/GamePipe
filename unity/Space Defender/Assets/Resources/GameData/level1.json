@@ -1,0 +1,35 @@
+{
+    "waveCount":2,
+    "waves":[
+        {
+            "waveDuring":15.0,
+            "spawnPointCount":1,
+            "spawnPoints":[
+                {
+                    "position":[100,0,100],
+                    "prefab":"Naga",
+                    "interval":1.0,
+                    "number":5,
+                }
+            ],
+        },
+        {
+            "waveDuring":15.0,
+            "spawnPointCount":2,
+            "spawnPoints":[
+                {
+                    "position":[-100,0,100],
+                    "prefab":"Naga",
+                    "interval":1.0,
+                    "number":5,
+                },
+                {
+                    "position":[-100,0,-100],
+                    "prefab":"Arm",
+                    "interval":1.0,
+                    "number":5,
+                }
+            ],
+        },
+    ],
+}

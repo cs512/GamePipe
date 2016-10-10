@@ -1,8 +1,8 @@
 {
     "levelCount":3, 
     "levels":[
-        {"name":"Level 1", "file":"level1.json"},
-        {"name":"Level 2", "file":"level2.json"},
-        {"name":"Level 3", "file":"level3.json"}
+        {"name":"Level 1", "fileName":"level1"},
+        // {"name":"Level 2", "fileName":"level2"},
+        // {"name":"Level 3", "fileName":"level3"},
     ],
 }
