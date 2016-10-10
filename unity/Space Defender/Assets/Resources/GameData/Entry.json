@@ -1,0 +1,8 @@
+{
+    "levelCount":3, 
+    "levels":[
+        {"name":"Level 1", "file":"level1.json"},
+        {"name":"Level 2", "file":"level2.json"},
+        {"name":"Level 3", "file":"level3.json"}
+    ],
+}

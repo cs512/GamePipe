@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 965b4b5b3f26cb24aa98695c01d1d4a4
+timeCreated: 1476055892
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Eve Sans Neue
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 12ba11156c9a99c4d81b03c5d305e191, type: 3}
+  - {fileID: 12800000, guid: 0b6796c67d2264b46a7597e9a39bc7fc, type: 3}
+  - {fileID: 12800000, guid: 42951209ffc79124f8b845505bd4a1a3, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

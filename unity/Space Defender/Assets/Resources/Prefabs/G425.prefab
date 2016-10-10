@@ -229,7 +229,7 @@ MonoBehaviour:
   showRange: 1
   range: 500
   shotSpawn: {fileID: 4000012263439344}
-  shot: {fileID: 1000011942975244, guid: 937e3c0c242d76e40bbe1bb8a0045644, type: 2}
+  shot: {fileID: 1000011598069564, guid: 937e3c0c242d76e40bbe1bb8a0045644, type: 2}
 --- !u!135 &135000011170624574
 SphereCollider:
   m_ObjectHideFlags: 1

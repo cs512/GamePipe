@@ -7,29 +7,40 @@ public class BulletMover : TurretBase {
     public float damage;
     public float bulletRotateSpeed = 100f;
 
-    void Start(){
-        GetComponent<Rigidbody>().velocity = transform.forward * speed;
-        Destroy(gameObject, 10);
+    void Start() {
+        //GetComponent<Rigidbody>().velocity = transform.forward * speed;
+        //Destroy(gameObject, 10);
     }
 
-    void Update()
-    {
-        Vector3 targetDir = currentTarget.position - transform.position;
-        float step = bulletRotateSpeed * Time.deltaTime;
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
-        transform.rotation = Quaternion.LookRotation(newDir);
+    // Update is called once per frame
+    void Update() {
+        if (target == null) {
+            // the enemy went away!
+            Destroy(this.gameObject);
+            return;
+        }
+        //Debug.Log(target.position);
+        Vector3 dir = target.position - this.transform.localPosition;
+        float framDist = speed * Time.deltaTime;
+        transform.Translate(dir.normalized * framDist, Space.World);
+        this.transform.rotation = Quaternion.LookRotation(dir);
     }
 
     public float setDamage(float inputDamage) {
-        damage = inputDamage; 
+        damage = inputDamage;
         return damage;
-    } 
+    }
     public float getDamage() {
         return this.damage;
     }
-    void OnTriggerEnter(Collider other)
-    {
-       
+    public void setTarget(Transform inputTarget) {
+        target = inputTarget;
+    }
+    public Transform getTarget() {
+        return this.target;
+    }
+    void OnTriggerEnter(Collider other) {
+
         if (other.tag == "Enemy") {
             Destroy(gameObject);
             Victim victim = other.GetComponent<Enemy>();
@@ -37,12 +48,10 @@ public class BulletMover : TurretBase {
             Debug.Log(victim.GetHealth());
         }
     }
-    public override void SetUpAttributions()
-    {
+    public override void SetUpAttributions() {
         return;
     }
-    public override void ShotSpawn()
-    {
+    public override void ShotSpawn() {
         return;
     }
 }
