@@ -5,16 +5,16 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{9D1BC633-C1C9-A863-4750-154DB63905D2}</ProjectGuid>
+    <ProjectGuid>{8A511F37-AF4E-A1DA-6C38-246FE276D943}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
     <CompilerResponseFile></CompilerResponseFile>
-    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityProjectType>GamePlugins:3</UnityProjectType>
     <UnityBuildTarget>Android:13</UnityBuildTarget>
     <UnityVersion>5.4.1f1</UnityVersion>
     <RootNamespace></RootNamespace>
@@ -75,48 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Space Defender.CSharp.Plugins.csproj">
-      <Project>{8A511F37-AF4E-A1DA-6C38-246FE276D943}</Project>
-      <Name>Space Defender.CSharp.Plugins</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Assets\BGM.cs" />
-    <Compile Include="Assets\PinchZoom.cs" />
-    <Compile Include="Assets\Script\Basement\SourcePlanet.cs" />
-    <Compile Include="Assets\Script\BulletCollision\BulletCollision.cs" />
-    <Compile Include="Assets\Script\GUI\CircleButton.cs" />
-    <Compile Include="Assets\Script\GUI\CircleMenu.cs" />
-    <Compile Include="Assets\Script\GUI\CircleSpwaner.cs" />
-    <Compile Include="Assets\Script\GUI\Interactable.cs" />
-    <Compile Include="Assets\Script\GUI\ScoreBoard.cs" />
-    <Compile Include="Assets\Script\GUI\TouchControl.cs" />
-    <Compile Include="Assets\Script\GUI\Turtorial.cs" />
-    <Compile Include="Assets\Script\Manager\Delay.cs" />
-    <Compile Include="Assets\Script\Manager\Dispatcher.cs" />
-    <Compile Include="Assets\Script\Manager\EnemyBuilder.cs" />
-    <Compile Include="Assets\Script\Manager\GameInitializator.cs" />
-    <Compile Include="Assets\Script\Manager\LevelManager\Level.cs" />
-    <Compile Include="Assets\Script\Manager\LevelManager\LevelManager.cs" />
-    <Compile Include="Assets\Script\Manager\TimerManager.cs" />
-    <Compile Include="Assets\Script\Manager\Utility\Killer.cs" />
-    <Compile Include="Assets\Script\Manager\Utility\MonoBehaviourExtended.cs" />
-    <Compile Include="Assets\Script\Manager\Utility\Singleton.cs" />
-    <Compile Include="Assets\Script\Manager\Utility\Toolbox.cs" />
-    <Compile Include="Assets\Script\Manager\Utility\Victim.cs" />
-    <Compile Include="Assets\Script\Movement\BulletMover.cs" />
-    <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
-    <Compile Include="Assets\Script\Mover.cs" />
-    <Compile Include="Assets\Script\ResRotate.cs" />
-    <Compile Include="Assets\Script\Scene\loadSceneSelection.cs" />
-    <Compile Include="Assets\Script\Ships\Enemy.cs" />
-    <Compile Include="Assets\Script\Ships\Naga.cs" />
-    <Compile Include="Assets\Script\TemplateFile.cs" />
-    <Compile Include="Assets\Script\Testing\TurretActionExample.cs" />
-    <Compile Include="Assets\Script\Turret\DoubleBarrels.cs" />
-    <Compile Include="Assets\Script\Turret\SingleBarrel.cs" />
-    <Compile Include="Assets\Script\Turret\TurretBase.cs" />
-    <Compile Include="Assets\subMenu.cs" />
+    <Compile Include="Assets\plugins\SimpleJSON.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
