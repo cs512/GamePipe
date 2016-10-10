@@ -255,11 +255,13 @@ MonoBehaviour:
   fireInterval: 1000
   rotateSpeed: 10
   nextFire: 1
+  currentTarget: {fileID: 0}
   showRange: 1
   range: 500
+  turretCost: 5
   shotSpawnR: {fileID: 4000013863102792}
   shotSpawnL: {fileID: 4000013650933576}
-  shot: {fileID: 1000013582402442, guid: 7ff03ebea7c4c4c47b3999fea3691fbe, type: 2}
+  shot: {fileID: 1000010303897368, guid: 7ff03ebea7c4c4c47b3999fea3691fbe, type: 2}
 --- !u!135 &135000010532149934
 SphereCollider:
   m_ObjectHideFlags: 1
