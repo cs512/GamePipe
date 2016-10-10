@@ -6,7 +6,7 @@ public class BulletMover : TurretBase {
     public float speed;
     public float damage;
     public float bulletRotateSpeed = 100f;
-
+    public Transform target;
     void Start() {
         //GetComponent<Rigidbody>().velocity = transform.forward * speed;
         //Destroy(gameObject, 10);
