@@ -17,6 +17,10 @@ public class loadSceneSelection : MonoBehaviour {
         {
             SceneManager.LoadScene("levelSelection");
         }
+        else if (gameObject.name.Contains("Level"))
+        {
+            SceneManager.LoadScene("levelSelection");
+        }
 
     }
 }
