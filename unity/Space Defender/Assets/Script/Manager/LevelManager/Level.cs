@@ -8,18 +8,17 @@ public class Level {
 
     public class Wave {
         public class SpawnPoint {
-            Vector3 position;
-            string prefab;
-            float interval;
-            int number;
+            public Vector3 position;
+            public string prefab;
+            public float interval;
+            public int number;
         }
-        int waveDuring;
-        int spawnPointCount;
-        List<SpawnPoint> spawnPoints;
+        public int waveDuring;
+        public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();
     }
 
     public string name;
-    public List<Wave> waves;
+    public List<Wave> waves = new List<Wave>();
 
     public string GetName() {
         return this.name;
