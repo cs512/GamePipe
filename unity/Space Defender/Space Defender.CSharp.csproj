@@ -112,6 +112,7 @@
     <Compile Include="Assets\Script\Turret\DoubleBarrels.cs" />
     <Compile Include="Assets\Script\Turret\SingleBarrel.cs" />
     <Compile Include="Assets\Script\Turret\TurretBase.cs" />
+    <Compile Include="Assets\evalutaion.cs" />
     <Compile Include="Assets\music.cs" />
     <Compile Include="Assets\subMenu.cs" />
   </ItemGroup>
