@@ -200,7 +200,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -226,8 +226,12 @@ MonoBehaviour:
   fireInterval: 1500
   rotateSpeed: 5
   nextFire: 1
+  currentTarget: {fileID: 0}
   showRange: 1
   range: 500
+  turretCost: 5
+  health: 5
+  explosion: {fileID: 0}
   shotSpawn: {fileID: 4000012263439344}
   shot: {fileID: 1000011598069564, guid: 937e3c0c242d76e40bbe1bb8a0045644, type: 2}
 --- !u!135 &135000011170624574

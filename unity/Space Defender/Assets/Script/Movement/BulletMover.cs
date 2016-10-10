@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletMover : TurretBase {
+public abstract class BulletMover : MonoBehaviour{
     public float speed;
     public float damage;
     public float bulletRotateSpeed = 100f;
@@ -37,19 +37,6 @@ public class BulletMover : TurretBase {
     public Transform getTarget() {
         return this.target;
     }
-    void OnTriggerEnter(Collider other) {
+    abstract public void OnTriggerEnter(Collider other);
 
-        if (other.tag == "Enemy") {
-            Destroy(gameObject);
-            Victim victim = other.GetComponent<Enemy>();
-            victim.DealDamage(this.damage);
-            Debug.Log(victim.GetHealth());
-        }
-    }
-    public override void SetUpAttributions() {
-        return;
-    }
-    public override void ShotSpawn() {
-        return;
-    }
 }
