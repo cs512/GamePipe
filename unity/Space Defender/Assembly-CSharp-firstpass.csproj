@@ -6,10 +6,10 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8BEBBDD9-AB20-AB52-2C7C-B318659E42F0}</ProjectGuid>
+    <ProjectGuid>{0E529BC0-C473-6895-04BF-90A617C2F387}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <AssemblyName>Assembly-CSharp-firstpass</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>Assets</BaseDirectory>
@@ -45,38 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\Basement\SourcePlanet.cs" />
-     <Compile Include="Assets\Script\BulletCollision\BulletCollision.cs" />
-     <Compile Include="Assets\Script\GUI\BGM.cs" />
-     <Compile Include="Assets\Script\GUI\CircleButton.cs" />
-     <Compile Include="Assets\Script\GUI\CircleMenu.cs" />
-     <Compile Include="Assets\Script\GUI\CircleSpwaner.cs" />
-     <Compile Include="Assets\Script\GUI\Interactable.cs" />
-     <Compile Include="Assets\Script\GUI\ScoreBoard.cs" />
-     <Compile Include="Assets\Script\GUI\TouchControl.cs" />
-     <Compile Include="Assets\Script\GUI\Turtorial.cs" />
-     <Compile Include="Assets\Script\Manager\Dispatcher.cs" />
-     <Compile Include="Assets\Script\Manager\EnemyBuilder.cs" />
-     <Compile Include="Assets\Script\Manager\GameInitializator.cs" />
-     <Compile Include="Assets\Script\Manager\LevelManager\Level.cs" />
-     <Compile Include="Assets\Script\Manager\LevelManager\LevelManager.cs" />
-     <Compile Include="Assets\Script\Manager\TimerManager.cs" />
-     <Compile Include="Assets\Script\Manager\Utility\Killer.cs" />
-     <Compile Include="Assets\Script\Manager\Utility\MonoBehaviourExtended.cs" />
-     <Compile Include="Assets\Script\Manager\Utility\Singleton.cs" />
-     <Compile Include="Assets\Script\Manager\Utility\Toolbox.cs" />
-     <Compile Include="Assets\Script\Manager\Utility\Victim.cs" />
-     <Compile Include="Assets\Script\Movement\BulletMover.cs" />
-     <Compile Include="Assets\Script\Movement\EnemyBullet.cs" />
-     <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
-     <Compile Include="Assets\Script\Movement\TurretBullet.cs" />
-     <Compile Include="Assets\Script\Scene\loadSceneSelection.cs" />
-     <Compile Include="Assets\Script\Ships\Enemy.cs" />
-     <Compile Include="Assets\Script\Ships\Naga.cs" />
-     <Compile Include="Assets\Script\Testing\TurretActionExample.cs" />
-     <Compile Include="Assets\Script\Turret\DoubleBarrels.cs" />
-     <Compile Include="Assets\Script\Turret\SingleBarrel.cs" />
-     <Compile Include="Assets\Script\Turret\TurretBase.cs" />
+     <Compile Include="Assets\plugins\SimpleJSON.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -86,10 +55,6 @@
  <Reference Include="ICSharpCode.SharpZipLib">
  <HintPath>/Users/liangruiwen/Desktop/new526/GamePipe/unity/Space Defender/Assets/plugins/ICSharpCode.SharpZipLib.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{0E529BC0-C473-6895-04BF-90A617C2F387}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

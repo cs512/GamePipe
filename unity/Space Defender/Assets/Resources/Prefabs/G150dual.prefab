@@ -229,7 +229,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -259,9 +259,11 @@ MonoBehaviour:
   showRange: 1
   range: 500
   turretCost: 5
+  health: 5
+  explosion: {fileID: 0}
   shotSpawnR: {fileID: 4000013863102792}
   shotSpawnL: {fileID: 4000013650933576}
-  shot: {fileID: 1000010303897368, guid: 7ff03ebea7c4c4c47b3999fea3691fbe, type: 2}
+  shot: {fileID: 1000013582402442, guid: 7ff03ebea7c4c4c47b3999fea3691fbe, type: 2}
 --- !u!135 &135000010532149934
 SphereCollider:
   m_ObjectHideFlags: 1
