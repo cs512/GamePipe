@@ -8,6 +8,9 @@ public class Turtorial : MonoBehaviour {
     public Transform transTex;
     public Text tText;
     private int i = 0;
+    public void timeReturn() {
+
+    }
     public void chTrText() {
         i++;
         if(i == 1) {
@@ -25,13 +28,13 @@ public class Turtorial : MonoBehaviour {
         }
         if (i == 3)
         {
+            transBut.width
             tText.text = "Now try to point on your planet.\nFind one of your faviourate SACS\n(space auto-counterattack system).\nHold and drag it to a good position.\nOnce you finished,click the text.";
         }
         if(i ==4) {
             tText.color = Color.blue;
             tText.text = "Enemy is coming!\nMaybe one is far from enough.";
-
-
+            
             Time.timeScale = 1;
         }
     }
