@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{8BEBBDD9-AB20-AB52-2C7C-B318659E42F0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -45,45 +46,44 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BGM.cs" />
-     <Compile Include="Assets\PinchZoom.cs" />
-     <Compile Include="Assets\Script\Basement\SourcePlanet.cs" />
-     <Compile Include="Assets\Script\BulletCollision\BulletCollision.cs" />
-     <Compile Include="Assets\Script\GUI\CircleButton.cs" />
-     <Compile Include="Assets\Script\GUI\CircleMenu.cs" />
-     <Compile Include="Assets\Script\GUI\CircleSpwaner.cs" />
-     <Compile Include="Assets\Script\GUI\Interactable.cs" />
-     <Compile Include="Assets\Script\GUI\ScoreBoard.cs" />
-     <Compile Include="Assets\Script\GUI\TouchControl.cs" />
-     <Compile Include="Assets\Script\GUI\Turtorial.cs" />
-     <Compile Include="Assets\Script\Manager\Delay.cs" />
-     <Compile Include="Assets\Script\Manager\Dispatcher.cs" />
-     <Compile Include="Assets\Script\Manager\EnemyBuilder.cs" />
-     <Compile Include="Assets\Script\Manager\LevelManager.cs" />
-     <Compile Include="Assets\Script\Manager\TimerManager.cs" />
-     <Compile Include="Assets\Script\Manager\Utility\Killer.cs" />
-     <Compile Include="Assets\Script\Manager\Utility\MonoBehaviourExtended.cs" />
-     <Compile Include="Assets\Script\Manager\Utility\Singleton.cs" />
-     <Compile Include="Assets\Script\Manager\Utility\Toolbox.cs" />
-     <Compile Include="Assets\Script\Manager\Utility\Victim.cs" />
-     <Compile Include="Assets\Script\Movement\BulletMover.cs" />
-     <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
-     <Compile Include="Assets\Script\Mover.cs" />
-     <Compile Include="Assets\Script\ResRotate.cs" />
-     <Compile Include="Assets\Script\Scene\loadSceneSelection.cs" />
-     <Compile Include="Assets\Script\Ships\Enemy.cs" />
-     <Compile Include="Assets\Script\Ships\Naga.cs" />
-     <Compile Include="Assets\Script\Testing\TurretActionExample.cs" />
-     <Compile Include="Assets\Script\Turret\DoubleBarrels.cs" />
-     <Compile Include="Assets\Script\Turret\SingleBarrel.cs" />
-     <Compile Include="Assets\Script\Turret\TurretBase.cs" />
-     <Compile Include="Assets\subMenu.cs" />
- <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\BGM.cs" />
+    <Compile Include="Assets\PinchZoom.cs" />
+    <Compile Include="Assets\Script\Basement\SourcePlanet.cs" />
+    <Compile Include="Assets\Script\BulletCollision\BulletCollision.cs" />
+    <Compile Include="Assets\Script\GUI\CircleButton.cs" />
+    <Compile Include="Assets\Script\GUI\CircleMenu.cs" />
+    <Compile Include="Assets\Script\GUI\CircleSpwaner.cs" />
+    <Compile Include="Assets\Script\GUI\Interactable.cs" />
+    <Compile Include="Assets\Script\GUI\ScoreBoard.cs" />
+    <Compile Include="Assets\Script\GUI\TouchControl.cs" />
+    <Compile Include="Assets\Script\GUI\Turtorial.cs" />
+    <Compile Include="Assets\Script\Manager\Dispatcher.cs" />
+    <Compile Include="Assets\Script\Manager\EnemyBuilder.cs" />
+    <Compile Include="Assets\Script\Manager\LevelManager.cs" />
+    <Compile Include="Assets\Script\Manager\TimerManager.cs" />
+    <Compile Include="Assets\Script\Manager\Utility\Killer.cs" />
+    <Compile Include="Assets\Script\Manager\Utility\MonoBehaviourExtended.cs" />
+    <Compile Include="Assets\Script\Manager\Utility\Singleton.cs" />
+    <Compile Include="Assets\Script\Manager\Utility\Toolbox.cs" />
+    <Compile Include="Assets\Script\Manager\Utility\Victim.cs" />
+    <Compile Include="Assets\Script\Movement\BulletMover.cs" />
+    <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
+    <Compile Include="Assets\Script\Mover.cs" />
+    <Compile Include="Assets\Script\ResRotate.cs" />
+    <Compile Include="Assets\Script\Scene\loadSceneSelection.cs" />
+    <Compile Include="Assets\Script\Ships\Enemy.cs" />
+    <Compile Include="Assets\Script\Ships\Naga.cs" />
+    <Compile Include="Assets\Script\Testing\TurretActionExample.cs" />
+    <Compile Include="Assets\Script\Turret\DoubleBarrels.cs" />
+    <Compile Include="Assets\Script\Turret\SingleBarrel.cs" />
+    <Compile Include="Assets\Script\Turret\TurretBase.cs" />
+    <Compile Include="Assets\subMenu.cs" />
+    <Reference Include="UnityEngine.UI">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -93,5 +93,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
 </Project>
