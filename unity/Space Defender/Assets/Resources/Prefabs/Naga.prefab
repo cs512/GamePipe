@@ -230,9 +230,5 @@ MonoBehaviour:
   fireInterval: 500
   currentTarget: {fileID: 0}
   range: 300
-<<<<<<< HEAD
-  shot: {fileID: 1000012711780222, guid: abfcd77cb674543c0bfd9518ae26d19f, type: 2}
-=======
   shot: {fileID: 1000011398891984, guid: abfcd77cb674543c0bfd9518ae26d19f, type: 2}
->>>>>>> 9a2997a46ce3ab94a56536f698169c171176156d
   shotSpawn: {fileID: 4000013178946334}
