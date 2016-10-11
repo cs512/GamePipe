@@ -35,8 +35,8 @@ public class ScoreBoard : MonoBehaviour {
         tFunds.text = "Resource: " + fund.ToString();
     }
     public void setWaves() {
-        wave = GameObject.Find("EnemyTower1").GetComponent<EnemyBuilder>().wave.Length+ GameObject.Find("EnemyTower2").GetComponent<EnemyBuilder>().wave.Length+ GameObject.Find("EnemyTower3").GetComponent<EnemyBuilder>().wave.Length;
-
+        WaveManager waveMgr = GameObject.Find("WaveManager").GetComponent<WaveManager>();
+        wave = waveMgr.GetCurrentWave();
         tWaves.text = "Gates: " + wave.ToString();
     }
 
