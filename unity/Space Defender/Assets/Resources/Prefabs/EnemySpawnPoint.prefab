@@ -23,9 +23,6 @@ GameObject:
   - 135: {fileID: 135000010875620602}
   - 23: {fileID: 23000011709447302}
   - 114: {fileID: 114000010391962240}
-  - 114: {fileID: 114000013488124420}
-  - 114: {fileID: 114000012147845518}
-  - 114: {fileID: 114000014177917174}
   m_Layer: 0
   m_Name: EnemySpawnPoint
   m_TagString: Untagged
@@ -40,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010674800406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 100, y: 0, z: 100}
+  m_LocalPosition: {x: -750, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -95,57 +92,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextWaveTime: 0
   intervelTime: 0
-  damage: 0
-  speed: 0
-  wave: []
---- !u!114 &114000012147845518
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010674800406}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74785c056558c814eba5968e040060ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextWaveTime: 5
-  intervelTime: 0.5
-  damage: 0.5
-  speed: 0
-  wave: []
---- !u!114 &114000013488124420
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010674800406}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74785c056558c814eba5968e040060ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextWaveTime: 5
-  intervelTime: 0.5
-  damage: 0.5
-  speed: 0
-  wave: []
---- !u!114 &114000014177917174
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000010674800406}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74785c056558c814eba5968e040060ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextWaveTime: 5
-  intervelTime: 0.5
-  damage: 0.5
-  speed: 0
-  wave: []
+  damage: 5
+  speed: 3
+  wave:
+  - enenmyPrefab: {fileID: 1000011303564632, guid: 4d9d2a28a757de64cb34414fa348cf25,
+      type: 2}
+    num: 5
+    shooted: 0
 --- !u!135 &135000010875620602
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -154,7 +107,7 @@ SphereCollider:
   m_GameObject: {fileID: 1000010674800406}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
