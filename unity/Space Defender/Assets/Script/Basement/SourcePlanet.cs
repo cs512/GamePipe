@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class SourcePlanet : MonoBehaviour, Victim {
@@ -9,11 +10,16 @@ public class SourcePlanet : MonoBehaviour, Victim {
     public GameObject explosion;
     public float fund;
     public int intervalRate;
+	public Slider healthSlider;
+
+	private float maxHealth;
 
     // Use this for initialization
     void Start() {
         intervalRate = 30;   
         fund = -1.0f;
+
+		maxHealth = health;
     }
 
     // Update is called once per frame
@@ -21,6 +27,14 @@ public class SourcePlanet : MonoBehaviour, Victim {
         transform.Rotate(Vector3.forward * Time.deltaTime * rotateSpeed, Space.World);
         generateFund();
     }
+
+	void OnEnable() {
+		SetHealthUI();
+	}
+
+	void SetHealthUI() {
+		healthSlider.value = health / maxHealth * 100;
+	}
 
     int Victim.GetID() {
         return GetInstanceID();
@@ -35,6 +49,7 @@ public class SourcePlanet : MonoBehaviour, Victim {
             Destroy(boom, 2);
             GetComponent<Renderer>().enabled =false;
         }
+		SetHealthUI();
     }
 
     float Victim.GetHealth() {

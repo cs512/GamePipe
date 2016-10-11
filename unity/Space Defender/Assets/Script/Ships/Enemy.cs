@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public abstract class Enemy : MonoBehaviour, Victim,Killer {
@@ -15,7 +16,10 @@ public abstract class Enemy : MonoBehaviour, Victim,Killer {
     public float range;
     public GameObject shot;
     public Transform shotSpawn;
+	public Slider healthSlider;
     
+	private float maxHealth;
+
     public int GetFireInterval() {
         return fireInterval;
     }
@@ -26,6 +30,8 @@ public abstract class Enemy : MonoBehaviour, Victim,Killer {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.enemyRegisteVictim(this);
         dispatcher.enemyRegisteKiller(this);
+
+		maxHealth = health;
         
     }
 
@@ -43,6 +49,16 @@ public abstract class Enemy : MonoBehaviour, Victim,Killer {
         this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(90f, 0f, 0f);
     }
 
+	void OnEnable() {
+//		SetHealthUI();
+		print("health: " + healthSlider.value);
+	}
+
+	void SetHealthUI() {
+//		healthSlider.value = health / maxHealth * 100;
+		healthSlider.value = health;
+	}
+
 	void OnTriggerEnter(Collider colliderObject){
 		if (colliderObject.tag == "Planet") {
 			Victim victim = colliderObject.gameObject.GetComponent<SourcePlanet>();
@@ -55,6 +71,7 @@ public abstract class Enemy : MonoBehaviour, Victim,Killer {
 
     void Victim.DealDamage(float damage) {
         health -= damage;
+		SetHealthUI();
         if (health <= 0f) {
             this.DestorySelf();
         }
