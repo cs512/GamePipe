@@ -22,6 +22,10 @@ public class WaveManager : MonoBehaviour {
         this.SetWave(currentWave);
     }
 
+    public int GetCurrentWave() {
+        return this.currentWave;
+    }
+
     void SetWave(int n) {
         foreach(GameObject eb in this.ebs) {
             Destroy(eb);
@@ -29,10 +33,13 @@ public class WaveManager : MonoBehaviour {
         this.ebs = new List<GameObject>();
         if (n < level.waves.Count) {
             foreach (Level.Wave.SpawnPoint sp in level.waves[n].spawnPoints) {
-                GameObject go = Instantiate(Resources.Load("Prefabs/EnemySpawnPoint", typeof(GameObject)) as GameObject);
+                GameObject go = Resources.Load("Prefabs/EnemySpawnPoint", typeof(GameObject)) as GameObject;
                 print(go);
                 go.transform.position = sp.position;
                 EnemyBuilder eb = go.GetComponent<EnemyBuilder>();
+                eb.nextWaveTime = 3.0f;
+                eb.intervelTime = sp.interval;
+                print(sp.interval);
                 eb.damage = sp.damage;
                 eb.speed = sp.speed;
                 eb.wave = new EnemyBuilder.WaveComponent[1];
@@ -40,6 +47,7 @@ public class WaveManager : MonoBehaviour {
                 eb.wave[0].num = sp.number;
                 eb.wave[0].enenmyPrefab = Resources.Load("Prefabs/" + sp.prefab, typeof(GameObject)) as GameObject;
                 ebs.Add(go);
+                Instantiate(go);
             }
             this.waveDuring = level.waves[n].waveDuring;
         } else {

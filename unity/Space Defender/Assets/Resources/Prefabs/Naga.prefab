@@ -54,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010909683486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -17, y: 427, z: 43}
+  m_LocalPosition: {x: 0, y: 600, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -230,5 +230,9 @@ MonoBehaviour:
   fireInterval: 500
   currentTarget: {fileID: 0}
   range: 300
+<<<<<<< HEAD
   shot: {fileID: 1000012711780222, guid: abfcd77cb674543c0bfd9518ae26d19f, type: 2}
+=======
+  shot: {fileID: 1000011398891984, guid: abfcd77cb674543c0bfd9518ae26d19f, type: 2}
+>>>>>>> 9a2997a46ce3ab94a56536f698169c171176156d
   shotSpawn: {fileID: 4000013178946334}

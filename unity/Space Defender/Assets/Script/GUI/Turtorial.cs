@@ -10,9 +10,6 @@ public class Turtorial : MonoBehaviour {
     public Transform transTex;
     public Text tText;
     private int i = 0;
-    public void timeReturn() {
-
-    }
     public void chTrText() {
         i++;
         if(i == 1) {
@@ -25,19 +22,28 @@ public class Turtorial : MonoBehaviour {
             tText.text = "This is your sourcePlanet, also your basement.\nYou can upgrade it to gain resources quickly.\nBeware, you must protect it from enemies!";
             tText.color = Color.red;
             tText.fontSize = 25;
-            transBut.position = new Vector3(-20, 0, 40);
-            transTex.position = new Vector3(-20, 0, 40);
+            transBut.position = new Vector3(-200, 0, 40);
+            transTex.position = new Vector3(-200, 0, 40);
         }
         if (i == 3)
         {
-            //transBut.width
+            rButton.sizeDelta=new Vector2(400f,300f);
             tText.text = "Now try to point on your planet.\nFind one of your faviourate SACS\n(space auto-counterattack system).\nHold and drag it to a good position.\nOnce you finished,click the text.";
         }
         if(i ==4) {
             tText.color = Color.blue;
             tText.text = "Enemy is coming!\nMaybe one is far from enough.";
             Time.timeScale = 1;
+            Invoke("timeReturn", 5);
+            Debug.Log("1423124124");
         }
+    }
+    void timeReturn()
+    {
+        tText.text = "";
+        rButton.sizeDelta = new Vector2(0f, 0f);
+        Debug.Log("1afssa");
+
     }
     //public void transPos2() {
     //    trans.position = new Vector3(0,0,0);

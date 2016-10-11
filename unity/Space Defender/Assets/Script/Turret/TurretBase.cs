@@ -127,7 +127,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
 
     public void DestorySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-        dispatcher.enemyDeregisteVictim(this);
+        dispatcher.turretDeregisteVictim(this);
         dispatcher.turretDeregisteKiller(this);
         GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
         Destroy(gameObject);
