@@ -78,7 +78,7 @@ public class ScoreBoard : MonoBehaviour {
 
     //working on 
     public void gameOver() {
-        Debug.Log("Game Over!");
+        //Debug.Log("Game Over!");
 
         Time.timeScale = 0;
         //SceneManager.LoadScene("GameEnd");
