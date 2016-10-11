@@ -2,10 +2,12 @@
 using System.Collections;
 
 public class EnemyBullet : BulletMover {
-    override public void OnTriggerEnter(Collider other) {
-        if (other.tag == "Turrets") {
+    public string colliderObject;
+    override public void OnTriggerEnter(Collider turret) {
+        colliderObject=turret.tag;
+        if (colliderObject == "Turrets") {
             Destroy(gameObject);
-            Victim victim = other.GetComponent<Enemy>();
+            Victim victim = turret.GetComponent<TurretBase>();
             victim.DealDamage(this.damage);
             Debug.Log(victim.GetHealth());
         }
