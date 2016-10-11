@@ -14,6 +14,7 @@ public class WaveManager : MonoBehaviour {
     private int time = 0;
     private int waveDuring = 0;
     private int counter = 0;
+    private bool wavesCompleted = false;
 
     // Use this for initialization
     void Start() {
@@ -51,8 +52,13 @@ public class WaveManager : MonoBehaviour {
             }
             this.waveDuring = level.waves[n].waveDuring;
         } else {
+            this.wavesCompleted = true;
             this.waveDuring = 0;
         }
+    }
+
+    public bool HasComplete() {
+        return this.wavesCompleted;
     }
 
     // Update is called once per frame
