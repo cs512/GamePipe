@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreBoard : MonoBehaviour {
+     
+    public interface WaveProvider {
+        int getRemainingWaves();
+    }
+
     public float live = 0;
     private float staticLive = 0;
     public float fund = 10.0f;
     public float wave = 10;
+    public string waveProvider;
     public Text Waves;
     public Text Funds;
     public Text Lives;
@@ -36,12 +42,9 @@ public class ScoreBoard : MonoBehaviour {
         Funds.text = "Resource: " + fund.ToString();
         return Funds;
     }
-    public Text getWaves() {
-        wave = GameObject.Find("EnemyTower1").GetComponent<EnemyBuilder>().wave.Length+ GameObject.Find("EnemyTower2").GetComponent<EnemyBuilder>().wave.Length+ GameObject.Find("EnemyTower3").GetComponent<EnemyBuilder>().wave.Length;
-        Debug.Log(wave);
-        Waves.text = "Gates: " + wave.ToString();
 
-        return Waves;
+    public void getWaves() {
+        return;
     }
 
     //loseFund, >0 lose，<0 add, if money is not enough alert and nothing happend

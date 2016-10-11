@@ -3,9 +3,9 @@ using System.Collections;
 
 public class EnemyBuilder : MonoBehaviour {
 
-    public float nextWaveTime = 5f;
-    public float intervelTime = 0.5f;
-    public float damage = 0.5f;
+    public float nextWaveTime;
+    public float intervelTime;
+    public float damage;
     public float speed;
     GameObject target;
     Transform sourcePlanet;
