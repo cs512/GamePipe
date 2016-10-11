@@ -100,7 +100,9 @@
     <Compile Include="Assets\Script\Manager\Utility\Toolbox.cs" />
     <Compile Include="Assets\Script\Manager\Utility\Victim.cs" />
     <Compile Include="Assets\Script\Movement\BulletMover.cs" />
+    <Compile Include="Assets\Script\Movement\EnemyBullet.cs" />
     <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
+    <Compile Include="Assets\Script\Movement\TurretBullet.cs" />
     <Compile Include="Assets\Script\Scene\loadSceneSelection.cs" />
     <Compile Include="Assets\Script\Ships\Enemy.cs" />
     <Compile Include="Assets\Script\Ships\Naga.cs" />

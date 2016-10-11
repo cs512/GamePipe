@@ -9,9 +9,9 @@ public class ScoreBoard : MonoBehaviour {
     private float staticLive = 0;
     public float fund = 10.0f;
     public float wave = 10;
-    public Text Waves;
-    public Text Funds;
-    public Text Lives;
+    public Text tWaves;
+    public Text tFunds;
+    public Text tLives;
     //initial game with life and funds and waves
     public void initGame() {
         if (GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health == 0)
@@ -20,28 +20,24 @@ public class ScoreBoard : MonoBehaviour {
             live = GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health;
         staticLive = live;
     }
-    public Text getLive() {
+    public void setLive() {
         if (GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health == 0)
             live = 0;
         else
             live = GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health;
-        Lives.text = "Health :" + live.ToString();
+        tLives.text = "Health :" + live.ToString();
         if (live <= 0)
         {
             gameOver();
         }
-            return Lives;  
     }
-    public Text getFund() {      
-        Funds.text = "Resource: " + fund.ToString();
-        return Funds;
+    public void setFund() {      
+        tFunds.text = "Resource: " + fund.ToString();
     }
-    public Text getWaves() {
+    public void setWaves() {
         wave = GameObject.Find("EnemyTower1").GetComponent<EnemyBuilder>().wave.Length+ GameObject.Find("EnemyTower2").GetComponent<EnemyBuilder>().wave.Length+ GameObject.Find("EnemyTower3").GetComponent<EnemyBuilder>().wave.Length;
-        Debug.Log(wave);
-        Waves.text = "Gates: " + wave.ToString();
 
-        return Waves;
+        tWaves.text = "Gates: " + wave.ToString();
     }
 
     //loseFund, >0 lose，<0 add, if money is not enough alert and nothing happend
@@ -85,8 +81,8 @@ public class ScoreBoard : MonoBehaviour {
     }
     //Update is called once per frame
     void Update() {
-        getLive();
-        getFund();
-        getWaves();
+        setLive();
+        setFund();
+        setWaves();
     }
 }
