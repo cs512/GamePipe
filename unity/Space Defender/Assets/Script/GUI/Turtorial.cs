@@ -4,6 +4,8 @@ using UnityEngine.UI;
 using System;
 
 public class Turtorial : MonoBehaviour {
+    public RectTransform rButton;
+    public Button transButton;
     public Transform transBut;
     public Transform transTex;
     public Text tText;
@@ -34,7 +36,6 @@ public class Turtorial : MonoBehaviour {
         if(i ==4) {
             tText.color = Color.blue;
             tText.text = "Enemy is coming!\nMaybe one is far from enough.";
-            
             Time.timeScale = 1;
         }
     }
@@ -52,6 +53,8 @@ public class Turtorial : MonoBehaviour {
         tText.text = "Hello, Commander!";
         tText.fontSize = 40;
         Time.timeScale = 0;
+
+
     }
 	
 	// Update is called once per frame

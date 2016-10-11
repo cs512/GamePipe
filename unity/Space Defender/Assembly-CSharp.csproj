@@ -66,6 +66,7 @@
      <Compile Include="Assets\Script\Manager\Utility\Singleton.cs" />
      <Compile Include="Assets\Script\Manager\Utility\Toolbox.cs" />
      <Compile Include="Assets\Script\Manager\Utility\Victim.cs" />
+     <Compile Include="Assets\Script\Manager\WaveManager.cs" />
      <Compile Include="Assets\Script\Movement\BulletMover.cs" />
      <Compile Include="Assets\Script\Movement\EnemyBullet.cs" />
      <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
