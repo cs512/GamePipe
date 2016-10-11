@@ -22,6 +22,10 @@ public class WaveManager : MonoBehaviour {
         this.SetWave(currentWave);
     }
 
+    public int GetCurrentWave() {
+        return this.currentWave;
+    }
+
     void SetWave(int n) {
         foreach(GameObject eb in this.ebs) {
             Destroy(eb);
