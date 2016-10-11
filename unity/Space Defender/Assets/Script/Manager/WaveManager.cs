@@ -32,8 +32,9 @@ public class WaveManager : MonoBehaviour {
                 GameObject go = Instantiate(Resources.Load("Prefabs/EnemySpawnPoint", typeof(GameObject)) as GameObject);
                 print(go);
                 go.transform.position = sp.position;
-                go.AddComponent<EnemyBuilder>();
                 EnemyBuilder eb = go.GetComponent<EnemyBuilder>();
+                eb.damage = sp.damage;
+                eb.speed = sp.speed;
                 eb.wave = new EnemyBuilder.WaveComponent[1];
                 eb.wave[0] = new EnemyBuilder.WaveComponent();
                 eb.wave[0].num = sp.number;
