@@ -4,10 +4,15 @@ using UnityEngine.UI;
 using System;
 
 public class Turtorial : MonoBehaviour {
+    public RectTransform rButton;
+    public Button transButton;
     public Transform transBut;
     public Transform transTex;
     public Text tText;
     private int i = 0;
+    public void timeReturn() {
+
+    }
     public void chTrText() {
         i++;
         if(i == 1) {
@@ -25,13 +30,12 @@ public class Turtorial : MonoBehaviour {
         }
         if (i == 3)
         {
+            //transBut.width
             tText.text = "Now try to point on your planet.\nFind one of your faviourate SACS\n(space auto-counterattack system).\nHold and drag it to a good position.\nOnce you finished,click the text.";
         }
         if(i ==4) {
             tText.color = Color.blue;
             tText.text = "Enemy is coming!\nMaybe one is far from enough.";
-
-
             Time.timeScale = 1;
         }
     }
@@ -49,6 +53,8 @@ public class Turtorial : MonoBehaviour {
         tText.text = "Hello, Commander!";
         tText.fontSize = 40;
         Time.timeScale = 0;
+
+
     }
 	
 	// Update is called once per frame

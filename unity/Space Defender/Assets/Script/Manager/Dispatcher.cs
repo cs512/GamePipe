@@ -6,8 +6,10 @@ using System.Collections.Generic;
 public class Dispatcher : MonoBehaviour {
 
     private TimerManager tm = new TimerManager();
-    private Dictionary<int, Killer> killers = new Dictionary<int, Killer>();
-    private Dictionary<int, Victim> victims = new Dictionary<int, Victim>();
+    public Dictionary<int, Killer> enemyKillers = new Dictionary<int, Killer>();
+    public Dictionary<int, Victim> enemyVictims = new Dictionary<int, Victim>();
+    public Dictionary<int, Killer> turretKillers = new Dictionary<int, Killer>();
+    public Dictionary<int, Victim> turretVictims = new Dictionary<int, Victim>();
     // Use this for initialization
     void Start() {
         print("Dispatcher start");
@@ -20,41 +22,79 @@ public class Dispatcher : MonoBehaviour {
         }
     }
 
-    public void RegisteKiller(Killer killer) {
-        print("Register: killer" + killer.GetID().ToString());
-        if (!this.killers.ContainsKey(killer.GetID())) {
-            this.killers.Add(killer.GetID(), killer);
-            this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.TriggerAttack, killer.GetID(), killer);
+    public void enemyRegisteKiller(Killer killer) {
+        print("enemyRegister: killer" + killer.GetID().ToString());
+        if (!this.enemyKillers.ContainsKey(killer.GetID())) {
+            this.enemyKillers.Add(killer.GetID(), killer);
+            this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.enemyTriggerAttack, killer.GetID(), killer);
         }
         return;
     }
 
-    public void DeregisteKiller(Killer killer) {
-        if (this.killers.ContainsKey(killer.GetID())) {
-            this.killers.Remove(killer.GetID());
+    public void enemyDeregisteKiller(Killer killer) {
+        if (this.enemyKillers.ContainsKey(killer.GetID())) {
+            this.enemyKillers.Remove(killer.GetID());
         }
         return;
     }
 
-    public void RegisteVictim(Victim victim) {
+    public void enemyRegisteVictim(Victim victim) {
         print("Register: " + victim.GetID().ToString());
-        if (!this.victims.ContainsKey(victim.GetID())) {
-            this.victims.Add(victim.GetID(), victim);
+        if (!this.enemyVictims.ContainsKey(victim.GetID())) {
+            this.enemyVictims.Add(victim.GetID(), victim);
         }
         return;
     }
 
-    public void DeregisteVictim(Victim victim) {
-        if (this.victims.ContainsKey(victim.GetID())) {
-            this.victims.Remove(victim.GetID());
+    public void enemyDeregisteVictim(Victim victim) {
+        if (this.enemyVictims.ContainsKey(victim.GetID())) {
+            this.enemyVictims.Remove(victim.GetID());
+        }
+        return;
+    }
+    
+    public void turretRegisteKiller(Killer killer) {
+        print("enemyRegister: killer" + killer.GetID().ToString());
+        if (!this.turretKillers.ContainsKey(killer.GetID())) {
+            this.turretKillers.Add(killer.GetID(), killer);
+            this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.turretTriggerAttack, killer.GetID(), killer);
         }
         return;
     }
 
-    private void TriggerAttack(int instanceID, Killer killer) {
-        if (this.killers.ContainsKey(instanceID)) {
-            killer.Attack(this.victims);
-            this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.TriggerAttack, instanceID, killer);
+    public void turretDeregisteKiller(Killer killer) {
+        if (this.turretKillers.ContainsKey(killer.GetID())) {
+            this.turretKillers.Remove(killer.GetID());
+        }
+        return;
+    }
+
+    public void turretRegisteVictim(Victim victim) {
+        print("Register: " + victim.GetID().ToString());
+        if (!this.turretVictims.ContainsKey(victim.GetID())) {
+            this.turretVictims.Add(victim.GetID(), victim);
+        }
+        return;
+    }
+
+    public void turretDeregisteVictim(Victim victim) {
+        if (this.turretVictims.ContainsKey(victim.GetID())) {
+            this.turretVictims.Remove(victim.GetID());
+        }
+        return;
+    }
+
+    private void enemyTriggerAttack(int instanceID, Killer killer) {
+        if (this.enemyKillers.ContainsKey(instanceID)) {
+            killer.Attack(this.turretVictims);
+            this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.enemyTriggerAttack, instanceID, killer);
+        }
+        return;
+    }
+    private void turretTriggerAttack(int instanceID, Killer killer) {
+        if (this.turretKillers.ContainsKey(instanceID)) {
+            killer.Attack(this.enemyVictims);
+            this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.turretTriggerAttack, instanceID, killer);
         }
         return;
     }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public abstract class TurretBase : MonoBehaviour, Killer {
+public abstract class TurretBase : MonoBehaviour, Killer,Victim {
 
     private Vector3 screenPoint;
     private Vector3 offset;
@@ -20,10 +20,15 @@ public abstract class TurretBase : MonoBehaviour, Killer {
     public float range;
 
     public float turretCost = 5.0f;
+    
+    public float health;
+    
+    public GameObject explosion;
 
     void Start() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-        dispatcher.RegisteKiller(this);
+        dispatcher.turretRegisteVictim(this);
+        dispatcher.turretRegisteKiller(this);
         GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(turretCost);
     }
 
@@ -35,7 +40,8 @@ public abstract class TurretBase : MonoBehaviour, Killer {
 
     void DestroySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-        dispatcher.DeregisteKiller(this);
+        dispatcher.turretDeregisteKiller(this);
+        dispatcher.turretDeregisteVictim(this);
         Destroy(this);
     }
 
@@ -52,30 +58,35 @@ public abstract class TurretBase : MonoBehaviour, Killer {
         transform.position = cursorPosition;
     }
 
-    void Killer.Attack(Dictionary<int, Victim> victims) {
-        float min_dist = float.MaxValue;
-        print("current target: " + currentTarget);
-        if (currentTarget != null && (range < Vector3.Distance(currentTarget.position, transform.position) || currentVictim.GetHealth() <= 0f)) {
-            currentTarget = null;
-            currentVictim = null;
-        }
-        if (currentTarget == null) {
-            foreach (int id in victims.Keys) {
-                print(id + " : " + victims[id]);
-                GameObject targetObj = victims[id].GetGameObject();
-                Transform target = targetObj.transform;
-                float distance = Vector3.Distance(target.position, transform.position);
-                if (range < distance)
-                    continue;
-                if (min_dist >= distance) {
-                    currentTarget = target;
-                    currentVictim = victims[id];
-                    min_dist = distance;
+    public void Attack(Dictionary<int, Victim> victims) {
+        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+        if (victims.Count != 0) {
+            float min_dist = float.MaxValue;
+            print ("current target: " + currentTarget);
+            if (currentTarget != null && (range < Vector3.Distance (currentTarget.position, transform.position) || currentVictim.GetHealth () <= 0f)) {
+                currentTarget = null;
+                currentVictim = null;
+            }
+            if (currentTarget == null) {
+                foreach (int id in victims.Keys) {
+                    print (id + " : " + victims [id]);
+                    if (dispatcher.enemyVictims.ContainsKey (id)) {
+                        GameObject targetObj = victims[id].GetGameObject ();
+                        Transform target = targetObj.transform;
+                        float distance = Vector3.Distance (target.position, transform.position);
+                        if (range < distance)
+                            continue;
+                        if (min_dist >= distance) {
+                            currentTarget = target;
+                            currentVictim = victims [id];
+                            min_dist = distance;
+                        }
+                    }
                 }
             }
-        }
-        if (currentTarget != null) {
-            ShotSpawn();
+            if (currentTarget != null) {
+                ShotSpawn ();
+            }
         }
     }
 
@@ -93,14 +104,40 @@ public abstract class TurretBase : MonoBehaviour, Killer {
             Gizmos.DrawWireSphere(transform.position, range);
         }
     }
-
-    int Killer.GetFireInterval() {
+    
+    int Victim.GetID() {
+        return GetInstanceID();
+    }
+    
+    //regard turretBase as a victim
+    public int GetFireInterval() {
         return fireInterval;
     }
 
     int Killer.GetID() {
         return GetInstanceID();
     }
-
     
+    public void DealDamage(float damage) {
+        health -= damage;
+        if (health <= 0f) {
+            this.DestorySelf();
+        }
+    }
+
+    public void DestorySelf() {
+        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+        dispatcher.enemyDeregisteVictim(this);
+        dispatcher.turretDeregisteKiller(this);
+        GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+        Destroy(gameObject);
+        Destroy(boom, 2);
+    }
+
+    public float GetHealth() {
+        return health;
+    }
+    public GameObject GetGameObject() {
+        return this.gameObject;
+    }
 }
