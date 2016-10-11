@@ -24,7 +24,7 @@ public class WaveManager : MonoBehaviour {
     }
 
     public int GetCurrentWave() {
-        return this.currentWave;
+        return this.currentWave+1;
     }
 
     void SetWave(int n) {

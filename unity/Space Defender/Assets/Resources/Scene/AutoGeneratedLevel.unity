@@ -898,11 +898,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 5
-  health: 10
+  health: 100
   shockHit: {fileID: 0}
   explosion: {fileID: 0}
   fund: 0
   intervalRate: 0
+  healthSlider: {fileID: 0}
 --- !u!1 &1585968977
 GameObject:
   m_ObjectHideFlags: 0
