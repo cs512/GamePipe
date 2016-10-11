@@ -12,6 +12,8 @@ public class Level {
             public string prefab;
             public float interval;
             public int number;
+            public float damage;
+            public float speed;
         }
         public int waveDuring;
         public List<SpawnPoint> spawnPoints = new List<SpawnPoint>();

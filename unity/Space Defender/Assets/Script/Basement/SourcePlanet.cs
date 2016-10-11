@@ -49,7 +49,7 @@ public class SourcePlanet : MonoBehaviour, Victim {
     {
         if (Time.frameCount % intervalRate == 0)
         {
-            GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(fund);
+           GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(fund);
         }          
     }
 
