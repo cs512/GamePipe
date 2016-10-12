@@ -24,7 +24,7 @@ public class ScoreBoard : MonoBehaviour {
             live = 0;
         else
             live = GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health;
-        tLives.text = "Health :" + live.ToString();
+        tLives.text = "Health: " + live.ToString();
         if (live <= 0)
         {
             gameOver();
@@ -35,8 +35,9 @@ public class ScoreBoard : MonoBehaviour {
     }
     public void setWaves() {
         WaveManager waveMgr = GameObject.Find("WaveManager").GetComponent<WaveManager>();
-        wave = waveMgr.GetCurrentWave();
-        tWaves.text = "Gates: " + wave.ToString();
+        wave = waveMgr.GetRemainedWave();
+        Debug.Log(wave);
+        tWaves.text = "Remaining Waves: " + wave.ToString();
     }
 
     //loseFund, >0 lose，<0 add, if money is not enough alert and nothing happend

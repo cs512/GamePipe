@@ -54,6 +54,9 @@ class LevelManager : MonoBehaviour {
     public Level GetCurrentLevel() {
         return this.levels[this.level];
     }
+    public void ReloadLevel() {
+        this.JumpLevel(this.level);
+    }
 
     public bool JumpToNextLevel() {
         if (this.level + 1 >= this.levels.Count)

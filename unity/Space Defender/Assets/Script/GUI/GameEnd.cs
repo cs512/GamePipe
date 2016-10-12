@@ -3,28 +3,34 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class GameEnd : MonoBehaviour {
-    Scene activeScene = SceneManager.GetActiveScene();
-    public string path = "";
+    LevelManager lvlMgr = GameObject.Find("LevelManger").GetComponent<LevelManager>();
+    public Sprite tri1;
+    public Sprite tri2;
+    public Sprite tri3;
     public void Retry() {// that is a reloading of this scene
-        if (activeScene.path != "")
-        {
-            path += activeScene.path;
-            SceneManager.LoadScene(path);
+        try {
+            lvlMgr.ReloadLevel();
         }
-        else
-            Debug.Log("Scene Wrong!");
+        catch
+        {
+            Debug.Log("wrong with LevelManager.cs");
+        }
     }
     public void Next() {//To the next level.
-        if (path != "")
+        if (lvlMgr.JumpToNextLevel() == false)
         {
-            SceneManager.LoadScene(path);
+            Debug.Log("No Next Level!");
         }
         else
-            Debug.Log("Cant get next Level!");
+            lvlMgr.JumpToNextLevel();
     }
     public void Back() {//go back to the Level Selection
         SceneManager.LoadScene("levelSelection");
     }
+    HideEnd() {
+
+    }
+    ShowEnd
 
 	// Use this for initialization
 	void Start () {
