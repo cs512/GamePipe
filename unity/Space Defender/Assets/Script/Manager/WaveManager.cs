@@ -51,10 +51,10 @@ public class WaveManager : MonoBehaviour {
                 eb.wave[0] = new EnemyBuilder.WaveComponent();
                 eb.wave[0].num = sp.number;
                 eb.wave[0].enenmyPrefab = Resources.Load("Prefabs/" + sp.prefab, typeof(GameObject)) as GameObject;
-                ebs.Add(go);
-                Instantiate(go);
+                ebs.Add(Instantiate(go));
             }
             this.waveDuring = level.waves[n].waveDuring;
+            print("waveDuring:" + this.waveDuring.ToString());
         } else {
             this.wavesCompleted = true;
             this.waveDuring = 0;
@@ -72,6 +72,7 @@ public class WaveManager : MonoBehaviour {
                 this.time = (int)Time.time;
                 this.currentWave++;
                 this.SetWave(this.currentWave);
+                print(this.currentWave);
             }
         }
     }
