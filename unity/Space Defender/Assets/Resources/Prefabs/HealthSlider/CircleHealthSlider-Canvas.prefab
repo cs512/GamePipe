@@ -40,7 +40,7 @@ GameObject:
   - 114: {fileID: 114000011841300332}
   - 114: {fileID: 114000010913574584}
   m_Layer: 5
-  m_Name: CircleHealthSlider-Canvas 1
+  m_Name: CircleHealthSlider-Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
