@@ -120,10 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed630243993c54f7ea0f36a36254e20d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 300
+  speed: 275
   damage: 1
-  bulletRotateSpeed: 100
+  bulletRotateSpeed: 200
   target: {fileID: 0}
+  colliderObject: 
 --- !u!136 &136000011701399204
 CapsuleCollider:
   m_ObjectHideFlags: 1

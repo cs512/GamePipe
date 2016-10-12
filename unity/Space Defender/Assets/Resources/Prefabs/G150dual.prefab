@@ -375,7 +375,7 @@ MonoBehaviour:
   showRange: 1
   range: 500
   turretCost: 75
-  health: 5
+  health: 30
   explosion: {fileID: 1000012970080796, guid: 5164400c8315b422cb8799f814648cd0, type: 2}
   healthSlider: {fileID: 114000012963231956}
   shotSpawnR: {fileID: 4000013863102792}

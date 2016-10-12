@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 200
-  damage: 1
+  damage: 10
   health: 5
   explosion: {fileID: 1000012970080796, guid: 767167072980b194481944cbb3f21023, type: 2}
   fireInterval: 1000
