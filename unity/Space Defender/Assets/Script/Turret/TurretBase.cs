@@ -9,7 +9,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
 
     public int fireInterval;
     public Dictionary<int, Victim> victims;
-
+    
     public float rotateSpeed;
 
     public Victim currentVictim = null;
@@ -26,7 +26,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
     
     public GameObject explosion;
 
-	//public Slider healthSlider;
+	public Slider healthSlider;
 
 	private float maxHealth;
 
@@ -34,7 +34,6 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.turretRegisteVictim(this);
         dispatcher.turretRegisteKiller(this);
-        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(turretCost);
 
 		maxHealth = health;
     }
@@ -54,6 +53,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
         dispatcher.turretDeregisteKiller(this);
         dispatcher.turretDeregisteVictim(this);
         Destroy(this);
+        
     }
 
     abstract public void SetUpAttributions();
@@ -73,14 +73,14 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         if (victims.Count != 0) {
             float min_dist = float.MaxValue;
-            print ("current target: " + currentTarget);
+            //print ("current target: " + currentTarget);
             if (currentTarget != null && (range < Vector3.Distance (currentTarget.position, transform.position) || currentVictim.GetHealth () <= 0f)) {
                 currentTarget = null;
                 currentVictim = null;
             }
             if (currentTarget == null) {
                 foreach (int id in victims.Keys) {
-                    print (id + " : " + victims [id]);
+                    //print (id + " : " + victims [id]);
                     if (dispatcher.enemyVictims.ContainsKey (id)) {
                         GameObject targetObj = victims[id].GetGameObject ();
                         Transform target = targetObj.transform;
@@ -102,6 +102,8 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
     }
 
     abstract public void ShotSpawn();
+    abstract public void SetShootEnemy(GameObject enemy);
+    abstract public void DismissShootEnemy ();
 
     void targetLockOn() {
         Vector3 targetDir = currentTarget.position - transform.position;
@@ -133,6 +135,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
         health -= damage;
         if (health <= 0f) {
             this.DestorySelf();
+			Destroy(healthSlider);
         }
 		SetHealthUI();
     }
@@ -141,6 +144,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.turretDeregisteVictim(this);
         dispatcher.turretDeregisteKiller(this);
+        DismissShootEnemy();
         GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
         Destroy(gameObject);
         Destroy(boom, 2);
@@ -154,6 +158,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
     }
 
 	void SetHealthUI() {
-		//healthSlider.value = health / maxHealth * 100;
+		healthSlider.value = health / maxHealth * 100;
 	}
+
 }
