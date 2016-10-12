@@ -101,7 +101,8 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 	}
 
 	void SetHealthUI() {
-		healthSlider.value = health / maxHealth * 100;
+		if(healthSlider)
+			healthSlider.value = health / maxHealth * 100;
 	}
 
     void OnTriggerEnter(Collider colliderObject)

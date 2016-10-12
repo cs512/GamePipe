@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public abstract class TurretBase : MonoBehaviour, Killer,Victim {
@@ -25,12 +26,22 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
     
     public GameObject explosion;
 
+	public Slider healthSlider;
+
+	private float maxHealth;
+
     void Start() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.turretRegisteVictim(this);
         dispatcher.turretRegisteKiller(this);
         GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(turretCost);
+
+		maxHealth = health;
     }
+
+	void OnEnable() {
+		SetHealthUI();
+	}
 
     void Update() {
         if (currentTarget != null) {
@@ -140,4 +151,8 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
     public GameObject GetGameObject() {
         return this.gameObject;
     }
+
+	void SetHealthUI() {
+		healthSlider.value = health / maxHealth * 100;
+	}
 }
