@@ -134,6 +134,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
         if (health <= 0f) {
             this.DestorySelf();
         }
+		SetHealthUI();
     }
 
     public void DestorySelf() {
