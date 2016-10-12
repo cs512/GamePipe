@@ -19,7 +19,7 @@ public class ScoreBoard : MonoBehaviour {
             live = GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health;
         staticLive = live;
     }
-    public void setLive() {
+    public void setLive(){
         if (GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health == 0)
             live = 0;
         else
@@ -54,18 +54,20 @@ public class ScoreBoard : MonoBehaviour {
 
     // working on, call this whenever a wave of enemies are  purged
     public void gameEnd() {
-        wave -= 1;
-        if (wave == 0)
-        {
+        
+        bool isCompleted=GameObject.Find ("WaveManager").GetComponent<WaveManager>().HasComplete();
+        if (live != 0 && isCompleted == true) {
             float cases = live / staticLive;
             if (cases == 1) {
-                Debug.Log("3 stars！");
+                Debug.Log("GameEnd! 3 stars");
+            } else if (cases >= 2 / 3) {
+                Debug.Log("GameEnd! 2 stars!");
+            } else
+                Debug.Log("GameEnd! 1 stars!");
+        } else {
+            if (live == 0) {
+                Debug.Log("GameEnd! You Lose!");
             }
-            else if (cases >=2 / 3) {
-                Debug.Log("2 stars!");
-            }
-            else
-                Debug.Log("1 stars!");
         }
     }
 
@@ -84,5 +86,6 @@ public class ScoreBoard : MonoBehaviour {
         setLive();
         setFund();
         setWaves();
+        gameEnd();
     }
 }
