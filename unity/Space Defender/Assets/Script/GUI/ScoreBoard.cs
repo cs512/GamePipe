@@ -48,7 +48,6 @@ public class ScoreBoard : MonoBehaviour {
             fund = temp; 
             return false;
         }
-        Debug.Log("remain fund:" + fund);
         return true;
     }
 
