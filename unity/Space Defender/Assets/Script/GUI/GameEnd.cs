@@ -52,30 +52,32 @@ public class GameEnd : MonoBehaviour {
         goBack.sizeDelta = new Vector2(0, 0);
     }
     public void ShowEnd(float some) {
-        gameEnd.sizeDelta = new Vector2(300, 180);
+        gameEnd.sizeDelta = new Vector2(600, 320);
         triShade1.GetComponent<Renderer>().enabled = true;
         triShade2.GetComponent<Renderer>().enabled = true;
         triShade3.GetComponent<Renderer>().enabled = true;
         tri1.GetComponent<Renderer>().enabled = true;
         tri2.GetComponent<Renderer>().enabled = true;
         tri3.GetComponent<Renderer>().enabled = true;
-        retry.sizeDelta = new Vector2(80, 30);
+        retry.localPosition = new Vector3(-160, -50, -6);
+        goBack.localPosition = new Vector3(160, -50, -6);
+        retry.sizeDelta = new Vector2(120, 80);
         //nextLevel.sizeDelta = new Vector2(80, 60);
-        goBack.sizeDelta = new Vector2(80, 30);
+        goBack.sizeDelta = new Vector2(120, 80);
         if(some == 0) {//u shall not pass
-            tTrishade1.position = new Vector3(-80, 40, -6);
-            tTrishade2.position = new Vector3(-80, 40, -6);
-            tTrishade3.position = new Vector3(-80, 40, -6);
+            tTrishade1.localPosition = new Vector3(-100, 50, -6);
+            tTrishade2.localPosition = new Vector3(0, 50, -6);
+            tTrishade3.localPosition = new Vector3(100, 50, -6);
             //nextLevel.sizeDelta = new Vector2(80, 30);
         }
         if (some == 1) {//ok
-            tTrishade1.position = new Vector3(-80, -6, 30);
-            tTrishade2.position = new Vector3(0, -6, 30);
+            tTrishade1.localPosition = new Vector3(-100, 50, -6);
+            tTrishade2.localPosition = new Vector3(0, 50, -6);
             //tTrishade3.position = new Vector3(80, -6, 30);
             nextLevel.sizeDelta = new Vector2(80, 30);
         }
         if(some == 2) {//good
-            tTrishade1.position = new Vector3(-80, -6, 30);
+            tTrishade1.localPosition = new Vector3(-100, 50, -6);
             //tTrishade2.position = new Vector3(0, -6, 30);
             //tTrishade3.position = new Vector3(80, -6, 30);
             nextLevel.sizeDelta = new Vector2(80, 30);
