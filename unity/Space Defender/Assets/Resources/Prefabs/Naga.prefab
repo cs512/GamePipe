@@ -307,7 +307,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b90461745017b4fb7afdcc8cec793e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 50
+  speed: 200
   damage: 2
   health: 10
   explosion: {fileID: 1000012970080796, guid: 767167072980b194481944cbb3f21023, type: 2}
@@ -317,6 +317,7 @@ MonoBehaviour:
   shot: {fileID: 1000012711780222, guid: abfcd77cb674543c0bfd9518ae26d19f, type: 2}
   shotSpawn: {fileID: 4000012107029642}
   healthSlider: {fileID: 114000011809707388}
+  flag: 0
 --- !u!114 &114000010294517970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -477,6 +478,7 @@ MonoBehaviour:
   shot: {fileID: 56316576, guid: abfcd77cb674543c0bfd9518ae26d19f, type: 2}
   shotSpawn: {fileID: 0}
   healthSlider: {fileID: 0}
+  flag: 0
 --- !u!222 &222000012183464772
 CanvasRenderer:
   m_ObjectHideFlags: 1
