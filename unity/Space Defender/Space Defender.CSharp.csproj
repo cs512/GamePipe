@@ -87,6 +87,7 @@
     <Compile Include="Assets\Script\GUI\GameEnd.cs" />
     <Compile Include="Assets\Script\GUI\Interactable.cs" />
     <Compile Include="Assets\Script\GUI\ScoreBoard.cs" />
+    <Compile Include="Assets\Script\GUI\TimeControl.cs" />
     <Compile Include="Assets\Script\GUI\TouchControl.cs" />
     <Compile Include="Assets\Script\GUI\Turtorial.cs" />
     <Compile Include="Assets\Script\GUI\UIDirectionControl.cs" />
