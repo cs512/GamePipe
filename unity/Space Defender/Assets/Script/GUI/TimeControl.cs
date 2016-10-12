@@ -21,10 +21,10 @@ public class TimeControl : MonoBehaviour {
     }
     public void speedUp()
     {
-        Time.timeScale += 2;
+        Time.timeScale *= 2;
     }
     public void slowDown()
     {
-        Time.timeScale -= 2;
+        Time.timeScale /= 2;
     }
 }
