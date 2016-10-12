@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public abstract class Enemy : MonoBehaviour, Victim, Killer
 {
 
+
 	private Transform target;
 	public float speed;
 	public float damage;
@@ -18,6 +19,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 	public GameObject shot;
 	public Transform shotSpawn;
 	public Slider healthSlider;
+
 
 	//ship patrol
 	public object[] points;
