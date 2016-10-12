@@ -17,7 +17,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 	public GameObject shot;
 	public Transform shotSpawn;
 	public Slider healthSlider;
-    private int flag=0;//0--target source planet 1--target turret
+    public int flag=0;//0--target source planet 1--target turret
 
 	//ship patrol
 	public object[] points;
@@ -188,7 +188,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 	//regard as a killer
 	public void Attack (Dictionary<int, Victim> turretVictims)
 	{
-		Dispatcher dispatcher = GameObject.Find ("Dispatcher").GetComponent<Dispatcher> ();
+		Dispatcher dispatcher = GameObject.Find ("Dispatcher").GetComponent<Dispatcher>();
 		if (turretVictims.Count != 0) {
 			float min_dist = float.MaxValue;
 			
@@ -200,7 +200,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 				foreach (int id in turretVictims.Keys) {
 					if (dispatcher.turretVictims.ContainsKey (id)) {
 						
-						GameObject targetObj = turretVictims [id].GetGameObject ();
+                        GameObject targetObj = turretVictims [id].GetGameObject ();
 						Transform target = targetObj.transform;
 						float distance = Vector3.Distance (target.position, transform.position);
 						if (range < distance)
@@ -215,7 +215,8 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 			}
 			if (currentTarget != null) {
                 this.flag =1;
-				ShotSpawn ();
+				ShotSpawn();
+                currentTarget.gameObject.GetComponent<TurretBase>().SetShootEnemy(this.gameObject);
 			}
 		}
 	}

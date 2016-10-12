@@ -9,7 +9,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
 
     public int fireInterval;
     public Dictionary<int, Victim> victims;
-
+    
     public float rotateSpeed;
 
     public Victim currentVictim = null;
@@ -54,6 +54,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
         dispatcher.turretDeregisteKiller(this);
         dispatcher.turretDeregisteVictim(this);
         Destroy(this);
+        
     }
 
     abstract public void SetUpAttributions();
@@ -102,6 +103,8 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
     }
 
     abstract public void ShotSpawn();
+    abstract public void SetShootEnemy(GameObject enemy);
+    abstract public void DismissShootEnemy ();
 
     void targetLockOn() {
         Vector3 targetDir = currentTarget.position - transform.position;
@@ -142,6 +145,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.turretDeregisteVictim(this);
         dispatcher.turretDeregisteKiller(this);
+        DismissShootEnemy();
         GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
         Destroy(gameObject);
         Destroy(boom, 2);
@@ -155,6 +159,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
     }
 
 	void SetHealthUI() {
-		healthSlider.value = health / maxHealth * 100;
+		//healthSlider.value = health / maxHealth * 100;
 	}
+
 }
