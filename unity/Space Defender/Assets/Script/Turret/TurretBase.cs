@@ -20,7 +20,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
     public bool showRange;
     public float range;
 
-    public float turretCost = 5.0f;
+    public float turretCost = 50.0f;
     
     public float health;
     

@@ -9,23 +9,24 @@ public class SourcePlanet : MonoBehaviour, Victim {
     public GameObject shockHit;
     public GameObject explosion;
     public float fund;
-    public int intervalRate;
+    public int fundRate;
     public Slider healthSlider;
+    public int startTime;
 
     private float maxHealth;
 
     // Use this for initialization
     void Start() {
-        intervalRate = 30;
+        fundRate = 1;
         fund = -1.0f;
-
+        Invoke("GenerateFund", 10);
         maxHealth = health;
     }
 
     // Update is called once per frame
     void Update() {
         transform.Rotate(Vector3.forward * Time.deltaTime * rotateSpeed, Space.World);
-        generateFund();
+        
     }
 
     void OnEnable() {
@@ -61,10 +62,8 @@ public class SourcePlanet : MonoBehaviour, Victim {
         return this.gameObject;
     }
 
-    void generateFund() {
-        if (Time.frameCount % intervalRate == 0) {
-            GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(fund);
-        }
+    void GenerateFund() {       
+        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(fund);     
     }
 
 
