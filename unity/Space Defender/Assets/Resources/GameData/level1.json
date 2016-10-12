@@ -24,7 +24,7 @@
                     "prefab":"Naga",
                     "interval":5.0,
                     "number":1,
-                    "damage":10.0,
+                    "damage":40.0,
                     "speed":3.0,
                 }
             ],
