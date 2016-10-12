@@ -430,7 +430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86827a490ea30174aabd0445f08c151b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuPrefab: {fileID: 0, guid: a59879b43432eb24bb1def2a209cfd68, type: 2}
+  menuPrefab: {fileID: 114000014283855930, guid: a59879b43432eb24bb1def2a209cfd68,
+    type: 2}
 --- !u!114 &376794572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,8 +558,9 @@ MonoBehaviour:
   shockHit: {fileID: 0, guid: 25cfdc015a4fb5e408f56939215431d6, type: 2}
   explosion: {fileID: 0, guid: b08355c93078f1d46814ab68f871a26c, type: 2}
   fund: 0
-  intervalRate: 0
+  fundRate: 0
   healthSlider: {fileID: 0}
+  startTime: 0
 --- !u!122 &535943417
 Halo:
   m_ObjectHideFlags: 0
