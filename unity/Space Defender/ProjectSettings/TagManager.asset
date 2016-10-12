@@ -9,6 +9,7 @@ TagManager:
   - Planet
   - Bullets
   - Turrets
+  - gameEnd
   layers:
   - Default
   - TransparentFX
