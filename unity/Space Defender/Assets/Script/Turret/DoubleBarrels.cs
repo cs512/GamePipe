@@ -25,7 +25,9 @@ public class DoubleBarrels : TurretBase {
     override public void DismissShootEnemy(){
         if (this.shootEnemys.Count != 0) {
             foreach (GameObject enemy in shootEnemys) {
-                enemy.GetComponent<Enemy>().flag = 0;
+                if (enemy != null) {
+                    enemy.GetComponent<Enemy>().flag = 0;
+                }
             }
         }
     }
