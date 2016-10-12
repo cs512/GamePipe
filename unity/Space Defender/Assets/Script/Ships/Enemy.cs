@@ -188,7 +188,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 		Dispatcher dispatcher = GameObject.Find ("Dispatcher").GetComponent<Dispatcher> ();
 		if (turretVictims.Count != 0) {
 			float min_dist = float.MaxValue;
-			print ("current target: " + currentTarget);
+			
 			if (currentTarget != null && (range < Vector3.Distance (currentTarget.position, transform.position) || currentVictim.GetHealth () <= 0f)) {
 				currentTarget = null;
 				currentVictim = null;
@@ -196,7 +196,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 			if (currentTarget == null) {
 				foreach (int id in turretVictims.Keys) {
 					if (dispatcher.turretVictims.ContainsKey (id)) {
-						print (id + " : " + turretVictims [id]);
+						
 						GameObject targetObj = turretVictims [id].GetGameObject ();
 						Transform target = targetObj.transform;
 						float distance = Vector3.Distance (target.position, transform.position);

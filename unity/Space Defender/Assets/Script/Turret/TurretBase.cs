@@ -73,14 +73,14 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         if (victims.Count != 0) {
             float min_dist = float.MaxValue;
-            print ("current target: " + currentTarget);
+            //print ("current target: " + currentTarget);
             if (currentTarget != null && (range < Vector3.Distance (currentTarget.position, transform.position) || currentVictim.GetHealth () <= 0f)) {
                 currentTarget = null;
                 currentVictim = null;
             }
             if (currentTarget == null) {
                 foreach (int id in victims.Keys) {
-                    print (id + " : " + victims [id]);
+                    //print (id + " : " + victims [id]);
                     if (dispatcher.enemyVictims.ContainsKey (id)) {
                         GameObject targetObj = victims[id].GetGameObject ();
                         Transform target = targetObj.transform;

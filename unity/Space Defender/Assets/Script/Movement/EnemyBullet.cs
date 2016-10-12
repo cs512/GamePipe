@@ -9,7 +9,6 @@ public class EnemyBullet : BulletMover {
             Destroy(gameObject);
             Victim victim = turret.GetComponent<TurretBase>();
             victim.DealDamage(this.damage);
-            Debug.Log(victim.GetHealth());
         }
     }
 }

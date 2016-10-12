@@ -44,8 +44,7 @@ public class ScoreBoard : MonoBehaviour {
         float temp = fund;
         fund -= i;
         if (fund <= 0) {
-            fund = temp;    
-            Debug.Log("no enough money");
+            fund = temp; 
             return false;
         }
         return true;

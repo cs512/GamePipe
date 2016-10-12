@@ -19,14 +19,14 @@ public class SourcePlanet : MonoBehaviour, Victim {
     void Start() {
         fundRate = 1;
         fund = -1.0f;
-        Invoke("GenerateFund", 10);
+        
         maxHealth = health;
     }
 
     // Update is called once per frame
     void Update() {
         transform.Rotate(Vector3.forward * Time.deltaTime * rotateSpeed, Space.World);
-        
+        Invoke("GenerateFund", 100);
     }
 
     void OnEnable() {
