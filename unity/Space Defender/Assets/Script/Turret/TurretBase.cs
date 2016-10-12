@@ -26,7 +26,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
     
     public GameObject explosion;
 
-	public Slider healthSlider;
+	//public Slider healthSlider;
 
 	private float maxHealth;
 
@@ -153,6 +153,6 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
     }
 
 	void SetHealthUI() {
-		healthSlider.value = health / maxHealth * 100;
+		//healthSlider.value = health / maxHealth * 100;
 	}
 }

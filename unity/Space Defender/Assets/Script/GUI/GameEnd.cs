@@ -27,10 +27,7 @@ public class GameEnd : MonoBehaviour {
     public void Back() {//go back to the Level Selection
         SceneManager.LoadScene("levelSelection");
     }
-    HideEnd() {
 
-    }
-    ShowEnd
 
 	// Use this for initialization
 	void Start () {

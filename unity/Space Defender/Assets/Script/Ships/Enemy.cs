@@ -17,7 +17,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
     public float range;
     public GameObject shot;
     public Transform shotSpawn;
-	public Slider healthSlider;
+    public Slider healthSlider=null;
 
     //ship patrol
     public object[] points;
