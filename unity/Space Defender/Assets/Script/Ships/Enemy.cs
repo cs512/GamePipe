@@ -46,7 +46,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 		dispatcher.enemyRegisteKiller (this);
 
 		//ship patrol
-		patrolMode = (int)Patrol.Circle;   //switch patrol mode
+		patrolMode = (int)Patrol.Base;   //switch patrol mode
 		points = new object[4];
 		SetPoints (target, points);
 		radius = 200f;

@@ -26,7 +26,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
     
     public GameObject explosion;
 
-	public Slider healthSlider;
+	//public Slider healthSlider;
 
 	private float maxHealth;
 
@@ -34,7 +34,6 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.turretRegisteVictim(this);
         dispatcher.turretRegisteKiller(this);
-        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(turretCost);
 
 		maxHealth = health;
     }
@@ -136,7 +135,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
         health -= damage;
         if (health <= 0f) {
             this.DestorySelf();
-			Destroy(healthSlider);
+			//Destroy(healthSlider);
         }
 		SetHealthUI();
     }
