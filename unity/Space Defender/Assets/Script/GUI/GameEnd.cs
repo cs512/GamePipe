@@ -59,32 +59,32 @@ public class GameEnd : MonoBehaviour {
         tri1.GetComponent<Renderer>().enabled = true;
         tri2.GetComponent<Renderer>().enabled = true;
         tri3.GetComponent<Renderer>().enabled = true;
-        retry.GetComponent<Renderer>().enabled = true;
-        //nextLevel.GetComponent<Renderer>().enabled = true;
-        goBack.GetComponent<Renderer>().enabled = true;
-        if(some == 0) {
-            tTrishade1.position = new Vector3(-80, -6, 30);
-            tTrishade2.position = new Vector3(0, -6, 30);
-            tTrishade3.position = new Vector3(80, -6, 30);
-            nextLevel.GetComponent<Renderer>().enabled = true;
+        retry.sizeDelta = new Vector2(80, 30);
+        //nextLevel.sizeDelta = new Vector2(80, 60);
+        goBack.sizeDelta = new Vector2(80, 30);
+        if(some == 0) {//u shall not pass
+            tTrishade1.position = new Vector3(-80, 40, -6);
+            tTrishade2.position = new Vector3(-80, 40, -6);
+            tTrishade3.position = new Vector3(-80, 40, -6);
+            //nextLevel.sizeDelta = new Vector2(80, 30);
         }
-        if (some == 1) {
+        if (some == 1) {//ok
             tTrishade1.position = new Vector3(-80, -6, 30);
             tTrishade2.position = new Vector3(0, -6, 30);
             //tTrishade3.position = new Vector3(80, -6, 30);
-            nextLevel.GetComponent<Renderer>().enabled = true;
+            nextLevel.sizeDelta = new Vector2(80, 30);
         }
-        if(some == 2) {
+        if(some == 2) {//good
             tTrishade1.position = new Vector3(-80, -6, 30);
             //tTrishade2.position = new Vector3(0, -6, 30);
             //tTrishade3.position = new Vector3(80, -6, 30);
-            nextLevel.GetComponent<Renderer>().enabled = true;
+            nextLevel.sizeDelta = new Vector2(80, 30);
         }
-        if(some == 3) {
+        if(some == 3) {//execllent
             //tTrishade1.position = new Vector3(-80, -6, 30);
             //tTrishade2.position = new Vector3(0, -6, 30);
             //tTrishade3.position = new Vector3(80, -6, 30);
-            nextLevel.GetComponent<Renderer>().enabled = true;
+            nextLevel.sizeDelta = new Vector2(80, 30);
         }
 
     }

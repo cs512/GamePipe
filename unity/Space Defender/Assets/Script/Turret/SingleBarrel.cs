@@ -24,7 +24,7 @@ public class SingleBarrel : TurretBase {
         if (this.shootEnemys.Count != 0) {
             foreach (GameObject enemy in shootEnemys) {
                 if (enemy != null) {
-                    enemy.GetComponent<Enemy> ().flag = 0;
+                    enemy.GetComponent<Enemy>().flag = 0;
                 }
             }
         }
