@@ -2,7 +2,7 @@
     "waveCount":2,
     "waves":[
         {
-            "waveDuring":15.0,
+            "waveDuring":30.0,
             "spawnPointCount":1,
             "spawnPoints":[
                 {
@@ -16,7 +16,7 @@
             ],
         },
         {
-            "waveDuring":15.0,
+            "waveDuring":30.0,
             "spawnPointCount":2,
             "spawnPoints":[
                 {
