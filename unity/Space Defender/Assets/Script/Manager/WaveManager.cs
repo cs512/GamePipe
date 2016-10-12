@@ -24,7 +24,11 @@ public class WaveManager : MonoBehaviour {
     }
 
     public int GetCurrentWave() {
-        return this.currentWave;
+        return this.currentWave+1;
+    }
+
+    public int GetRemainedWave() {
+        return level.waves.Count - this.currentWave;
     }
 
     void SetWave(int n) {
