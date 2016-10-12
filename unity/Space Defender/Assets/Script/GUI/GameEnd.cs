@@ -74,19 +74,19 @@ public class GameEnd : MonoBehaviour {
             tTrishade1.localPosition = new Vector3(-100, 50, -6);
             tTrishade2.localPosition = new Vector3(0, 50, -6);
             //tTrishade3.position = new Vector3(80, -6, 30);
-            nextLevel.sizeDelta = new Vector2(80, 30);
+            nextLevel.sizeDelta = new Vector2(120, 80);
         }
         if(some == 2) {//good
             tTrishade1.localPosition = new Vector3(-100, 50, -6);
             //tTrishade2.position = new Vector3(0, -6, 30);
             //tTrishade3.position = new Vector3(80, -6, 30);
-            nextLevel.sizeDelta = new Vector2(80, 30);
+            nextLevel.sizeDelta = new Vector2(120, 80);
         }
         if(some == 3) {//execllent
             //tTrishade1.position = new Vector3(-80, -6, 30);
             //tTrishade2.position = new Vector3(0, -6, 30);
             //tTrishade3.position = new Vector3(80, -6, 30);
-            nextLevel.sizeDelta = new Vector2(80, 30);
+            nextLevel.sizeDelta = new Vector2(120, 80);
         }
 
     }
