@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public abstract class Enemy : MonoBehaviour, Victim, Killer
@@ -16,6 +17,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
     public float range;
     public GameObject shot;
     public Transform shotSpawn;
+	public Slider healthSlider;
 
     //ship patrol
     public object[] points;
@@ -28,6 +30,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
     private float radius;
     private float height;
     private float timeCounter = 0;
+	private float maxHealth;
 
     public int GetFireInterval()
     {
@@ -55,6 +58,8 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
             destination = target.position;
         else if (patrolMode == (int)Patrol.Circle)
             destination = target.position;
+
+		maxHealth = health;
     }
 
     // Update is called once per frame
@@ -118,6 +123,8 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
         {
             this.DestorySelf();
         }
+
+		SetHealthUI();
     }
 
     void DestorySelf()
