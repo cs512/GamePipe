@@ -41,15 +41,15 @@ public class ScoreBoard : MonoBehaviour {
     }
 
     //loseFund, >0 lose，<0 add, if money is not enough alert and nothing happend
-    public float loseFund(float i) {
+    public bool LoseFund(float i) {
         float temp = fund;
         fund -= i;
         if (fund <= 0) {
             fund = temp;    
             Debug.Log("no enough money");
-            return fund;
+            return false;
         }
-        return fund;
+        return true;
     }
 
     // working on, call this whenever a wave of enemies are  purged
