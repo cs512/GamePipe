@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class GameEnd : MonoBehaviour {
-    LevelManager lvlMgr = GameObject.Find("LevelManger").GetComponent<LevelManager>();
+    LevelManager lvlMgr;
     public Sprite tri1;
     public Sprite tri2;
     public Sprite tri3;
@@ -27,10 +27,17 @@ public class GameEnd : MonoBehaviour {
     public void Back() {//go back to the Level Selection
         SceneManager.LoadScene("levelSelection");
     }
+    public void HideEnd() {
+
+    }
+    public void ShowEnd() {
+
+    }
+
 	// Use this for initialization
 	void Start () {
-	
-	}
+        lvlMgr = Toolbox.Instance.GetOrAddComponent<LevelManager>();
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -5,8 +5,6 @@ using System.Collections.Generic;
 
 public abstract class Enemy : MonoBehaviour, Victim, Killer
 {
-
-
 	private Transform target;
 	public float speed;
 	public float damage;
@@ -25,17 +23,9 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 	public object[] points;
 	private int destPoint = 0;
 	private Vector3 destination;
-	private Vector3 v;
-	public float degreesPerSecond = -65.0f;
 	private int patrolMode;
 
-	enum Patrol
-	{
-		Base,
-		Corner,
-		Circle}
-
-	;
+	enum Patrol { Base, Corner, Circle };
 
 	private float radius;
 	private float height;
@@ -56,7 +46,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 		dispatcher.enemyRegisteKiller (this);
 
 		//ship patrol
-		patrolMode = (int)Patrol.Base;   //switch patrol mode
+		patrolMode = (int)Patrol.Circle;   //switch patrol mode
 		points = new object[4];
 		SetPoints (target, points);
 		radius = 200f;
@@ -81,27 +71,32 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 			return;
 		}
 		//Debug.Log(target.position);
-		Vector3 dir = target.position - this.transform.localPosition;
+		Vector3 dir = destination - this.transform.localPosition;
 		float framDist = speed * Time.deltaTime;
 		transform.Translate (dir.normalized * framDist, Space.World);
 		this.transform.rotation = Quaternion.LookRotation (dir) * Quaternion.Euler (90f, 0f, 0f);
 
-		if (patrolMode == (int)Patrol.Corner && Vector3.Distance (this.transform.position, destination) < 0.5f)
-			GotoNextPoint ();
-		else if (patrolMode == (int)Patrol.Base)
-			destination = target.position;
-		else if (patrolMode == (int)Patrol.Circle) {
-			if (Vector3.Distance (this.transform.position, destination) > radius)
-				destination = target.position;
-			else {
-				timeCounter += Time.deltaTime * speed;
-				float x = Mathf.Cos (timeCounter) * radius;
-				float z = Mathf.Sin (timeCounter) * radius;
-				this.transform.position = new Vector3 (x, height, z);
-			}
-
-		}
-	}
+        if (patrolMode == (int)Patrol.Corner && currentTarget == null && Vector3.Distance(this.transform.position, destination) < 0.5f)
+            GotoNextPoint();
+        else if (patrolMode == (int)Patrol.Base && currentTarget == null)
+            destination = target.position;
+        else if (patrolMode == (int)Patrol.Circle && currentTarget == null)
+        {
+            if (Vector3.Distance(this.transform.position, destination) > radius)
+                destination = target.position;
+            else
+            {
+                timeCounter += Time.deltaTime;
+                float x = Mathf.Cos(timeCounter) * radius + destination.x;
+                float z = Mathf.Sin(timeCounter) * radius + destination.z;
+                this.transform.position = new Vector3(x, height, z);
+            }
+        }
+        else
+        {
+            destination = this.transform.position;
+        }
+    }
 
 	void OnEnable ()
 	{
