@@ -34,7 +34,7 @@ public abstract class TurretBase : MonoBehaviour, Killer,Victim {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.turretRegisteVictim(this);
         dispatcher.turretRegisteKiller(this);
-        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(turretCost);
+//        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(turretCost);
 
 		maxHealth = health;
     }
