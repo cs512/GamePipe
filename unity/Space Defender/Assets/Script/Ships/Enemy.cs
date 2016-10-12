@@ -17,7 +17,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 	public GameObject shot;
 	public Transform shotSpawn;
 	public Slider healthSlider;
-
+    public int flag=0;//0--target source planet 1--target turret
 
 	//ship patrol
 	public object[] points;
@@ -60,44 +60,47 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 			destination = target.position;
 
 		maxHealth = health;
+        
+        InvokeRepeating("Forwards",0f,0.05f);
 	}
-
-	// Update is called once per frame
-	void Update ()
-	{
-		if (target == null) {
-			// the enemy went away!
-			Destroy (this);
-			return;
-		}
-		//Debug.Log(target.position);
-		Vector3 dir = destination - this.transform.localPosition;
-		float framDist = speed * Time.deltaTime;
-		transform.Translate (dir.normalized * framDist, Space.World);
-		this.transform.rotation = Quaternion.LookRotation (dir) * Quaternion.Euler (90f, 0f, 0f);
-
-        if (patrolMode == (int)Patrol.Corner && currentTarget == null && Vector3.Distance(this.transform.position, destination) < 0.5f)
-            GotoNextPoint();
-        else if (patrolMode == (int)Patrol.Base && currentTarget == null)
-            destination = target.position;
-        else if (patrolMode == (int)Patrol.Circle && currentTarget == null)
-        {
-            if (Vector3.Distance(this.transform.position, destination) > radius)
-                destination = target.position;
-            else
-            {
-                timeCounter += Time.deltaTime;
-                float x = Mathf.Cos(timeCounter) * radius + destination.x;
-                float z = Mathf.Sin(timeCounter) * radius + destination.z;
-                this.transform.position = new Vector3(x, height, z);
-            }
+    public void Forwards(){
+        if (target == null) {
+            // the enemy went away!
+            Destroy (this);
+            return;
         }
-        else
-        {
-            destination = this.transform.position;
+        //Debug.Log(target.position);
+        Vector3 dir = destination - this.transform.localPosition;
+        if (this.flag == 0) {
+            float framDist = speed * Time.deltaTime;
+            transform.Translate (dir.normalized * framDist, Space.World);
+            this.transform.rotation = Quaternion.LookRotation (dir) * Quaternion.Euler (90f, 0f, 0f);
+        } else {
+            this.transform.rotation = Quaternion.LookRotation (dir) * Quaternion.Euler (90f, 0f, 0f);
         }
+        //        if (patrolMode == (int)Patrol.Corner && currentTarget == null && Vector3.Distance(this.transform.position, destination) < 0.5f)
+        //            GotoNextPoint();
+        //        else if (patrolMode == (int)Patrol.Base && currentTarget == null)
+        //            destination = target.position;
+        //        else if (patrolMode == (int)Patrol.Circle && currentTarget == null)
+        //        {
+        //            if (Vector3.Distance(this.transform.position, destination) > radius)
+        //                destination = target.position;
+        //            else
+        //            {
+        //                timeCounter += Time.deltaTime;
+        //                float x = Mathf.Cos(timeCounter) * radius + destination.x;
+        //                float z = Mathf.Sin(timeCounter) * radius + destination.z;
+        //                this.transform.position = new Vector3(x, height, z);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            destination = this.transform.position;
+        //        }
     }
-
+    
+	// Update is called once per frame
 	void OnEnable ()
 	{
 		SetHealthUI ();
@@ -185,7 +188,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 	//regard as a killer
 	public void Attack (Dictionary<int, Victim> turretVictims)
 	{
-		Dispatcher dispatcher = GameObject.Find ("Dispatcher").GetComponent<Dispatcher> ();
+		Dispatcher dispatcher = GameObject.Find ("Dispatcher").GetComponent<Dispatcher>();
 		if (turretVictims.Count != 0) {
 			float min_dist = float.MaxValue;
 			
@@ -197,7 +200,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 				foreach (int id in turretVictims.Keys) {
 					if (dispatcher.turretVictims.ContainsKey (id)) {
 						
-						GameObject targetObj = turretVictims [id].GetGameObject ();
+                        GameObject targetObj = turretVictims [id].GetGameObject ();
 						Transform target = targetObj.transform;
 						float distance = Vector3.Distance (target.position, transform.position);
 						if (range < distance)
@@ -211,7 +214,9 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
 				}
 			}
 			if (currentTarget != null) {
-				ShotSpawn ();
+                this.flag =1;
+				ShotSpawn();
+                currentTarget.gameObject.GetComponent<TurretBase>().SetShootEnemy(this.gameObject);
 			}
 		}
 	}

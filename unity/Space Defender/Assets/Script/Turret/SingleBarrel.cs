@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
-
+using System.Collections.Generic;
 public class SingleBarrel : TurretBase {
 
     public Transform shotSpawn;
     public GameObject shot;
-
+    public List<GameObject> shootEnemys = new List<GameObject>();
     public override void SetUpAttributions() {
         return;
     }
@@ -14,5 +14,17 @@ public class SingleBarrel : TurretBase {
 		bullet.setTarget(currentTarget);
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
+    }
+    override public void SetShootEnemy(GameObject enemy){
+        if (enemy != null) {
+            shootEnemys.Add(enemy);
+        }
+    }
+    override public void DismissShootEnemy(){
+        if (this.shootEnemys.Count != 0) {
+            foreach (GameObject enemy in shootEnemys) {
+                enemy.GetComponent<Enemy>().flag = 0;
+            }
+        }
     }
 }
