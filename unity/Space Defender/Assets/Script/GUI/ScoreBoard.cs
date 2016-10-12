@@ -43,7 +43,7 @@ public class ScoreBoard : MonoBehaviour {
     public bool LoseFund(float i) {
         float temp = fund;
         fund -= i;
-        if (fund <= 0) {
+        if (fund < 0) {
             fund = temp; 
             return false;
         }

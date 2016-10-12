@@ -659,8 +659,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotateSpeed: 5
   health: 30
-  shockHit: {fileID: 0}
-  explosion: {fileID: 0}
+  shockHit: {fileID: 1000010781788856, guid: 25cfdc015a4fb5e408f56939215431d6, type: 2}
+  explosion: {fileID: 1000013698003144, guid: b08355c93078f1d46814ab68f871a26c, type: 2}
   fund: 0
   fundRate: 0
   healthSlider: {fileID: 0}
