@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using System.Collections.Generic;
 
-public abstract class Enemy : MonoBehaviour, Victim,Killer {
+public abstract class Enemy : MonoBehaviour, Victim, Killer
+{
 
     private Transform target;
     public float speed;
@@ -16,37 +16,79 @@ public abstract class Enemy : MonoBehaviour, Victim,Killer {
     public float range;
     public GameObject shot;
     public Transform shotSpawn;
-	public Slider healthSlider;
-    
-	private float maxHealth;
 
-    public int GetFireInterval() {
+    //ship patrol
+    public object[] points;
+    private int destPoint = 0;
+    private Vector3 destination;
+    private Vector3 v;
+    public float degreesPerSecond = -65.0f;
+    private int patrolMode;
+    enum Patrol { Base, Corner, Circle };
+    private float radius;
+    private float height;
+    private float timeCounter = 0;
+
+    public int GetFireInterval()
+    {
         return fireInterval;
     }
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
         this.SetUpDefaultAttributions();
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.enemyRegisteVictim(this);
         dispatcher.enemyRegisteKiller(this);
 
-		maxHealth = health;
+        //ship patrol
+        patrolMode = (int)Patrol.Base;   //switch patrol mode
+        points = new object[4];
+        SetPoints(target, points);
+        radius = 200f;
+        height = this.transform.position.y;
         
+        if (patrolMode == (int)Patrol.Corner)
+            GotoNextPoint();
+        else if (patrolMode == (int)Patrol.Base)
+            destination = target.position;
+        else if (patrolMode == (int)Patrol.Circle)
+            destination = target.position;
     }
 
     // Update is called once per frame
-    void Update() {
-        if (target == null) {
+    void Update()
+    {
+        if (target == null)
+        {
             // the enemy went away!
             Destroy(this);
             return;
         }
         //Debug.Log(target.position);
-		Vector3 dir = target.position - this.transform.localPosition;
+        Vector3 dir = target.position - this.transform.localPosition;
         float framDist = speed * Time.deltaTime;
         transform.Translate(dir.normalized * framDist, Space.World);
         this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(90f, 0f, 0f);
+
+        if (patrolMode == (int)Patrol.Corner && Vector3.Distance(this.transform.position, destination) < 0.5f)
+            GotoNextPoint();
+        else if (patrolMode == (int)Patrol.Base)
+            destination = target.position;
+        else if (patrolMode == (int)Patrol.Circle)
+        {
+            if (Vector3.Distance(this.transform.position, destination) > radius)
+                destination = target.position;
+            else
+            {
+                timeCounter += Time.deltaTime * speed;
+                float x = Mathf.Cos(timeCounter) * radius;
+                float z = Mathf.Sin(timeCounter) * radius;
+                this.transform.position = new Vector3(x, height, z);
+            }
+
+        }
     }
 
 	void OnEnable() {
@@ -57,25 +99,29 @@ public abstract class Enemy : MonoBehaviour, Victim,Killer {
 		healthSlider.value = health / maxHealth * 100;
 	}
 
-	void OnTriggerEnter(Collider colliderObject){
-		if (colliderObject.tag == "Planet") {
-			Victim victim = colliderObject.gameObject.GetComponent<SourcePlanet>();
+    void OnTriggerEnter(Collider colliderObject)
+    {
+        if (colliderObject.tag == "Planet")
+        {
+            Victim victim = colliderObject.gameObject.GetComponent<SourcePlanet>();
             victim.DealDamage(this.damage);
             this.DestorySelf();
         }
-//        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-//        dispatcher.RegisteVictim(this);
+        //        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+        //        dispatcher.RegisteVictim(this);
     }
 
-    void Victim.DealDamage(float damage) {
+    void Victim.DealDamage(float damage)
+    {
         health -= damage;
-		SetHealthUI();
-        if (health <= 0f) {
+        if (health <= 0f)
+        {
             this.DestorySelf();
         }
     }
 
-    void DestorySelf() {
+    void DestorySelf()
+    {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.enemyDeregisteVictim(this);
         dispatcher.enemyDeregisteKiller(this);
@@ -84,27 +130,33 @@ public abstract class Enemy : MonoBehaviour, Victim,Killer {
         Destroy(boom, 2);
     }
 
-    float Victim.GetHealth() {
+    float Victim.GetHealth()
+    {
         return health;
     }
 
-    int Victim.GetID() {
+    int Victim.GetID()
+    {
         return GetInstanceID();
     }
 
-    public void SetTarget(Transform target) {
+    public void SetTarget(Transform target)
+    {
         this.target = target;
     }
 
-    public Transform GetTarget() {
+    public Transform GetTarget()
+    {
         return this.target;
     }
 
-    public void SetDamage(float damage) {
+    public void SetDamage(float damage)
+    {
         this.damage = damage;
     }
 
-    public void SetSpeed(float speed) {
+    public void SetSpeed(float speed)
+    {
         this.speed = speed;
     }
 
@@ -112,52 +164,91 @@ public abstract class Enemy : MonoBehaviour, Victim,Killer {
     {
         this.health = health;
     }
-    GameObject Victim.GetGameObject() {
+    GameObject Victim.GetGameObject()
+    {
         return this.gameObject;
     }
     abstract public void SetUpDefaultAttributions();
-    
+
     //regard as a killer
-    public void Attack(Dictionary<int, Victim> turretVictims) {
+    public void Attack(Dictionary<int, Victim> turretVictims)
+    {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-        if (turretVictims.Count != 0) {
+        if (turretVictims.Count != 0)
+        {
             float min_dist = float.MaxValue;
-            print ("current target: " + currentTarget);
-            if (currentTarget != null && (range < Vector3.Distance (currentTarget.position, transform.position) || currentVictim.GetHealth () <= 0f)) {
+            print("current target: " + currentTarget);
+            if (currentTarget != null && (range < Vector3.Distance(currentTarget.position, transform.position) || currentVictim.GetHealth() <= 0f))
+            {
                 currentTarget = null;
                 currentVictim = null;
             }
-            if (currentTarget == null) {
-                foreach (int id in turretVictims.Keys) {   
-                    if (dispatcher.turretVictims.ContainsKey(id)) {
-                        print (id + " : " + turretVictims [id]);
-                        GameObject targetObj = turretVictims[id].GetGameObject ();
+            if (currentTarget == null)
+            {
+                foreach (int id in turretVictims.Keys)
+                {
+                    if (dispatcher.turretVictims.ContainsKey(id))
+                    {
+                        print(id + " : " + turretVictims[id]);
+                        GameObject targetObj = turretVictims[id].GetGameObject();
                         Transform target = targetObj.transform;
-                        float distance = Vector3.Distance (target.position, transform.position);
+                        float distance = Vector3.Distance(target.position, transform.position);
                         if (range < distance)
                             continue;
-                        if (min_dist >= distance) {
+                        if (min_dist >= distance)
+                        {
                             currentTarget = target;
                             currentVictim = turretVictims[id];
                             min_dist = distance;
                         }
-                    }                    
+                    }
                 }
             }
-            if (currentTarget != null) {
-                ShotSpawn ();
+            if (currentTarget != null)
+            {
+                ShotSpawn();
             }
         }
     }
 
-    public void ShotSpawn() {
+    public void ShotSpawn()
+    {
         Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
         EnemyBullet bullet = shot.GetComponent<EnemyBullet>();
         bullet.setTarget(currentTarget);
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
     }
-    int Killer.GetID() {
+    int Killer.GetID()
+    {
         return GetInstanceID();
     }
+
+    void GotoNextPoint()
+    {
+        // Returns if no points have been set up
+        if (points.Length == 0)
+            return;
+
+        // Set the agent to go to the currently selected destination.
+
+        destination = (Vector3)points[destPoint];
+
+        // Choose the next point in the array as the destination,
+        // cycling to the start if necessary.
+        destPoint = (destPoint + 1) % points.Length;
+    }
+
+    static public void SetPoints(Transform target, object[] points)
+    {
+        float x = target.position.x;
+        float y = target.position.y;
+        float z = target.position.z;
+
+        points[0] = new Vector3(x - 150, y, z - 150);
+        points[1] = new Vector3(x + 150, y, z - 150);
+        points[2] = new Vector3(x + 150, y, z + 150);
+        points[3] = new Vector3(x - 150, y, z + 150);
+    }
+
 }
