@@ -1,7 +1,8 @@
 {
-    "levelCount":1, 
+    "levelCount":2, 
     "levels":[
-        {"name":"Level 1", "fileName":"level1"},
+        {"name":"Tutorial", "fileName":"Tutorial"},
+        {"name":"Level 1", "fileName":"Level1"},
         // {"name":"Level 2", "fileName":"level2"},
         // {"name":"Level 3", "fileName":"level3"},
     ],

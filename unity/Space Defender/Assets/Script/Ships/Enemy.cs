@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public abstract class Enemy : MonoBehaviour, Victim, Killer
@@ -16,6 +17,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
     public float range;
     public GameObject shot;
     public Transform shotSpawn;
+	public Slider healthSlider;
 
     //ship patrol
     public object[] points;
@@ -25,7 +27,10 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
     public float degreesPerSecond = -65.0f;
     private int patrolMode;
     enum Patrol { Base, Corner, Circle };
-
+    private float radius;
+    private float height;
+    private float timeCounter = 0;
+	private float maxHealth;
 
     public int GetFireInterval()
     {
@@ -44,12 +49,17 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
         patrolMode = (int)Patrol.Base;   //switch patrol mode
         points = new object[4];
         SetPoints(target, points);
+        radius = 200f;
+        height = this.transform.position.y;
+        
         if (patrolMode == (int)Patrol.Corner)
             GotoNextPoint();
         else if (patrolMode == (int)Patrol.Base)
             destination = target.position;
         else if (patrolMode == (int)Patrol.Circle)
-            v = transform.position - target.position;
+            destination = target.position;
+
+		maxHealth = health;
     }
 
     // Update is called once per frame
@@ -67,16 +77,32 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
         transform.Translate(dir.normalized * framDist, Space.World);
         this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(90f, 0f, 0f);
 
-        if (patrolMode == (int)Patrol.Corner && RemainingDistance(this.transform.position, destination) < 0.5f)
+        if (patrolMode == (int)Patrol.Corner && Vector3.Distance(this.transform.position, destination) < 0.5f)
             GotoNextPoint();
         else if (patrolMode == (int)Patrol.Base)
             destination = target.position;
         else if (patrolMode == (int)Patrol.Circle)
         {
-            v = Quaternion.AngleAxis(degreesPerSecond * Time.deltaTime, Vector3.forward) * v;
-            this.transform.position = target.position + v;
+            if (Vector3.Distance(this.transform.position, destination) > radius)
+                destination = target.position;
+            else
+            {
+                timeCounter += Time.deltaTime * speed;
+                float x = Mathf.Cos(timeCounter) * radius;
+                float z = Mathf.Sin(timeCounter) * radius;
+                this.transform.position = new Vector3(x, height, z);
+            }
+
         }
     }
+
+	void OnEnable() {
+		SetHealthUI();
+	}
+
+	void SetHealthUI() {
+		healthSlider.value = health / maxHealth * 100;
+	}
 
     void OnTriggerEnter(Collider colliderObject)
     {
@@ -97,6 +123,8 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
         {
             this.DestorySelf();
         }
+
+		SetHealthUI();
     }
 
     void DestorySelf()
@@ -230,9 +258,4 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
         points[3] = new Vector3(x - 150, y, z + 150);
     }
 
-    static public float RemainingDistance(Vector3 current, Vector3 target)
-    {
-        Vector3 remain = target - current;
-        return Mathf.Abs(remain.x) + Mathf.Abs(remain.y) + Mathf.Abs(remain.z);
-    }
 }
