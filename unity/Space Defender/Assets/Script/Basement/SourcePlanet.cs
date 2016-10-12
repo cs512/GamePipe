@@ -10,16 +10,16 @@ public class SourcePlanet : MonoBehaviour, Victim {
     public GameObject explosion;
     public float fund;
     public int intervalRate;
-	public Slider healthSlider;
+    public Slider healthSlider;
 
-	private float maxHealth;
+    private float maxHealth;
 
     // Use this for initialization
     void Start() {
-        intervalRate = 30;   
+        intervalRate = 30;
         fund = -1.0f;
 
-		maxHealth = health;
+        maxHealth = health;
     }
 
     // Update is called once per frame
@@ -28,13 +28,14 @@ public class SourcePlanet : MonoBehaviour, Victim {
         generateFund();
     }
 
-	void OnEnable() {
-		SetHealthUI();
-	}
+    void OnEnable() {
+        SetHealthUI();
+    }
 
-	void SetHealthUI() {
-		healthSlider.value = health / maxHealth * 100;
-	}
+    void SetHealthUI() {
+        if(healthSlider)
+            healthSlider.value = health / maxHealth * 100;
+    }
 
     int Victim.GetID() {
         return GetInstanceID();
@@ -47,9 +48,9 @@ public class SourcePlanet : MonoBehaviour, Victim {
         if (health <= 0f) {
             GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
             Destroy(boom, 2);
-            GetComponent<Renderer>().enabled =false;
+            GetComponent<Renderer>().enabled = false;
         }
-		SetHealthUI();
+        SetHealthUI();
     }
 
     float Victim.GetHealth() {
@@ -60,13 +61,11 @@ public class SourcePlanet : MonoBehaviour, Victim {
         return this.gameObject;
     }
 
-    void generateFund() 
-    {
-        if (Time.frameCount % intervalRate == 0)
-        {
-           GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(fund);
-        }          
+    void generateFund() {
+        if (Time.frameCount % intervalRate == 0) {
+            GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(fund);
+        }
     }
 
- 
+
 }
