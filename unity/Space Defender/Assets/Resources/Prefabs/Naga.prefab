@@ -477,12 +477,6 @@ MonoBehaviour:
   shot: {fileID: 56316576, guid: abfcd77cb674543c0bfd9518ae26d19f, type: 2}
   shotSpawn: {fileID: 0}
   healthSlider: {fileID: 0}
---- !u!222 &222000010005733330
-CanvasRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 0}
 --- !u!222 &222000012183464772
 CanvasRenderer:
   m_ObjectHideFlags: 1

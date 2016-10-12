@@ -106,7 +106,7 @@ public class CircleMenu : MonoBehaviour
                     if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost))
                     {
                         newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
-
+                        Debug.Log("Build");
                     }
 
                 }
@@ -119,6 +119,7 @@ public class CircleMenu : MonoBehaviour
                     if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost))
                     {
                         newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
+                        Debug.Log("Build");
                     }
                 }
                 else if (selected.title == "trtSml")
@@ -130,9 +131,10 @@ public class CircleMenu : MonoBehaviour
                     if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost))
                     {
                         newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
+                        Debug.Log("Build");
                     }
                 }
-                Debug.Log("Build");
+                
 
                 selected = null;
             }
