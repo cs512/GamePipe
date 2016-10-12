@@ -383,6 +383,7 @@ MonoBehaviour:
   healthSlider: {fileID: 114000010750650700}
   shotSpawn: {fileID: 4000012263439344}
   shot: {fileID: 1000011598069564, guid: 937e3c0c242d76e40bbe1bb8a0045644, type: 2}
+  shootEnemys: []
 --- !u!114 &114000011603421462
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -514,7 +515,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 1675856775
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!224 &224000010587873602
