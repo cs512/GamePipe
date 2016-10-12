@@ -6,7 +6,7 @@
             "spawnPointCount":1,
             "spawnPoints":[
                 {
-                    "position":[-750,0,0],
+                    "position":[-750,44,0],
                     "prefab":"Naga",
                     "interval":5.0,
                     "number":10,

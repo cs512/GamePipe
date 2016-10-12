@@ -54,27 +54,26 @@ public class ScoreBoard : MonoBehaviour {
 
     // working on, call this whenever a wave of enemies are  purged
     public void gameEnd() {
-        
         bool isCompleted=GameObject.Find ("WaveManager").GetComponent<WaveManager>().HasComplete();
         if (live != 0 && isCompleted == true) {
             float cases = live / staticLive;
             if (cases == 1) {
-                Debug.Log("GameEnd! 3 stars");
+                GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (cases);
+                Time.timeScale = 0;
             } else if (cases >= 2 / 3) {
-                Debug.Log("GameEnd! 2 stars!");
-            } else
-                Debug.Log("GameEnd! 1 stars!");
-        } else {
-            if (live == 0) {
-                Debug.Log("GameEnd! You Lose!");
+                GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (cases);
+                Time.timeScale = 0;
+            } else {
+                GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (cases);
+                Time.timeScale = 0;
             }
-        }
+        } 
     }
 
     //working on 
     public void gameOver() {
         Debug.Log("Game Over!");
-
+        GameObject.Find ("GameEnd").GetComponent<GameEnd>().ShowEnd (0);
         Time.timeScale = 0;
         //SceneManager.LoadScene("GameEnd");
     }
