@@ -16,7 +16,7 @@ public class CircleButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     {
         myMenu.selected = this;
         defaultColor = circle.color;
-        circle.color = Color.yellow;
+        circle.color = Color.white;
     }
     
     public void OnPointerExit (PointerEventData eventData)
