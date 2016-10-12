@@ -36,7 +36,6 @@ public class ScoreBoard : MonoBehaviour {
     public void setWaves() {
         WaveManager waveMgr = GameObject.Find("WaveManager").GetComponent<WaveManager>();
         wave = waveMgr.GetRemainedWave();
-        Debug.Log(wave);
         tWaves.text = "Remaining Waves: " + wave.ToString();
     }
 

@@ -6,9 +6,9 @@
             "spawnPointCount":1,
             "spawnPoints":[
                 {
-                    "position":[-750,0,0],
+                    "position":[-750,44,0],
                     "prefab":"Naga",
-                    "interval":350.0,
+                    "interval":5.0,
                     "number":5,
                     "damage":5.0,
                     "speed":3.0,
@@ -20,17 +20,17 @@
             "spawnPointCount":2,
             "spawnPoints":[
                 {
-                    "position":[-770,0,0],
+                    "position":[-770,44,0],
                     "prefab":"Naga",
-                    "interval":350.0,
+                    "interval":5.0,
                     "number":5,
                     "damage":5.0,
                     "speed":3.0,
                 },
                 {
-                    "position":[575,0,500],
+                    "position":[575,4,500],
                     "prefab":"Arm",
-                    "interval":350.0,
+                    "interval":5.0,
                     "number":5,
                     "damage":5.0,
                     "speed":3.0,

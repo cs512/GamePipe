@@ -63,7 +63,7 @@ public class SourcePlanet : MonoBehaviour, Victim {
     }
 
     void GenerateFund() {       
-        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().loseFund(fund);     
+        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(fund);     
     }
 
 
