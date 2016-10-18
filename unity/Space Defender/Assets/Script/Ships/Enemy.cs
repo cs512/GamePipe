@@ -74,9 +74,9 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer
         if (this.flag == 0) {
             float framDist = speed * Time.deltaTime;
             transform.Translate (dir.normalized * framDist, Space.World);
-            this.transform.rotation = Quaternion.LookRotation (dir) * Quaternion.Euler (90f, 0f, 0f);
+            this.transform.rotation = Quaternion.LookRotation (dir) * Quaternion.Euler (0f, 0f, 0f);
         } else {
-            this.transform.rotation = Quaternion.LookRotation (dir) * Quaternion.Euler (90f, 0f, 0f);
+            this.transform.rotation = Quaternion.LookRotation (dir) * Quaternion.Euler (0f, 0f, 0f);
         }
         //        if (patrolMode == (int)Patrol.Corner && currentTarget == null && Vector3.Distance(this.transform.position, destination) < 0.5f)
         //            GotoNextPoint();
