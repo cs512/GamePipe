@@ -22,6 +22,10 @@ public class Dispatcher : MonoBehaviour {
         }
     }
 
+    public int GetEnemyCount() {
+        return this.enemyKillers.Count;
+    }
+
     public void enemyRegisteKiller(Killer killer) {
         print("enemyRegister: killer" + killer.GetID().ToString());
         if (!this.enemyKillers.ContainsKey(killer.GetID())) {
