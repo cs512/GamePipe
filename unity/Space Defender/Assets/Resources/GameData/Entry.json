@@ -1,9 +1,12 @@
 {
-    "levelCount":2, 
+    "levelCount":7, 
     "levels":[
         {"name":"Tutorial", "fileName":"Tutorial"},
         {"name":"Level 1", "fileName":"Level1"},
-        // {"name":"Level 2", "fileName":"level2"},
-        // {"name":"Level 3", "fileName":"level3"},
+        {"name":"Level 2", "fileName":"level2"},
+        {"name":"Level 3", "fileName":"level3"},
+        {"name":"Level 4", "fileName":"level4"},
+        {"name":"Level 5", "fileName":"level5"},
+        {"name":"Level 6", "fileName":"level6"},
     ],
 }

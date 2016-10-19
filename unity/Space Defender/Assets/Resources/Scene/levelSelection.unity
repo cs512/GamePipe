@@ -139,7 +139,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 154185754}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 63576a4a48576f84f99650d8929a73dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &154185757
@@ -183,7 +183,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 154185756}
-        m_MethodName: createSubMenu
+        m_MethodName: loadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -575,7 +575,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 772791114}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 63576a4a48576f84f99650d8929a73dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &772791117
@@ -619,7 +619,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 772791116}
-        m_MethodName: createSubMenu
+        m_MethodName: loadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -715,7 +715,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 950052593}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 63576a4a48576f84f99650d8929a73dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &950052596
@@ -759,7 +759,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 950052595}
-        m_MethodName: createSubMenu
+        m_MethodName: loadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1181997246}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 63576a4a48576f84f99650d8929a73dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1181997249
@@ -1324,7 +1324,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1181997248}
-        m_MethodName: createSubMenu
+        m_MethodName: loadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1848,13 +1848,12 @@ RectTransform:
 --- !u!114 &1640476477
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114000010369300260, guid: 3aa012a5245a1c443a0cfb32529585ec,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1640476475}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 63576a4a48576f84f99650d8929a73dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &1640476478
@@ -1898,7 +1897,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1640476477}
-        m_MethodName: createSubMenu
+        m_MethodName: loadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -12,12 +12,16 @@ public class loadSceneSelection : MonoBehaviour {
             SceneManager.LoadScene("levelSelection");
         } else if (gameObject.name == "level1") {
             Toolbox.Instance.GetComponent<LevelManager>().JumpLevel(1);
-        } else if (gameObject.name == "Level 2") {
+        } else if (gameObject.name == "level2") {
             Toolbox.Instance.GetComponent<LevelManager>().JumpLevel(2);
-        } else if (gameObject.name == "Level 3") {
+        } else if (gameObject.name == "level3") {
             Toolbox.Instance.GetComponent<LevelManager>().JumpLevel(3);
-        } else if (gameObject.name == "Level 4") {
+        } else if (gameObject.name == "level4") {
             Toolbox.Instance.GetComponent<LevelManager>().JumpLevel(4);
+        } else if (gameObject.name == "level5") {
+            Toolbox.Instance.GetComponent<LevelManager>().JumpLevel(5);
+        } else if (gameObject.name == "level6") {
+            Toolbox.Instance.GetComponent<LevelManager>().JumpLevel(6);
         } else if (gameObject.name.Contains("Level")) {
             SceneManager.LoadScene("levelSelection");
         }

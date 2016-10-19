@@ -30,7 +30,6 @@ class LevelManager : MonoBehaviour {
                     var spJSON = waveJSON["spawnPoints"][k];
                     Level.Wave.SpawnPoint sp = new Level.Wave.SpawnPoint();
                     sp.interval = spJSON["interval"].AsFloat;
-                    print(sp.interval);
                     sp.number = spJSON["number"].AsInt;
                     sp.prefab = spJSON["prefab"];
                     sp.speed = spJSON["speed"].AsFloat;
