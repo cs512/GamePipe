@@ -33,7 +33,6 @@ class LevelManager : MonoBehaviour {
                     sp.number = spJSON["number"].AsInt;
                     sp.prefab = spJSON["prefab"];
                     sp.speed = spJSON["speed"].AsFloat;
-                    sp.damage = spJSON["damage"].AsFloat;
                     sp.position = new Vector3(spJSON["position"][0].AsFloat, spJSON["position"][1].AsFloat, spJSON["position"][2].AsFloat);
                     wave.spawnPoints.Add(sp);
                 }

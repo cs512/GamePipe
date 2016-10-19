@@ -10,7 +10,6 @@
                     "prefab":"Naga",
                     "interval":5.0,
                     "number":3,
-                    "damage":1.0,
                     "speed":3.0,
                 }
             ],
@@ -24,7 +23,6 @@
                     "prefab":"Naga",
                     "interval":5.0,
                     "number":3,
-                    "damage":1.0,
                     "speed":3.0,
                 }
             ],
