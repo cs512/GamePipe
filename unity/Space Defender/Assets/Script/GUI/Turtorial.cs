@@ -12,25 +12,24 @@ public class Turtorial : MonoBehaviour {
     private int i = 0;
     public void chTrText() {
         i++;
-        if(i == 1) {
+        if (i == 1) {
             tText.text = "You can check your resource health \nand how many enemy's gates here.";
             tText.fontSize = 25;
             transBut.position = new Vector3(-300, 0, 250);
             transTex.position = new Vector3(-300, 0, 250);
         }
-        if(i == 2) {
+        if (i == 2) {
             tText.text = "This is your sourcePlanet, also your basement.\nYou can upgrade it to gain resources quickly.\nBeware, you must protect it from enemies!";
             tText.color = Color.red;
             tText.fontSize = 25;
             transBut.position = new Vector3(-200, 0, 40);
             transTex.position = new Vector3(-200, 0, 40);
         }
-        if (i == 3)
-        {
-            rButton.sizeDelta=new Vector2(400f,300f);
+        if (i == 3) {
+            rButton.sizeDelta = new Vector2(400f, 300f);
             tText.text = "Now try to point on your planet.\nFind one of your faviourate SACS\n(space auto-counterattack system).\nHold and drag it to a good position.\nOnce you finished,click the text.";
         }
-        if(i ==4) {
+        if (i == 4) {
             tText.color = Color.blue;
             tText.text = "Enemy is coming!\nMaybe one is far from enough.";
             Time.timeScale = 1;
@@ -38,8 +37,7 @@ public class Turtorial : MonoBehaviour {
             Debug.Log("1423124124");
         }
     }
-    void timeReturn()
-    {
+    void timeReturn() {
         tText.text = "";
         rButton.sizeDelta = new Vector2(0f, 0f);
         Debug.Log("1afssa");
@@ -55,16 +53,16 @@ public class Turtorial : MonoBehaviour {
     //}
 
     // Use this for initialization
-    void Start () {
+    void Start() {
         tText.text = "Hello, Commander!";
         tText.fontSize = 40;
         Time.timeScale = 0;
 
 
     }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+
+    // Update is called once per frame
+    void Update() {
+
+    }
 }

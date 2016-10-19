@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class BulletMover : MonoBehaviour{
+public abstract class BulletMover : MonoBehaviour {
     public float speed;
     public float damage;
     public float bulletRotateSpeed = 100f;
@@ -9,21 +9,21 @@ public abstract class BulletMover : MonoBehaviour{
     void Start() {
         //GetComponent<Rigidbody>().velocity = transform.forward * speed;
         //Destroy(gameObject, 10);
-        InvokeRepeating("changeDirection",0.1f,0.05f);
+        InvokeRepeating("changeDirection", 0.1f, 0.05f);
     }
-    public void changeDirection(){
+    public void changeDirection() {
         if (target == null) {
             // the enemy went away!
-            Destroy (this.gameObject);
+            Destroy(this.gameObject);
             return;
         }
         //Debug.Log(target.position);
         Vector3 dir = target.position - this.transform.localPosition;
         float framDist = speed * Time.deltaTime;
-        transform.Translate (dir.normalized * framDist, Space.World);
-        this.transform.rotation = Quaternion.LookRotation (dir);
+        transform.Translate(dir.normalized * framDist, Space.World);
+        this.transform.rotation = Quaternion.LookRotation(dir);
     }
-    
+
     public float setDamage(float inputDamage) {
         damage = inputDamage;
         return damage;

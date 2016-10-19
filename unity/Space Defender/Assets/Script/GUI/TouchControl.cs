@@ -7,11 +7,11 @@ public class TouchControl : MonoBehaviour {
     public LayerMask touchInputMask;
 
     private List<GameObject> touchList = new List<GameObject>();
-    private GameObject [] touchesOld;
+    private GameObject[] touchesOld;
     private RaycastHit hit;
 
     // Update is called once per frame
-    void Update () {
+    void Update() {
 
 #if UNITY_EDITOR
 
@@ -32,7 +32,7 @@ public class TouchControl : MonoBehaviour {
                 touchList.Add(recipient);
 
                 if (Input.GetMouseButtonDown(0)) {
-                        recipient.SendMessage("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
+                    recipient.SendMessage("OnTouchDown", hit.point, SendMessageOptions.DontRequireReceiver);
                 }
                 if (Input.GetMouseButtonUp(0)) {
                     recipient.SendMessage("OnTouchUp", hit.point, SendMessageOptions.DontRequireReceiver);
@@ -40,7 +40,7 @@ public class TouchControl : MonoBehaviour {
                 if (Input.GetMouseButton(0)) {
                     recipient.SendMessage("OnTouchStay", hit.point, SendMessageOptions.DontRequireReceiver);
                 }
-             }
+            }
             foreach (GameObject g in touchesOld) {
                 if (!touchList.Contains(g)) {
                     g.SendMessage("OnTouchExit", hit.point, SendMessageOptions.DontRequireReceiver);
@@ -82,6 +82,6 @@ public class TouchControl : MonoBehaviour {
                 }
             }
         }
-	    
-	}
+
+    }
 }

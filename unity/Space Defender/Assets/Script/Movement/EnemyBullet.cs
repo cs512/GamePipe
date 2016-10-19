@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemyBullet : BulletMover {
     public string colliderObject;
     override public void OnTriggerEnter(Collider turret) {
-        colliderObject=turret.tag;
+        colliderObject = turret.tag;
         if (colliderObject == "Turrets") {
             Destroy(gameObject);
             Victim victim = turret.GetComponent<TurretBase>();

@@ -14,15 +14,15 @@ public class DoubleBarrels : TurretBase {
     override public void ShotSpawn() {
         Instantiate(shot, shotSpawnR.position, shotSpawnR.rotation);
         Instantiate(shot, shotSpawnL.position, shotSpawnL.rotation);
-		BulletMover bullet = shot.GetComponent<BulletMover>();
-		bullet.setTarget(currentTarget);
+        BulletMover bullet = shot.GetComponent<BulletMover>();
+        bullet.setTarget(currentTarget);
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
     }
-    override public void SetShootEnemy(GameObject enemy){
+    override public void SetShootEnemy(GameObject enemy) {
         shootEnemys.Add(enemy);
     }
-    override public void DismissShootEnemy(){
+    override public void DismissShootEnemy() {
         if (this.shootEnemys.Count != 0) {
             foreach (GameObject enemy in shootEnemys) {
                 if (enemy != null) {

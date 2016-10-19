@@ -19,8 +19,8 @@ public class EnemyBuilder : MonoBehaviour {
     public WaveComponent[] wave;
     // Use this for initialization
     void Start() {
-		//gameObject.transform.Rotate(0,90 * Time.deltaTime,0);
-		gameObject.GetComponent<MeshRenderer>().enabled = false;
+        //gameObject.transform.Rotate(0,90 * Time.deltaTime,0);
+        gameObject.GetComponent<MeshRenderer>().enabled = false;
         target = GameObject.Find("SourcePlanet");
         sourcePlanet = target.transform;
         Vector3 dir = sourcePlanet.position - this.transform.position;

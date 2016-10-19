@@ -16,17 +16,17 @@ class LevelManager : MonoBehaviour {
         print(text.text);
         var levelList = JSON.Parse(text.text);
         int count = levelList["levelCount"].AsInt;
-        for(int i = 0; i < count; ++i) {
+        for (int i = 0; i < count; ++i) {
             Level level = new Level();
             level.name = levelList["levels"][i]["name"];
             var levelConfig = JSON.Parse(
-                (Resources.Load("GameData/"+ levelList["levels"][i]["fileName"])
+                (Resources.Load("GameData/" + levelList["levels"][i]["fileName"])
                 as TextAsset).text);
-            for(int j = 0; j < levelConfig["waveCount"].AsInt; ++j) {
+            for (int j = 0; j < levelConfig["waveCount"].AsInt; ++j) {
                 var waveJSON = levelConfig["waves"][j];
                 Level.Wave wave = new Level.Wave();
                 wave.waveDuring = waveJSON["waveDuring"].AsInt;
-                for(int k = 0; k < waveJSON["spawnPointCount"].AsInt; ++k) {
+                for (int k = 0; k < waveJSON["spawnPointCount"].AsInt; ++k) {
                     var spJSON = waveJSON["spawnPoints"][k];
                     Level.Wave.SpawnPoint sp = new Level.Wave.SpawnPoint();
                     sp.interval = spJSON["interval"].AsFloat;
@@ -75,7 +75,7 @@ class LevelManager : MonoBehaviour {
 
     public List<string> GetLevelNames() {
         List<string> res = new List<string>();
-        foreach(Level level in this.levels) {
+        foreach (Level level in this.levels) {
             res.Add(level.GetName());
         }
         return res;

@@ -11,16 +11,16 @@ public class SingleBarrel : TurretBase {
     override public void ShotSpawn() {
         Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
         TurretBullet bullet = shot.GetComponent<TurretBullet>();
-		bullet.setTarget(currentTarget);
+        bullet.setTarget(currentTarget);
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
     }
-    override public void SetShootEnemy(GameObject enemy){
+    override public void SetShootEnemy(GameObject enemy) {
         if (enemy != null) {
             shootEnemys.Add(enemy);
         }
     }
-    override public void DismissShootEnemy(){
+    override public void DismissShootEnemy() {
         if (this.shootEnemys.Count != 0) {
             foreach (GameObject enemy in shootEnemys) {
                 if (enemy != null) {

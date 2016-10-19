@@ -25,7 +25,7 @@ public class WaveManager : MonoBehaviour {
     }
 
     public int GetCurrentWave() {
-        return this.currentWave+1;
+        return this.currentWave + 1;
     }
 
     public int GetRemainedWave() {
@@ -33,7 +33,7 @@ public class WaveManager : MonoBehaviour {
     }
 
     void SetWave(int n) {
-        foreach(GameObject eb in this.ebs) {
+        foreach (GameObject eb in this.ebs) {
             Destroy(eb);
         }
         this.ebs = new List<GameObject>();

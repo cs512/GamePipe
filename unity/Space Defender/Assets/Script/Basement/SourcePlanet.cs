@@ -19,7 +19,7 @@ public class SourcePlanet : MonoBehaviour, Victim {
     void Start() {
         fundRate = 1;
         fund = -1.0f;
-        
+
         maxHealth = health;
 
         InvokeRepeating("GenerateFund", 0, 1.0f);
@@ -35,7 +35,7 @@ public class SourcePlanet : MonoBehaviour, Victim {
     }
 
     void SetHealthUI() {
-        if(healthSlider)
+        if (healthSlider)
             healthSlider.value = health / maxHealth * 100;
     }
 
@@ -63,8 +63,8 @@ public class SourcePlanet : MonoBehaviour, Victim {
         return this.gameObject;
     }
 
-    void GenerateFund() {       
-        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(fund);     
+    void GenerateFund() {
+        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(fund);
     }
 
 

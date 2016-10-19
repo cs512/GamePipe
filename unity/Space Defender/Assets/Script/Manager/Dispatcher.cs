@@ -56,7 +56,7 @@ public class Dispatcher : MonoBehaviour {
         }
         return;
     }
-    
+
     public void turretRegisteKiller(Killer killer) {
         print("enemyRegister: killer" + killer.GetID().ToString());
         if (!this.turretKillers.ContainsKey(killer.GetID())) {
