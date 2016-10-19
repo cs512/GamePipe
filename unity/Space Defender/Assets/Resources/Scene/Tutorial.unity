@@ -1900,7 +1900,13 @@ Prefab:
       propertyPath: m_Name
       value: GameEnd
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000013720529394, guid: 3d8eb5b532f8af841be60e85d92cca73, type: 2}
+    - {fileID: 114000014021547390, guid: 3d8eb5b532f8af841be60e85d92cca73, type: 2}
+    - {fileID: 114000012987504210, guid: 3d8eb5b532f8af841be60e85d92cca73, type: 2}
+    - {fileID: 114000013558954872, guid: 3d8eb5b532f8af841be60e85d92cca73, type: 2}
+    - {fileID: 114000014033307668, guid: 3d8eb5b532f8af841be60e85d92cca73, type: 2}
+    - {fileID: 114000012419728924, guid: 3d8eb5b532f8af841be60e85d92cca73, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3d8eb5b532f8af841be60e85d92cca73, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2069219702
@@ -2220,7 +2226,10 @@ Prefab:
       propertyPath: tLives
       value: 
       objectReference: {fileID: 1975590997}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114000014077924640, guid: 70a5e4f1f1a5f9b4891739ae2b37de37, type: 2}
+    - {fileID: 114000011093977726, guid: 70a5e4f1f1a5f9b4891739ae2b37de37, type: 2}
+    - {fileID: 114000010188175196, guid: 70a5e4f1f1a5f9b4891739ae2b37de37, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 70a5e4f1f1a5f9b4891739ae2b37de37, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &2086835530 stripped
