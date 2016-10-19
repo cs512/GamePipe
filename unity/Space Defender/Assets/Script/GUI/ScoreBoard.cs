@@ -51,25 +51,26 @@ public class ScoreBoard : MonoBehaviour {
         return true;
     }
 
-    // working on, call this whenever a wave of enemies are  purged
+    // always on, if no more enemy exists and would be generated and still has life, calculate the score.
     public void gameEnd() {
         bool isCompleted=GameObject.Find ("WaveManager").GetComponent<WaveManager>().HasComplete();
-        if (live != 0 && isCompleted == true) {
+        int enemyCount = GameObject.Find("Dispatcher").GetComponent<Dispatcher>().GetEnemyCount();
+        if (live != 0 && isCompleted == true && (enemyCount ==0)) {
             float cases = live / staticLive;
             if (cases == 1) {
-                GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (cases);
+                GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (3);
                 Time.timeScale = 0;
             } else if (cases >= 2 / 3) {
-                GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (cases);
+                GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (2);
                 Time.timeScale = 0;
             } else {
-                GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (cases);
+                GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (1);
                 Time.timeScale = 0;
             }
         } 
     }
 
-    //working on 
+    //always on if planet has no life, u lose.
     public void gameOver() {
         Debug.Log("Game Over!");
         GameObject.Find ("GameEnd").GetComponent<GameEnd>().ShowEnd (0);
