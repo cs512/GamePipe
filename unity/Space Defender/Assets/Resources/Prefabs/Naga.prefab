@@ -377,6 +377,7 @@ MonoBehaviour:
   speed: 200
   damage: 40
   health: 5
+  cost: 25
   explosion: {fileID: 1000012970080796, guid: 767167072980b194481944cbb3f21023, type: 2}
   fireInterval: 1000
   currentTarget: {fileID: 0}
@@ -538,6 +539,7 @@ MonoBehaviour:
   speed: 50
   damage: 2
   health: 10
+  cost: 0
   explosion: {fileID: 4096, guid: 767167072980b194481944cbb3f21023, type: 2}
   fireInterval: 500
   currentTarget: {fileID: 0}

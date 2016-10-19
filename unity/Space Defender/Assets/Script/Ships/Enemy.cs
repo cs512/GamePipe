@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     public float speed;
     public float damage;
     public float health;
+    public float cost;
     public GameObject explosion;
     public int fireInterval;
     public Transform currentTarget = null;
@@ -75,26 +76,6 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         } else {
             this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(0f, 0f, 0f);
         }
-        //        if (patrolMode == (int)Patrol.Corner && currentTarget == null && Vector3.Distance(this.transform.position, destination) < 0.5f)
-        //            GotoNextPoint();
-        //        else if (patrolMode == (int)Patrol.Base && currentTarget == null)
-        //            destination = target.position;
-        //        else if (patrolMode == (int)Patrol.Circle && currentTarget == null)
-        //        {
-        //            if (Vector3.Distance(this.transform.position, destination) > radius)
-        //                destination = target.position;
-        //            else
-        //            {
-        //                timeCounter += Time.deltaTime;
-        //                float x = Mathf.Cos(timeCounter) * radius + destination.x;
-        //                float z = Mathf.Sin(timeCounter) * radius + destination.z;
-        //                this.transform.position = new Vector3(x, height, z);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            destination = this.transform.position;
-        //        }
     }
 
     // Update is called once per frame
@@ -128,6 +109,8 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
 
     void DestorySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+        ScoreBoard sc = GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>();
+        sc.LoseFund(-this.cost);
         dispatcher.enemyDeregisteVictim(this);
         dispatcher.enemyDeregisteKiller(this);
         GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
