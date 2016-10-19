@@ -20,6 +20,7 @@ public class WaveManager : MonoBehaviour {
     void Start() {
         this.level = Toolbox.Instance.GetComponent<LevelManager>().GetCurrentLevel();
         this.time = (int)Time.time;
+        Time.timeScale = 1f;
         this.SetWave(currentWave);
     }
 

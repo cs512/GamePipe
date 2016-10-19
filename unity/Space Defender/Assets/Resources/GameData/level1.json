@@ -2,7 +2,7 @@
     "waveCount":2,
     "waves":[
         {
-            "waveDuring":5,
+            "waveDuring":15,
             "spawnPointCount":1,
             "spawnPoints":[
                 {
@@ -16,14 +16,14 @@
             ],
         },
         {
-            "waveDuring":10,
+            "waveDuring":30,
             "spawnPointCount":1,
             "spawnPoints":[
                 {
                     "position":[-750,44,0],
                     "prefab":"Naga",
                     "interval":5.0,
-                    "number":1,
+                    "number":15,
                     "damage":40.0,
                     "speed":3.0,
                 }
