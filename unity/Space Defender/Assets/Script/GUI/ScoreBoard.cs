@@ -30,7 +30,7 @@ public class ScoreBoard : MonoBehaviour {
             gameOver();
         }
     }
-    public void setFund() {      
+    public void setFund() {
         tFunds.text = "Resource: " + fund.ToString();
     }
     public void setWaves() {
