@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0fe762ebee9c4456a6ed2083b07b076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 250
+  speed: 600
   damage: 3
   bulletRotateSpeed: 200
   target: {fileID: 0}

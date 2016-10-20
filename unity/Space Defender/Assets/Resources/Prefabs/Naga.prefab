@@ -198,7 +198,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_MotionVectors: 1
+  m_MotionVectors: 0
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
@@ -374,8 +374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b90461745017b4fb7afdcc8cec793e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
-  damage: 40
+  speed: 100
+  damage: 1
   health: 5
   cost: 25
   explosion: {fileID: 1000012970080796, guid: 767167072980b194481944cbb3f21023, type: 2}
