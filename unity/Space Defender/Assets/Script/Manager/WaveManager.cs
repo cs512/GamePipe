@@ -46,7 +46,6 @@ public class WaveManager : MonoBehaviour {
                 eb.nextWaveTime = 3.0f;
                 eb.intervelTime = sp.interval;
                 print(sp.interval);
-                eb.damage = sp.damage;
                 eb.speed = sp.speed;
                 eb.wave = new EnemyBuilder.WaveComponent[1];
                 eb.wave[0] = new EnemyBuilder.WaveComponent();

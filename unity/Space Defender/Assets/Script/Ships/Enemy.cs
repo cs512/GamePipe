@@ -107,6 +107,14 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         SetHealthUI();
     }
 
+    void Victim.SlowDown(float percentage)
+    {
+        if (speed > 100)
+        {
+            speed *= percentage;
+        }
+    }
+
     void DestorySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         ScoreBoard sc = GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>();

@@ -91,13 +91,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextWaveTime: 3
+<<<<<<< HEAD
   intervelTime: 4
   damage: 40
+=======
+  intervelTime: 5
+  damage: 1
+>>>>>>> 06a5b55322ca933b9d3916c34f8658e2cace3761
   speed: 3
   wave:
   - enenmyPrefab: {fileID: 1000011153084462, guid: 4d9d2a28a757de64cb34414fa348cf25,
       type: 2}
-    num: 1
+    num: 3
     shooted: 0
 --- !u!135 &135000010875620602
 SphereCollider:

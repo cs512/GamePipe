@@ -10,6 +10,7 @@ TagManager:
   - Bullets
   - Turrets
   - gameEnd
+  - Freeze
   layers:
   - Default
   - TransparentFX

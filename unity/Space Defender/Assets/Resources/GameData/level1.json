@@ -10,7 +10,6 @@
                     "prefab":"Naga",
                     "interval":7.0,
                     "number":2,
-                    "damage":10.0,
                     "speed":3.0,
                 },
 				{
@@ -18,7 +17,6 @@
                     "prefab":"Naga",
                     "interval":6.0,
                     "number":2,
-                    "damage":10.0,
                     "speed":3.0,
                 },
 				{
@@ -26,7 +24,6 @@
                     "prefab":"Naga",
                     "interval":8.0,
                     "number":3,
-                    "damage":10.0,
                     "speed":3.0,
                 }
             ],
@@ -40,7 +37,6 @@
                     "prefab":"Naga",
                     "interval":7,
                     "number":3,
-                    "damage":40.0,
                     "speed":3.0,
                 },
 				{
@@ -48,7 +44,6 @@
                     "prefab":"Naga",
                     "interval":5,
                     "number":2,
-                    "damage":40.0,
                     "speed":3.0,
                 },
 				{
@@ -56,7 +51,6 @@
                     "prefab":"Naga",
                     "interval":8,
                     "number":3,
-                    "damage":40.0,
                     "speed":3.0,
                 },
 				{
@@ -64,7 +58,6 @@
                     "prefab":"Naga",
                     "interval":6,
                     "number":3,
-                    "damage":40.0,
                     "speed":3.0,
                 },
 				{
@@ -72,15 +65,13 @@
                     "prefab":"Naga",
                     "interval":7,
                     "number":2,
-                    "damage":40.0,
                     "speed":3.0,
                 },
 				{
                     "position":[-550,44,50],
                     "prefab":"Naga",
-                    "interval":6,
+                    "interval":6.0,
                     "number":1,
-                    "damage":40.0,
                     "speed":3.0,
                 }
             ],
