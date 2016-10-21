@@ -15,6 +15,8 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     public float nextFire = 1;
     private Quaternion lastRotation;
     public Transform currentTarget = null;
+    public int shipsKilled = 0;
+    public int levelUp = 1;
     
     public bool showRange;
     public float range;
@@ -92,6 +94,8 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
                         if (min_dist >= distance) {
                             currentTarget = target;
                             currentVictim = victims[id];
+                            shipsKilled += 1;
+                            LevelUp();
                             min_dist = distance;
                         }
                     }
@@ -126,7 +130,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 
     //regard turretBase as a victim
     public int GetFireInterval() {
-        return fireInterval;
+        return fireInterval / levelUp;
     }
 
     int Killer.GetID() {
@@ -168,6 +172,14 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 
     void SetHealthUI() {
         healthSlider.value = health / maxHealth * 100;
+    }
+
+    void LevelUp()
+    {
+        if ((shipsKilled + 1) % 10 == 0)
+        {
+            levelUp += 1;
+        }
     }
 
 }
