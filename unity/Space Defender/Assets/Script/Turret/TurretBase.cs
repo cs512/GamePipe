@@ -19,30 +19,51 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     public GameObject explosion;
 	public float buildSpeed = 10.0f;
 
+	private Slider healthSlider;
 	private Vector3 screenPoint;
 	private Vector3 offset;
 	private Quaternion lastRotation;
     private float maxHealth;
 	private bool onSet = false;
 	private GameObject sliderCanvas;
-	private Slider healthSlider;
 	private bool built = false;
+	private bool findSlider = false;
 
     void Start() {
 //        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
 //        dispatcher.turretRegisteVictim(this);
 //        dispatcher.turretRegisteKiller(this);
+		RaycastHit[] hits; 
+		Ray targetRay = new Ray(transform.position, Vector3.down);
+		hits = Physics.RaycastAll (targetRay);
+		for (int i = 0; i < hits.Length; i++) {
+			if (hits[i].collider.gameObject.name.Equals ("Range")) {
+				onSet = true;
+				Transform range = hits[i].collider.gameObject.transform;
+				Vector3 targetVector = range.position;
+				Vector3 destVector = new Vector3(targetVector.x, transform.position.y, targetVector.z);
+				transform.position = Vector3.MoveTowards(transform.position, destVector, 100f);
 
+				sliderCanvas = range.parent.gameObject.transform.GetChild(0).gameObject;
+				healthSlider = sliderCanvas.GetComponentInChildren<Slider>();
+				print(healthSlider.value);
+			}
+		}
         maxHealth = health;
     }
 
     void Update() {
-		if(onSet && !built) {
-			BuildProcess();
+		if(!findSlider){
+			
 		}
-        if (currentTarget != null) {
-            targetLockOn();
-        }
+		if(!built) {
+			BuildProcess();
+		} else {
+			if (currentTarget != null) {
+				targetLockOn();
+			}
+		}
+        
     }
 
     void DestroySelf() {
@@ -63,45 +84,44 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 			Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
 			dispatcher.turretRegisteVictim(this);
 			dispatcher.turretRegisteKiller(this);
-			print("register finished");
 		}
 	}
 
     abstract public void SetUpAttributions();
 
-	void OnMouseUp() {
-
-		RaycastHit[] hits; 
-		Ray targetRay = new Ray(transform.position, Vector3.down);
-		hits = Physics.RaycastAll (targetRay);
-		for (int i = 0; i < hits.Length; i++) {
-			if (hits[i].collider.gameObject.name.Equals ("Range")) {
-				onSet = true;
-				Transform range = hits[i].collider.gameObject.transform;
-				Vector3 targetVector = range.position;
-				Vector3 destVector = new Vector3(targetVector.x, transform.position.y, targetVector.z);
-				transform.position = Vector3.MoveTowards(transform.position, destVector, 100f);
-
-				sliderCanvas = range.parent.gameObject.transform.GetChild(0).gameObject;
-				healthSlider = sliderCanvas.GetComponentInChildren<Slider>();
-				return;
-			}
-		}
-		DestorySelf();
-	}
-
-    void OnMouseDown() {
-        screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-    }
-
-    void OnMouseDrag() {
-		if(!onSet) {
-	        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-	        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
-	        transform.position = cursorPosition;
-		}
-    }
+//	void OnMouseUp() {
+//
+//		RaycastHit[] hits; 
+//		Ray targetRay = new Ray(transform.position, Vector3.down);
+//		hits = Physics.RaycastAll (targetRay);
+//		for (int i = 0; i < hits.Length; i++) {
+//			if (hits[i].collider.gameObject.name.Equals ("Range")) {
+//				onSet = true;
+//				Transform range = hits[i].collider.gameObject.transform;
+//				Vector3 targetVector = range.position;
+//				Vector3 destVector = new Vector3(targetVector.x, transform.position.y, targetVector.z);
+//				transform.position = Vector3.MoveTowards(transform.position, destVector, 100f);
+//
+//				sliderCanvas = range.parent.gameObject.transform.GetChild(0).gameObject;
+//				healthSlider = sliderCanvas.GetComponentInChildren<Slider>();
+//				return;
+//			}
+//		}
+//		DestorySelf();
+//	}
+//
+//    void OnMouseDown() {
+//        screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+//        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+//    }
+//
+//    void OnMouseDrag() {
+//		if(!onSet) {
+//	        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+//	        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
+//	        transform.position = cursorPosition;
+//		}
+//    }
 
     public void Attack(Dictionary<int, Victim> victims) {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
