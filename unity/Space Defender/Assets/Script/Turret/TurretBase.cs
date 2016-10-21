@@ -140,6 +140,11 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         SetHealthUI();
     }
 
+    public void SlowDown(float percentage)
+    {
+        return;
+    }
+
     public void DestorySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.turretDeregisteVictim(this);

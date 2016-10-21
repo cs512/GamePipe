@@ -10,6 +10,8 @@ public interface Victim {
 
     void DealDamage(float damage);
 
+    void SlowDown(float precentage);
+
     int GetID();
 
     GameObject GetGameObject();
