@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-
-namespace Assets.Script.GUI
+public class Final : MonoBehaviour
 {
-    class Final
-    {
-
+    public void FinalStrike() {
+        if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(600)) {
+            GameObject.FindWithTag("Enemy").GetComponent<Enemy>().DestorySelf();
+        }
     }
 }
