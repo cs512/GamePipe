@@ -57,7 +57,7 @@ GameObject:
   - 65: {fileID: 65000012795336088}
   - 114: {fileID: 114000010283412390}
   - 54: {fileID: 54000011300137908}
-  - 82: {fileID: 82000010996120648}
+  - 82: {fileID: 82000010015485728}
   m_Layer: 0
   m_Name: Naga
   m_TagString: Enemy
@@ -198,7 +198,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_MotionVectors: 1
+  m_MotionVectors: 0
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
@@ -289,7 +289,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 120, y: 50, z: 90}
   m_Center: {x: 0, y: 0, z: -20}
---- !u!82 &82000010996120648
+--- !u!82 &82000010015485728
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -298,8 +298,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 1be4472894949437694aead55c6da60f, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 7e73813856374fb469b78c3afab6ad54, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -351,7 +351,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -374,8 +374,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b90461745017b4fb7afdcc8cec793e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
-  damage: 40
+  speed: 100
+  damage: 1
   health: 5
   cost: 25
   explosion: {fileID: 1000012970080796, guid: 767167072980b194481944cbb3f21023, type: 2}

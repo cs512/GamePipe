@@ -55,6 +55,11 @@ public class SourcePlanet : MonoBehaviour, Victim {
         SetHealthUI();
     }
 
+    void Victim.SlowDown(float precentage)
+    {
+        return;
+    }
+
     float Victim.GetHealth() {
         return this.health;
     }

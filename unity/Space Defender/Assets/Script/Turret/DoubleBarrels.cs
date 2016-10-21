@@ -12,12 +12,19 @@ public class DoubleBarrels : TurretBase {
     }
 
     override public void ShotSpawn() {
-        Instantiate(shot, shotSpawnR.position, shotSpawnR.rotation);
-        Instantiate(shot, shotSpawnL.position, shotSpawnL.rotation);
+        if (gameObject.tag == "Launchers") {
+            int fireCount = Random.Range(0, 3);
+            if (fireCount == 2) {
+                Instantiate(shot, shotSpawnR.position, shotSpawnR.rotation);
+            } else {
+                Instantiate(shot, shotSpawnL.position, shotSpawnL.rotation);
+            }
+        } else {
+            Instantiate(shot, shotSpawnR.position, shotSpawnR.rotation);
+            Instantiate(shot, shotSpawnL.position, shotSpawnL.rotation);
+        }
         BulletMover bullet = shot.GetComponent<BulletMover>();
         bullet.setTarget(currentTarget);
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.Play();
     }
     override public void SetShootEnemy(GameObject enemy) {
         shootEnemys.Add(enemy);

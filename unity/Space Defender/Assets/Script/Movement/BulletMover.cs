@@ -4,6 +4,7 @@ using System.Collections;
 public abstract class BulletMover : MonoBehaviour {
     public float speed;
     public float damage;
+    public float slowRate;
     public float bulletRotateSpeed = 100f;
     public Transform target;
     void Start() {
@@ -13,8 +14,8 @@ public abstract class BulletMover : MonoBehaviour {
     }
     public void changeDirection() {
         if (target == null) {
-            // the enemy went away!
             Destroy(this.gameObject);
+            // the enemy went away!
             return;
         }
         //Debug.Log(target.position);
@@ -30,6 +31,15 @@ public abstract class BulletMover : MonoBehaviour {
     }
     public float getDamage() {
         return this.damage;
+    }
+    public float setSlowRate(float inputSlowRate)
+    {
+        slowRate = inputSlowRate;
+        return slowRate;
+    }
+    public float getSlowRate()
+    {
+        return this.slowRate;
     }
     public void setTarget(Transform inputTarget) {
         target = inputTarget;
