@@ -73,6 +73,14 @@ public class CircleMenu : MonoBehaviour {
                             {
                                 newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
                             }
+                        } else if (selected.title == "mssLnchr") {
+
+                            GameObject prefab = Resources.Load("Prefabs/missle_launcher", typeof(GameObject)) as GameObject;
+                            float cost = prefab.GetComponent<TurretBase>().turretCost;
+                            Debug.Log("Cost is" + cost);
+                            if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost)) {
+                                newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
+                            }
                         }
                         Debug.Log("Build");
 
@@ -127,6 +135,14 @@ public class CircleMenu : MonoBehaviour {
                     Debug.Log("Cost is" + cost);
                     if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost))
                     {
+                        newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
+                    }
+                } else if (selected.title == "mssLnchr") {
+
+                    GameObject prefab = Resources.Load("Prefabs/missle_launcher", typeof(GameObject)) as GameObject;
+                    float cost = prefab.GetComponent<TurretBase>().turretCost;
+                    Debug.Log("Cost is" + cost);
+                    if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost)) {
                         newObject = Instantiate(prefab, transform.position, transform.localRotation) as GameObject;
                     }
                 }

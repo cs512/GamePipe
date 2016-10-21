@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public abstract class TurretBase : MonoBehaviour, Killer, Victim {
-
     private Vector3 screenPoint;
     private Vector3 offset;
 
@@ -29,6 +28,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     public Slider healthSlider;
 
     private float maxHealth;
+   
 
     void Start() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
@@ -52,6 +52,8 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.turretDeregisteKiller(this);
         dispatcher.turretDeregisteVictim(this);
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.Play();
         Destroy(this);
 
     }
@@ -151,6 +153,8 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         dispatcher.turretDeregisteKiller(this);
         DismissShootEnemy();
         GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+        AudioSource audio = GameObject.Find("TurretDestorySound").GetComponent<AudioSource>();
+        audio.Play();
         Destroy(gameObject);
         Destroy(boom, 2);
     }
