@@ -85,6 +85,7 @@
     <Compile Include="Assets\Script\GUI\CircleButton.cs" />
     <Compile Include="Assets\Script\GUI\CircleMenu.cs" />
     <Compile Include="Assets\Script\GUI\CircleSpwaner.cs" />
+    <Compile Include="Assets\Script\GUI\Final.cs" />
     <Compile Include="Assets\Script\GUI\GameEnd.cs" />
     <Compile Include="Assets\Script\GUI\Interactable.cs" />
     <Compile Include="Assets\Script\GUI\ScoreBoard.cs" />
