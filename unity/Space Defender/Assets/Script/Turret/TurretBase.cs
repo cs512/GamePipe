@@ -3,48 +3,43 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public abstract class TurretBase : MonoBehaviour, Killer, Victim {
-    private Vector3 screenPoint;
-    private Vector3 offset;
 
     public int fireInterval;
     public Dictionary<int, Victim> victims;
-
     public float rotateSpeed;
-
     public Victim currentVictim = null;
     public float nextFire = 1;
-    private Quaternion lastRotation;
     public Transform currentTarget = null;
     public int shipsKilled = 0;
     public int levelUp = 1;
-    
     public bool showRange;
     public float range;
-
     public float turretCost = 50.0f;
-
     public float health;
-
     public GameObject explosion;
+	public float buildSpeed = 10.0f;
 
-    public Slider healthSlider;
-
+	private Vector3 screenPoint;
+	private Vector3 offset;
+	private Quaternion lastRotation;
     private float maxHealth;
-   
+	private bool onSet = false;
+	private GameObject sliderCanvas;
+	private Slider healthSlider;
+	private bool built = false;
 
     void Start() {
-        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-        dispatcher.turretRegisteVictim(this);
-        dispatcher.turretRegisteKiller(this);
+//        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+//        dispatcher.turretRegisteVictim(this);
+//        dispatcher.turretRegisteKiller(this);
 
         maxHealth = health;
     }
 
-    void OnEnable() {
-        SetHealthUI();
-    }
-
     void Update() {
+		if(onSet && !built) {
+			BuildProcess();
+		}
         if (currentTarget != null) {
             targetLockOn();
         }
@@ -60,7 +55,40 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 
     }
 
+	void BuildProcess() {
+		healthSlider.value += Time.deltaTime * buildSpeed / maxHealth * 100;
+		if(healthSlider.value >= 100) {
+			built = true;
+			SetHealthUI();
+			Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+			dispatcher.turretRegisteVictim(this);
+			dispatcher.turretRegisteKiller(this);
+			print("register finished");
+		}
+	}
+
     abstract public void SetUpAttributions();
+
+	void OnMouseUp() {
+
+		RaycastHit[] hits; 
+		Ray targetRay = new Ray(transform.position, Vector3.down);
+		hits = Physics.RaycastAll (targetRay);
+		for (int i = 0; i < hits.Length; i++) {
+			if (hits[i].collider.gameObject.name.Equals ("Range")) {
+				onSet = true;
+				Transform range = hits[i].collider.gameObject.transform;
+				Vector3 targetVector = range.position;
+				Vector3 destVector = new Vector3(targetVector.x, transform.position.y, targetVector.z);
+				transform.position = Vector3.MoveTowards(transform.position, destVector, 100f);
+
+				sliderCanvas = range.parent.gameObject.transform.GetChild(0).gameObject;
+				healthSlider = sliderCanvas.GetComponentInChildren<Slider>();
+				return;
+			}
+		}
+		DestorySelf();
+	}
 
     void OnMouseDown() {
         screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
@@ -68,9 +96,11 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     }
 
     void OnMouseDrag() {
-        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
-        transform.position = cursorPosition;
+		if(!onSet) {
+	        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+	        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
+	        transform.position = cursorPosition;
+		}
     }
 
     public void Attack(Dictionary<int, Victim> victims) {
