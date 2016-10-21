@@ -87,9 +87,9 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011768435290}
   - 135: {fileID: 135000010532149934}
-  - 82: {fileID: 82000012706759900}
   - 114: {fileID: 114000011403510668}
   - 54: {fileID: 54000011059610114}
+  - 82: {fileID: 82000014237208374}
   m_Layer: 0
   m_Name: G150dual
   m_TagString: Turrets
@@ -267,7 +267,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!82 &82000012706759900
+--- !u!82 &82000014237208374
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -276,7 +276,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bf75b984df8a84987bcf3a8bf6e2862d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: a019ae3af8e864616b85773c509f5285, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -329,7 +329,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 0
+    m_RotationOrder: 4
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:

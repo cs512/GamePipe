@@ -16,8 +16,6 @@ public class DoubleBarrels : TurretBase {
         Instantiate(shot, shotSpawnL.position, shotSpawnL.rotation);
         BulletMover bullet = shot.GetComponent<BulletMover>();
         bullet.setTarget(currentTarget);
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.Play();
     }
     override public void SetShootEnemy(GameObject enemy) {
         shootEnemys.Add(enemy);
