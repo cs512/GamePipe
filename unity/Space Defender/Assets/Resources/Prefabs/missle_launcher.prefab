@@ -138,7 +138,7 @@ GameObject:
   - 82: {fileID: 82000010755605946}
   m_Layer: 0
   m_Name: missle_launcher
-  m_TagString: Turrets
+  m_TagString: Launchers
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -495,6 +495,8 @@ MonoBehaviour:
   rotateSpeed: 10
   nextFire: 1
   currentTarget: {fileID: 0}
+  shipsKilled: 0
+  levelUp: 1
   showRange: 0
   range: 1000
   turretCost: 200
