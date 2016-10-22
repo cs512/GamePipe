@@ -154,6 +154,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
                             currentVictim = victims[id];
                             shipsKilled += 1;
                             LevelUp();
+                            SetLevelUI();
                             min_dist = distance;
                         }
                     }
@@ -236,8 +237,16 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     {
         if ((shipsKilled + 1) % 10 == 0)
         {
-            levelUp += 1;
+            if (levelUp < 3)
+            {
+                levelUp += 1;
+            } 
         }
+    }
+
+    void SetLevelUI()
+    {
+        levelSlider.value = (levelUp - 1) / 3.0f * 100;
     }
 
 }
