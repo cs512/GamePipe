@@ -20,6 +20,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 	public float buildSpeed = 10.0f;
 
 	private Slider healthSlider;
+	private Slider levelSlider;
 	private Vector3 screenPoint;
 	private Vector3 offset;
 	private Quaternion lastRotation;
@@ -45,7 +46,14 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 				transform.position = Vector3.MoveTowards(transform.position, destVector, 100f);
 
 				sliderCanvas = range.parent.gameObject.transform.GetChild(0).gameObject;
-				healthSlider = sliderCanvas.GetComponentInChildren<Slider>();
+				Slider[] sliderList = sliderCanvas.GetComponentsInChildren<Slider>();
+				foreach(Slider slider in sliderList) {
+					if(slider.name.Equals("HealthSlider")) {
+						healthSlider = slider;
+					} else {
+						levelSlider = slider;
+					}
+				}
 				print(healthSlider.value);
 			}
 		}
