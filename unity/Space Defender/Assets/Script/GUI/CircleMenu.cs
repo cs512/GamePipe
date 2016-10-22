@@ -34,7 +34,7 @@ public class CircleMenu : MonoBehaviour {
                 if (touch.phase == TouchPhase.Ended) {
                     if (selected) {
                         Debug.Log(selected.title + " was selected");
-                        transform.position = new Vector3(380f, 0f, 120f);
+                        transform.position = transform.parent.gameObject.transform.position;
                         transform.localRotation = new Quaternion(0f, 90f, 0f, 0f);
 
                         if (selected.title == "trtLrg") {
@@ -97,7 +97,7 @@ public class CircleMenu : MonoBehaviour {
         if (Input.GetMouseButtonUp(0)) {
             if (selected) {
                 Debug.Log(selected.title + " was selected");
-                transform.position = new Vector3(380f, 0f, 120f);
+                transform.position = transform.parent.gameObject.transform.position;
                 transform.localRotation = new Quaternion(0f, 90f, 0f, 0f);
                 if (selected.title == "trtLrg") {
                     GameObject prefab = Resources.Load("Prefabs/G425", typeof(GameObject)) as GameObject;
