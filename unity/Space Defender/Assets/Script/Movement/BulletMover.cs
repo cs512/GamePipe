@@ -14,8 +14,8 @@ public abstract class BulletMover : MonoBehaviour {
     }
     public void changeDirection() {
         if (target == null) {
-            // the enemy went away!
             Destroy(this.gameObject);
+            // the enemy went away!
             return;
         }
         //Debug.Log(target.position);

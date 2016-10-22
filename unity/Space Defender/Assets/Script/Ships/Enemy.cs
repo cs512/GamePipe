@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public abstract class Enemy : MonoBehaviour, Victim, Killer {
+
     private Transform target;
     public float speed;
     public float damage;
@@ -58,7 +59,6 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
             destination = target.position;
 
         maxHealth = health;
-
         InvokeRepeating("Forwards", 0f, 0.05f);
     }
     public void Forwards() {
@@ -115,12 +115,15 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         }
     }
 
-    void DestorySelf() {
+   public void DestorySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         ScoreBoard sc = GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>();
         sc.LoseFund(-this.cost);
         dispatcher.enemyDeregisteVictim(this);
         dispatcher.enemyDeregisteKiller(this);
+        AudioSource audio = GameObject.Find("EnemyDestorySound").GetComponent<AudioSource>();
+        audio.Play();
+        Debug.Log("booooom!");
         GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
         Destroy(gameObject);
         Destroy(boom, 2);
@@ -199,8 +202,6 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
         EnemyBullet bullet = shot.GetComponent<EnemyBullet>();
         bullet.setTarget(currentTarget);
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.Play();
     }
 
     int Killer.GetID() {

@@ -12,8 +12,6 @@ public class SingleBarrel : TurretBase {
         Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
         TurretBullet bullet = shot.GetComponent<TurretBullet>();
         bullet.setTarget(currentTarget);
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.Play();
     }
     override public void SetShootEnemy(GameObject enemy) {
         if (enemy != null) {

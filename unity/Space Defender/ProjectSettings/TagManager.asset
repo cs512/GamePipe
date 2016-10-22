@@ -11,6 +11,7 @@ TagManager:
   - Turrets
   - gameEnd
   - Freeze
+  - Launchers
   layers:
   - Default
   - TransparentFX

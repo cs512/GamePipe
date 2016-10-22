@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class TurretActionExample : MonoBehaviour{
+public class RandomFly : MonoBehaviour{
     float stopTime;
     float moveTime;
     float vel_x, vel_y, vel_z;//速度
