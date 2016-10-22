@@ -87,7 +87,7 @@ public class CircleMenu : MonoBehaviour {
                         selected = null;
 
                     }
-                    Destroy(gameObject);
+                    Destroy(this);
                 }
 
             }
