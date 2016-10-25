@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CircleSpwaner : MonoBehaviour {
-    public static CircleSpwaner ins;
+    public CircleSpwaner ins;
     public CircleMenu menuPrefab;
 
     void Awake() {
