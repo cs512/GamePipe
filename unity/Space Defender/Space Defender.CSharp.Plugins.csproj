@@ -68,11 +68,14 @@
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
     <Reference Include="ICSharpCode.SharpZipLib">
-      <HintPath>Assets\plugins\ICSharpCode.SharpZipLib.dll</HintPath>
+      <HintPath>Assets\Plugins\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\plugins\SimpleJSON.cs" />
+    <Compile Include="Assets\Plugins\SimpleJSON.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Models\Materials\VertexColors.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
