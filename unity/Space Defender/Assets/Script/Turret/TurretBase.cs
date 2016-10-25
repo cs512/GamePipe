@@ -199,8 +199,10 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     public void DealDamage(float damage) {
         health -= damage;
         if (health <= 0f) {
+            levelSlider.value = 0;
             this.DestorySelf();
             Destroy(healthSlider);
+            Destroy(levelSlider);
         }
         SetHealthUI();
     }
