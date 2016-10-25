@@ -61,8 +61,8 @@ public class HexMesh : MonoBehaviour {
         AddQuadColor(
             cell.color,
             cell.color,
-            (cell.color + prevNeighbor.color + neighbor.color) / 3f,
-            (cell.color + neighbor.color + nextNeighbor.color) / 3f
+            cell.color,
+            cell.color
         );
     }
 
