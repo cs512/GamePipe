@@ -8,6 +8,7 @@ public class HexMesh : MonoBehaviour {
     List<Vector3> vertices;
     List<Color> colors;
     List<int> triangles;
+    Color transparent = new Color(0, 0, 0, 0);
 
     MeshCollider meshCollider;
 
@@ -47,7 +48,7 @@ public class HexMesh : MonoBehaviour {
         Vector3 v2 = center + HexMetrics.GetSecondSolidCorner(direction);
 
         AddTriangle(center, v1, v2);
-        AddTriangleColor(cell.color);
+        AddTriangleColor(this.transparent);
 
         Vector3 v3 = center + HexMetrics.GetFirstCorner(direction);
         Vector3 v4 = center + HexMetrics.GetSecondCorner(direction);
