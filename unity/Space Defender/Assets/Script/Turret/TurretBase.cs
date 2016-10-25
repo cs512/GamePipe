@@ -201,8 +201,8 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         if (health <= 0f) {
             levelSlider.value = 0;
             this.DestorySelf();
-            Destroy(healthSlider);
-            Destroy(levelSlider);
+//            Destroy(healthSlider);
+//            Destroy(levelSlider);
         }
         SetHealthUI();
     }
