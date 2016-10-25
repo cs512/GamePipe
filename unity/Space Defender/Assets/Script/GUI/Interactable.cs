@@ -18,7 +18,7 @@ public class Interactable : MonoBehaviour {
 #if UNITY_EDITOR
     void OnMouseDown() {
         if (Input.GetMouseButtonDown(0)) {
-            CircleSpwaner.ins.SpawnMenu(this);
+            GetComponentsInChildren<CircleSpwaner>()[0].SpawnMenu(this);
         }
     }
 #endif
@@ -34,7 +34,7 @@ public class Interactable : MonoBehaviour {
                     RaycastHit hit;
                     if (Physics.Raycast(screenRay, out hit)) {
                         if (hit.collider.gameObject.name == "Quad") {
-                            CircleSpwaner.ins.SpawnMenu(this);
+                            GetComponentsInChildren<CircleSpwaner>()[0].SpawnMenu(this);
                         }
                     }
                 }
