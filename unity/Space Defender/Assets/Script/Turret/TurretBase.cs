@@ -246,7 +246,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 
     void SetLevelUI()
     {
-        levelSlider.value = (levelUp - 1) / 3.0f * 100;
+        //levelSlider.value = (levelUp - 1) / 3.0f * 100;
     }
 
 }
