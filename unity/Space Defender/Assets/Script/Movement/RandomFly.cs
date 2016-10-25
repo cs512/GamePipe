@@ -4,10 +4,7 @@ using System.Collections.Generic;
 public class RandomFly : MonoBehaviour{
     float stopTime;
     float moveTime;
-    float vel_x, vel_y, vel_z;//速度
-    ///
-    /// 最大、最小飞行界限
-    ///
+    float vel_x, vel_y, vel_z;//speed
     float maxPos_x = 500;
     float maxPos_y = 300;
     float minPos_x = -500;
@@ -51,7 +48,6 @@ public class RandomFly : MonoBehaviour{
     }
     void Check()
     {
-        //如果到达预设的界限位置值，调换速度方向并让它当前的坐标位置等于这个临界边的位置值
         if (transform.localPosition.x > maxPos_x)
         {
             vel_x = -vel_x;
