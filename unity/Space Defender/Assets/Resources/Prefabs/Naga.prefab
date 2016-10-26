@@ -379,7 +379,7 @@ MonoBehaviour:
   health: 5
   cost: 25
   explosion: {fileID: 1000012970080796, guid: 767167072980b194481944cbb3f21023, type: 2}
-  fireInterval: 1000
+  fireInterval: 3000
   currentTarget: {fileID: 0}
   range: 300
   shot: {fileID: 1000013627078140, guid: f88496f5d46327f40a96678f087465c1, type: 2}
