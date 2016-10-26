@@ -34,7 +34,12 @@ public class GameEnd : MonoBehaviour {
         }
         else {
             Time.timeScale = 1;
-            lvlMgr.JumpToNextLevel();
+            if (SceneManager.GetActiveScene().name == "Tutorial")
+            {
+                lvlMgr.JumpLevel(1);
+            }
+            else
+                lvlMgr.JumpToNextLevel();
         }
 
     }
@@ -97,6 +102,7 @@ public class GameEnd : MonoBehaviour {
     void Start() {
         lvlMgr = Toolbox.Instance.GetOrAddComponent<LevelManager>();
         HideEnd();
+        print(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame
