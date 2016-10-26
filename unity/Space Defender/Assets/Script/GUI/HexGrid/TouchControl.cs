@@ -7,6 +7,9 @@ public class TouchControl : MonoBehaviour {
 
     public HexGrid hexGrid;
 
+    Touch? dragTouch = null;
+    bool hasMove;
+
     void Awake() {
         
     }
@@ -22,14 +25,27 @@ public class TouchControl : MonoBehaviour {
             }
         } else {
             foreach (Touch touch in Input.touches) {
-                if (touch.phase == TouchPhase.Ended) {
-                    print("begin");
-                    // Construct a ray from the current touch coordinates
-                    var ray = Camera.main.ScreenPointToRay(touch.position);
-                    RaycastHit hit;
-                    if (Physics.Raycast(ray, out hit)) {
-                        hexGrid.ColorCell(hit.point, new Color(1f, 0f, 0f, 0.5f));
+                if (touch.phase == TouchPhase.Began && dragTouch == null) {
+                    dragTouch = touch;
+                    hasMove = false;
+                    return;
+                }
+                if (touch.phase == TouchPhase.Moved && touch.fingerId == dragTouch.Value.fingerId) {
+                    hasMove = true;
+                    GameObject cam = GameObject.Find("Main Camera");
+                    cam.transform.position += new Vector3(-touch.deltaPosition.x, 0, -touch.deltaPosition.y);
+                    return;
+                }
+                if (touch.phase == TouchPhase.Ended && touch.fingerId == dragTouch.Value.fingerId) {
+                    if (!hasMove) {
+                        var ray = Camera.main.ScreenPointToRay(touch.position);
+                        RaycastHit hit;
+                        if (Physics.Raycast(ray, out hit)) {
+                            hexGrid.ColorCell(hit.point, new Color(1f, 0f, 0f, 0.5f));
+                        }
                     }
+                    dragTouch = null;
+                    return;
                 }
             }
         }
