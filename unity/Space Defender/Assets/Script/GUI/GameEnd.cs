@@ -21,6 +21,7 @@ public class GameEnd : MonoBehaviour {
     LevelManager lvlMgr;
     public void Retry() {// that is a reloading of this scene
         try {
+            Time.timeScale = 1;
             lvlMgr.ReloadLevel();
         } catch {
             Debug.Log("wrong with LevelManager.cs");
@@ -28,11 +29,17 @@ public class GameEnd : MonoBehaviour {
     }
     public void Next() {//To the next level.
         if (lvlMgr.JumpToNextLevel() == false) {
+            Time.timeScale = 1;
             Debug.Log("No Next Level!");
-        } else
+        }
+        else {
+            Time.timeScale = 1;
             lvlMgr.JumpToNextLevel();
+        }
+
     }
     public void Back() {//go back to the Level Selection
+        Time.timeScale = 1;
         SceneManager.LoadScene("levelSelection");
     }
     public void HideEnd() {
@@ -84,7 +91,6 @@ public class GameEnd : MonoBehaviour {
             //tTrishade3.position = new Vector3(80, -6, 30);
             nextLevel.sizeDelta = new Vector2(120, 80);
         }
-
     }
 
     // Use this for initialization
