@@ -686,7 +686,7 @@ Prefab:
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 400
+      value: 420
       objectReference: {fileID: 0}
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
@@ -1484,7 +1484,7 @@ Prefab:
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: -50
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
@@ -1514,7 +1514,7 @@ Prefab:
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 160
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
@@ -2702,19 +2702,19 @@ MonoBehaviour:
     m_Bits: 0
   options:
   - color: {r: 0.2709342, g: 0.7941176, b: 0.1401384, a: 0}
-    sprite: {fileID: 21300000, guid: 40b172ef130c5424eba9b3347dad475a, type: 3}
+    sprite: {fileID: 21300000, guid: a06e477626317844b9ca9e1edca063c3, type: 3}
     title: trtLrg
   - color: {r: 0.27443025, g: 0.097318344, b: 0.36764705, a: 0}
-    sprite: {fileID: 21300000, guid: 4715d774927574048a6eb37e5fc31037, type: 3}
+    sprite: {fileID: 21300000, guid: b17d3a431bba3ce4ba2103eb9d9117db, type: 3}
     title: trtMd
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 25ffbda4c9e3ddc41930a4556ebd9bf6, type: 3}
+    sprite: {fileID: 21300000, guid: d4cb1be524ca96f48962dce26108869e, type: 3}
     title: trtSml
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 513e656b386c7644e80784aa40d982bd, type: 3}
+    sprite: {fileID: 21300000, guid: 92a6b08879b2a2b4785bd21efdaa7879, type: 3}
     title: frzTrt
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: aafc6081ae2d0264ba384951587aba7b, type: 3}
+    sprite: {fileID: 21300000, guid: 7e29b3961f7ba1f43b4e110b7461a460, type: 3}
     title: mssLnchr
 --- !u!23 &1255845941
 MeshRenderer:
@@ -2784,7 +2784,7 @@ Prefab:
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: 150
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
@@ -2814,7 +2814,7 @@ Prefab:
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 340
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
@@ -2988,7 +2988,7 @@ Prefab:
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
@@ -3134,19 +3134,19 @@ MonoBehaviour:
     m_Bits: 0
   options:
   - color: {r: 0.2709342, g: 0.7941176, b: 0.1401384, a: 0}
-    sprite: {fileID: 21300000, guid: 40b172ef130c5424eba9b3347dad475a, type: 3}
+    sprite: {fileID: 21300000, guid: a06e477626317844b9ca9e1edca063c3, type: 3}
     title: trtLrg
   - color: {r: 0.27443025, g: 0.097318344, b: 0.36764705, a: 0}
-    sprite: {fileID: 21300000, guid: 4715d774927574048a6eb37e5fc31037, type: 3}
+    sprite: {fileID: 21300000, guid: b17d3a431bba3ce4ba2103eb9d9117db, type: 3}
     title: trtMd
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 25ffbda4c9e3ddc41930a4556ebd9bf6, type: 3}
+    sprite: {fileID: 21300000, guid: d4cb1be524ca96f48962dce26108869e, type: 3}
     title: trtSml
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 513e656b386c7644e80784aa40d982bd, type: 3}
+    sprite: {fileID: 21300000, guid: 92a6b08879b2a2b4785bd21efdaa7879, type: 3}
     title: frzTrt
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: aafc6081ae2d0264ba384951587aba7b, type: 3}
+    sprite: {fileID: 21300000, guid: 7e29b3961f7ba1f43b4e110b7461a460, type: 3}
     title: mssLnchr
 --- !u!23 &1372003569
 MeshRenderer:
@@ -3258,19 +3258,19 @@ MonoBehaviour:
     m_Bits: 0
   options:
   - color: {r: 0.2709342, g: 0.7941176, b: 0.1401384, a: 0}
-    sprite: {fileID: 21300000, guid: 40b172ef130c5424eba9b3347dad475a, type: 3}
+    sprite: {fileID: 21300000, guid: a06e477626317844b9ca9e1edca063c3, type: 3}
     title: trtLrg
   - color: {r: 0.27443025, g: 0.097318344, b: 0.36764705, a: 0}
-    sprite: {fileID: 21300000, guid: 4715d774927574048a6eb37e5fc31037, type: 3}
+    sprite: {fileID: 21300000, guid: b17d3a431bba3ce4ba2103eb9d9117db, type: 3}
     title: trtMd
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 25ffbda4c9e3ddc41930a4556ebd9bf6, type: 3}
+    sprite: {fileID: 21300000, guid: d4cb1be524ca96f48962dce26108869e, type: 3}
     title: trtSml
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 513e656b386c7644e80784aa40d982bd, type: 3}
+    sprite: {fileID: 21300000, guid: 92a6b08879b2a2b4785bd21efdaa7879, type: 3}
     title: frzTrt
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: aafc6081ae2d0264ba384951587aba7b, type: 3}
+    sprite: {fileID: 21300000, guid: 7e29b3961f7ba1f43b4e110b7461a460, type: 3}
     title: mssLnchr
 --- !u!23 &1382840994
 MeshRenderer:
@@ -3497,19 +3497,19 @@ MonoBehaviour:
     m_Bits: 0
   options:
   - color: {r: 0.2709342, g: 0.7941176, b: 0.1401384, a: 0}
-    sprite: {fileID: 21300000, guid: 40b172ef130c5424eba9b3347dad475a, type: 3}
+    sprite: {fileID: 21300000, guid: a06e477626317844b9ca9e1edca063c3, type: 3}
     title: trtLrg
   - color: {r: 0.27443025, g: 0.097318344, b: 0.36764705, a: 0}
-    sprite: {fileID: 21300000, guid: 4715d774927574048a6eb37e5fc31037, type: 3}
+    sprite: {fileID: 21300000, guid: b17d3a431bba3ce4ba2103eb9d9117db, type: 3}
     title: trtMd
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 25ffbda4c9e3ddc41930a4556ebd9bf6, type: 3}
+    sprite: {fileID: 21300000, guid: d4cb1be524ca96f48962dce26108869e, type: 3}
     title: trtSml
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 513e656b386c7644e80784aa40d982bd, type: 3}
+    sprite: {fileID: 21300000, guid: 92a6b08879b2a2b4785bd21efdaa7879, type: 3}
     title: frzTrt
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: aafc6081ae2d0264ba384951587aba7b, type: 3}
+    sprite: {fileID: 21300000, guid: 7e29b3961f7ba1f43b4e110b7461a460, type: 3}
     title: mssLnchr
 --- !u!23 &1397243313
 MeshRenderer:
@@ -3686,7 +3686,7 @@ Prefab:
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: -50
+      value: -80
       objectReference: {fileID: 0}
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
@@ -3716,7 +3716,7 @@ Prefab:
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 340
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
@@ -3898,19 +3898,19 @@ MonoBehaviour:
     m_Bits: 0
   options:
   - color: {r: 0.2709342, g: 0.7941176, b: 0.1401384, a: 0}
-    sprite: {fileID: 21300000, guid: 40b172ef130c5424eba9b3347dad475a, type: 3}
+    sprite: {fileID: 21300000, guid: a06e477626317844b9ca9e1edca063c3, type: 3}
     title: trtLrg
   - color: {r: 0.27443025, g: 0.097318344, b: 0.36764705, a: 0}
-    sprite: {fileID: 21300000, guid: 4715d774927574048a6eb37e5fc31037, type: 3}
+    sprite: {fileID: 21300000, guid: b17d3a431bba3ce4ba2103eb9d9117db, type: 3}
     title: trtMd
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 25ffbda4c9e3ddc41930a4556ebd9bf6, type: 3}
+    sprite: {fileID: 21300000, guid: d4cb1be524ca96f48962dce26108869e, type: 3}
     title: trtSml
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 513e656b386c7644e80784aa40d982bd, type: 3}
+    sprite: {fileID: 21300000, guid: 92a6b08879b2a2b4785bd21efdaa7879, type: 3}
     title: frzTrt
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: aafc6081ae2d0264ba384951587aba7b, type: 3}
+    sprite: {fileID: 21300000, guid: 7e29b3961f7ba1f43b4e110b7461a460, type: 3}
     title: mssLnchr
 --- !u!23 &1568759285
 MeshRenderer:
@@ -4127,19 +4127,19 @@ MonoBehaviour:
     m_Bits: 0
   options:
   - color: {r: 0.2709342, g: 0.7941176, b: 0.1401384, a: 0}
-    sprite: {fileID: 21300000, guid: 40b172ef130c5424eba9b3347dad475a, type: 3}
+    sprite: {fileID: 21300000, guid: a06e477626317844b9ca9e1edca063c3, type: 3}
     title: trtLrg
   - color: {r: 0.27443025, g: 0.097318344, b: 0.36764705, a: 0}
-    sprite: {fileID: 21300000, guid: 4715d774927574048a6eb37e5fc31037, type: 3}
+    sprite: {fileID: 21300000, guid: b17d3a431bba3ce4ba2103eb9d9117db, type: 3}
     title: trtMd
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 25ffbda4c9e3ddc41930a4556ebd9bf6, type: 3}
+    sprite: {fileID: 21300000, guid: d4cb1be524ca96f48962dce26108869e, type: 3}
     title: trtSml
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: 513e656b386c7644e80784aa40d982bd, type: 3}
+    sprite: {fileID: 21300000, guid: 92a6b08879b2a2b4785bd21efdaa7879, type: 3}
     title: frzTrt
   - color: {r: 0, g: 0, b: 0, a: 0}
-    sprite: {fileID: 21300000, guid: aafc6081ae2d0264ba384951587aba7b, type: 3}
+    sprite: {fileID: 21300000, guid: 7e29b3961f7ba1f43b4e110b7461a460, type: 3}
     title: mssLnchr
 --- !u!23 &1656562722
 MeshRenderer:
@@ -4209,7 +4209,7 @@ Prefab:
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
       propertyPath: m_LocalPosition.z
-      value: 150
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
@@ -4239,7 +4239,7 @@ Prefab:
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 160
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 224000010906971196, guid: 0645916975a594444bde84ff06bbf774,
         type: 2}
@@ -4620,7 +4620,7 @@ Prefab:
         type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 61bef680dc3ebf94ab17414623c62a51,
+      objectReference: {fileID: 21300000, guid: 5a99578ad2ae0f3479d7ec1e8b1344e1,
         type: 3}
     - target: {fileID: 114000013550973044, guid: e4262c967d432e94db60be9cb3e4fb1a,
         type: 2}

@@ -16,7 +16,8 @@ public class CircleMenu : MonoBehaviour {
             float theta = (2 * Mathf.PI / obj.options.Length) * i;
             float xPos = Mathf.Sin(theta);
             float yPos = Mathf.Cos(theta);
-            newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * 15f;
+            newButton.transform.localScale += new Vector3(0.5f, 0.5f, 0.5f);
+            newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * 12f;
             newButton.circle.color = obj.options[i].color;
             newButton.icon.sprite = obj.options[i].sprite;
             newButton.title = obj.options[i].title;
@@ -38,7 +39,7 @@ public class CircleMenu : MonoBehaviour {
                         transform.localRotation = new Quaternion(0f, 90f, 0f, 0f);
 
                         if (selected.title == "trtLrg") {
-                            GameObject prefab = Resources.Load("Prefabs/G425", typeof(GameObject)) as GameObject;
+                            GameObject prefab = Resources.Load("Prefabs/IonBlast", typeof(GameObject)) as GameObject;
                             float cost = prefab.GetComponent<TurretBase>().turretCost;
                             Debug.Log("Cost is" + cost);
                             if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost)) {
@@ -48,7 +49,7 @@ public class CircleMenu : MonoBehaviour {
 
                         } else if (selected.title == "trtMd") {
 
-                            GameObject prefab = Resources.Load("Prefabs/G150dual", typeof(GameObject)) as GameObject;
+                            GameObject prefab = Resources.Load("Prefabs/G250dual", typeof(GameObject)) as GameObject;
                             float cost = prefab.GetComponent<TurretBase>().turretCost;
                             Debug.Log("Cost is" + cost);
                             if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost)) {
@@ -56,7 +57,7 @@ public class CircleMenu : MonoBehaviour {
                             }
                         } else if (selected.title == "trtSml") {
 
-                            GameObject prefab = Resources.Load("Prefabs/G75", typeof(GameObject)) as GameObject;
+                            GameObject prefab = Resources.Load("Prefabs/G350", typeof(GameObject)) as GameObject;
                             float cost = prefab.GetComponent<TurretBase>().turretCost;
                             Debug.Log("Cost is" + cost);
                             if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost)) {
@@ -66,7 +67,7 @@ public class CircleMenu : MonoBehaviour {
                         else if (selected.title == "frzTrt")
                         {
 
-                            GameObject prefab = Resources.Load("Prefabs/frzTrt", typeof(GameObject)) as GameObject;
+                            GameObject prefab = Resources.Load("Prefabs/FreezePulse", typeof(GameObject)) as GameObject;
                             float cost = prefab.GetComponent<TurretBase>().turretCost;
                             Debug.Log("Cost is" + cost);
                             if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost))
@@ -100,7 +101,7 @@ public class CircleMenu : MonoBehaviour {
                 transform.position = transform.parent.gameObject.transform.position;
                 transform.localRotation = new Quaternion(0f, 90f, 0f, 0f);
                 if (selected.title == "trtLrg") {
-                    GameObject prefab = Resources.Load("Prefabs/G425", typeof(GameObject)) as GameObject;
+                    GameObject prefab = Resources.Load("Prefabs/IonBlast", typeof(GameObject)) as GameObject;
                     float cost = prefab.GetComponent<TurretBase>().turretCost;
                     Debug.Log("Cost is" + cost);
                     if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost)) {
@@ -110,7 +111,7 @@ public class CircleMenu : MonoBehaviour {
 
                 } else if (selected.title == "trtMd") {
 
-                    GameObject prefab = Resources.Load("Prefabs/G150dual", typeof(GameObject)) as GameObject;
+                    GameObject prefab = Resources.Load("Prefabs/G250dual", typeof(GameObject)) as GameObject;
                     float cost = prefab.GetComponent<TurretBase>().turretCost;
                     Debug.Log("Cost is" + cost);
                     if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost)) {
@@ -119,7 +120,7 @@ public class CircleMenu : MonoBehaviour {
                     }
                 } else if (selected.title == "trtSml") {
 
-                    GameObject prefab = Resources.Load("Prefabs/G75", typeof(GameObject)) as GameObject;
+                    GameObject prefab = Resources.Load("Prefabs/G350", typeof(GameObject)) as GameObject;
                     float cost = prefab.GetComponent<TurretBase>().turretCost;
                     Debug.Log("Cost is" + cost);
                     if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost)) {
@@ -130,7 +131,7 @@ public class CircleMenu : MonoBehaviour {
                 else if (selected.title == "frzTrt")
                 {
 
-                    GameObject prefab = Resources.Load("Prefabs/frzTrt", typeof(GameObject)) as GameObject;
+                    GameObject prefab = Resources.Load("Prefabs/FreezePulse", typeof(GameObject)) as GameObject;
                     float cost = prefab.GetComponent<TurretBase>().turretCost;
                     Debug.Log("Cost is" + cost);
                     if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost))

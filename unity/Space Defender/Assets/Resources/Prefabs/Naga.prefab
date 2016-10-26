@@ -154,7 +154,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011153084462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -279.87848, y: 768.4123, z: -806.7323}
+  m_LocalPosition: {x: -112.44826, y: 114.722694, z: 438.4054}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -382,7 +382,7 @@ MonoBehaviour:
   fireInterval: 1000
   currentTarget: {fileID: 0}
   range: 300
-  shot: {fileID: 1000012711780222, guid: abfcd77cb674543c0bfd9518ae26d19f, type: 2}
+  shot: {fileID: 1000013627078140, guid: f88496f5d46327f40a96678f087465c1, type: 2}
   shotSpawn: {fileID: 4000012107029642}
   healthSlider: {fileID: 114000011809707388}
   flag: 0
