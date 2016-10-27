@@ -2041,6 +2041,11 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012701342630, guid: 8bf6bac307e6ed94baae7c22f0fa1dcc,
+        type: 2}
+      propertyPath: defaultColor.a
+      value: 0.2509804
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bf6bac307e6ed94baae7c22f0fa1dcc, type: 2}
   m_IsPrefabParent: 0

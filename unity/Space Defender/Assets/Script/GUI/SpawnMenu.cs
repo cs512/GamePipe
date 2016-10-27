@@ -19,6 +19,15 @@ public class SpawnMenu : MonoBehaviour {
     }
     // Use this for initialization
 
+    public void TriggerMenu() {
+        if (menuShowing) {
+            DestroyMenu();
+        } else {
+            ShowMenu();
+        }
+        menuShowing = !menuShowing;
+    }
+
     public void DestroyMenu() {
         menuShowing = false;
         Transform parentTransform = transform;

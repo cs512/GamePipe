@@ -18,6 +18,7 @@ public class TouchControl : MonoBehaviour {
     }
 
     void Update() {
+        if (spawnMenu.MenuShowing) return;
         if (Application.platform != RuntimePlatform.Android) {
             if ( Input.GetMouseButton(0) && (Input.mousePosition.y < 0.92f * Screen.height)) {
                 HandleTap(Input.mousePosition);
