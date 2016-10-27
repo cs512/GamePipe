@@ -34,6 +34,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 //        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
 //        dispatcher.turretRegisteVictim(this);
 //        dispatcher.turretRegisteKiller(this);
+/*
 		RaycastHit[] hits; 
 		Ray targetRay = new Ray(transform.position, Vector3.down);
 		hits = Physics.RaycastAll (targetRay);
@@ -57,21 +58,33 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 				print(healthSlider.value);
 			}
 		}
+        */
+        GameObject prefab = Resources.Load("Prefabs/SliderSet", typeof(GameObject)) as GameObject;
+        sliderCanvas = Instantiate(prefab, transform.position, Quaternion.Euler(90f, 0f, 0f)) as GameObject;
+        sliderCanvas.transform.parent = this.transform;
+        Debug.Log("Built!");
+        Slider[] sliderList = sliderCanvas.GetComponentsInChildren<Slider>();
+        foreach (Slider slider in sliderList) {
+            if (slider.name.Equals("HealthSlider")) {
+                healthSlider = slider;
+            } else {
+                levelSlider = slider;
+            }
+        }
         maxHealth = health;
     }
-
     void Update() {
 		if(!findSlider){
 			
 		}
-		if(!built) {
+        if (!built) {
 			BuildProcess();
 		} else {
 			if (currentTarget != null) {
 				targetLockOn();
 			}
 		}
-        
+
     }
 
     void DestroySelf() {
@@ -199,8 +212,10 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     public void DealDamage(float damage) {
         health -= damage;
         if (health <= 0f) {
+            levelSlider.value = 0;
             this.DestorySelf();
-            Destroy(healthSlider);
+//            Destroy(healthSlider);
+//            Destroy(levelSlider);
         }
         SetHealthUI();
     }
@@ -235,7 +250,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 
     void LevelUp()
     {
-        if ((shipsKilled + 1) % 10 == 0)
+        if ((shipsKilled + 1) % 2 == 0)
         {
             if (levelUp < 3)
             {
