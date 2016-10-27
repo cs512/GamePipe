@@ -55,19 +55,19 @@ public class SpawnMenu : MonoBehaviour {
             newButton.icon.sprite = options[i].sprite;
             newButton.title = options[i].title;
             if (newButton.title == "trtLrg") {
-                GameObject prefab = Resources.Load("Prefabs/IonBlast", typeof(GameObject)) as GameObject;
+                GameObject prefab = Resources.Load("Prefabs/Turrets/IonBlast", typeof(GameObject)) as GameObject;
                 newButton.turretCost = prefab.GetComponent<TurretBase>().turretCost;
             } else if (newButton.title == "trtMd") {
-                GameObject prefab = Resources.Load("Prefabs/G250dual", typeof(GameObject)) as GameObject;
+                GameObject prefab = Resources.Load("Prefabs/Turrets/G250dual", typeof(GameObject)) as GameObject;
                 newButton.turretCost = prefab.GetComponent<TurretBase>().turretCost;
             } else if (newButton.title == "trtSml") {
-                GameObject prefab = Resources.Load("Prefabs/G350", typeof(GameObject)) as GameObject;
+                GameObject prefab = Resources.Load("Prefabs/Turrets/G350", typeof(GameObject)) as GameObject;
                 newButton.turretCost = prefab.GetComponent<TurretBase>().turretCost;
             } else if (newButton.title == "frzTrt") {
-                GameObject prefab = Resources.Load("Prefabs/FreezePulse", typeof(GameObject)) as GameObject;
+                GameObject prefab = Resources.Load("Prefabs/Turrets/FreezePulse", typeof(GameObject)) as GameObject;
                 newButton.turretCost = prefab.GetComponent<TurretBase>().turretCost;
             } else if (newButton.title == "mssLnchr") {
-                GameObject prefab = Resources.Load("Prefabs/missle_launcher", typeof(GameObject)) as GameObject;
+                GameObject prefab = Resources.Load("Prefabs/Turrets/missle_launcher", typeof(GameObject)) as GameObject;
                 newButton.turretCost = prefab.GetComponent<TurretBase>().turretCost;
                 Debug.Log("Launcher cost is " + newButton.turretCost);
             }
