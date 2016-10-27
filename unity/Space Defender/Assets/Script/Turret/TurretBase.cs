@@ -17,48 +17,20 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     public float turretCost = 50.0f;
     public float health;
     public GameObject explosion;
-	public float buildSpeed = 10.0f;
+    public float buildSpeed = 10.0f;
 
-	private Slider healthSlider;
-	private Slider levelSlider;
-	private Vector3 screenPoint;
-	private Vector3 offset;
-	private Quaternion lastRotation;
+    private Slider healthSlider;
+    private Slider levelSlider;
+    private Vector3 screenPoint;
+    private Vector3 offset;
+    private Quaternion lastRotation;
     private float maxHealth;
-	private bool onSet = false;
-	private GameObject sliderCanvas;
-	private bool built = false;
-	private bool findSlider = false;
+    private bool onSet = false;
+    private GameObject sliderCanvas;
+    private bool built = false;
+    private bool findSlider = false;
 
     void Start() {
-//        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-//        dispatcher.turretRegisteVictim(this);
-//        dispatcher.turretRegisteKiller(this);
-/*
-		RaycastHit[] hits; 
-		Ray targetRay = new Ray(transform.position, Vector3.down);
-		hits = Physics.RaycastAll (targetRay);
-		for (int i = 0; i < hits.Length; i++) {
-			if (hits[i].collider.gameObject.name.Equals ("Range")) {
-				onSet = true;
-				Transform range = hits[i].collider.gameObject.transform;
-				Vector3 targetVector = range.position;
-				Vector3 destVector = new Vector3(targetVector.x, transform.position.y, targetVector.z);
-				transform.position = Vector3.MoveTowards(transform.position, destVector, 100f);
-
-				sliderCanvas = range.parent.gameObject.transform.GetChild(0).gameObject;
-				Slider[] sliderList = sliderCanvas.GetComponentsInChildren<Slider>();
-				foreach(Slider slider in sliderList) {
-					if(slider.name.Equals("HealthSlider")) {
-						healthSlider = slider;
-					} else {
-						levelSlider = slider;
-					}
-				}
-				print(healthSlider.value);
-			}
-		}
-        */
         GameObject prefab = Resources.Load("Prefabs/SliderSet", typeof(GameObject)) as GameObject;
         sliderCanvas = Instantiate(prefab, transform.position, Quaternion.Euler(90f, 0f, 0f)) as GameObject;
         sliderCanvas.transform.parent = this.transform;
@@ -74,16 +46,16 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         maxHealth = health;
     }
     void Update() {
-		if(!findSlider){
-			
-		}
+        if (!findSlider) {
+
+        }
         if (!built) {
-			BuildProcess();
-		} else {
-			if (currentTarget != null) {
-				targetLockOn();
-			}
-		}
+            BuildProcess();
+        } else {
+            if (currentTarget != null) {
+                targetLockOn();
+            }
+        }
 
     }
 
@@ -97,52 +69,18 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 
     }
 
-	void BuildProcess() {
-		healthSlider.value += Time.deltaTime * buildSpeed / maxHealth * 100;
-		if(healthSlider.value >= 100) {
-			built = true;
-			SetHealthUI();
-			Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-			dispatcher.turretRegisteVictim(this);
-			dispatcher.turretRegisteKiller(this);
-		}
-	}
+    void BuildProcess() {
+        healthSlider.value += Time.deltaTime * buildSpeed / maxHealth * 100;
+        if (healthSlider.value >= 100) {
+            built = true;
+            SetHealthUI();
+            Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+            dispatcher.turretRegisteVictim(this);
+            dispatcher.turretRegisteKiller(this);
+        }
+    }
 
     abstract public void SetUpAttributions();
-
-//	void OnMouseUp() {
-//
-//		RaycastHit[] hits; 
-//		Ray targetRay = new Ray(transform.position, Vector3.down);
-//		hits = Physics.RaycastAll (targetRay);
-//		for (int i = 0; i < hits.Length; i++) {
-//			if (hits[i].collider.gameObject.name.Equals ("Range")) {
-//				onSet = true;
-//				Transform range = hits[i].collider.gameObject.transform;
-//				Vector3 targetVector = range.position;
-//				Vector3 destVector = new Vector3(targetVector.x, transform.position.y, targetVector.z);
-//				transform.position = Vector3.MoveTowards(transform.position, destVector, 100f);
-//
-//				sliderCanvas = range.parent.gameObject.transform.GetChild(0).gameObject;
-//				healthSlider = sliderCanvas.GetComponentInChildren<Slider>();
-//				return;
-//			}
-//		}
-//		DestorySelf();
-//	}
-//
-//    void OnMouseDown() {
-//        screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-//        offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-//    }
-//
-//    void OnMouseDrag() {
-//		if(!onSet) {
-//	        Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-//	        Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
-//	        transform.position = cursorPosition;
-//		}
-//    }
 
     public void Attack(Dictionary<int, Victim> victims) {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
@@ -214,14 +152,13 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         if (health <= 0f) {
             levelSlider.value = 0;
             this.DestorySelf();
-//            Destroy(healthSlider);
-//            Destroy(levelSlider);
+            //            Destroy(healthSlider);
+            //            Destroy(levelSlider);
         }
         SetHealthUI();
     }
 
-    public void SlowDown(float percentage)
-    {
+    public void SlowDown(float percentage) {
         return;
     }
 
@@ -248,19 +185,15 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         healthSlider.value = health / maxHealth * 100;
     }
 
-    void LevelUp()
-    {
-        if ((shipsKilled + 1) % 2 == 0)
-        {
-            if (levelUp < 3)
-            {
+    void LevelUp() {
+        if ((shipsKilled + 1) % 2 == 0) {
+            if (levelUp < 3) {
                 levelUp += 1;
-            } 
+            }
         }
     }
 
-    void SetLevelUI()
-    {
+    void SetLevelUI() {
         levelSlider.value = (levelUp - 1) / 3.0f * 100;
     }
 

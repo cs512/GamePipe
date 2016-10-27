@@ -5,14 +5,16 @@ using System.Collections.Generic;
 
 public class TouchControl : MonoBehaviour {
 
+    public SpawnMenu spawnMenu;
     public HexGrid hexGrid;
 
     Touch? dragTouch = null;
     int layerMask = 1 << 8;
     bool hasMove;
+    bool inMenu = false;
 
     void Awake() {
-        
+
     }
 
     void Update() {
@@ -51,7 +53,9 @@ public class TouchControl : MonoBehaviour {
         if (Physics.Raycast(inputRay, out hit, Mathf.Infinity, layerMask)) {
             Vector3 hitPoint = hit.point;
             hexGrid.ColorCell(hit.point, new Color(1, 0, 0, 0.5f));
-            print(hexGrid.GetGridGlobalPosition(hitPoint));
+            Vector3 menuPosition = hexGrid.GetGridGlobalPosition(hitPoint);
+            spawnMenu.transform.position = menuPosition;
+            spawnMenu.ShowMenu();
         }
     }
 

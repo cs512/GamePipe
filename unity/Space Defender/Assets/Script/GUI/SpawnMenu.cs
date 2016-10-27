@@ -10,21 +10,18 @@ public class SpawnMenu : MonoBehaviour {
     }
     public Action[] options;
     public CreateTurret button;
+    bool menuShowing = false;
 
-    private bool clicked = false;
-    // Use this for initialization
-
-    public void ControlMenuRender() {
-        if (!clicked) {
-            ShowMenu();
-            clicked = true;
-        } else {
-            DestroyMenu();
-            clicked = false;
+    public bool MenuShowing {
+        get {
+            return menuShowing;
         }
     }
-    void DestroyMenu() {
-        Transform parentTransform = transform.parent;
+    // Use this for initialization
+
+    public void DestroyMenu() {
+        menuShowing = false;
+        Transform parentTransform = transform;
         foreach (Transform child in parentTransform) {
             if (child.tag == "Menu Button") {
                 Destroy(child.gameObject);
@@ -33,10 +30,12 @@ public class SpawnMenu : MonoBehaviour {
             }
         }
     }
-    void ShowMenu() {
+
+    public void ShowMenu() {
+        menuShowing = true;
         for (int i = 0; i < options.Length; i++) {
             CreateTurret newButton = Instantiate(button) as CreateTurret;
-            newButton.transform.SetParent(transform.parent, false);
+            newButton.transform.SetParent(transform, false);
             float theta = (2 * Mathf.PI / options.Length) * i;
             float xPos = Mathf.Sin(theta);
             float yPos = Mathf.Cos(theta);
