@@ -36,10 +36,20 @@ public class HexGrid : MonoBehaviour {
     public void ColorCell(Vector3 position, Color color) {
         position = transform.InverseTransformPoint(position);
         HexCoordinates coordinates = HexCoordinates.FromPosition(position);
+        print(coordinates.X + ":" + coordinates.Y + ":" + coordinates.Z);
         int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
         HexCell cell = cells[index];
         cell.color = color;
         hexMesh.Triangulate(cells);
+    }
+
+    public Vector3 GetPosition(Vector3 position) {
+        HexCoordinates coordinates = HexCoordinates.FromPosition(position);
+        Vector3 pos = new Vector3();
+        pos.x = (coordinates.X + coordinates.Z * 0.5f - coordinates.Z / 2) * (HexMetrics.innerRadius * 2f);
+        pos.y = 0f;
+        pos.z = coordinates.Z * (HexMetrics.outerRadius * 1.5f);
+        return pos;
     }
 
     void CreateCell(int x, int z, int i) {

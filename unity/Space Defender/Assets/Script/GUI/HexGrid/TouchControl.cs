@@ -8,6 +8,7 @@ public class TouchControl : MonoBehaviour {
     public HexGrid hexGrid;
 
     Touch? dragTouch = null;
+    int layerMask = 1 << 8;
     bool hasMove;
 
     void Awake() {
@@ -17,11 +18,7 @@ public class TouchControl : MonoBehaviour {
     void Update() {
         if (Application.platform != RuntimePlatform.Android) {
             if ( Input.GetMouseButton(0) && (Input.mousePosition.y < 0.92f * Screen.height)) {
-                Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-                if (Physics.Raycast(inputRay, out hit)) {
-                    hexGrid.ColorCell(hit.point, new Color(1f, 0f, 0f, 0.5f));
-                }
+                HandleTap(Input.mousePosition);
             }
         } else {
             foreach (Touch touch in Input.touches) {
@@ -37,12 +34,8 @@ public class TouchControl : MonoBehaviour {
                     return;
                 }
                 if (touch.phase == TouchPhase.Ended && touch.fingerId == dragTouch.Value.fingerId) {
-                    if (!hasMove) {
-                        var ray = Camera.main.ScreenPointToRay(touch.position);
-                        RaycastHit hit;
-                        if (Physics.Raycast(ray, out hit)) {
-                            hexGrid.ColorCell(hit.point, new Color(1f, 0f, 0f, 0.5f));
-                        }
+                    if (!hasMove && (touch.position.y < 0.92f * Screen.height)) {
+                        HandleTap(touch.position);
                     }
                     dragTouch = null;
                     return;
@@ -52,10 +45,11 @@ public class TouchControl : MonoBehaviour {
         
     }
 
-    void HandleInput() {
-        Ray inputRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+    void HandleTap(Vector2 position) {
+        Ray inputRay = Camera.main.ScreenPointToRay(position);
         RaycastHit hit;
-        if (Physics.Raycast(inputRay, out hit)) {
+        if (Physics.Raycast(inputRay, out hit, Mathf.Infinity, layerMask)) {
+            print(hit.point);
             hexGrid.ColorCell(hit.point, new Color(1, 0, 0, 0.5f));
         }
     }
