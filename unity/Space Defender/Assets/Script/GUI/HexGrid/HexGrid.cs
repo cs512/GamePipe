@@ -13,11 +13,9 @@ public class HexGrid : MonoBehaviour {
 
     HexCell[] cells;
 
-    Canvas gridCanvas;
     HexMesh hexMesh;
 
     void Awake() {
-        gridCanvas = GetComponentInChildren<Canvas>();
         hexMesh = GetComponentInChildren<HexMesh>();
 
         cells = new HexCell[height * width];
@@ -78,11 +76,5 @@ public class HexGrid : MonoBehaviour {
                 }
             }
         }
-
-        Text label = Instantiate<Text>(cellLabelPrefab);
-        label.rectTransform.SetParent(gridCanvas.transform, false);
-        label.rectTransform.anchoredPosition =
-            new Vector2(position.x, position.z);
-        label.text = cell.coordinates.ToStringOnSeparateLines();
     }
 }
