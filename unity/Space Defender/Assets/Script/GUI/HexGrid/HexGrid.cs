@@ -68,22 +68,25 @@ public class HexGrid : MonoBehaviour {
     }
 
     public void SetBuilding(Vector3 position) {
-        print("new building");
+        this.SetBuildingStatue(position, true);
+    }
+
+    public void DeleteBuilding(Vector3 position) {
+        print("Delete building");
+        this.SetBuildingStatue(position, false);
+    }
+
+    private void SetBuildingStatue(Vector3 position, bool flag) {
         position = transform.InverseTransformPoint(position);
         HexCoordinates coordinates = HexCoordinates.FromPosition(position);
         int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
         HexCell cell = cells[index];
-        print(cell);
-        cell.HasTurret = true;
+        cell.HasTurret = flag;
         this.SetColor(cell);
         foreach (HexDirection hd in Enum.GetValues(typeof(HexDirection))) {
             if (cell.GetNeighbor(hd))
                 this.SetColor(cell.GetNeighbor(hd));
         }
-    }
-
-    public void DeleteBuilding(Vector3 position) {
-
     }
 
     private void SetColor(HexCell cell) {

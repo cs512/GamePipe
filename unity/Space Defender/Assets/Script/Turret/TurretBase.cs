@@ -46,9 +46,9 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         }
         maxHealth = health;
     }
+
     void Update() {
         if (!findSlider) {
-
         }
         if (!built) {
             BuildProcess();
@@ -57,17 +57,6 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
                 targetLockOn();
             }
         }
-
-    }
-
-    void DestroySelf() {
-        GameObject.Find("Hex Grid").GetComponent<HexGrid>().DeleteBuilding(new Vector3(this.transform.position.x, 0, this.transform.position.z));
-        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
-        dispatcher.turretDeregisteKiller(this);
-        dispatcher.turretDeregisteVictim(this);
-        AudioSource audio = GetComponent<AudioSource>();
-        audio.Play();
-        Destroy(this);
     }
 
     void BuildProcess() {
@@ -164,6 +153,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     }
 
     public void DestorySelf() {
+        GameObject.Find("Hex Grid").GetComponent<HexGrid>().DeleteBuilding(new Vector3(this.transform.position.x, 0, this.transform.position.z));
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.turretDeregisteVictim(this);
         dispatcher.turretDeregisteKiller(this);
