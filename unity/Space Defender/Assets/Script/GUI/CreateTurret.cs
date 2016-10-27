@@ -66,12 +66,6 @@ public class CreateTurret : MonoBehaviour {
             }
         }
         Transform parentTransform = transform.parent;
-        foreach (Transform child in parentTransform) {
-            if (child.tag == "Menu Button") {
-                Destroy(child.gameObject);
-            } else {
-                Debug.Log(child.tag);
-            }
-        }
+        parentTransform.GetComponent<SpawnMenu>().DestroyMenu();
     }
 }

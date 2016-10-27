@@ -12,6 +12,7 @@ public class TouchControl : MonoBehaviour {
     int layerMask = 1 << 8;
     bool hasMove;
     bool inMenu = false;
+    float zoomFactor = 1.1f;
 
     void Awake() {
 
@@ -43,7 +44,7 @@ public class TouchControl : MonoBehaviour {
                     if (touch.phase == TouchPhase.Moved && touch.fingerId == dragTouch.Value.fingerId) {
                         hasMove = true;
                         GameObject cam = GameObject.Find("Main Camera");
-                        cam.transform.position += new Vector3(-touch.deltaPosition.x, 0, -touch.deltaPosition.y);
+                        cam.transform.position += new Vector3(-touch.deltaPosition.x * zoomFactor, 0, -touch.deltaPosition.y * zoomFactor);
                         return;
                     }
                     if (touch.phase == TouchPhase.Ended && touch.fingerId == dragTouch.Value.fingerId) {
@@ -73,13 +74,19 @@ public class TouchControl : MonoBehaviour {
     }
 
     void HandleTurretMenu(Vector2 position) {
-        Ray inputRay = Camera.main.ScreenPointToRay(position);
-        RaycastHit hit;
-        if (Physics.Raycast(inputRay, out hit)) {
-            if (hit.collider.gameObject.tag != "Menu Button") {
-                spawnMenu.DestroyMenu();
+        var pointer = new PointerEventData(EventSystem.current);
+        // convert to a 2D position
+        pointer.position = position;
+        var raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointer, raycastResults);
+        if (raycastResults.Count > 0) {
+            // Do anything to the hit objects. Here, I simply disable the first one.
+            foreach (RaycastResult rr in raycastResults) {
+                if (rr.gameObject.tag == "Menu Button")
+                    return;
             }
         }
+        spawnMenu.DestroyMenu();
     }
 
 }
