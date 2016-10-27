@@ -50,6 +50,7 @@ public class SpawnMenu : MonoBehaviour {
             float yPos = Mathf.Cos(theta);
             newButton.transform.localScale += new Vector3(5f, 5f, 5f);
             newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * 50f;
+            newButton.transform.localPosition -= new Vector3(0f, 0f, 15f);
             //newButton.circle.color = options[i].color;
             newButton.icon.sprite = options[i].sprite;
             newButton.title = options[i].title;
