@@ -43,13 +43,11 @@ public class HexGrid : MonoBehaviour {
         hexMesh.Triangulate(cells);
     }
 
-    public Vector3 GetPosition(Vector3 position) {
+    public Vector3 GetGridGlobalPosition(Vector3 position) {
+        position = transform.InverseTransformPoint(position);
         HexCoordinates coordinates = HexCoordinates.FromPosition(position);
-        Vector3 pos = new Vector3();
-        pos.x = (coordinates.X + coordinates.Z * 0.5f - coordinates.Z / 2) * (HexMetrics.innerRadius * 2f);
-        pos.y = 0f;
-        pos.z = coordinates.Z * (HexMetrics.outerRadius * 1.5f);
-        return pos;
+        int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
+        return cells[index].transform.position;
     }
 
     void CreateCell(int x, int z, int i) {

@@ -49,8 +49,9 @@ public class TouchControl : MonoBehaviour {
         Ray inputRay = Camera.main.ScreenPointToRay(position);
         RaycastHit hit;
         if (Physics.Raycast(inputRay, out hit, Mathf.Infinity, layerMask)) {
-            print(hit.point);
+            Vector3 hitPoint = hit.point;
             hexGrid.ColorCell(hit.point, new Color(1, 0, 0, 0.5f));
+            print(hexGrid.GetGridGlobalPosition(hitPoint));
         }
     }
 
