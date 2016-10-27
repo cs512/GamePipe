@@ -247,7 +247,7 @@ MonoBehaviour:
   levelUp: 1
   showRange: 1
   range: 500
-  turretCost: 100
+  turretCost: 150
   health: 25
   explosion: {fileID: 1000012970080796, guid: 5164400c8315b422cb8799f814648cd0, type: 2}
   buildSpeed: 10
