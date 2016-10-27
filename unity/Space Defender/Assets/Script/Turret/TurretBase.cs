@@ -31,6 +31,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     private bool findSlider = false;
 
     void Start() {
+        GameObject.Find("Hex Grid").GetComponent<HexGrid>().SetBuilding(new Vector3(this.transform.position.x, 0, this.transform.position.z));
         GameObject prefab = Resources.Load("Prefabs/SliderSet", typeof(GameObject)) as GameObject;
         sliderCanvas = Instantiate(prefab, transform.position, Quaternion.Euler(90f, 0f, 0f)) as GameObject;
         sliderCanvas.transform.parent = this.transform;
@@ -60,13 +61,13 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     }
 
     void DestroySelf() {
+        GameObject.Find("Hex Grid").GetComponent<HexGrid>().DeleteBuilding(new Vector3(this.transform.position.x, 0, this.transform.position.z));
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.turretDeregisteKiller(this);
         dispatcher.turretDeregisteVictim(this);
         AudioSource audio = GetComponent<AudioSource>();
         audio.Play();
         Destroy(this);
-
     }
 
     void BuildProcess() {

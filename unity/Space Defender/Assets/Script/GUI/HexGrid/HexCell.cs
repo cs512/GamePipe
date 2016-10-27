@@ -6,6 +6,17 @@ public class HexCell : MonoBehaviour {
 
     public Color color;
 
+    bool hasTurret = false;
+
+    public bool HasTurret {
+        get {
+            return hasTurret;
+        }
+        set {
+            hasTurret = value;
+        }
+    }
+
     [SerializeField]
     HexCell[] neighbors;
 
@@ -17,4 +28,5 @@ public class HexCell : MonoBehaviour {
         neighbors[(int)direction] = cell;
         cell.neighbors[(int)direction.Opposite()] = this;
     }
+
 }

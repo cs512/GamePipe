@@ -15,7 +15,11 @@ public class TouchControl : MonoBehaviour {
     float zoomFactor = 1.1f;
 
     void Awake() {
+        
+    }
 
+    void Start() {
+        hexGrid.SetBuilding(new Vector3(165.8f, 0f, 60f));
     }
 
     void Update() {
@@ -57,8 +61,6 @@ public class TouchControl : MonoBehaviour {
                 }
             }
         }
-        
-        
     }
 
     void HandleTap(Vector2 position) {
@@ -66,10 +68,12 @@ public class TouchControl : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(inputRay, out hit, Mathf.Infinity, layerMask)) {
             Vector3 hitPoint = hit.point;
-            hexGrid.ColorCell(hit.point, new Color(1, 0, 0, 0.5f));
-            Vector3 menuPosition = hexGrid.GetGridGlobalPosition(hitPoint);
-            spawnMenu.transform.position = menuPosition;
-            spawnMenu.ShowMenu();
+            print(hitPoint);
+            if (hexGrid.IsBuildable(hitPoint)) {
+                Vector3 menuPosition = hexGrid.GetGridGlobalPosition(hitPoint);
+                spawnMenu.transform.position = menuPosition;
+                spawnMenu.ShowMenu();
+            }
         }
     }
 

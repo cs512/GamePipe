@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class HexGrid : MonoBehaviour {
 
@@ -7,6 +8,8 @@ public class HexGrid : MonoBehaviour {
     public int height = 6;
 
     public Color defaultColor = Color.white;
+    public Color buildableColor = Color.green;
+    public Color hasBuildingColor = Color.cyan;
 
     public HexCell cellPrefab;
     public Text cellLabelPrefab;
@@ -39,6 +42,62 @@ public class HexGrid : MonoBehaviour {
         HexCell cell = cells[index];
         cell.color = color;
         hexMesh.Triangulate(cells);
+    }
+
+    private void ColorCell(HexCell cell, Color color) {
+        print(color);
+        cell.color = color;
+        hexMesh.Triangulate(cells);
+    }
+
+    public bool IsBuildable(Vector3 position) {
+        position = transform.InverseTransformPoint(position);
+        HexCoordinates coordinates = HexCoordinates.FromPosition(position);
+        int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
+        HexCell cell = cells[index];
+        if (cell.HasTurret) {
+            return false;
+        } else {
+            foreach (HexDirection hd in Enum.GetValues(typeof(HexDirection))) {
+                if (cell.GetNeighbor(hd) && cell.GetNeighbor(hd).HasTurret) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    public void SetBuilding(Vector3 position) {
+        print("new building");
+        position = transform.InverseTransformPoint(position);
+        HexCoordinates coordinates = HexCoordinates.FromPosition(position);
+        int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
+        HexCell cell = cells[index];
+        print(cell);
+        cell.HasTurret = true;
+        this.SetColor(cell);
+        foreach (HexDirection hd in Enum.GetValues(typeof(HexDirection))) {
+            if (cell.GetNeighbor(hd))
+                this.SetColor(cell.GetNeighbor(hd));
+        }
+    }
+
+    public void DeleteBuilding(Vector3 position) {
+
+    }
+
+    private void SetColor(HexCell cell) {
+        if (cell.HasTurret) {
+            this.ColorCell(cell, this.hasBuildingColor);
+            return;
+        }
+        foreach (HexDirection hd in Enum.GetValues(typeof(HexDirection))) {
+            if (cell.GetNeighbor(hd) && cell.GetNeighbor(hd).HasTurret) {
+                this.ColorCell(cell, this.buildableColor);
+                return;
+            }
+        }
+        this.ColorCell(cell, this.defaultColor);
     }
 
     public Vector3 GetGridGlobalPosition(Vector3 position) {
