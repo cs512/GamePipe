@@ -115,9 +115,9 @@ MonoBehaviour:
   live: 30
   fund: 100
   wave: 10
-  Waves: {fileID: 114000012240334432}
-  Funds: {fileID: 114000011548924306}
-  Lives: {fileID: 114000011947606978}
+  tWaves: {fileID: 0}
+  tFunds: {fileID: 0}
+  tLives: {fileID: 0}
 --- !u!114 &114000011093977726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,9 +132,9 @@ MonoBehaviour:
   live: 30
   fund: 100
   wave: 10
-  Waves: {fileID: 114000012240334432}
-  Funds: {fileID: 114000011548924306}
-  Lives: {fileID: 114000011947606978}
+  tWaves: {fileID: 0}
+  tFunds: {fileID: 0}
+  tLives: {fileID: 0}
 --- !u!114 &114000011466125016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -149,9 +149,9 @@ MonoBehaviour:
   live: 30
   fund: 100
   wave: 10
-  Waves: {fileID: 114000012240334432}
-  Funds: {fileID: 114000011548924306}
-  Lives: {fileID: 114000011947606978}
+  tWaves: {fileID: 0}
+  tFunds: {fileID: 0}
+  tLives: {fileID: 0}
 --- !u!114 &114000011548924306
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -295,8 +295,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5a99578ad2ae0f3479d7ec1e8b1344e1, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -333,9 +333,9 @@ MonoBehaviour:
   live: 30
   fund: 100
   wave: 10
-  Waves: {fileID: 114000012240334432}
-  Funds: {fileID: 114000011548924306}
-  Lives: {fileID: 114000011947606978}
+  tWaves: {fileID: 0}
+  tFunds: {fileID: 0}
+  tLives: {fileID: 0}
 --- !u!222 &222000011491199390
 CanvasRenderer:
   m_ObjectHideFlags: 1
