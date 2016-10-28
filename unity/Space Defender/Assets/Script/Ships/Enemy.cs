@@ -19,6 +19,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     public Transform shotSpawn;
     public Slider healthSlider;
     public int flag = 0;//0--target source planet 1--target turret
+    public int setPosition = 0;//0--first time 1-- 
 
     //ship patrol
     public object[] points;
@@ -32,6 +33,18 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     private float height;
     private float timeCounter = 0;
     private float maxHealth;
+    
+    float stopTime;
+    float moveTime;
+    float vel_x, vel_y, vel_z;//speed
+    float maxPos_x = 200;
+    float maxPos_y = 100;
+    float minPos_x = -200;
+    float minPos_y = -100;
+    int curr_frame;
+    int total_frame;
+    float timeCounter1;
+    float timeCounter2;
 
     public int GetFireInterval() {
         return fireInterval;
@@ -74,7 +87,55 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
             transform.Translate(dir.normalized * framDist, Space.World);
             this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(0f, 0f, 0f);
         } else {
+           
+            timeCounter1 += Time.deltaTime;
+            if (timeCounter1 < moveTime)
+            {
+                transform.Translate(vel_x, vel_y, 0, Space.Self);
+            }
+            else
+            {
+                timeCounter2 += Time.deltaTime;
+                if (timeCounter2 > stopTime)
+                {
+                    Change();
+                    timeCounter1 = 0;
+                    timeCounter2 = 0;
+                }
+            }
+            Check();
             this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(0f, 0f, 0f);
+        }
+    }
+    
+    void Change()
+    {
+        stopTime = Random.Range(1, 5);
+        moveTime = Random.Range(1, 20);
+        vel_x = Random.Range(1, 10);
+        vel_y = Random.Range(1, 10);
+    }
+    void Check()
+    {
+        if (transform.localPosition.x > maxPos_x)
+        {
+            vel_x = -vel_x;
+            transform.localPosition = new Vector3(maxPos_x, transform.localPosition.y, 0);
+        }
+        if (transform.localPosition.x < minPos_x)
+        {
+            vel_x = -vel_x;
+            transform.localPosition = new Vector3(minPos_x, transform.localPosition.y, 0);
+        }
+        if (transform.localPosition.y > maxPos_y)
+        {
+            vel_y = -vel_y;
+            transform.localPosition = new Vector3(transform.localPosition.x, maxPos_y, 0);
+        }
+        if (transform.localPosition.y < minPos_y)
+        {
+            vel_y = -vel_y;
+            transform.localPosition = new Vector3(transform.localPosition.x, minPos_y, 0);
         }
     }
 
@@ -103,7 +164,6 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         if (health <= 0f) {
             this.DestorySelf();
         }
-
         SetHealthUI();
     }
 
