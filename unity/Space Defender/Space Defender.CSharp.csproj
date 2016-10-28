@@ -117,6 +117,7 @@
     <Compile Include="Assets\Script\Movement\BulletMover.cs" />
     <Compile Include="Assets\Script\Movement\EnemyBullet.cs" />
     <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
+    <Compile Include="Assets\Script\Movement\RandomFly.cs" />
     <Compile Include="Assets\Script\Movement\TurretBullet.cs" />
     <Compile Include="Assets\Script\Scene\loadSceneSelection.cs" />
     <Compile Include="Assets\Script\Ships\Enemy.cs" />
