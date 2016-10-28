@@ -55,7 +55,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
             BuildProcess();
         } else {
             if (currentTarget != null) {
-                targetLockOn();
+                TargetLockOn();
             }
         }
     }
@@ -102,7 +102,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
                     }
                 }
             }
-            if (currentTarget != null) {
+			if (currentTarget != null && IsFacingTarget()) {
                 ShotSpawn();
             }
         }
@@ -112,12 +112,24 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     abstract public void SetShootEnemy(GameObject enemy);
     abstract public void DismissShootEnemy();
 
-    void targetLockOn() {
+	bool IsFacingTarget() {
+		RaycastHit[] hits;
+		hits = Physics.RaycastAll(transform.position, transform.forward, range);
+		foreach(RaycastHit hit in hits) {
+			if(currentTarget == hit.transform){
+				return true;
+			}
+		}
+		return false;
+	}
+
+    void TargetLockOn() {
         Vector3 targetDir = currentTarget.position - transform.position;
         Quaternion lookRotation = Quaternion.LookRotation(targetDir);
         Vector3 rotation = Quaternion.Lerp(transform.rotation, lookRotation, Time.deltaTime * rotateSpeed).eulerAngles;
         transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
+
     void OnDrawGizmosSelected() {
         if (showRange) {
             Gizmos.color = Color.white;
