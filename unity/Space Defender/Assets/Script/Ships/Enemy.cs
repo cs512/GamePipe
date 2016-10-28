@@ -19,6 +19,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     public Transform shotSpawn;
     public Slider healthSlider;
     public int flag = 0;//0--target source planet 1--target turret
+    public int setPosition = 0;//0--first time 1-- 
 
     //ship patrol
     public object[] points;
@@ -36,10 +37,10 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     float stopTime;
     float moveTime;
     float vel_x, vel_y, vel_z;//speed
-    float maxPos_x = 500;
-    float maxPos_y = 300;
-    float minPos_x = -500;
-    float minPos_y = -300;
+    float maxPos_x = 200;
+    float maxPos_y = 100;
+    float minPos_x = -200;
+    float minPos_y = -100;
     int curr_frame;
     int total_frame;
     float timeCounter1;
@@ -86,7 +87,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
             transform.Translate(dir.normalized * framDist, Space.World);
             this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(0f, 0f, 0f);
         } else {
-            
+           
             timeCounter1 += Time.deltaTime;
             if (timeCounter1 < moveTime)
             {
@@ -163,7 +164,6 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         if (health <= 0f) {
             this.DestorySelf();
         }
-
         SetHealthUI();
     }
 

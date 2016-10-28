@@ -1,73 +1,36 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-public class RandomFly : MonoBehaviour{
-    float stopTime;
-    float moveTime;
-    float vel_x, vel_y, vel_z;//speed
-    float maxPos_x = 500;
-    float maxPos_y = 300;
-    float minPos_x = -500;
-    float minPos_y = -300;
-    int curr_frame;
-    int total_frame;
-    float timeCounter1;
-    float timeCounter2;
-    // int max_Flys = 128;
-    // Use this for initialization
-    void Start()
-    {
-        Change();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        timeCounter1 += Time.deltaTime;
-        if (timeCounter1 < moveTime)
-        {
-            transform.Translate(vel_x, vel_y, 0, Space.Self);
-        }
-        else
-        {
-            timeCounter2 += Time.deltaTime;
-            if (timeCounter2 > stopTime)
-            {
-                Change();
-                timeCounter1 = 0;
-                timeCounter2 = 0;
-            }
-        }
-        Check();
-    }
-    void Change()
-    {
-        stopTime = Random.Range(1, 5);
-        moveTime = Random.Range(1, 20);
-        vel_x = Random.Range(1, 10);
-        vel_y = Random.Range(1, 10);
-    }
-    void Check()
-    {
-        if (transform.localPosition.x > maxPos_x)
-        {
-            vel_x = -vel_x;
-            transform.localPosition = new Vector3(maxPos_x, transform.localPosition.y, 0);
-        }
-        if (transform.localPosition.x < minPos_x)
-        {
-            vel_x = -vel_x;
-            transform.localPosition = new Vector3(minPos_x, transform.localPosition.y, 0);
-        }
-        if (transform.localPosition.y > maxPos_y)
-        {
-            vel_y = -vel_y;
-            transform.localPosition = new Vector3(transform.localPosition.x, maxPos_y, 0);
-        }
-        if (transform.localPosition.y < minPos_y)
-        {
-            vel_y = -vel_y;
-            transform.localPosition = new Vector3(transform.localPosition.x, minPos_y, 0);
-        }
-    }
-}
 
+public class RandomFly : MonoBehaviour
+{
+    public GameObject target;
+    public float speed = 10;
+    private float distanceToTarget;
+    private bool move = true;
+    public float angelmodu=30;
+
+    void Start ()
+    {
+        distanceToTarget = Vector3.Distance (this.transform.position, target.transform.position);
+        StartCoroutine (Shoot ());
+    }
+
+    IEnumerator Shoot ()
+    {
+
+        while (move) {
+            Vector3 targetPos = target.transform.position;
+            this.transform.LookAt (targetPos);
+            float angle = Mathf.Min (1, Vector3.Distance (this.transform.position, targetPos) / distanceToTarget) * angelmodu;
+            this.transform.rotation = this.transform.rotation * Quaternion.Euler (Mathf.Clamp (-angle, -42, 42), 0, 0);
+            float currentDist = Vector3.Distance (this.transform.position, target.transform.position);
+            print ("currentDist" + currentDist);
+            if (currentDist < 0.5f)
+                move = false;
+            this.transform.Translate (Vector3.forward * Mathf.Min (speed * Time.deltaTime, currentDist));
+            yield return null;
+        }
+    }
+
+
+}
