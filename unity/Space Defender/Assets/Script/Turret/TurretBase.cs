@@ -11,7 +11,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     public float nextFire = 1;
     public Transform currentTarget = null;
     public int shipsKilled = 0;
-    public int levelUp = 1;
+    public int level = 0;
     public bool showRange;
     public float range;
     public float turretCost = 50.0f;
@@ -48,6 +48,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     }
 
     void Update() {
+        SetLevelUI();
         if (!findSlider) {
         }
         if (!built) {
@@ -94,7 +95,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
                             currentTarget = target;
                             currentVictim = victims[id];
                             shipsKilled += 1;
-                            LevelUp();
+                            //LevelUp();
                             SetLevelUI();
                             min_dist = distance;
                         }
@@ -130,7 +131,9 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 
     //regard turretBase as a victim
     public int GetFireInterval() {
-        return fireInterval / levelUp;
+        int upgradedfireInterval = fireInterval;
+        upgradedfireInterval = fireInterval * (10 - level*2) / 10;
+        return upgradedfireInterval;
     }
 
     int Killer.GetID() {
@@ -165,6 +168,17 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         Destroy(boom, 2);
     }
 
+    public void Sold() {
+        GameObject.Find("Hex Grid").GetComponent<HexGrid>().DeleteBuilding(new Vector3(this.transform.position.x, 0, this.transform.position.z));
+        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+        dispatcher.turretDeregisteVictim(this);
+        dispatcher.turretDeregisteKiller(this);
+        DismissShootEnemy();
+        AudioSource audio = GameObject.Find("TurretSellingSound").GetComponent<AudioSource>();
+        audio.Play();
+        Destroy(gameObject);
+    }
+
     public float GetHealth() {
         return health;
     }
@@ -176,16 +190,8 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         healthSlider.value = health / maxHealth * 100;
     }
 
-    void LevelUp() {
-        if ((shipsKilled + 1) % 2 == 0) {
-            if (levelUp < 3) {
-                levelUp += 1;
-            }
-        }
-    }
-
     void SetLevelUI() {
-        levelSlider.value = (levelUp - 1) / 3.0f * 100;
+        levelSlider.value = level / 3.0f * 100;
     }
 
 }

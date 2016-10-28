@@ -90,6 +90,7 @@ public class SpawnMenu : MonoBehaviour {
             newButton.transform.localPosition -= new Vector3(0f, 0f, 15f);
             newButton.icon.sprite = turretOptions[i].sprite;
             newButton.title = turretOptions[i].title;
+            newButton.turret = turret;
             if (newButton.title == "sell") {
                 newButton.function = "Sell";
             } else if (newButton.title == "upgrade") {

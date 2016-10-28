@@ -10,6 +10,7 @@ public class HandleTurret : MonoBehaviour {
     public Image icon;
     public string title;
     public string function;
+    public GameObject turret;
     private GameObject newObject;
     public TextMesh textMesh;
     // Use this for initialization
@@ -20,16 +21,18 @@ public class HandleTurret : MonoBehaviour {
 
     public void ExecuteFunction() {
         if (this.title == "sell") {
-            GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(0-this.transform.parent.GetComponent<TurretBase>().turretCost);
-            this.transform.parent.GetComponent<TurretBase>().DestorySelf();
+            GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(0- turret.GetComponent<TurretBase>().turretCost);
+            turret.GetComponent<TurretBase>().Sold();
         }
         else if (this.title == "upgrade") {
-            int currentLevel = this.transform.parent.GetComponent<TurretBase>().levelUp;
-            if (currentLevel <= 2) {
-                if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(currentLevel * 20)) {
-                    this.transform.parent.GetComponent<TurretBase>().levelUp++;
+            int currentLevel = turret.GetComponent<TurretBase>().level + 1;
+            if (currentLevel <= 3) {
+                if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(currentLevel * 40)) {
+                    turret.GetComponent<TurretBase>().level++;
                 }
             }
         }
+        Transform parentTransform = transform.parent;
+        parentTransform.GetComponent<SpawnMenu>().DestroyMenu();
     }
 }
