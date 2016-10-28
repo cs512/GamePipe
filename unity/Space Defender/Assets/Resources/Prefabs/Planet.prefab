@@ -150,8 +150,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013044788050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 282.69995, y: 124.19995, z: 56.3}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 165.8, y: 10, z: 60}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000010672627134}
@@ -361,15 +361,16 @@ MonoBehaviour:
   shockHit: {fileID: 1000010781788856, guid: 25cfdc015a4fb5e408f56939215431d6, type: 2}
   explosion: {fileID: 1000013698003144, guid: b08355c93078f1d46814ab68f871a26c, type: 2}
   fund: 0
-  intervalRate: 0
+  fundRate: 0
   healthSlider: {fileID: 114000010957075288}
+  startTime: 0
 --- !u!122 &122000011977978908
 Halo:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012190546530}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Color:
     serializedVersion: 2
     rgba: 4286611496
