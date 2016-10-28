@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-public class HandleTurret : MonoBehaviour {
+public class TurretHandler : MonoBehaviour {
 
     public Image circle;
     public Image icon;
@@ -35,6 +35,6 @@ public class HandleTurret : MonoBehaviour {
             }
         }
         Transform parentTransform = transform.parent;
-        parentTransform.GetComponent<SpawnMenu>().DestroyMenu();
+        parentTransform.GetComponent<MenuSpawner>().DestroyMenu();
     }
 }

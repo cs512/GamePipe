@@ -101,7 +101,7 @@ MonoBehaviour:
   - color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: cb24c5cadb883ac4388bd5e7daaf2930, type: 3}
     title: upgrade
-  button: {fileID: 114000011965098988, guid: c64bf7afaa1a6ae4785a99356b45765c, type: 2}
+  button: {fileID: 114000014100242622, guid: c64bf7afaa1a6ae4785a99356b45765c, type: 2}
   turretButton: {fileID: 114000010867977006, guid: f2480b08cf8c5cd4790db91676469d5a,
     type: 2}
 --- !u!223 &223000011927016314

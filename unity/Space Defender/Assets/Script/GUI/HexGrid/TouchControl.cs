@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class TouchControl : MonoBehaviour {
 
-    public SpawnMenu spawnMenu;
+    public MenuSpawner spawnMenu;
     public HexGrid hexGrid;
 
     Touch? dragTouch = null;
