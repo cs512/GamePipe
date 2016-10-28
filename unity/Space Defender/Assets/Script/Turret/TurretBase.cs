@@ -34,7 +34,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         GameObject.Find("Hex Grid").GetComponent<HexGrid>().SetBuilding(new Vector3(this.transform.position.x, 0, this.transform.position.z), this.gameObject);
         GameObject prefab = Resources.Load("Prefabs/SliderSet", typeof(GameObject)) as GameObject;
         sliderCanvas = Instantiate(prefab, transform.position, Quaternion.Euler(90f, 0f, 0f)) as GameObject;
-        sliderCanvas.transform.parent = this.transform;
+        //sliderCanvas.transform.parent = this.transform;
         Debug.Log("Built!");
         Slider[] sliderList = sliderCanvas.GetComponentsInChildren<Slider>();
         foreach (Slider slider in sliderList) {
@@ -165,6 +165,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         AudioSource audio = GameObject.Find("TurretDestorySound").GetComponent<AudioSource>();
         audio.Play();
         Destroy(gameObject);
+        Destroy(sliderCanvas);
         Destroy(boom, 2);
     }
 
@@ -177,6 +178,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         AudioSource audio = GameObject.Find("TurretSellingSound").GetComponent<AudioSource>();
         audio.Play();
         Destroy(gameObject);
+        Destroy(sliderCanvas);
     }
 
     public float GetHealth() {
