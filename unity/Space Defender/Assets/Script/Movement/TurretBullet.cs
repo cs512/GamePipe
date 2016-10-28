@@ -9,14 +9,12 @@ public class TurretBullet : BulletMover {
                 Destroy(gameObject);
                 Victim victim = other.GetComponent<Enemy>();
                 victim.DealDamage(this.damage);
-                Debug.Log(victim.GetHealth());
             }
             else
             {
                 Destroy(gameObject);
                 Victim victim = other.GetComponent<Enemy>();
                 victim.SlowDown(this.slowRate);
-                Debug.Log(victim.GetHealth());
             }
         }
     }

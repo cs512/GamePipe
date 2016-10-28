@@ -261,8 +261,8 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 1675856775
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &224000010819187148
 RectTransform:

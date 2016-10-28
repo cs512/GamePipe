@@ -45,27 +45,29 @@ public class ScoreBoard : MonoBehaviour {
         fund -= i;
         
         if (fund < 0) {
-            fund = temp; 
+            fund = temp;
+            tFunds.color = Color.red;
+            Invoke("colorReturn", 0.5f);
             return false;
         }
         return true;
     }
-
+    void colorReturn() {
+        tFunds.color = Color.white;
+    }
     // always on, if no more enemy exists and would be generated and still has life, calculate the score.
     public void gameEnd() {
         bool isCompleted=GameObject.Find ("WaveManager").GetComponent<WaveManager>().HasComplete();
         int enemyCount = GameObject.Find("Dispatcher").GetComponent<Dispatcher>().GetEnemyCount();
         if (live != 0 && isCompleted == true && (enemyCount ==0)) {
+            Time.timeScale = 0;
             float cases = live / staticLive;
             if (cases == 1) {
-                GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (3);
-                Time.timeScale = 0;
+                GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (3);             
             } else if (cases >= 2 / 3) {
-                GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (2);
-                Time.timeScale = 0;
+                GameObject.Find("GameEnd").GetComponent<GameEnd>().ShowEnd(2);
             } else {
                 GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (1);
-                Time.timeScale = 0;
             }
         } 
     }

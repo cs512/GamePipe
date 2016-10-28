@@ -29,6 +29,7 @@ public class WaveManager : MonoBehaviour {
     }
 
     public int GetRemainedWave() {
+        if (level == null) return 0;
         return level.waves.Count - this.currentWave;
     }
 
