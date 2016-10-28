@@ -287,8 +287,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 120, y: 50, z: 90}
-  m_Center: {x: 0, y: 0, z: -20}
+  m_Size: {x: 120, y: 96.727844, z: 90}
+  m_Center: {x: 0, y: 23.363907, z: -20}
 --- !u!82 &82000010015485728
 AudioSource:
   m_ObjectHideFlags: 1
@@ -386,6 +386,7 @@ MonoBehaviour:
   shotSpawn: {fileID: 4000012107029642}
   healthSlider: {fileID: 114000011809707388}
   flag: 0
+  setPosition: 0
 --- !u!114 &114000010294517970
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -548,6 +549,7 @@ MonoBehaviour:
   shotSpawn: {fileID: 0}
   healthSlider: {fileID: 0}
   flag: 0
+  setPosition: 0
 --- !u!222 &222000012183464772
 CanvasRenderer:
   m_ObjectHideFlags: 1
