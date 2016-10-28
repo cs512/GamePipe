@@ -75,11 +75,13 @@ public class SpawnMenu : MonoBehaviour {
             }
         }
     }
+
     public void ShowTurretMenu(GameObject turret) {
+        menuShowing = true;
         for (int i = 0; i < turretOptions.Length; i++) {
             Debug.Log("Show icon!");
             HandleTurret newButton = Instantiate(turretButton) as HandleTurret;
-            newButton.transform.SetParent(turret.transform, false);
+            newButton.transform.SetParent(transform, false);
             float theta = (2 * Mathf.PI / turretOptions.Length) * i;
             float xPos = Mathf.Sin(theta);
             float yPos = Mathf.Cos(theta);

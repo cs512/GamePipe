@@ -67,26 +67,35 @@ public class HexGrid : MonoBehaviour {
         }
     }
 
-    public void SetBuilding(Vector3 position) {
-        this.SetBuildingStatue(position, true);
+    public GameObject IsUpgradeable(Vector3 position) {
+        position = transform.InverseTransformPoint(position);
+        HexCoordinates coordinates = HexCoordinates.FromPosition(position);
+        int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
+        HexCell cell = cells[index];
+        return cell.Turret;
+    }
+
+    public void SetBuilding(Vector3 position, GameObject turret) {
+        this.SetBuildingStatue(position, true, turret);
     }
 
     public void DeleteBuilding(Vector3 position) {
-        print("Delete building");
-        this.SetBuildingStatue(position, false);
+        this.SetBuildingStatue(position, false, null);
     }
 
-    private void SetBuildingStatue(Vector3 position, bool flag) {
+    private HexCell SetBuildingStatue(Vector3 position, bool flag, GameObject turret) {
         position = transform.InverseTransformPoint(position);
         HexCoordinates coordinates = HexCoordinates.FromPosition(position);
         int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
         HexCell cell = cells[index];
         cell.HasTurret = flag;
+        cell.Turret = turret;
         this.SetColor(cell);
         foreach (HexDirection hd in Enum.GetValues(typeof(HexDirection))) {
             if (cell.GetNeighbor(hd))
                 this.SetColor(cell.GetNeighbor(hd));
         }
+        return cell;
     }
 
     private void SetColor(HexCell cell) {

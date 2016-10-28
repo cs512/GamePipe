@@ -19,7 +19,7 @@ public class TouchControl : MonoBehaviour {
     }
 
     void Start() {
-        hexGrid.SetBuilding(new Vector3(165.8f, 0f, 60f));
+        hexGrid.SetBuilding(new Vector3(165.8f, 0f, 60f), null);
     }
 
     void Update() {
@@ -73,7 +73,14 @@ public class TouchControl : MonoBehaviour {
                 Vector3 menuPosition = hexGrid.GetGridGlobalPosition(hitPoint);
                 spawnMenu.transform.position = menuPosition;
                 spawnMenu.ShowMenu();
-            } 
+            } else {
+                GameObject turret = hexGrid.IsUpgradeable(hitPoint);
+                print(turret.name);
+                if (turret) {
+                    spawnMenu.transform.position = turret.transform.position;
+                    spawnMenu.ShowTurretMenu(turret);
+                }
+            }
         }
     }
 
