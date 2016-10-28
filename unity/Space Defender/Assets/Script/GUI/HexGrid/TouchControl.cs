@@ -73,7 +73,7 @@ public class TouchControl : MonoBehaviour {
                 Vector3 menuPosition = hexGrid.GetGridGlobalPosition(hitPoint);
                 spawnMenu.transform.position = menuPosition;
                 spawnMenu.ShowMenu();
-            }
+            } 
         }
     }
 

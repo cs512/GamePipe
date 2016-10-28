@@ -94,7 +94,16 @@ MonoBehaviour:
   - color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 7e29b3961f7ba1f43b4e110b7461a460, type: 3}
     title: mssLnchr
+  turretOptions:
+  - color: {r: 0, g: 0, b: 0, a: 0}
+    sprite: {fileID: 21300000, guid: 1f9ab4600ad2c9f4485c9cd847ab7e00, type: 3}
+    title: sell
+  - color: {r: 0, g: 0, b: 0, a: 0}
+    sprite: {fileID: 21300000, guid: cb24c5cadb883ac4388bd5e7daaf2930, type: 3}
+    title: upgrade
   button: {fileID: 114000011965098988, guid: c64bf7afaa1a6ae4785a99356b45765c, type: 2}
+  turretButton: {fileID: 114000010867977006, guid: f2480b08cf8c5cd4790db91676469d5a,
+    type: 2}
 --- !u!223 &223000011927016314
 Canvas:
   m_ObjectHideFlags: 1
@@ -121,7 +130,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013905566274}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 8.399963}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_Children: []
@@ -129,6 +138,6 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -91.00763, y: -50.000008}
-  m_SizeDelta: {x: 99.9849, y: 100.0324}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}

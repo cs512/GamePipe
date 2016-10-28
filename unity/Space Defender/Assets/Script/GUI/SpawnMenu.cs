@@ -9,7 +9,9 @@ public class SpawnMenu : MonoBehaviour {
         public string title;
     }
     public Action[] options;
+    public Action[] turretOptions;
     public CreateTurret button;
+    public HandleTurret turretButton;
     bool menuShowing = false;
 
     public bool MenuShowing {
@@ -70,6 +72,26 @@ public class SpawnMenu : MonoBehaviour {
                 GameObject prefab = Resources.Load("Prefabs/Turrets/missle_launcher", typeof(GameObject)) as GameObject;
                 newButton.turretCost = prefab.GetComponent<TurretBase>().turretCost;
                 Debug.Log("Launcher cost is " + newButton.turretCost);
+            }
+        }
+    }
+    public void ShowTurretMenu(GameObject turret) {
+        for (int i = 0; i < turretOptions.Length; i++) {
+            Debug.Log("Show icon!");
+            HandleTurret newButton = Instantiate(turretButton) as HandleTurret;
+            newButton.transform.SetParent(turret.transform, false);
+            float theta = (2 * Mathf.PI / turretOptions.Length) * i;
+            float xPos = Mathf.Sin(theta);
+            float yPos = Mathf.Cos(theta);
+            newButton.transform.localScale += new Vector3(5f, 5f, 5f);
+            newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * 50f;
+            newButton.transform.localPosition -= new Vector3(0f, 0f, 15f);
+            newButton.icon.sprite = turretOptions[i].sprite;
+            newButton.title = turretOptions[i].title;
+            if (newButton.title == "sell") {
+                newButton.function = "Sell";
+            } else if (newButton.title == "upgrade") {
+                newButton.function = "Upgrade";
             }
         }
     }
