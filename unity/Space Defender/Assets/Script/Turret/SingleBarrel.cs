@@ -9,9 +9,7 @@ public class SingleBarrel : TurretBase {
         return;
     }
     override public void ShotSpawn() {
-        Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-        TurretBullet bullet = shot.GetComponent<TurretBullet>();
-        bullet.setTarget(currentTarget);
+        (Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject).GetComponent<TurretBullet>().setTarget(currentTarget);
     }
     override public void SetShootEnemy(GameObject enemy) {
         if (enemy != null) {

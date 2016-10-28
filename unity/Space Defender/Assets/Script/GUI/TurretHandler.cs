@@ -13,6 +13,7 @@ public class TurretHandler : MonoBehaviour {
     public GameObject turret;
     private GameObject newObject;
     public TextMesh textMesh;
+    private float turretCost;
     // Use this for initialization
     // Update is called once per frame
     void Update() {
@@ -27,7 +28,8 @@ public class TurretHandler : MonoBehaviour {
         else if (this.title == "upgrade") {
             int currentLevel = turret.GetComponent<TurretBase>().level + 1;
             if (currentLevel <= 3) {
-                if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(currentLevel * 40)) {
+                turretCost = turret.GetComponent<TurretBase>().turretCost;
+                if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(currentLevel * turretCost / 5)) {
                     turret.GetComponent<TurretBase>().level++;
                     AudioSource audio = GameObject.Find("TurretUpgradeSound").GetComponent<AudioSource>();
                     audio.Play();
