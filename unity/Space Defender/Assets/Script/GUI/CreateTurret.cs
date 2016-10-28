@@ -65,6 +65,8 @@ public class CreateTurret : MonoBehaviour {
                 built = true;
             }
         }
+        AudioSource audio = GameObject.Find("TurretBuildSound").GetComponent<AudioSource>();
+        audio.Play();
         Transform parentTransform = transform.parent;
         parentTransform.GetComponent<SpawnMenu>().DestroyMenu();
     }

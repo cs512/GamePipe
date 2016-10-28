@@ -29,6 +29,8 @@ public class HandleTurret : MonoBehaviour {
             if (currentLevel <= 3) {
                 if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(currentLevel * 40)) {
                     turret.GetComponent<TurretBase>().level++;
+                    AudioSource audio = GameObject.Find("TurretUpgradeSound").GetComponent<AudioSource>();
+                    audio.Play();
                 }
             }
         }
