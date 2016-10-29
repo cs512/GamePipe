@@ -30,15 +30,26 @@ public class ScoreBoard : MonoBehaviour {
             gameOver();
         }
     }
+    public void setLiveColor(Color x)
+    {
+        tLives.color = x;
+    }
     public void setFund() {
         tFunds.text = "Resource: " + fund.ToString();
+    }
+    public void setFundColor(Color x)
+    {
+        tFunds.color = x;
     }
     public void setWaves() {
         WaveManager waveMgr = GameObject.Find("WaveManager").GetComponent<WaveManager>();
         wave = waveMgr.GetRemainedWave();
         tWaves.text = "Remaining Waves: " + wave.ToString();
     }
-
+    public void setWaveColor(Color x)
+    {
+        tWaves.color = x;
+    }
     //loseFund, >0 lose，<0 add, if money is not enough alert and nothing happend
     public bool LoseFund(float i) {
         float temp = fund;
