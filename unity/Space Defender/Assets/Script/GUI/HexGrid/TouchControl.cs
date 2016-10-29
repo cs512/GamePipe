@@ -7,6 +7,7 @@ public class TouchControl : MonoBehaviour {
 
     public MenuSpawner spawnMenu;
     public HexGrid hexGrid;
+    public bool enableTouch = true;
 
     Touch? dragTouch = null;
     int layerMask = 1 << 8;
@@ -20,9 +21,12 @@ public class TouchControl : MonoBehaviour {
 
     void Start() {
         hexGrid.SetBuilding(new Vector3(165.8f, 0f, 60f), null);
+        enableTouch = true;
     }
 
     void Update() {
+        if (!enableTouch)
+            return;
         if (spawnMenu.MenuShowing) {
             if (Application.platform != RuntimePlatform.Android) {
                 if (Input.GetMouseButton(0) && (Input.mousePosition.y < 0.92f * Screen.height)) {

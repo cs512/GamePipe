@@ -1,11 +1,11 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2008
-
-Project("{C0F45102-F302-6236-ADB8-73EB307B99FF}") = "Space Defender", "Assembly-CSharp-firstpass.csproj", "{0E529BC0-C473-6895-04BF-90A617C2F387}"
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space Defender.CSharp.Plugins", "Space Defender.CSharp.Plugins.csproj", "{8A511F37-AF4E-A1DA-6C38-246FE276D943}"
 EndProject
-Project("{C0F45102-F302-6236-ADB8-73EB307B99FF}") = "Space Defender", "Assembly-CSharp.csproj", "{8BEBBDD9-AB20-AB52-2C7C-B318659E42F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space Defender.CSharp", "Space Defender.CSharp.csproj", "{9D1BC633-C1C9-A863-4750-154DB63905D2}"
 EndProject
-Project("{C0F45102-F302-6236-ADB8-73EB307B99FF}") = "Space Defender", "Assembly-CSharp-Editor.csproj", "{EDDBC2F0-6F64-2D14-EA39-AA852A244B6A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space Defender.CSharp.Editor", "Space Defender.CSharp.Editor.csproj", "{44ACADF3-1F33-7A54-A017-6A91631A8EE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,23 +13,20 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0E529BC0-C473-6895-04BF-90A617C2F387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E529BC0-C473-6895-04BF-90A617C2F387}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E529BC0-C473-6895-04BF-90A617C2F387}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E529BC0-C473-6895-04BF-90A617C2F387}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8BEBBDD9-AB20-AB52-2C7C-B318659E42F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8BEBBDD9-AB20-AB52-2C7C-B318659E42F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8BEBBDD9-AB20-AB52-2C7C-B318659E42F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8BEBBDD9-AB20-AB52-2C7C-B318659E42F0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EDDBC2F0-6F64-2D14-EA39-AA852A244B6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EDDBC2F0-6F64-2D14-EA39-AA852A244B6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EDDBC2F0-6F64-2D14-EA39-AA852A244B6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EDDBC2F0-6F64-2D14-EA39-AA852A244B6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A511F37-AF4E-A1DA-6C38-246FE276D943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A511F37-AF4E-A1DA-6C38-246FE276D943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A511F37-AF4E-A1DA-6C38-246FE276D943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A511F37-AF4E-A1DA-6C38-246FE276D943}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D1BC633-C1C9-A863-4750-154DB63905D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D1BC633-C1C9-A863-4750-154DB63905D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D1BC633-C1C9-A863-4750-154DB63905D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D1BC633-C1C9-A863-4750-154DB63905D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44ACADF3-1F33-7A54-A017-6A91631A8EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44ACADF3-1F33-7A54-A017-6A91631A8EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44ACADF3-1F33-7A54-A017-6A91631A8EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44ACADF3-1F33-7A54-A017-6A91631A8EE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
