@@ -15,16 +15,14 @@ public class DoubleBarrels : TurretBase {
         if (gameObject.tag == "Launchers") {
             int fireCount = Random.Range(0, 3);
             if (fireCount == 2) {
-                Instantiate(shot, shotSpawnR.position, shotSpawnR.rotation);
+                (Instantiate(shot, shotSpawnR.position, shotSpawnR.rotation) as GameObject).GetComponent<TurretBullet>().setTarget(currentTarget);
             } else {
-                Instantiate(shot, shotSpawnL.position, shotSpawnL.rotation);
+                (Instantiate(shot, shotSpawnL.position, shotSpawnL.rotation) as GameObject).GetComponent<TurretBullet>().setTarget(currentTarget);
             }
         } else {
-            Instantiate(shot, shotSpawnR.position, shotSpawnR.rotation);
-            Instantiate(shot, shotSpawnL.position, shotSpawnL.rotation);
+            (Instantiate(shot, shotSpawnR.position, shotSpawnR.rotation) as GameObject).GetComponent<TurretBullet>().setTarget(currentTarget);
+            (Instantiate(shot, shotSpawnL.position, shotSpawnL.rotation) as GameObject).GetComponent<TurretBullet>().setTarget(currentTarget);
         }
-        BulletMover bullet = shot.GetComponent<BulletMover>();
-        bullet.setTarget(currentTarget);
     }
     override public void SetShootEnemy(GameObject enemy) {
         shootEnemys.Add(enemy);

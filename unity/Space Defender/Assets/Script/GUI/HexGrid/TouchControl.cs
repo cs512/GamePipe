@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 public class TouchControl : MonoBehaviour {
 
-    public SpawnMenu spawnMenu;
+    public MenuSpawner spawnMenu;
     public HexGrid hexGrid;
 
     Touch? dragTouch = null;
@@ -75,7 +75,7 @@ public class TouchControl : MonoBehaviour {
                 spawnMenu.ShowMenu();
             } else {
                 GameObject turret = hexGrid.IsUpgradeable(hitPoint);
-                print(turret.name);
+                //print(turret.name);
                 if (turret) {
                     spawnMenu.transform.position = turret.transform.position;
                     spawnMenu.ShowTurretMenu(turret);

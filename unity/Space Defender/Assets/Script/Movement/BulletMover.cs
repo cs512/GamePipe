@@ -7,20 +7,26 @@ public abstract class BulletMover : MonoBehaviour {
     public float slowRate;
     public float bulletRotateSpeed = 100f;
     public Transform target;
+    private Vector3 lastTargetPosition;
     void Start() {
         //GetComponent<Rigidbody>().velocity = transform.forward * speed;
         //Destroy(gameObject, 10);
         InvokeRepeating("changeDirection", 0.1f, 0.05f);
     }
     public void changeDirection() {
+        float framDist;
+        Vector3 dir;
         if (target == null) {
-            Destroy(this.gameObject);
+            transform.position += transform.forward * Time.deltaTime * speed;
+            Destroy(this.gameObject, 5);
+
             // the enemy went away!
             return;
         }
         //Debug.Log(target.position);
-        Vector3 dir = target.position - this.transform.localPosition;
-        float framDist = speed * Time.deltaTime;
+        lastTargetPosition = target.position;
+        dir = target.position - this.transform.localPosition;
+        framDist = speed * Time.deltaTime;
         transform.Translate(dir.normalized * framDist, Space.World);
         this.transform.rotation = Quaternion.LookRotation(dir);
     }

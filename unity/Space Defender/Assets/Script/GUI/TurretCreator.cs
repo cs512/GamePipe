@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CreateTurret : MonoBehaviour {
+public class TurretCreator : MonoBehaviour {
 
     public Image circle;
     public Image icon;
@@ -65,9 +65,12 @@ public class CreateTurret : MonoBehaviour {
                 built = true;
             }
         }
-        AudioSource audio = GameObject.Find("TurretBuildSound").GetComponent<AudioSource>();
-        audio.Play();
+        if (built)
+        {
+            AudioSource audio = GameObject.Find("TurretBuildSound").GetComponent<AudioSource>();
+            audio.Play();
+        }
         Transform parentTransform = transform.parent;
-        parentTransform.GetComponent<SpawnMenu>().DestroyMenu();
+        parentTransform.GetComponent<MenuSpawner>().DestroyMenu();
     }
 }

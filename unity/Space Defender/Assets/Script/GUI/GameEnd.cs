@@ -73,19 +73,21 @@ public class GameEnd : MonoBehaviour {
         //nextLevel.sizeDelta = new Vector2(80, 60);
         goBack.sizeDelta = new Vector2(120, 80);
         if (some == 0) {//u shall not pass
-            tTrishade1.localPosition = new Vector3(-100, 50, -6);
-            tTrishade2.localPosition = new Vector3(0, 50, -6);
-            tTrishade3.localPosition = new Vector3(100, 50, -6);
+            tTrishade1.localPosition = new Vector3(-100, 50, -7);
+            tTrishade2.localPosition = new Vector3(0, 50, -7);
+            tTrishade3.localPosition = new Vector3(100, 50, -7);
+            print(tTrishade1.localPosition);
+            print("lalalalal");
             //nextLevel.sizeDelta = new Vector2(80, 30);
         }
         if (some == 1) {//ok
-            tTrishade1.localPosition = new Vector3(-100, 50, -6);
-            tTrishade2.localPosition = new Vector3(0, 50, -6);
+            tTrishade1.localPosition = new Vector3(-100, 50, -7);
+            tTrishade2.localPosition = new Vector3(0, 50, -7);
             //tTrishade3.position = new Vector3(80, -6, 30);
             nextLevel.sizeDelta = new Vector2(120, 80);
         }
         if (some == 2) {//good
-            tTrishade1.localPosition = new Vector3(-100, 50, -6);
+            tTrishade1.localPosition = new Vector3(-100, 50, -7);
             //tTrishade2.position = new Vector3(0, -6, 30);
             //tTrishade3.position = new Vector3(80, -6, 30);
             nextLevel.sizeDelta = new Vector2(120, 80);

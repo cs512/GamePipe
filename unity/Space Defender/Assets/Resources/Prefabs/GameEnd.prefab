@@ -38,7 +38,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013155546524}
   - 212: {fileID: 212000013909276894}
-  - 114: {fileID: 114000012419728924}
   m_Layer: 0
   m_Name: tri3
   m_TagString: Untagged
@@ -93,7 +92,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014015859402}
   - 212: {fileID: 212000010899153874}
-  - 114: {fileID: 114000014021547390}
   m_Layer: 0
   m_Name: triShade2
   m_TagString: Untagged
@@ -110,7 +108,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014258110502}
   - 212: {fileID: 212000012243072100}
-  - 114: {fileID: 114000014033307668}
   m_Layer: 0
   m_Name: tri2
   m_TagString: Untagged
@@ -163,7 +160,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010741643590}
   - 212: {fileID: 212000012927288688}
-  - 114: {fileID: 114000012987504210}
   m_Layer: 0
   m_Name: triShade1
   m_TagString: Untagged
@@ -197,7 +193,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014200329348}
   - 212: {fileID: 212000012616699414}
-  - 114: {fileID: 114000013558954872}
   m_Layer: 0
   m_Name: tri1
   m_TagString: Untagged
@@ -214,7 +209,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013791064662}
   - 212: {fileID: 212000010059902328}
-  - 114: {fileID: 114000013720529394}
   m_Layer: 0
   m_Name: triShade3
   m_TagString: Untagged
@@ -518,7 +512,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEnd: {fileID: 224000010994760454}
-  tTrishade1: {fileID: 4000010741643590}
+  tTrishade1: {fileID: 4000013791064662}
   tTrishade2: {fileID: 4000014015859402}
   tTrishade3: {fileID: 4000013791064662}
   tri1: {fileID: 212000012616699414}
@@ -569,7 +563,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEnd: {fileID: 224000010994760454}
-  tTrishade1: {fileID: 4000010741643590}
+  tTrishade1: {fileID: 4000013791064662}
   tTrishade2: {fileID: 4000014015859402}
   tTrishade3: {fileID: 4000013791064662}
   tri1: {fileID: 212000012616699414}
@@ -593,7 +587,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEnd: {fileID: 224000010994760454}
-  tTrishade1: {fileID: 4000010741643590}
+  tTrishade1: {fileID: 4000013791064662}
   tTrishade2: {fileID: 4000014015859402}
   tTrishade3: {fileID: 4000013791064662}
   tri1: {fileID: 212000012616699414}
@@ -632,30 +626,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000012419728924
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011148039906}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aaeaaa20a3c63c4282718e364bf812d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEnd: {fileID: 224000010994760454}
-  tTrishade1: {fileID: 4000010741643590}
-  tTrishade2: {fileID: 4000014015859402}
-  tTrishade3: {fileID: 4000013791064662}
-  tri1: {fileID: 212000012616699414}
-  tri2: {fileID: 212000012243072100}
-  tri3: {fileID: 212000013909276894}
-  triShade1: {fileID: 212000012927288688}
-  triShade2: {fileID: 212000010899153874}
-  triShade3: {fileID: 212000010059902328}
-  retry: {fileID: 224000010675690390}
-  nextLevel: {fileID: 224000011142601802}
-  goBack: {fileID: 224000010086831564}
 --- !u!114 &114000012475690368
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -683,30 +653,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000012987504210
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012913351084}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aaeaaa20a3c63c4282718e364bf812d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEnd: {fileID: 224000010994760454}
-  tTrishade1: {fileID: 4000010741643590}
-  tTrishade2: {fileID: 4000010741643590}
-  tTrishade3: {fileID: 4000013791064662}
-  tri1: {fileID: 212000012616699414}
-  tri2: {fileID: 212000012243072100}
-  tri3: {fileID: 212000013909276894}
-  triShade1: {fileID: 212000012927288688}
-  triShade2: {fileID: 212000012927288688}
-  triShade3: {fileID: 212000010059902328}
-  retry: {fileID: 224000010675690390}
-  nextLevel: {fileID: 224000011142601802}
-  goBack: {fileID: 224000010086831564}
 --- !u!114 &114000013488942746
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -752,55 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameEnd: {fileID: 224000010994760454}
-  tTrishade1: {fileID: 4000010741643590}
-  tTrishade2: {fileID: 4000014015859402}
-  tTrishade3: {fileID: 4000013791064662}
-  tri1: {fileID: 212000012616699414}
-  tri2: {fileID: 212000012243072100}
-  tri3: {fileID: 212000013909276894}
-  triShade1: {fileID: 212000012927288688}
-  triShade2: {fileID: 212000010899153874}
-  triShade3: {fileID: 212000010059902328}
-  retry: {fileID: 224000010675690390}
-  nextLevel: {fileID: 224000011142601802}
-  goBack: {fileID: 224000010086831564}
---- !u!114 &114000013558954872
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013318224854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aaeaaa20a3c63c4282718e364bf812d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEnd: {fileID: 224000010994760454}
-  tTrishade1: {fileID: 4000010741643590}
-  tTrishade2: {fileID: 4000014015859402}
-  tTrishade3: {fileID: 4000013791064662}
-  tri1: {fileID: 212000012616699414}
-  tri2: {fileID: 212000012243072100}
-  tri3: {fileID: 212000013909276894}
-  triShade1: {fileID: 212000012927288688}
-  triShade2: {fileID: 212000010899153874}
-  triShade3: {fileID: 212000010059902328}
-  retry: {fileID: 224000010675690390}
-  nextLevel: {fileID: 224000011142601802}
-  goBack: {fileID: 224000010086831564}
---- !u!114 &114000013720529394
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013449598612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aaeaaa20a3c63c4282718e364bf812d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEnd: {fileID: 224000010994760454}
-  tTrishade1: {fileID: 4000010741643590}
+  tTrishade1: {fileID: 4000013791064662}
   tTrishade2: {fileID: 4000014015859402}
   tTrishade3: {fileID: 4000013791064662}
   tri1: {fileID: 212000012616699414}
@@ -874,54 +772,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114000014021547390
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012192902416}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aaeaaa20a3c63c4282718e364bf812d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEnd: {fileID: 224000010994760454}
-  tTrishade1: {fileID: 4000010741643590}
-  tTrishade2: {fileID: 4000014015859402}
-  tTrishade3: {fileID: 4000013791064662}
-  tri1: {fileID: 212000012616699414}
-  tri2: {fileID: 212000012243072100}
-  tri3: {fileID: 212000013909276894}
-  triShade1: {fileID: 212000012927288688}
-  triShade2: {fileID: 212000010899153874}
-  triShade3: {fileID: 212000010059902328}
-  retry: {fileID: 224000010675690390}
-  nextLevel: {fileID: 224000011142601802}
-  goBack: {fileID: 224000010086831564}
---- !u!114 &114000014033307668
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000012245832052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1aaeaaa20a3c63c4282718e364bf812d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameEnd: {fileID: 224000010994760454}
-  tTrishade1: {fileID: 4000010741643590}
-  tTrishade2: {fileID: 4000014015859402}
-  tTrishade3: {fileID: 4000013791064662}
-  tri1: {fileID: 212000012616699414}
-  tri2: {fileID: 212000012243072100}
-  tri3: {fileID: 212000013909276894}
-  triShade1: {fileID: 212000012927288688}
-  triShade2: {fileID: 212000010899153874}
-  triShade3: {fileID: 212000010059902328}
-  retry: {fileID: 224000010675690390}
-  nextLevel: {fileID: 224000011142601802}
-  goBack: {fileID: 224000010086831564}
 --- !u!212 &212000010059902328
 SpriteRenderer:
   m_ObjectHideFlags: 1
