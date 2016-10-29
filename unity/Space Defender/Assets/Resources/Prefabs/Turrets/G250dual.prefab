@@ -245,7 +245,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -273,7 +273,7 @@ MonoBehaviour:
   nextFire: 1
   currentTarget: {fileID: 0}
   shipsKilled: 0
-  levelUp: 1
+  level: 0
   showRange: 1
   range: 500
   turretCost: 100
