@@ -14,7 +14,7 @@ public class HexGrid : MonoBehaviour {
     public HexCell cellPrefab;
     public Text cellLabelPrefab;
 
-    HexCell[] cells;
+    public HexCell[] cells;
 
     HexMesh hexMesh;
 
@@ -37,7 +37,7 @@ public class HexGrid : MonoBehaviour {
     public void ColorCell(Vector3 position, Color color) {
         position = transform.InverseTransformPoint(position);
         HexCoordinates coordinates = HexCoordinates.FromPosition(position);
-        print(coordinates.X + ":" + coordinates.Y + ":" + coordinates.Z);
+        //print(coordinates.X + ":" + coordinates.Y + ":" + coordinates.Z);
         int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
         HexCell cell = cells[index];
         cell.color = color;
@@ -45,7 +45,7 @@ public class HexGrid : MonoBehaviour {
     }
 
     private void ColorCell(HexCell cell, Color color) {
-        print(color);
+        //print(color);
         cell.color = color;
         hexMesh.Triangulate(cells);
     }
@@ -118,7 +118,14 @@ public class HexGrid : MonoBehaviour {
         int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
         return cells[index].transform.position;
     }
-
+    public int GetTurretCount() {
+        int count = 0;
+        for (int i = 0; i < cells.Length; i++) {
+            if (cells[i].HasTurret)
+                count++;
+        }
+        return count; 
+    }
     void CreateCell(int x, int z, int i) {
         Vector3 position;
         position.x = (x + z * 0.5f - z / 2) * (HexMetrics.innerRadius * 2f);

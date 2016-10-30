@@ -11,7 +11,7 @@
                     "interval":1.0,
                     "number":30,
                     "damage":10.0,
-                    "speed":3.0,
+                    "speed":3.0
                 }
             ],
         }

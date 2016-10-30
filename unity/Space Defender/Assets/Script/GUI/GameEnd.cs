@@ -76,8 +76,8 @@ public class GameEnd : MonoBehaviour {
             tTrishade1.localPosition = new Vector3(-100, 50, -7);
             tTrishade2.localPosition = new Vector3(0, 50, -7);
             tTrishade3.localPosition = new Vector3(100, 50, -7);
-            print(tTrishade1.localPosition);
-            print("lalalalal");
+            //print(tTrishade1.localPosition);
+           // print("lalalalal");
             //nextLevel.sizeDelta = new Vector2(80, 30);
         }
         if (some == 1) {//ok
@@ -104,7 +104,7 @@ public class GameEnd : MonoBehaviour {
     void Start() {
         lvlMgr = Toolbox.Instance.GetOrAddComponent<LevelManager>();
         HideEnd();
-        print(SceneManager.GetActiveScene().name);
+        //print(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame

@@ -13,9 +13,12 @@ public class Turtorial : MonoBehaviour {
     public RectTransform rAButton;
     public Transform transABut;
     private int i = 0;
+    private int count = 0;
     public void chTrText() {
         i++;
         if (i == 1) {
+            TouchControl tc = GameObject.Find("TouchControl").GetComponent<TouchControl>();
+            tc.enableTouch = false;
             tText.text = "Here is your resource.";
             tText.fontSize = 22;
             rButton.sizeDelta = new Vector2(220f, 60f);
@@ -82,6 +85,8 @@ public class Turtorial : MonoBehaviour {
             rAButton.sizeDelta = new Vector2(360f, 60f);
             aText.fontSize = 22;
             aText.text = "Now drag around to view your arena.";
+            var touch = GameObject.Find("TouchControl").GetComponent<TouchControl>();
+            touch.enableTouch = true;
         }
         if (i == 9) {
             transBut.position = new Vector3(0, 0, 40);
@@ -91,20 +96,30 @@ public class Turtorial : MonoBehaviour {
             tText.text = "Enemy is coming!\nDestory them now!";
             Time.timeScale = 1;
             Invoke("timeReturn", 2);
-            Debug.Log("1423124124");
         }
     }
     public void aChTex() {
         i++;
         if(i == 1) {
-
+            rAButton.sizeDelta = new Vector2(400f, 60f);
+            transABut.position = new Vector3(-200,0,50);
+            aText.text = "Touch one of your favourite green hexgon.";
+            Button ab = GameObject.Find("aButton").GetComponent<Button>();
+            ab.renderer = false;
+        }
+        HexGrid hg = GameObject.Find("HexGrid").GetComponent<HexGrid>();
+        if((count!=hg.GetTurretCount())&&(i==1))
+        {
+            aText.text = "Now you can pick your favourite tower.";
+            i += 1;
+            Button ab = GameObject.Find("aButton").GetComponent<Button>();
+            ab.interactable = true; 
         }
     }
     void timeReturn() {
         tText.text = "";
         rButton.sizeDelta = new Vector2(0f, 0f);
         tPanel.gameObject.SetActive(false);
-        Debug.Log("1afssa");
     }
     void Gain() { 
 
@@ -112,22 +127,18 @@ public class Turtorial : MonoBehaviour {
     void stopTime() {
         Time.timeScale = 0;
     }
-    //public void transPos2() {
-    //    trans.position = new Vector3(0,0,0);
-    //}
-    //public void chText2() {
-    //    tText.fontSize = 400;
-    //    tText.color = Color.red;
-    //    tText.text = "This is your sourcePlanet, also your basement.\n You can upgrade it to gain resources quickly.\n Be ware, you must protect it from enemies!";
-    //}
-
-    // Use this for initialization
+    void chColor() {//
+        HexGrid hg = GameObject.Find("HexGrid").GetComponent<HexGrid>();
+        hg.buildableColor = Color.white;
+    }
     void Start() {
         Invoke("stopTime", 0.5f);
         tText.text = "Hello, Commander!";
         tText.fontSize = 22;
         rButton.sizeDelta = new Vector2(220f, 60f);
         rAButton.sizeDelta = new Vector2(0f, 0f);
+        HexGrid hg = GameObject.Find("HexGrid").GetComponent<HexGrid>();
+        count = hg.GetTurretCount();
     }
 
     // Update is called once per frame

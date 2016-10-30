@@ -24,7 +24,7 @@ public class RandomFly : MonoBehaviour
             float angle = Mathf.Min (1, Vector3.Distance (this.transform.position, targetPos) / distanceToTarget) * angelmodu;
             this.transform.rotation = this.transform.rotation * Quaternion.Euler (Mathf.Clamp (-angle, -42, 42), 0, 0);
             float currentDist = Vector3.Distance (this.transform.position, target.transform.position);
-            print ("currentDist" + currentDist);
+            //print ("currentDist" + currentDist);
             if (currentDist < 0.5f)
                 move = false;
             this.transform.Translate (Vector3.forward * Mathf.Min (speed * Time.deltaTime, currentDist));

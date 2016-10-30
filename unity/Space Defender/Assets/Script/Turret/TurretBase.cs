@@ -32,7 +32,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 
     void Start() {
         GameObject.Find("Hex Grid").GetComponent<HexGrid>().SetBuilding(new Vector3(this.transform.position.x, 0, this.transform.position.z), this.gameObject);
-        GameObject prefab = Resources.Load("Prefabs/SliderSet", typeof(GameObject)) as GameObject;
+        GameObject prefab =     Resources.Load("Prefabs/SliderSet", typeof(GameObject)) as GameObject;
         sliderCanvas = Instantiate(prefab, transform.position, Quaternion.Euler(90f, 0f, 0f)) as GameObject;
         //sliderCanvas.transform.parent = this.transform;
         Debug.Log("Built!");
