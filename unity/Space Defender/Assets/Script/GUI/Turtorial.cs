@@ -134,6 +134,7 @@ public class Turtorial : MonoBehaviour {
         WaveManager wMgr = GameObject.Find("WaveManager").GetComponent<WaveManager>();
         wMgr.Pause = true;
         GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(-200);
+        GameObject.Find("TurretBuildingMenu").GetComponent<MenuSpawner>().SetBuildingMask(1);
     }
     void ChColor() {//
         HexGrid hg = GameObject.Find("Hex Grid").GetComponent<HexGrid>();
