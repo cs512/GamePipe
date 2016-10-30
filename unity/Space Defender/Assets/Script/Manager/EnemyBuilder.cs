@@ -6,8 +6,16 @@ public class EnemyBuilder : MonoBehaviour {
     public float nextWaveTime;
     public float intervelTime;
     public float speed;
+    public bool Pause {
+        set {
+            pause = value;
+        }
+    }
+
     GameObject target;
     Transform sourcePlanet;
+
+    private bool pause = false;
 
     [System.Serializable]
     public class WaveComponent {
@@ -28,6 +36,9 @@ public class EnemyBuilder : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (pause) {
+            return;
+        }
         nextWaveTime -= Time.deltaTime;
         if (nextWaveTime < 0) {
             nextWaveTime = intervelTime;
