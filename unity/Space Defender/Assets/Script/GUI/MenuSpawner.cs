@@ -28,7 +28,7 @@ public class MenuSpawner : MonoBehaviour {
     }
     // Use this for initialization
 
-    public void SetBuildingMask(int mask) {
+    public void SetBuildingMask(int mask) { //0b1
         buildingOption = new List<Action>();
         for (int i = 0; i < options.Length; ++i) {
             if ((1 << i & mask) != 0) {
