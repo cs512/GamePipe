@@ -18,8 +18,6 @@ public class Turtorial : MonoBehaviour {
     public void chTrText() {
         i++;
         if (i == 1) {
-            TouchControl tc = GameObject.Find("TouchControl").GetComponent<TouchControl>();
-            tc.enableTouch = false;
             tText.text = "Here is your resource.";
             tText.fontSize = 22;
             rButton.sizeDelta = new Vector2(220f, 60f);
@@ -86,7 +84,7 @@ public class Turtorial : MonoBehaviour {
             rAButton.sizeDelta = new Vector2(360f, 60f);
             aText.fontSize = 22;
             aText.text = "Now drag around to view your arena.";
-            var touch = GameObject.Find("TouchControl").GetComponent<TouchControl>();
+            TouchControl touch = GameObject.Find("TouchControl").GetComponent<TouchControl>();
             touch.enableTouch = true;
             Time.timeScale = 1;
         }
@@ -130,6 +128,8 @@ public class Turtorial : MonoBehaviour {
 
 }
     void StopTime() {
+        TouchControl tc = GameObject.Find("TouchControl").GetComponent<TouchControl>();
+        tc.enableTouch = false;
         Time.timeScale = 0;
         WaveManager wMgr = GameObject.Find("WaveManager").GetComponent<WaveManager>();
         wMgr.Pause = true;
