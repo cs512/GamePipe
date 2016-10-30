@@ -13,7 +13,8 @@ public class Turtorial : MonoBehaviour {
     public RectTransform rAButton;
     public Transform transABut;
     private int i = 0;
-    private int count = 0;
+    private int count = 1;
+    private int tCount = 0;
     public void chTrText() {
         i++;
         if (i == 1) {
@@ -87,33 +88,37 @@ public class Turtorial : MonoBehaviour {
             aText.text = "Now drag around to view your arena.";
             var touch = GameObject.Find("TouchControl").GetComponent<TouchControl>();
             touch.enableTouch = true;
+            Time.timeScale = 1;
         }
-        if (i == 9) {
+        /*if (i == 9) {
             transBut.position = new Vector3(0, 0, 40);
             transTex.position = new Vector3(0, 0, 40);
             rButton.sizeDelta = new Vector2(200f, 80f);
-            tText.color = Color.blue;
-            tText.text = "Enemy is coming!\nDestory them now!";
+            //tText.color = Color.blue;
+           // tText.text = "Enemy is coming!\nDestory them now!";
             Time.timeScale = 1;
             Invoke("timeReturn", 2);
-        }
+        }*/
     }
     public void aChTex() {
         i++;
+        print(i);
         if(i == 1) {
-            rAButton.sizeDelta = new Vector2(400f, 60f);
+            rAButton.sizeDelta = new Vector2(400f, 120f);
             transABut.position = new Vector3(-200,0,50);
-            aText.text = "Touch one of your favourite green hexgon.";
+            aText.text = "Touch one of your favourite green hexgon. And build a Tower.\nClick this if finsihed.";
             Button ab = GameObject.Find("aButton").GetComponent<Button>();
-            ab.renderer = false;
         }
-        HexGrid hg = GameObject.Find("HexGrid").GetComponent<HexGrid>();
-        if((count!=hg.GetTurretCount())&&(i==1))
-        {
-            aText.text = "Now you can pick your favourite tower.";
-            i += 1;
-            Button ab = GameObject.Find("aButton").GetComponent<Button>();
-            ab.interactable = true; 
+        if(i==2) {
+            aText.text = "The tower can expand your defend fields.\n Now build another one";
+        }
+        if (i == 3) {
+            aText.text = "Click this if your are ready.";
+        }
+        if(i ==4) {
+            rAButton.sizeDelta = new Vector2(0, 0);
+            WaveManager wMgr = GameObject.Find("WaveManager").GetComponent<WaveManager>();
+            wMgr.Pause = false;
         }
     }
     void timeReturn() {
@@ -124,25 +129,30 @@ public class Turtorial : MonoBehaviour {
     void Gain() { 
 
 }
-    void stopTime() {
+    void StopTime() {
         Time.timeScale = 0;
+        WaveManager wMgr = GameObject.Find("WaveManager").GetComponent<WaveManager>();
+        wMgr.Pause = true;
+        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(-200);
     }
-    void chColor() {//
-        HexGrid hg = GameObject.Find("HexGrid").GetComponent<HexGrid>();
+    void ChColor() {//
+        HexGrid hg = GameObject.Find("Hex Grid").GetComponent<HexGrid>();
         hg.buildableColor = Color.white;
     }
     void Start() {
-        Invoke("stopTime", 0.5f);
+        Invoke("StopTime", 0.5f);
         tText.text = "Hello, Commander!";
         tText.fontSize = 22;
         rButton.sizeDelta = new Vector2(220f, 60f);
         rAButton.sizeDelta = new Vector2(0f, 0f);
-        HexGrid hg = GameObject.Find("HexGrid").GetComponent<HexGrid>();
-        count = hg.GetTurretCount();
     }
 
     // Update is called once per frame
     void Update() {
-
+        HexGrid hg = GameObject.Find("Hex Grid").GetComponent<HexGrid>();
+        tCount = hg.GetTurretCount();
+        print("tttt is"+tCount);
+        print(count + "this is count!");
+        print(count != tCount);
     }
 }

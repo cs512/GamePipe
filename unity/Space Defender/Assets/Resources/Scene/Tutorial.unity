@@ -2288,6 +2288,21 @@ Prefab:
       propertyPath: exitT
       value: 
       objectReference: {fileID: 1541895423}
+    - target: {fileID: 212000012407777446, guid: 70a5e4f1f1a5f9b4891739ae2b37de37,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000011096091134, guid: 70a5e4f1f1a5f9b4891739ae2b37de37,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212000010643968476, guid: 70a5e4f1f1a5f9b4891739ae2b37de37,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70a5e4f1f1a5f9b4891739ae2b37de37, type: 2}
   m_IsPrefabParent: 0
@@ -2369,7 +2384,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1000013580732696, guid: 8bf6bac307e6ed94baae7c22f0fa1dcc, type: 2}
       propertyPath: m_Name
-      value: HexGrid
+      value: Hex Grid
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bf6bac307e6ed94baae7c22f0fa1dcc, type: 2}
