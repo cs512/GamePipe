@@ -8,18 +8,29 @@ using System.Collections;
 
 public class WaveManager : MonoBehaviour {
 
+
+    public bool Pause {
+        get {
+            return pause;
+        }
+        set {
+            pause = value;
+        }
+    }
+
     private Level level;
     private int currentWave = 0;
     private List<GameObject> ebs = new List<GameObject>();
-    private int time = 0;
+    private float time = 0;
     private int waveDuring = 0;
     private int counter = 0;
     private bool wavesCompleted = false;
+    private bool pause;
 
     // Use this for initialization
     void Start() {
         this.level = Toolbox.Instance.GetComponent<LevelManager>().GetCurrentLevel();
-        this.time = (int)Time.time;
+        this.time = Time.time;
         Time.timeScale = 1f;
         this.SetWave(currentWave);
     }
@@ -68,6 +79,10 @@ public class WaveManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (pause) {
+            this.time = Time.time;
+            return;
+        }
         if (waveDuring != 0) {
             if ((Time.time - this.time) > this.waveDuring) {
                 this.time = (int)Time.time;
