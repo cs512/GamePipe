@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class MenuSpawner : MonoBehaviour {
     [System.Serializable]
@@ -12,7 +13,13 @@ public class MenuSpawner : MonoBehaviour {
     public Action[] turretOptions;
     public TurretCreator button;
     public TurretHandler turretButton;
+
     bool menuShowing = false;
+    List<Action> buildingOption;
+
+    void Start() {
+        this.SetBuildingMask(int.MaxValue);
+    }
 
     public bool MenuShowing {
         get {
@@ -20,6 +27,15 @@ public class MenuSpawner : MonoBehaviour {
         }
     }
     // Use this for initialization
+
+    public void SetBuildingMask(int mask) {
+        buildingOption = new List<Action>();
+        for (int i = 0; i < options.Length; ++i) {
+            if ((1 << i & mask) != 0) {
+                buildingOption.Add(options[i]);
+            }
+        }
+    }
 
     public void TriggerMenu() {
         if (menuShowing) {
@@ -44,18 +60,18 @@ public class MenuSpawner : MonoBehaviour {
 
     public void ShowMenu() {
         menuShowing = true;
-        for (int i = 0; i < options.Length; i++) {
+        for (int i = 0; i < buildingOption.Count; i++) {
             TurretCreator newButton = Instantiate(button) as TurretCreator;
             newButton.transform.SetParent(transform, false);
-            float theta = (2 * Mathf.PI / options.Length) * i;
+            float theta = (2 * Mathf.PI / buildingOption.Count) * i;
             float xPos = Mathf.Sin(theta);
             float yPos = Mathf.Cos(theta);
             newButton.transform.localScale += new Vector3(5f, 5f, 5f);
             newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * 50f;
             newButton.transform.localPosition -= new Vector3(0f, 0f, 15f);
             //newButton.circle.color = options[i].color;
-            newButton.icon.sprite = options[i].sprite;
-            newButton.title = options[i].title;
+            newButton.icon.sprite = buildingOption[i].sprite;
+            newButton.title = buildingOption[i].title;
             if (newButton.title == "trtLrg") {
                 GameObject prefab = Resources.Load("Prefabs/Turrets/IonBlast", typeof(GameObject)) as GameObject;
                 newButton.turretCost = prefab.GetComponent<TurretBase>().turretCost;

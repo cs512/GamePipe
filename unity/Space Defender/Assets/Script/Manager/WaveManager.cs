@@ -15,6 +15,9 @@ public class WaveManager : MonoBehaviour {
         }
         set {
             pause = value;
+            foreach (GameObject go in ebs) {
+                go.GetComponent<EnemyBuilder>().Pause = value;
+            }
         }
     }
 
@@ -25,7 +28,7 @@ public class WaveManager : MonoBehaviour {
     private int waveDuring = 0;
     private int counter = 0;
     private bool wavesCompleted = false;
-    private bool pause;
+    private bool pause = false;
 
     // Use this for initialization
     void Start() {
