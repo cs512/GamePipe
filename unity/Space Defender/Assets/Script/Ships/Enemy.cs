@@ -163,7 +163,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         dispatcher.enemyDeregisteKiller(this);
         AudioSource audio = GameObject.Find("EnemyDestorySound").GetComponent<AudioSource>();
         audio.Play();
-        Debug.Log("booooom!");
+        //Debug.Log("booooom!");
         GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
         Destroy(gameObject);
         Destroy(boom, 2);

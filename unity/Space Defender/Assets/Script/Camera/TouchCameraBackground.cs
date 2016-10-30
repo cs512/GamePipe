@@ -10,6 +10,6 @@ public class TouchCameraBackground : MonoBehaviour {
     }
 
     void OnMouseDown() {
-        print("dowm");
+        //print("dowm");
     }
 }

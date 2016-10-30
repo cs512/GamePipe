@@ -72,7 +72,7 @@ public class TouchControl : MonoBehaviour {
         RaycastHit hit;
         if (Physics.Raycast(inputRay, out hit, Mathf.Infinity, layerMask)) {
             Vector3 hitPoint = hit.point;
-            print(hitPoint);
+            //print(hitPoint);
             if (hexGrid.IsBuildable(hitPoint)) {
                 Vector3 menuPosition = hexGrid.GetGridGlobalPosition(hitPoint);
                 spawnMenu.transform.position = menuPosition;

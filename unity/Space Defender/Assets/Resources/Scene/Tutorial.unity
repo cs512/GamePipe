@@ -1340,12 +1340,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1115659633}
-        m_MethodName: 
+      - m_Target: {fileID: 1115659638}
+        m_MethodName: aChTex
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2035,7 +2035,7 @@ GameObject:
   - 4: {fileID: 1719249588}
   - 114: {fileID: 1719249587}
   m_Layer: 0
-  m_Name: Touch Control
+  m_Name: TouchControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2054,6 +2054,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnMenu: {fileID: 1325358930}
   hexGrid: {fileID: 2064644737}
+  enableTouch: 1
 --- !u!4 &1719249588
 Transform:
   m_ObjectHideFlags: 0
@@ -2365,6 +2366,10 @@ Prefab:
         type: 2}
       propertyPath: hasBuildingColor.a
       value: 0.5019608
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000013580732696, guid: 8bf6bac307e6ed94baae7c22f0fa1dcc, type: 2}
+      propertyPath: m_Name
+      value: HexGrid
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8bf6bac307e6ed94baae7c22f0fa1dcc, type: 2}

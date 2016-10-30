@@ -12,7 +12,7 @@ public class Dispatcher : MonoBehaviour {
     public Dictionary<int, Victim> turretVictims = new Dictionary<int, Victim>();
     // Use this for initialization
     void Start() {
-        print("Dispatcher start");
+        //print("Dispatcher start");
     }
 
     // Update is called once per frame
@@ -27,7 +27,7 @@ public class Dispatcher : MonoBehaviour {
     }
 
     public void enemyRegisteKiller(Killer killer) {
-        print("enemyRegister: killer" + killer.GetID().ToString());
+        //print("enemyRegister: killer" + killer.GetID().ToString());
         if (!this.enemyKillers.ContainsKey(killer.GetID())) {
             this.enemyKillers.Add(killer.GetID(), killer);
             this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.enemyTriggerAttack, killer.GetID(), killer);
@@ -43,7 +43,7 @@ public class Dispatcher : MonoBehaviour {
     }
 
     public void enemyRegisteVictim(Victim victim) {
-        print("Register: " + victim.GetID().ToString());
+        //print("Register: " + victim.GetID().ToString());
         if (!this.enemyVictims.ContainsKey(victim.GetID())) {
             this.enemyVictims.Add(victim.GetID(), victim);
         }
@@ -58,7 +58,7 @@ public class Dispatcher : MonoBehaviour {
     }
 
     public void turretRegisteKiller(Killer killer) {
-        print("enemyRegister: killer" + killer.GetID().ToString());
+        //print("enemyRegister: killer" + killer.GetID().ToString());
         if (!this.turretKillers.ContainsKey(killer.GetID())) {
             this.turretKillers.Add(killer.GetID(), killer);
             this.tm.doOnce<int, Killer>(killer.GetFireInterval(), this.turretTriggerAttack, killer.GetID(), killer);
@@ -74,7 +74,7 @@ public class Dispatcher : MonoBehaviour {
     }
 
     public void turretRegisteVictim(Victim victim) {
-        print("Register: " + victim.GetID().ToString());
+        //print("Register: " + victim.GetID().ToString());
         if (!this.turretVictims.ContainsKey(victim.GetID())) {
             this.turretVictims.Add(victim.GetID(), victim);
         }
