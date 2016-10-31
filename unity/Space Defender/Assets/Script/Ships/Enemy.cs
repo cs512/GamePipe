@@ -45,6 +45,10 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     int total_frame;
     float timeCounter1;
     float timeCounter2;
+    
+    private Vector3 nextPathNode;
+    private float turretRadius;
+    private float turretAngle;
 
     public int GetFireInterval() {
         return fireInterval;
@@ -81,61 +85,37 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
             return;
         }
         //Debug.Log(target.position);
-        Vector3 dir = destination - this.transform.localPosition;
         if (this.flag == 0) {
+            Vector3 dir = destination - this.transform.localPosition;
             float framDist = speed * Time.deltaTime;
-            transform.Translate(dir.normalized * framDist, Space.World);
-            this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(0f, 0f, 0f);
+            transform.Translate (dir.normalized * framDist, Space.World);
+            Quaternion rotation = Quaternion.LookRotation (dir);
+            this.transform.rotation = Quaternion.Lerp (this.transform.rotation, rotation, Time.deltaTime * 5) * Quaternion.Euler (0f, 0f, 0f);
+        } else if (this.flag == 1) {
+            Vector3 attackDir = currentTarget.position - this.transform.localPosition;
+            float attackDist = speed * Time.deltaTime;
+            if(attackDir.magnitude <= attackDist) {
+                // We reached the turret
+                this.flag =2;
+                turretRadius = Random.Range (60,90);
+                turretAngle= Random.Range (0,360);
+                float x = Mathf.Cos(turretAngle) * turretRadius + this.transform.localPosition.x;
+                float z = Mathf.Sin(turretAngle) * turretRadius + this.transform.localPosition.z;
+                nextPathNode = new Vector3(x,this.transform.localPosition.y,z);
+            }
+            transform.Translate (attackDir.normalized * attackDist, Space.World);
+            Quaternion attackRotation = Quaternion.LookRotation (attackDir);
+            this.transform.rotation = Quaternion.Lerp (this.transform.rotation, attackRotation, Time.deltaTime * 5) * Quaternion.Euler (0f, 0f, 0f);
         } else {
-           
-            timeCounter1 += Time.deltaTime;
-            if (timeCounter1 < moveTime)
-            {
-                transform.Translate(vel_x, vel_y, 0, Space.Self);
+            Vector3 flyDir = nextPathNode - this.transform.localPosition;
+            float flyDist = speed * Time.deltaTime;
+            if(flyDir.magnitude <= flyDist) {
+                // We reached the node
+                this.flag =1;
             }
-            else
-            {
-                timeCounter2 += Time.deltaTime;
-                if (timeCounter2 > stopTime)
-                {
-                    Change();
-                    timeCounter1 = 0;
-                    timeCounter2 = 0;
-                }
-            }
-            Check();
-            this.transform.rotation = Quaternion.LookRotation(dir) * Quaternion.Euler(0f, 0f, 0f);
-        }
-    }
-    
-    void Change()
-    {
-        stopTime = Random.Range(1, 5);
-        moveTime = Random.Range(1, 20);
-        vel_x = Random.Range(1, 10);
-        vel_y = Random.Range(1, 10);
-    }
-    void Check()
-    {
-        if (transform.localPosition.x > maxPos_x)
-        {
-            vel_x = -vel_x;
-            transform.localPosition = new Vector3(maxPos_x, transform.localPosition.y, 0);
-        }
-        if (transform.localPosition.x < minPos_x)
-        {
-            vel_x = -vel_x;
-            transform.localPosition = new Vector3(minPos_x, transform.localPosition.y, 0);
-        }
-        if (transform.localPosition.y > maxPos_y)
-        {
-            vel_y = -vel_y;
-            transform.localPosition = new Vector3(transform.localPosition.x, maxPos_y, 0);
-        }
-        if (transform.localPosition.y < minPos_y)
-        {
-            vel_y = -vel_y;
-            transform.localPosition = new Vector3(transform.localPosition.x, minPos_y, 0);
+            transform.Translate (flyDir.normalized * flyDist, Space.World);
+            Quaternion flyRotation = Quaternion.LookRotation (flyDir);
+            this.transform.rotation = Quaternion.Lerp (this.transform.rotation, flyRotation, Time.deltaTime * 5) * Quaternion.Euler (0f, 0f, 0f);
         }
     }
 
@@ -183,7 +163,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         dispatcher.enemyDeregisteKiller(this);
         AudioSource audio = GameObject.Find("EnemyDestorySound").GetComponent<AudioSource>();
         audio.Play();
-        Debug.Log("booooom!");
+        //Debug.Log("booooom!");
         GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
         Destroy(gameObject);
         Destroy(boom, 2);
@@ -228,7 +208,6 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         if (turretVictims.Count != 0) {
             float min_dist = float.MaxValue;
-
             if (currentTarget != null && (range < Vector3.Distance(currentTarget.position, transform.position) || currentVictim.GetHealth() <= 0f)) {
                 currentTarget = null;
                 currentVictim = null;
@@ -250,7 +229,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
                     }
                 }
             }
-            if (currentTarget != null) {
+            if (currentTarget != null&&this.flag!=2){
                 this.flag = 1;
                 ShotSpawn();
                 currentTarget.gameObject.GetComponent<TurretBase>().SetShootEnemy(this.gameObject);

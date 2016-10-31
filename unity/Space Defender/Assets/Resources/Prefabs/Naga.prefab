@@ -154,8 +154,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011153084462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -112.44826, y: 114.722694, z: 438.4054}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 277.317, y: 123.316956, z: 166.65205}
+  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012107029642}
@@ -351,7 +351,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -376,10 +376,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   damage: 1
-  health: 5
+  health: 50
   cost: 25
   explosion: {fileID: 1000012970080796, guid: 767167072980b194481944cbb3f21023, type: 2}
-  fireInterval: 3000
+  fireInterval: 2000
   currentTarget: {fileID: 0}
   range: 300
   shot: {fileID: 1000013627078140, guid: f88496f5d46327f40a96678f087465c1, type: 2}

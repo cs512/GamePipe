@@ -8,18 +8,32 @@ using System.Collections;
 
 public class WaveManager : MonoBehaviour {
 
+
+    public bool Pause {
+        get {
+            return pause;
+        }
+        set {
+            pause = value;
+            foreach (GameObject go in ebs) {
+                go.GetComponent<EnemyBuilder>().Pause = value;
+            }
+        }
+    }
+
     private Level level;
     private int currentWave = 0;
     private List<GameObject> ebs = new List<GameObject>();
-    private int time = 0;
+    private float time = 0;
     private int waveDuring = 0;
     private int counter = 0;
     private bool wavesCompleted = false;
+    private bool pause = false;
 
     // Use this for initialization
     void Start() {
         this.level = Toolbox.Instance.GetComponent<LevelManager>().GetCurrentLevel();
-        this.time = (int)Time.time;
+        this.time = Time.time;
         Time.timeScale = 1f;
         this.SetWave(currentWave);
     }
@@ -41,12 +55,10 @@ public class WaveManager : MonoBehaviour {
         if (n < level.waves.Count) {
             foreach (Level.Wave.SpawnPoint sp in level.waves[n].spawnPoints) {
                 GameObject go = Resources.Load("Prefabs/EnemySpawnPoint", typeof(GameObject)) as GameObject;
-                print(go);
                 go.transform.position = sp.position;
                 EnemyBuilder eb = go.GetComponent<EnemyBuilder>();
                 eb.nextWaveTime = 3.0f;
                 eb.intervelTime = sp.interval;
-                print(sp.interval);
                 eb.speed = sp.speed;
                 eb.wave = new EnemyBuilder.WaveComponent[1];
                 eb.wave[0] = new EnemyBuilder.WaveComponent();
@@ -55,7 +67,6 @@ public class WaveManager : MonoBehaviour {
                 ebs.Add(Instantiate(go));
             }
             this.waveDuring = level.waves[n].waveDuring;
-            print("waveDuring:" + this.waveDuring.ToString());
         } else {
             this.wavesCompleted = true;
             this.waveDuring = 0;
@@ -68,12 +79,15 @@ public class WaveManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (pause) {
+            this.time = Time.time;
+            return;
+        }
         if (waveDuring != 0) {
             if ((Time.time - this.time) > this.waveDuring) {
                 this.time = (int)Time.time;
                 this.currentWave++;
                 this.SetWave(this.currentWave);
-                print(this.currentWave);
             }
         }
     }

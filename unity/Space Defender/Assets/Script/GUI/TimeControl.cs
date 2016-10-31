@@ -5,7 +5,10 @@ using UnityEngine.UI;
 public class TimeControl : MonoBehaviour {
 
     public Text content;
-
+    public void setTimeColor(Color x)
+    {
+        content.color = x;
+    }
 	public void pause()
     {
         if (content.text == "pause")

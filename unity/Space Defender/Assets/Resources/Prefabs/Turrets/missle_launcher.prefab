@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013754014994}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 485.9421, y: 826.4999, z: 35.847702}
+  m_LocalPosition: {x: 191.76913, y: 699.18506, z: -201.52281}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -145,7 +145,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: c20b3fc7708e2fa4697ebb13d1fc7b3c, type: 2}
+  - {fileID: 2100000, guid: c642e81663702734a89c171cd7af0d59, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
@@ -273,7 +273,7 @@ MonoBehaviour:
   nextFire: 1
   currentTarget: {fileID: 0}
   shipsKilled: 0
-  levelUp: 1
+  level: 0
   showRange: 0
   range: 1000
   turretCost: 200
