@@ -69,17 +69,18 @@ public class ScoreBoard : MonoBehaviour {
         if (live != 0 && isCompleted == true && (enemyCount ==0)) {
             Time.timeScale = 0;
             float cases = (live / staticLive);
+            print("cases = " + cases+"  live/staticLive = " + (live / staticLive));
             if (cases == 1) {
-                print(live / staticLive);
+                print(live / staticLive+"3");
                 GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (3);             
-            } else if (cases >= (2 / 3)) {
-                print(live / staticLive);
+            } else if (cases >=(0.6666667)) {
+                print(live / staticLive+"2");
                 GameObject.Find("GameEnd").GetComponent<GameEnd>().ShowEnd(2);
-            } else if((cases <=(1/3))&&(cases!=0)){
-                print(live / staticLive);
+            } else if(cases!=0){
+                print(live / staticLive+"1");
                 GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (1);
             }else if(cases == 0) {
-                print(live / staticLive);
+                print(live / staticLive+"0");
                 GameObject.Find("GameEnd").GetComponent<GameEnd>().ShowEnd(0);
             }
         } 
