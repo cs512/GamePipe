@@ -1,5 +1,6 @@
 {
     "waveCount":2,
+    "turretMask": 3,
     "waves":[
         {
             "waveDuring":20,
