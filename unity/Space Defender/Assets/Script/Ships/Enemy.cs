@@ -37,16 +37,15 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     float stopTime;
     float moveTime;
     float vel_x, vel_y, vel_z;//speed
-    float maxPos_x = 200;
-    float maxPos_y = 100;
-    float minPos_x = -200;
-    float minPos_y = -100;
     int curr_frame;
     int total_frame;
     float timeCounter1;
     float timeCounter2;
     
     private Vector3 nextPathNode;
+    private Vector3 sourceTarget;
+    private Vector3 turretTarget;
+    private float framDist;
     private float turretRadius;
     private float turretAngle;
 
@@ -75,6 +74,11 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         else if (patrolMode == (int)Patrol.Circle)
             destination = target.position;
 
+        float x = target.position.x;
+        float z = target.position.z;
+        sourceTarget = new Vector3(x,this.transform.localPosition.y,z);
+        framDist = speed * Time.deltaTime;
+        
         maxHealth = health;
         InvokeRepeating("Forwards", 0f, 0.05f);
     }
@@ -86,15 +90,13 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         }
         //Debug.Log(target.position);
         if (this.flag == 0) {
-            Vector3 dir = destination - this.transform.localPosition;
-            float framDist = speed * Time.deltaTime;
+            Vector3 dir = sourceTarget - this.transform.localPosition;
             transform.Translate (dir.normalized * framDist, Space.World);
             Quaternion rotation = Quaternion.LookRotation (dir);
             this.transform.rotation = Quaternion.Lerp (this.transform.rotation, rotation, Time.deltaTime * 5) * Quaternion.Euler (0f, 0f, 0f);
         } else if (this.flag == 1) {
-            Vector3 attackDir = currentTarget.position - this.transform.localPosition;
-            float attackDist = speed * Time.deltaTime;
-            if(attackDir.magnitude <= attackDist) {
+            Vector3 attackDir = turretTarget - this.transform.localPosition;
+            if(attackDir.magnitude <= framDist) {
                 // We reached the turret
                 this.flag =2;
                 turretRadius = Random.Range (60,90);
@@ -103,17 +105,16 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
                 float z = Mathf.Sin(turretAngle) * turretRadius + this.transform.localPosition.z;
                 nextPathNode = new Vector3(x,this.transform.localPosition.y,z);
             }
-            transform.Translate (attackDir.normalized * attackDist, Space.World);
+            transform.Translate (attackDir.normalized * framDist, Space.World);
             Quaternion attackRotation = Quaternion.LookRotation (attackDir);
             this.transform.rotation = Quaternion.Lerp (this.transform.rotation, attackRotation, Time.deltaTime * 5) * Quaternion.Euler (0f, 0f, 0f);
         } else {
             Vector3 flyDir = nextPathNode - this.transform.localPosition;
-            float flyDist = speed * Time.deltaTime;
-            if(flyDir.magnitude <= flyDist) {
+            if(flyDir.magnitude <= framDist) {
                 // We reached the node
                 this.flag =1;
             }
-            transform.Translate (flyDir.normalized * flyDist, Space.World);
+            transform.Translate (flyDir.normalized * framDist, Space.World);
             Quaternion flyRotation = Quaternion.LookRotation (flyDir);
             this.transform.rotation = Quaternion.Lerp (this.transform.rotation, flyRotation, Time.deltaTime * 5) * Quaternion.Euler (0f, 0f, 0f);
         }
@@ -231,6 +232,9 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
             }
             if (currentTarget != null&&this.flag!=2){
                 this.flag = 1;
+                float x = currentTarget.position.x;
+                float z = currentTarget.position.z;
+                turretTarget = new Vector3(x,this.transform.localPosition.y,z);
                 ShotSpawn();
                 currentTarget.gameObject.GetComponent<TurretBase>().SetShootEnemy(this.gameObject);
             }
@@ -238,9 +242,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     }
 
     public void ShotSpawn() {
-        Instantiate(shot, shotSpawn.position, shotSpawn.rotation);
-        EnemyBullet bullet = shot.GetComponent<EnemyBullet>();
-        bullet.setTarget(currentTarget);
+        (Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject).GetComponent<EnemyBullet>().setTarget(currentTarget);
     }
 
     int Killer.GetID() {
