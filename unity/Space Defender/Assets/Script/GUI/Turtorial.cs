@@ -100,7 +100,6 @@ public class Turtorial : MonoBehaviour {
     }
     public void aChTex() {
         i++;
-        print(i);
         if(i == 1) {
             rAButton.sizeDelta = new Vector2(400f, 120f);
             transABut.position = new Vector3(-200,0,50);
@@ -152,8 +151,5 @@ public class Turtorial : MonoBehaviour {
     void Update() {
         HexGrid hg = GameObject.Find("Hex Grid").GetComponent<HexGrid>();
         tCount = hg.GetTurretCount();
-        print("tttt is"+tCount);
-        print(count + "this is count!");
-        print(count != tCount);
     }
 }

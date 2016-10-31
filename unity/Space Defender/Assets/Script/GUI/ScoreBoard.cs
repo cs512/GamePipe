@@ -25,10 +25,6 @@ public class ScoreBoard : MonoBehaviour {
         else
             live = GameObject.Find("SourcePlanet").GetComponent<SourcePlanet>().health;
         tLives.text = "Health: " + live.ToString();
-        if (live <= 0)
-        {
-            gameOver();
-        }
     }
     public void setLiveColor(Color x)
     {
@@ -72,24 +68,23 @@ public class ScoreBoard : MonoBehaviour {
         int enemyCount = GameObject.Find("Dispatcher").GetComponent<Dispatcher>().GetEnemyCount();
         if (live != 0 && isCompleted == true && (enemyCount ==0)) {
             Time.timeScale = 0;
-            float cases = live / staticLive;
+            float cases = (live / staticLive);
             if (cases == 1) {
+                print(live / staticLive);
                 GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (3);             
-            } else if (cases >= 2 / 3) {
+            } else if (cases >= (2 / 3)) {
+                print(live / staticLive);
                 GameObject.Find("GameEnd").GetComponent<GameEnd>().ShowEnd(2);
-            } else {
+            } else if((cases <=(1/3))&&(cases!=0)){
+                print(live / staticLive);
                 GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (1);
+            }else if(cases == 0) {
+                print(live / staticLive);
+                GameObject.Find("GameEnd").GetComponent<GameEnd>().ShowEnd(0);
             }
         } 
     }
 
-    //always on if planet has no life, u lose.
-    public void gameOver() {
-        Debug.Log("Game Over!");
-        GameObject.Find ("GameEnd").GetComponent<GameEnd>().ShowEnd (0);
-        Time.timeScale = 0;
-        //SceneManager.LoadScene("GameEnd");
-    }
     void Start() {
         initGame();
     }
