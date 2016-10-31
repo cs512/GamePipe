@@ -99,7 +99,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
             if(attackDir.magnitude <= framDist) {
                 // We reached the turret
                 this.flag =2;
-                turretRadius = Random.Range (60,90);
+                turretRadius = Random.Range (80,150);
                 turretAngle= Random.Range (0,360);
                 float x = Mathf.Cos(turretAngle) * turretRadius + this.transform.localPosition.x;
                 float z = Mathf.Sin(turretAngle) * turretRadius + this.transform.localPosition.z;
