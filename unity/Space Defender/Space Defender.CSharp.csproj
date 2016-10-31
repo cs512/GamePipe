@@ -82,7 +82,6 @@
     <Compile Include="Assets\Script\BulletCollision\BulletCollision.cs" />
     <Compile Include="Assets\Script\Camera\TouchCamera.cs" />
     <Compile Include="Assets\Script\Camera\TouchCameraBackground.cs" />
-    <Compile Include="Assets\Script\DragAndDropTest\DragHandler.cs" />
     <Compile Include="Assets\Script\GUI\BGM.cs" />
     <Compile Include="Assets\Script\GUI\Exit.cs" />
     <Compile Include="Assets\Script\GUI\Final.cs" />
@@ -126,6 +125,8 @@
     <Compile Include="Assets\Script\Turret\DoubleBarrels.cs" />
     <Compile Include="Assets\Script\Turret\SingleBarrel.cs" />
     <Compile Include="Assets\Script\Turret\TurretBase.cs" />
+    <Compile Include="Assets\ShotLaser.cs" />
+    <Compile Include="Assets\TargetMove.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Models\Materials\VertexColors.shader" />

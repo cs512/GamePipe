@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45149583, g: 0.50137436, b: 0.57466537, a: 1}
+  m_IndirectSpecularColor: {r: 0.45149553, g: 0.5013739, b: 0.5746647, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnMenu: {fileID: 1632038846}
   hexGrid: {fileID: 1482314822}
+  enableTouch: 1
 --- !u!4 &354289299
 Transform:
   m_ObjectHideFlags: 0
