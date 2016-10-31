@@ -49,16 +49,10 @@
      <Compile Include="Assets\Script\BulletCollision\BulletCollision.cs" />
      <Compile Include="Assets\Script\Camera\TouchCamera.cs" />
      <Compile Include="Assets\Script\Camera\TouchCameraBackground.cs" />
-     <Compile Include="Assets\Script\DragAndDropTest\DragHandler.cs" />
      <Compile Include="Assets\Script\GUI\BGM.cs" />
-     <Compile Include="Assets\Script\GUI\CircleButton.cs" />
-     <Compile Include="Assets\Script\GUI\CircleMenu.cs" />
-     <Compile Include="Assets\Script\GUI\CircleSpwaner.cs" />
-     <Compile Include="Assets\Script\GUI\CreateTurret.cs" />
      <Compile Include="Assets\Script\GUI\Exit.cs" />
      <Compile Include="Assets\Script\GUI\Final.cs" />
      <Compile Include="Assets\Script\GUI\GameEnd.cs" />
-     <Compile Include="Assets\Script\GUI\HandleTurret.cs" />
      <Compile Include="Assets\Script\GUI\HexGrid\HexCell.cs" />
      <Compile Include="Assets\Script\GUI\HexGrid\HexCoordinates.cs" />
      <Compile Include="Assets\Script\GUI\HexGrid\HexDirection.cs" />
@@ -67,10 +61,11 @@
      <Compile Include="Assets\Script\GUI\HexGrid\HexMesh.cs" />
      <Compile Include="Assets\Script\GUI\HexGrid\HexMetrics.cs" />
      <Compile Include="Assets\Script\GUI\HexGrid\TouchControl.cs" />
-     <Compile Include="Assets\Script\GUI\Interactable.cs" />
+     <Compile Include="Assets\Script\GUI\MenuSpawner.cs" />
      <Compile Include="Assets\Script\GUI\ScoreBoard.cs" />
-     <Compile Include="Assets\Script\GUI\SpawnMenu.cs" />
      <Compile Include="Assets\Script\GUI\TimeControl.cs" />
+     <Compile Include="Assets\Script\GUI\TurretCreator.cs" />
+     <Compile Include="Assets\Script\GUI\TurretHandler.cs" />
      <Compile Include="Assets\Script\GUI\Turtorial.cs" />
      <Compile Include="Assets\Script\GUI\UIDirectionControl.cs" />
      <Compile Include="Assets\Script\Manager\Dispatcher.cs" />
@@ -97,6 +92,8 @@
      <Compile Include="Assets\Script\Turret\DoubleBarrels.cs" />
      <Compile Include="Assets\Script\Turret\SingleBarrel.cs" />
      <Compile Include="Assets\Script\Turret\TurretBase.cs" />
+     <Compile Include="Assets\ShotLaser.cs" />
+     <Compile Include="Assets\TargetMove.cs" />
      <None Include="Assets\Models\Materials\VertexColors.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

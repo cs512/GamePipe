@@ -60,43 +60,92 @@ public class GameEnd : MonoBehaviour {
         goBack.sizeDelta = new Vector2(0, 0);
     }
     public void ShowEnd(float some) {
-        gameEnd.sizeDelta = new Vector2(600, 320);
-        triShade1.GetComponent<Renderer>().enabled = true;
-        triShade2.GetComponent<Renderer>().enabled = true;
-        triShade3.GetComponent<Renderer>().enabled = true;
-        tri1.GetComponent<Renderer>().enabled = true;
-        tri2.GetComponent<Renderer>().enabled = true;
-        tri3.GetComponent<Renderer>().enabled = true;
-        retry.localPosition = new Vector3(-160, -50, -6);
-        goBack.localPosition = new Vector3(160, -50, -6);
-        retry.sizeDelta = new Vector2(120, 80);
-        //nextLevel.sizeDelta = new Vector2(80, 60);
-        goBack.sizeDelta = new Vector2(120, 80);
-        if (some == 0) {//u shall not pass
-            tTrishade1.localPosition = new Vector3(-100, 50, -7);
-            tTrishade2.localPosition = new Vector3(0, 50, -7);
-            tTrishade3.localPosition = new Vector3(100, 50, -7);
-            //print(tTrishade1.localPosition);
-           // print("lalalalal");
-            //nextLevel.sizeDelta = new Vector2(80, 30);
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            gameEnd.sizeDelta = new Vector2(600, 320);
+            triShade1.GetComponent<Renderer>().enabled = true;
+            triShade2.GetComponent<Renderer>().enabled = true;
+            triShade3.GetComponent<Renderer>().enabled = true;
+            tri1.GetComponent<Renderer>().enabled = true;
+            tri2.GetComponent<Renderer>().enabled = true;
+            tri3.GetComponent<Renderer>().enabled = true;
+            nextLevel.localPosition = new Vector3(-160, -50, -6);
+            //retry.localPosition = new Vector3(-160, -50, -6);
+            goBack.localPosition = new Vector3(160, -50, -6);
+            retry.sizeDelta = new Vector2(0, 0);
+            //nextLevel.sizeDelta = new Vector2(80, 60);
+            goBack.sizeDelta = new Vector2(120, 80);
+            if (some == 0)
+            {//u shall not pass
+                tTrishade1.localPosition = new Vector3(-100, 50, -7);
+                tTrishade2.localPosition = new Vector3(0, 50, -7);
+                tTrishade3.localPosition = new Vector3(100, 50, -7);
+                //nextLevel.sizeDelta = new Vector2(80, 30);
+            }
+            if (some == 1)
+            {//ok
+                tTrishade1.localPosition = new Vector3(-100, 50, -7);
+                tTrishade2.localPosition = new Vector3(0, 50, -7);
+                //tTrishade3.position = new Vector3(80, -6, 30);
+                nextLevel.sizeDelta = new Vector2(120, 80);
+            }
+            if (some == 2)
+            {//good
+                tTrishade1.localPosition = new Vector3(-100, 50, -7);
+                //tTrishade2.position = new Vector3(0, -6, 30);
+                //tTrishade3.position = new Vector3(80, -6, 30);
+                nextLevel.sizeDelta = new Vector2(120, 80);
+            }
+            if (some == 3)
+            {//execllent
+             //tTrishade1.position = new Vector3(-80, -6, 30);
+             //tTrishade2.position = new Vector3(0, -6, 30);
+             //tTrishade3.position = new Vector3(80, -6, 30);
+                nextLevel.sizeDelta = new Vector2(120, 80);
+            }
         }
-        if (some == 1) {//ok
-            tTrishade1.localPosition = new Vector3(-100, 50, -7);
-            tTrishade2.localPosition = new Vector3(0, 50, -7);
-            //tTrishade3.position = new Vector3(80, -6, 30);
-            nextLevel.sizeDelta = new Vector2(120, 80);
-        }
-        if (some == 2) {//good
-            tTrishade1.localPosition = new Vector3(-100, 50, -7);
-            //tTrishade2.position = new Vector3(0, -6, 30);
-            //tTrishade3.position = new Vector3(80, -6, 30);
-            nextLevel.sizeDelta = new Vector2(120, 80);
-        }
-        if (some == 3) {//execllent
-            //tTrishade1.position = new Vector3(-80, -6, 30);
-            //tTrishade2.position = new Vector3(0, -6, 30);
-            //tTrishade3.position = new Vector3(80, -6, 30);
-            nextLevel.sizeDelta = new Vector2(120, 80);
+        else
+        {
+            gameEnd.sizeDelta = new Vector2(600, 320);
+            triShade1.GetComponent<Renderer>().enabled = true;
+            triShade2.GetComponent<Renderer>().enabled = true;
+            triShade3.GetComponent<Renderer>().enabled = true;
+            tri1.GetComponent<Renderer>().enabled = true;
+            tri2.GetComponent<Renderer>().enabled = true;
+            tri3.GetComponent<Renderer>().enabled = true;
+            retry.localPosition = new Vector3(-160, -50, -6);
+            goBack.localPosition = new Vector3(160, -50, -6);
+            retry.sizeDelta = new Vector2(120, 80);
+            //nextLevel.sizeDelta = new Vector2(80, 60);
+            goBack.sizeDelta = new Vector2(120, 80);
+            if (some == 0)
+            {//u shall not pass
+                tTrishade1.localPosition = new Vector3(-100, 50, -7);
+                tTrishade2.localPosition = new Vector3(0, 50, -7);
+                tTrishade3.localPosition = new Vector3(100, 50, -7);
+                //nextLevel.sizeDelta = new Vector2(80, 30);
+            }
+            if (some == 1)
+            {//ok
+                tTrishade1.localPosition = new Vector3(-100, 50, -7);
+                tTrishade2.localPosition = new Vector3(0, 50, -7);
+                //tTrishade3.position = new Vector3(80, -6, 30);
+                nextLevel.sizeDelta = new Vector2(120, 80);
+            }
+            if (some == 2)
+            {//good
+                tTrishade1.localPosition = new Vector3(-100, 50, -7);
+                //tTrishade2.position = new Vector3(0, -6, 30);
+                //tTrishade3.position = new Vector3(80, -6, 30);
+                nextLevel.sizeDelta = new Vector2(120, 80);
+            }
+            if (some == 3)
+            {//execllent
+             //tTrishade1.position = new Vector3(-80, -6, 30);
+             //tTrishade2.position = new Vector3(0, -6, 30);
+             //tTrishade3.position = new Vector3(80, -6, 30);
+                nextLevel.sizeDelta = new Vector2(120, 80);
+            }
         }
     }
 
@@ -104,7 +153,6 @@ public class GameEnd : MonoBehaviour {
     void Start() {
         lvlMgr = Toolbox.Instance.GetOrAddComponent<LevelManager>();
         HideEnd();
-        //print(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame
