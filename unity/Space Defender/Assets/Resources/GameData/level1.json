@@ -7,21 +7,21 @@
             "spawnPointCount":3,
             "spawnPoints":[
                 {
-                    "position":[-800,80,120],
+                    "position":[-800,44,120],
                     "prefab":"Naga",
                     "interval":7.0,
                     "number":2,
                     "speed":3.0,
                 },
 				{
-                    "position":[-700,80,-60],
+                    "position":[-700,44,-60],
                     "prefab":"Naga",
                     "interval":6.0,
                     "number":2,
                     "speed":3.0,
                 },
 				{
-                    "position":[-625,80,200],
+                    "position":[-625,44,200],
                     "prefab":"Naga",
                     "interval":8.0,
                     "number":3,
@@ -34,14 +34,14 @@
             "spawnPointCount":6,
             "spawnPoints":[
                 {
-                    "position":[-800,80,300],
+                    "position":[-800,44,300],
                     "prefab":"Naga",
                     "interval":7,
                     "number":3,
                     "speed":3.0,
                 },
 				{
-                    "position":[-650,80,-250],
+                    "position":[-650,44,-250],
                     "prefab":"Naga",
                     "interval":5,
                     "number":2,
@@ -55,21 +55,21 @@
                     "speed":3.0,
                 },
 				{
-                    "position":[-750,80,400],
+                    "position":[-750,44,400],
                     "prefab":"Naga",
                     "interval":6,
                     "number":3,
                     "speed":3.0,
                 },
 				{
-                    "position":[-400,80,200],
+                    "position":[-400,44,200],
                     "prefab":"Naga",
                     "interval":7,
                     "number":2,
                     "speed":3.0,
                 },
 				{
-                    "position":[-550,80,50],
+                    "position":[-550,44,50],
                     "prefab":"Naga",
                     "interval":6.0,
                     "number":1,
