@@ -1,8 +1,9 @@
 {
     "waveCount":1,
+    "turretMask": 1,
     "waves":[
         {
-            "waveDuring":60,
+            "waveDuring":40,
             "spawnPointCount":1,
             "spawnPoints":[
                 {

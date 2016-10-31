@@ -150,7 +150,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
 
     void Victim.SlowDown(float percentage)
     {
-        if (speed > 100)
+        if (speed >= 100)
         {
             speed *= percentage;
         }

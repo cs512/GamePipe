@@ -154,8 +154,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011153084462}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 277.317, y: 123.316956, z: 166.65205}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalPosition: {x: 262.1386, y: 857.05475, z: -1491.2584}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000012107029642}
@@ -287,8 +287,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 120, y: 96.727844, z: 90}
-  m_Center: {x: 0, y: 23.363907, z: -20}
+  m_Size: {x: 120, y: 230.42256, z: 90}
+  m_Center: {x: 0, y: -43.483475, z: -19.999998}
 --- !u!82 &82000010015485728
 AudioSource:
   m_ObjectHideFlags: 1
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   damage: 1
-  health: 50
+  health: 10
   cost: 25
   explosion: {fileID: 1000012970080796, guid: 767167072980b194481944cbb3f21023, type: 2}
   fireInterval: 2000

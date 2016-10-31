@@ -22,6 +22,7 @@ class LevelManager : MonoBehaviour {
             var levelConfig = JSON.Parse(
                 (Resources.Load("GameData/" + levelList["levels"][i]["fileName"])
                 as TextAsset).text);
+            level.turretMask = levelConfig["turretMask"].AsInt;
             for (int j = 0; j < levelConfig["waveCount"].AsInt; ++j) {
                 var waveJSON = levelConfig["waves"][j];
                 Level.Wave wave = new Level.Wave();

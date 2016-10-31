@@ -18,7 +18,12 @@ public class MenuSpawner : MonoBehaviour {
     List<Action> buildingOption;
 
     void Start() {
-        this.SetBuildingMask(int.MaxValue);
+
+    }
+
+    void Awake() {
+        this.SetBuildingMask(Toolbox.FindObjectOfType<LevelManager>().GetCurrentLevel().turretMask);
+
     }
 
     public bool MenuShowing {

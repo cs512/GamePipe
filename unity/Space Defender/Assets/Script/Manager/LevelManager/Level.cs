@@ -20,6 +20,7 @@ public class Level {
 
     public string name;
     public List<Wave> waves = new List<Wave>();
+    public int turretMask;
 
     public string GetName() {
         return this.name;
