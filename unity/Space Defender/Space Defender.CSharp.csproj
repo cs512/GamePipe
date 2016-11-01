@@ -84,7 +84,6 @@
     <Compile Include="Assets\Script\Camera\TouchCamera.cs" />
     <Compile Include="Assets\Script\Camera\TouchCameraBackground.cs" />
     <Compile Include="Assets\Script\GUI\BGM.cs" />
-    <Compile Include="Assets\Script\GUI\Exit.cs" />
     <Compile Include="Assets\Script\GUI\Final.cs" />
     <Compile Include="Assets\Script\GUI\GameEnd.cs" />
     <Compile Include="Assets\Script\GUI\GamePause.cs" />
