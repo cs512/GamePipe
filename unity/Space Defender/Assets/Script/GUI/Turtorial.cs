@@ -51,7 +51,7 @@ public class Turtorial : MonoBehaviour {
             transTex.position = new Vector3(240, 0, 250);
             GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().setWaveColor(Color.white);
             GameObject.Find("Pause").GetComponent<TimeControl>().setTimeColor(Color.red);
-            GameObject.Find("EXIT").GetComponent<Exit>().setEColor(Color.red);
+            GameObject.Find("GamePause").GetComponent<GamePause>().chColor(Color.red,Color.red,Color.red,Color.red);
         }
         if (i == 5) {
             rButton.sizeDelta = new Vector2(260f, 60f);
@@ -60,7 +60,7 @@ public class Turtorial : MonoBehaviour {
             transBut.position = new Vector3(0, -50, 40);
             transTex.position = new Vector3(0, -50, 40);
             GameObject.Find("Pause").GetComponent<TimeControl>().setTimeColor(Color.white);
-            GameObject.Find("EXIT").GetComponent<Exit>().setEColor(Color.white);
+            GameObject.Find("GamePause").GetComponent<GamePause>().chColor(Color.white, Color.white, Color.grey, Color.grey);
         }
         if (i == 6)
         {
@@ -88,29 +88,21 @@ public class Turtorial : MonoBehaviour {
             touch.enableTouch = true;
             Time.timeScale = 1;
         }
-        /*if (i == 9) {
-            transBut.position = new Vector3(0, 0, 40);
-            transTex.position = new Vector3(0, 0, 40);
-            rButton.sizeDelta = new Vector2(200f, 80f);
-            //tText.color = Color.blue;
-           // tText.text = "Enemy is coming!\nDestory them now!";
-            Time.timeScale = 1;
-            Invoke("timeReturn", 2);
-        }*/
     }
     public void aChTex() {
         i++;
         if(i == 1) {
-            rAButton.sizeDelta = new Vector2(400f, 120f);
+            aText.fontSize = 16;
+            rAButton.sizeDelta = new Vector2(220f, 100f);
             transABut.position = new Vector3(-200,0,50);
-            aText.text = "Touch one of your favourite green hexgon. And build a Tower.\nClick this if finsihed.";
-            Button ab = GameObject.Find("aButton").GetComponent<Button>();
+            aText.text = "Touch your favourite green hexgon.\nAnd build a Tower.\nClick this if finsihed.";
         }
         if(i==2) {
+            transABut.position = new Vector3(-250, 0, 50);
             aText.text = "The tower can expand your defend fields.\n Now build another one";
         }
         if (i == 3) {
-            aText.text = "Click this if your are ready.";
+            aText.text = "Click this if your are ready.\nTry to spend all your resource.";
         }
         if(i ==4) {
             rAButton.sizeDelta = new Vector2(0, 0);
@@ -132,7 +124,7 @@ public class Turtorial : MonoBehaviour {
         Time.timeScale = 0;
         WaveManager wMgr = GameObject.Find("WaveManager").GetComponent<WaveManager>();
         wMgr.Pause = true;
-        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(-200);
+        GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(-349.5f);
         GameObject.Find("TurretBuildingMenu").GetComponent<MenuSpawner>().SetBuildingMask(1);
     }
     void ChColor() {//
