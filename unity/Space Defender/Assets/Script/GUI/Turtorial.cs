@@ -51,7 +51,6 @@ public class Turtorial : MonoBehaviour {
             transTex.position = new Vector3(240, 0, 250);
             GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().setWaveColor(Color.white);
             GameObject.Find("Pause").GetComponent<TimeControl>().setTimeColor(Color.red);
-            GameObject.Find("GamePause").GetComponent<GamePause>().chColor(Color.red,Color.red,Color.red,Color.red);
         }
         if (i == 5) {
             rButton.sizeDelta = new Vector2(260f, 60f);
@@ -60,7 +59,6 @@ public class Turtorial : MonoBehaviour {
             transBut.position = new Vector3(0, -50, 40);
             transTex.position = new Vector3(0, -50, 40);
             GameObject.Find("Pause").GetComponent<TimeControl>().setTimeColor(Color.white);
-            GameObject.Find("GamePause").GetComponent<GamePause>().chColor(Color.white, Color.white, Color.grey, Color.grey);
         }
         if (i == 6)
         {

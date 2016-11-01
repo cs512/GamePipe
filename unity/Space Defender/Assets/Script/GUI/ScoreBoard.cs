@@ -2,7 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class ScoreBoard : MonoBehaviour {
     public float live = 0;
     private float staticLive = 0;
@@ -67,27 +67,27 @@ public class ScoreBoard : MonoBehaviour {
         bool isCompleted=GameObject.Find ("WaveManager").GetComponent<WaveManager>().HasComplete();
         int enemyCount = GameObject.Find("Dispatcher").GetComponent<Dispatcher>().GetEnemyCount();
         if (live != 0 && isCompleted == true && (enemyCount ==0)) {
-            Time.timeScale = 0;
             float cases = (live / staticLive);
-            print("cases = " + cases+"  live/staticLive = " + (live / staticLive));
             if (cases == 1) {
-                print(live / staticLive+"3");
                 GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (3);             
             } else if (cases >=(0.6666667)) {
-                print(live / staticLive+"2");
                 GameObject.Find("GameEnd").GetComponent<GameEnd>().ShowEnd(2);
             } else if(cases!=0){
-                print(live / staticLive+"1");
                 GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (1);
-            }else if(cases == 0) {
-                print(live / staticLive+"0");
-                GameObject.Find("GameEnd").GetComponent<GameEnd>().ShowEnd(0);
             }
-        } 
+        }
+        else if(live == 0) {
+            GameObject.Find("GameEnd").GetComponent<GameEnd>().ShowEnd(0);
+        }
     }
 
     void Start() {
         initGame();
+        LevelManager lvl = Toolbox.Instance.GetOrAddComponent<LevelManager>();
+        string name = lvl.GetCurrentLevel().name;
+        if (name == "Level 6") {
+            LoseFund(-600);
+        }
     }
     //Update is called once per frame
     void Update() {

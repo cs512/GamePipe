@@ -1872,9 +1872,28 @@ Prefab:
       propertyPath: m_Colors.m_NormalColor.b
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114000010750466114, guid: 70a5e4f1f1a5f9b4891739ae2b37de37,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2016024113}
+    - target: {fileID: 114000010750466114, guid: 70a5e4f1f1a5f9b4891739ae2b37de37,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Retry
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114000013976515988, guid: 70a5e4f1f1a5f9b4891739ae2b37de37, type: 2}
+    - {fileID: 114000010822459286, guid: 70a5e4f1f1a5f9b4891739ae2b37de37, type: 2}
+    - {fileID: 114000011308881766, guid: 70a5e4f1f1a5f9b4891739ae2b37de37, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 70a5e4f1f1a5f9b4891739ae2b37de37, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &2016024113 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114000014228697446, guid: 70a5e4f1f1a5f9b4891739ae2b37de37,
+    type: 2}
+  m_PrefabInternal: {fileID: 2016024112}
+  m_Script: {fileID: 11500000, guid: 1aaeaaa20a3c63c4282718e364bf812d, type: 3}
 --- !u!1001 &2037625164
 Prefab:
   m_ObjectHideFlags: 0
