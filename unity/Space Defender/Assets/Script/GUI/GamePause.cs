@@ -9,8 +9,16 @@ public class GamePause : MonoBehaviour
     public RectTransform retry;
     public RectTransform levelSelection;
     public RectTransform resume;
+    public Button menuCog;
     private bool menuToggled;
-
+    public void chColor(Color norm,Color high,Color press,Color disable) {
+        ColorBlock cb = new ColorBlock();
+        cb.normalColor = norm;
+        cb.highlightedColor = high;
+        cb.pressedColor = press;
+        cb.disabledColor = disable;
+        menuCog.colors = cb;
+    }
     LevelManager lvlMgr;
     public void Retry()
     {// that is a reloading of this scene
