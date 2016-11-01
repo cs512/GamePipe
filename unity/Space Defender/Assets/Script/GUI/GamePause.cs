@@ -9,7 +9,8 @@ public class GamePause : MonoBehaviour
     public RectTransform retry;
     public RectTransform levelSelection;
     public RectTransform resume;
-    private bool menuToggled;
+    private float oldTimeScale;
+    private bool menuShowed;
 
     LevelManager lvlMgr;
     public void Retry()
@@ -30,6 +31,7 @@ public class GamePause : MonoBehaviour
         retry.sizeDelta = new Vector2(0, 0);
         levelSelection.sizeDelta = new Vector2(0, 0);
         resume.sizeDelta = new Vector2(0, 0);
+        menuShowed = false;
     }
 
     public void BackToLevelSelection()
@@ -49,9 +51,6 @@ public class GamePause : MonoBehaviour
     {
         Time.timeScale = 0;
         gamePauseMenu.sizeDelta = new Vector2(600, 320);
-        retry.localPosition = new Vector3(-160, 0, -6);
-        levelSelection.localPosition = new Vector3(160, 0, -6);
-        resume.localPosition = new Vector3(0, 0, -6);
         retry.sizeDelta = new Vector2(120, 80);
         resume.sizeDelta = new Vector2(120, 80);
         levelSelection.sizeDelta = new Vector2(120, 80);
@@ -59,15 +58,15 @@ public class GamePause : MonoBehaviour
 
     public void toggleMenu()
     {
-        if (menuToggled)
+        if (menuShowed)
         {
             HidePauseMenu();
-            menuToggled = false;
+            menuShowed = false;
         }
         else
         {
             ShowPauseMenu();
-            menuToggled = true;
+            menuShowed = true;
         }
     }
 
@@ -76,7 +75,7 @@ public class GamePause : MonoBehaviour
     {
         lvlMgr = Toolbox.Instance.GetOrAddComponent<LevelManager>();
         HidePauseMenu();
-        menuToggled = false;
+        menuShowed = false;
         //print(SceneManager.GetActiveScene().name);
     }
 
