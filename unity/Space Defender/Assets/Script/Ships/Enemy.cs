@@ -7,6 +7,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
 
     private Transform target;
     public float speed;
+    private float oldSpeed;
     public float damage;
     public float health;
     public float cost;
@@ -55,6 +56,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
 
     // Use this for initialization
     void Start() {
+        oldSpeed = speed;
         this.SetUpDefaultAttributions();
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.enemyRegisteVictim(this);
@@ -76,13 +78,18 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
 
         float x = target.position.x;
         float z = target.position.z;
-        sourceTarget = new Vector3(x,this.transform.localPosition.y,z);
-        framDist = speed * Time.deltaTime;
+        sourceTarget = new Vector3(x, this.transform.localPosition.y, z);
         
         maxHealth = health;
         InvokeRepeating("Forwards", 0f, 0.05f);
+        InvokeRepeating("RecoverSpeed", 0f, 2f);
+    }
+
+    public void RecoverSpeed() {
+        speed = oldSpeed;
     }
     public void Forwards() {
+        framDist = speed * Time.deltaTime;
         if (target == null) {
             // the enemy went away!
             Destroy(this);
@@ -153,6 +160,8 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         if (speed >= 100)
         {
             speed *= percentage;
+
+            Debug.Log("slowed!" + percentage + "%");
         }
     }
 
