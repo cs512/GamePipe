@@ -45,14 +45,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\PaueMenu.cs" />
      <Compile Include="Assets\Script\Basement\SourcePlanet.cs" />
      <Compile Include="Assets\Script\BulletCollision\BulletCollision.cs" />
      <Compile Include="Assets\Script\Camera\TouchCamera.cs" />
      <Compile Include="Assets\Script\Camera\TouchCameraBackground.cs" />
      <Compile Include="Assets\Script\GUI\BGM.cs" />
-     <Compile Include="Assets\Script\GUI\Exit.cs" />
      <Compile Include="Assets\Script\GUI\Final.cs" />
      <Compile Include="Assets\Script\GUI\GameEnd.cs" />
+     <Compile Include="Assets\Script\GUI\GamePause.cs" />
      <Compile Include="Assets\Script\GUI\HexGrid\HexCell.cs" />
      <Compile Include="Assets\Script\GUI\HexGrid\HexCoordinates.cs" />
      <Compile Include="Assets\Script\GUI\HexGrid\HexDirection.cs" />
@@ -63,6 +64,7 @@
      <Compile Include="Assets\Script\GUI\HexGrid\TouchControl.cs" />
      <Compile Include="Assets\Script\GUI\MenuSpawner.cs" />
      <Compile Include="Assets\Script\GUI\ScoreBoard.cs" />
+     <Compile Include="Assets\Script\GUI\SpawnerTargetController.cs" />
      <Compile Include="Assets\Script\GUI\TimeControl.cs" />
      <Compile Include="Assets\Script\GUI\TurretCreator.cs" />
      <Compile Include="Assets\Script\GUI\TurretHandler.cs" />
