@@ -9,6 +9,11 @@ public class EnemyBullet : BulletMover {
             Destroy(gameObject);
             Victim victim = turret.GetComponent<TurretBase>();
             victim.DealDamage(this.damage);
+        }else if (colliderObject == "Shiled")
+        {
+            Destroy(gameObject);
+            Victim victim = turret.GetComponent<TurretBase>();
+            victim.ReduceShield(this.damage);
         }
     }
 }

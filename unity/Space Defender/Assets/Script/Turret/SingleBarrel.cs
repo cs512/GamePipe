@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
+
 public class SingleBarrel : TurretBase {
 
     public Transform shotSpawn;
@@ -15,6 +17,10 @@ public class SingleBarrel : TurretBase {
         if (enemy != null) {
             shootEnemys.Add(enemy);
         }
+    }
+    public override void ReduceShield(float damage)
+    {
+        return;
     }
     override public void DismissShootEnemy() {
         if (this.shootEnemys.Count != 0) {

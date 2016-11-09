@@ -12,6 +12,8 @@ public interface Victim {
 
     void SlowDown(float precentage);
 
+    void ReduceShield(float damage);
+
     int GetID();
 
     GameObject GetGameObject();

@@ -60,6 +60,11 @@ public class SourcePlanet : MonoBehaviour, Victim {
         return;
     }
 
+    void Victim.ReduceShield(float damage)
+    {
+        return;
+    }
+
     float Victim.GetHealth() {
         return this.health;
     }

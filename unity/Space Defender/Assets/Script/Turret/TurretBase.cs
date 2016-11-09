@@ -111,8 +111,9 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     abstract public void ShotSpawn();
     abstract public void SetShootEnemy(GameObject enemy);
     abstract public void DismissShootEnemy();
+    abstract public void ReduceShield(float damage);
 
-	bool IsFacingTarget() {
+    bool IsFacingTarget() {
 		RaycastHit[] hits;
 		hits = Physics.RaycastAll(transform.position, transform.forward, range);
 		foreach(RaycastHit hit in hits) {

@@ -165,6 +165,11 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         }
     }
 
+    void Victim.ReduceShield(float damage)
+    {
+        return;
+    }
+
    public void DestorySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         ScoreBoard sc = GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>();
