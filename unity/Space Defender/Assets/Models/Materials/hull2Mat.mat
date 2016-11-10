@@ -8,8 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: hull2Mat
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
+  m_ShaderKeywords: _EMISSION _NORMALMAP
+  m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
   m_SavedProperties:
@@ -18,7 +18,7 @@ Material:
     - first:
         name: _BumpMap
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 4bfcbc4a4b697ab47bec7ae4dc9c2e0c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -48,7 +48,7 @@ Material:
     - first:
         name: _MainTex
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b45b0ff67766a54429fd3a2a8fffee46, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:
@@ -60,7 +60,7 @@ Material:
     - first:
         name: _OcclusionMap
       second:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 09b07fe3bca65b344abfd2c1e108ee6c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - first:

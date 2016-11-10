@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000013977583070}
   m_Layer: 0
-  m_Name: CaldariDreadnought
+  m_Name: XL_CaldariDreadnought
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

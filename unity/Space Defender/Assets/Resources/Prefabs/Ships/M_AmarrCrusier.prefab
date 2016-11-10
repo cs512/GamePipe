@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000010429400856}
   m_Layer: 0
-  m_Name: AmarrCrusier
+  m_Name: M_AmarrCrusier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
