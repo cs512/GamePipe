@@ -24,7 +24,7 @@ GameObject:
   - 23: {fileID: 23000010392460384}
   m_Layer: 0
   m_Name: Shield
-  m_TagString: Untagged
+  m_TagString: Shield
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -126,7 +126,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011389122122}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.315147, y: 1866.4105, z: 126.79962}
+  m_LocalPosition: {x: 383.37265, y: 917.4077, z: -648.61224}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -315,14 +315,14 @@ MonoBehaviour:
   level: 0
   showRange: 0
   range: 0
-  turretCost: 250
-  health: 25
-  explosion: {fileID: 0}
+  turretCost: 300
+  health: 10
+  explosion: {fileID: 1000012970080796, guid: 5164400c8315b422cb8799f814648cd0, type: 2}
   buildSpeed: 10
   Shield: {fileID: 1000010215950424}
-  totalShield: 100
-  currentShield: 0
-  rechargeRate: 50
+  totalShield: 20
+  rechargeTime: 3
+  shockHit: {fileID: 1000010625944992, guid: f0de793a7ec816a4a95770e6739aef29, type: 2}
 --- !u!135 &135000011312256218
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -330,7 +330,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010215950424}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

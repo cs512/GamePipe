@@ -11,7 +11,7 @@ public class DoubleBarrels : TurretBase {
         return;
     }
 
-    public override void ReduceShield(float damage)
+    public override void ReduceShield(float damage, Vector3 hittingPoint)
     {
         return;
     }

@@ -12,7 +12,7 @@ public interface Victim {
 
     void SlowDown(float precentage);
 
-    void ReduceShield(float damage);
+    void ReduceShield(float damage, Vector3 hittingPoint);
 
     int GetID();
 

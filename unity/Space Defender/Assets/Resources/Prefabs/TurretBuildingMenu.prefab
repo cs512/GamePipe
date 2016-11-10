@@ -94,6 +94,9 @@ MonoBehaviour:
   - color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 7e29b3961f7ba1f43b4e110b7461a460, type: 3}
     title: mssLnchr
+  - color: {r: 0, g: 0, b: 0, a: 0}
+    sprite: {fileID: 21300000, guid: 42c9ab44dcfdddd4d9007a852043ce92, type: 3}
+    title: shield
   turretOptions:
   - color: {r: 0, g: 0, b: 0, a: 0}
     sprite: {fileID: 21300000, guid: 1f9ab4600ad2c9f4485c9cd847ab7e00, type: 3}

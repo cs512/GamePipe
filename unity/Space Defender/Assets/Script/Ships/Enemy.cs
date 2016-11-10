@@ -165,7 +165,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         }
     }
 
-    void Victim.ReduceShield(float damage)
+    void Victim.ReduceShield(float damage, Vector3 hittingPoint)
     {
         return;
     }

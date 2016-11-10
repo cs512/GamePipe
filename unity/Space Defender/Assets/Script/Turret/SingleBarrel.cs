@@ -18,7 +18,7 @@ public class SingleBarrel : TurretBase {
             shootEnemys.Add(enemy);
         }
     }
-    public override void ReduceShield(float damage)
+    public override void ReduceShield(float damage, Vector3 hittingPoint)
     {
         return;
     }
