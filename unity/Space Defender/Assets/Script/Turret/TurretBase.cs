@@ -10,7 +10,6 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     public Victim currentVictim = null;
     public float nextFire = 1;
     public Transform currentTarget = null;
-    public int shipsKilled = 0;
     public int level = 0;
     public bool showRange;
     public float range;
@@ -94,9 +93,6 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
                         if (min_dist >= distance) {
                             currentTarget = target;
                             currentVictim = victims[id];
-                            shipsKilled += 1;
-                            //LevelUp();
-                            SetLevelUI();
                             min_dist = distance;
                         }
                     }

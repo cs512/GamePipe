@@ -11,29 +11,35 @@ public class ShieldGenerator : TurretBase {
     public GameObject shockHit;
     private bool SetShieldValue = false;
 
+    public float GetRechargeTime() {
+        float upgradedRechargeTime = rechargeTime;
+        upgradedRechargeTime = rechargeTime * (10 - level * 1) / 10;
+        return upgradedRechargeTime;
+    }
+
+    public float GetTotalShield() {
+        float upgradedShield = totalShield;
+        upgradedShield = totalShield * (10 + level * 1) / 10;
+        return upgradedShield;
+    }
+
     IEnumerator WaitForRecharge() {
         print(Time.time);
-        yield return new WaitForSeconds(rechargeTime);
+        yield return new WaitForSeconds(GetRechargeTime());
         ShieldRecharge();
         print(Time.time);
     }
-
-    public float GetShieldRemnant()
-    {
-        return currentShield;
-    }
-
     private void ShieldRecharge()
     {
         GameObject prefab = Resources.Load("Prefabs/Turrets/Shield", typeof(GameObject)) as GameObject;
         Shield = Instantiate(prefab, transform.position, transform.rotation) as GameObject;
         Shield.transform.SetParent(this.transform);
         Shield.transform.localScale = prefab.transform.localScale;
-        currentShield = totalShield;
+        currentShield = GetTotalShield();
     }
 
     public override void SetUpAttributions() {
-        currentShield = totalShield;
+        currentShield = GetTotalShield();
         return;
     }
     override public void ShotSpawn() {
@@ -46,7 +52,7 @@ public class ShieldGenerator : TurretBase {
     override public void ReduceShield(float damage, Vector3 hittingPoint)
     {
         if (!SetShieldValue) {
-            currentShield = totalShield;
+            currentShield = GetTotalShield();
             SetShieldValue = true;
         }
         GameObject shockWave = Instantiate(shockHit, hittingPoint, transform.rotation) as GameObject;
