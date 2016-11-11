@@ -25,14 +25,13 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     private Vector3 offset;
     private Quaternion lastRotation;
     private float maxHealth;
-    private bool onSet = false;
     private GameObject sliderCanvas;
     private bool built = false;
-    private bool findSlider = false;
+	private Collider turretCollider;
 
     void Start() {
         GameObject.Find("Hex Grid").GetComponent<HexGrid>().SetBuilding(new Vector3(this.transform.position.x, 0, this.transform.position.z), this.gameObject);
-        GameObject prefab =     Resources.Load("Prefabs/SliderSet", typeof(GameObject)) as GameObject;
+        GameObject prefab = Resources.Load("Prefabs/SliderSet", typeof(GameObject)) as GameObject;
         sliderCanvas = Instantiate(prefab, transform.position, Quaternion.Euler(90f, 0f, 0f)) as GameObject;
         //sliderCanvas.transform.parent = this.transform;
         Debug.Log("Built!");
@@ -45,12 +44,12 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
             }
         }
         maxHealth = health;
+		turretCollider = gameObject.GetComponent<Collider>();
+		turretCollider.enabled = false;
     }
 
-    void Update() {
+	void Update() {
         SetLevelUI();
-        if (!findSlider) {
-        }
         if (!built) {
             BuildProcess();
         } else {
@@ -68,6 +67,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
             Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
             dispatcher.turretRegisteVictim(this);
             dispatcher.turretRegisteKiller(this);
+			turretCollider.enabled = true;
         }
     }
 
