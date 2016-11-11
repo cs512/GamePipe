@@ -11,6 +11,11 @@ public class DoubleBarrels : TurretBase {
         return;
     }
 
+    public override void ReduceShield(float damage, Vector3 hittingPoint)
+    {
+        return;
+    }
+
     override public void ShotSpawn() {
         if (gameObject.tag == "Launchers") {
             int fireCount = Random.Range(0, 3);

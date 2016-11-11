@@ -64,6 +64,17 @@ public class TurretCreator : MonoBehaviour {
                 newObject = Instantiate(prefab, transform.parent.position, transform.localRotation) as GameObject;
                 built = true;
             }
+
+        } else if (this.title == "shield") {
+
+            GameObject prefab = Resources.Load("Prefabs/Turrets/ShieldGenerator", typeof(GameObject)) as GameObject;
+            float cost = prefab.GetComponent<TurretBase>().turretCost;
+            Debug.Log("Cost is" + cost);
+            if (GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>().LoseFund(cost)) {
+                newObject = Instantiate(prefab, transform.parent.position, transform.localRotation) as GameObject;
+                built = true;
+            }
+
         }
         if (built)
         {

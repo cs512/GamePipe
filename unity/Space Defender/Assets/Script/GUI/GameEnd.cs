@@ -60,6 +60,7 @@ public class GameEnd : MonoBehaviour {
         goBack.sizeDelta = new Vector2(0, 0);
     }
     public void ShowEnd(float some) {
+        Time.timeScale = 0;
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
             gameEnd.sizeDelta = new Vector2(600, 320);
@@ -77,6 +78,8 @@ public class GameEnd : MonoBehaviour {
             goBack.sizeDelta = new Vector2(120, 80);
             if (some == 0)
             {//u shall not pass
+                print("no nono1");
+                tri1.GetComponent<Renderer>().enabled = false;
                 tTrishade1.localPosition = new Vector3(-100, 50, -7);
                 tTrishade2.localPosition = new Vector3(0, 50, -7);
                 tTrishade3.localPosition = new Vector3(100, 50, -7);
@@ -120,6 +123,8 @@ public class GameEnd : MonoBehaviour {
             goBack.sizeDelta = new Vector2(120, 80);
             if (some == 0)
             {//u shall not pass
+                print("nononon1");
+                tri1.GetComponent<Renderer>().enabled = false;
                 tTrishade1.localPosition = new Vector3(-100, 50, -7);
                 tTrishade2.localPosition = new Vector3(0, 50, -7);
                 tTrishade3.localPosition = new Vector3(100, 50, -7);

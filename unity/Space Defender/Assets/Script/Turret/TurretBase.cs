@@ -10,7 +10,6 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     public Victim currentVictim = null;
     public float nextFire = 1;
     public Transform currentTarget = null;
-    public int shipsKilled = 0;
     public int level = 0;
     public bool showRange;
     public float range;
@@ -94,9 +93,6 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
                         if (min_dist >= distance) {
                             currentTarget = target;
                             currentVictim = victims[id];
-                            shipsKilled += 1;
-                            //LevelUp();
-                            SetLevelUI();
                             min_dist = distance;
                         }
                     }
@@ -111,8 +107,9 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     abstract public void ShotSpawn();
     abstract public void SetShootEnemy(GameObject enemy);
     abstract public void DismissShootEnemy();
+    abstract public void ReduceShield(float damage, Vector3 hittingPoint);
 
-	bool IsFacingTarget() {
+    bool IsFacingTarget() {
 		RaycastHit[] hits;
 		hits = Physics.RaycastAll(transform.position, transform.forward, range);
 		foreach(RaycastHit hit in hits) {

@@ -95,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011400164538}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 102.056046, y: 654.4405, z: 77.71304}
+  m_LocalPosition: {x: 295.46878, y: 2355.3123, z: -386.6105}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -239,11 +239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41bd6768056c9544aef632eb04cfaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireInterval: 1500
+  fireInterval: 4000
   rotateSpeed: 5
   nextFire: 1
   currentTarget: {fileID: 0}
-  shipsKilled: 0
   level: 0
   showRange: 0
   range: 2000

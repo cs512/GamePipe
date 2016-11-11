@@ -92,7 +92,9 @@ public class MenuSpawner : MonoBehaviour {
             } else if (newButton.title == "mssLnchr") {
                 GameObject prefab = Resources.Load("Prefabs/Turrets/missle_launcher", typeof(GameObject)) as GameObject;
                 newButton.turretCost = prefab.GetComponent<TurretBase>().turretCost;
-                Debug.Log("Launcher cost is " + newButton.turretCost);
+            } else if (newButton.title == "shield") {
+                GameObject prefab = Resources.Load("Prefabs/Turrets/ShieldGenerator", typeof(GameObject)) as GameObject;
+                newButton.turretCost = prefab.GetComponent<TurretBase>().turretCost;
             }
         }
     }

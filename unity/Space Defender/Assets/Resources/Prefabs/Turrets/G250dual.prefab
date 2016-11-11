@@ -110,7 +110,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013104914308}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 109.154076, y: 676.2446, z: -8.58413}
+  m_LocalPosition: {x: 645.4001, y: 2208.6821, z: -443.80856}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -272,7 +272,6 @@ MonoBehaviour:
   rotateSpeed: 10
   nextFire: 1
   currentTarget: {fileID: 0}
-  shipsKilled: 0
   level: 0
   showRange: 1
   range: 500
