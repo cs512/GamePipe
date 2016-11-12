@@ -239,15 +239,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41bd6768056c9544aef632eb04cfaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireInterval: 4000
+  fireInterval: 3000
   rotateSpeed: 5
   nextFire: 1
   currentTarget: {fileID: 0}
   level: 0
   showRange: 0
-  range: 2000
-  turretCost: 150
-  health: 50
+  range: 750
+  turretCost: 125
+  health: 30
   explosion: {fileID: 1000012970080796, guid: 5164400c8315b422cb8799f814648cd0, type: 2}
   buildSpeed: 10
   shotSpawn: {fileID: 4000013121120466}

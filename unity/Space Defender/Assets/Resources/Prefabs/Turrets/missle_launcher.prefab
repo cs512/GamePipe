@@ -274,7 +274,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   level: 0
   showRange: 0
-  range: 1000
+  range: 600
   turretCost: 200
   health: 100
   explosion: {fileID: 1000012970080796, guid: 5164400c8315b422cb8799f814648cd0, type: 2}
