@@ -8,11 +8,7 @@ public class SilcenceTurret : TurretBase {
 	public GameObject shot;
 	public List<GameObject> shootEnemys = new List<GameObject>();
 
-	public override void SetUpAttributions() {
-		return;
-	}
-
-	public void Attack(Dictionary<int, Victim> victims) {
+	public override void Attack(Dictionary<int, Victim> victims) {
 		Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
 		if (victims.Count != 0) {
 			foreach (int id in victims.Keys) {
@@ -29,11 +25,16 @@ public class SilcenceTurret : TurretBase {
 	}
 
 	public void SilenceTarget(GameObject targetObj) {
-		
+		Enemy target = targetObj.GetComponent<Enemy>();
+		target.Silence();
+
 	}
 
+	public override void SetUpAttributions() {
+		return;
+	}
 	override public void ShotSpawn() {
-		(Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject).GetComponent<TurretBullet>().setTarget(currentTarget);
+		return;
 	}
 	override public void SetShootEnemy(GameObject enemy) {
 		if (enemy != null) {

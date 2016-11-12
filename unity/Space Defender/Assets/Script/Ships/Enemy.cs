@@ -84,13 +84,13 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         maxHealth = health;
         InvokeRepeating("Forwards", 0f, 0.05f);
         InvokeRepeating("RecoverSpeed", 0f, 2f);
+		InvokeRepeating("RecoverFromSilence", 0f, 5f);
     }
 
     public void RecoverSpeed() {
 		if(isSilenced)
 			return;
         speed = oldSpeed;
-		isSilenced = false;
     }
 
     public void Forwards() {
@@ -160,9 +160,14 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         SetHealthUI();
     }
 
-	void Silence() {
+	public void Silence() {
 		speed = 0;
 		isSilenced = true;
+	}
+
+	void RecoverFromSilence() {
+		speed = oldSpeed;
+		isSilenced = false;
 	}
 
     void Victim.SlowDown(float percentage)

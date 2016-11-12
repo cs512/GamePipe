@@ -71,7 +71,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 
     abstract public void SetUpAttributions();
 
-    public void Attack(Dictionary<int, Victim> victims) {
+    public virtual void Attack(Dictionary<int, Victim> victims) {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         if (victims.Count != 0) {
             float min_dist = float.MaxValue;
