@@ -8,7 +8,6 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     public Dictionary<int, Victim> victims;
     public float rotateSpeed;
     public Victim currentVictim = null;
-    public float nextFire = 1;
     public Transform currentTarget = null;
     public int level = 0;
     public bool showRange;

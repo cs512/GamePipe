@@ -49,6 +49,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     private float framDist;
     private float turretRadius;
     private float turretAngle;
+	private bool isSilenced = false;
 
     public int GetFireInterval() {
         return fireInterval;
@@ -86,8 +87,12 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     }
 
     public void RecoverSpeed() {
+		if(isSilenced)
+			return;
         speed = oldSpeed;
+		isSilenced = false;
     }
+
     public void Forwards() {
         framDist = speed * Time.deltaTime;
         if (target == null) {
@@ -155,6 +160,11 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         SetHealthUI();
     }
 
+	void Silence() {
+		speed = 0;
+		isSilenced = true;
+	}
+
     void Victim.SlowDown(float percentage)
     {
         if (speed >= 100)
@@ -220,6 +230,8 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
 
     //regard as a killer
     public void Attack(Dictionary<int, Victim> turretVictims) {
+		if(isSilenced) 
+			return;
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         if (turretVictims.Count != 0) {
             float min_dist = float.MaxValue;
