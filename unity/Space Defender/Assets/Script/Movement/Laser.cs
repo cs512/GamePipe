@@ -6,17 +6,17 @@ public class Laser : MonoBehaviour {
 	public float damage = 2.0f;
 	public LineRenderer laser;
 
-	private Vector3 start;
+	private Transform start;
 	private Transform target;
-	private float remainTime = 0.1f;
+	private float remainTime = 2.0f;
 
 	void Update() {
 		KeepDirection();
 		CountTime();
 	}
 
-	public void SetUp(Vector3 start, Transform target) {
-		laser.SetPosition(0, start);
+	public void SetTarget(Transform start, Transform target) {
+		laser.SetPosition(0, start.position);
 		this.target = target;
 	}
 

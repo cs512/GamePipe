@@ -7,13 +7,24 @@ public class SilcenceTurret : TurretBase {
 	public Transform shotSpawn;
 	public GameObject shot;
 	public List<GameObject> shootEnemys = new List<GameObject>();
+	public int maxTarget;
 
-	public override void SetUpAttributions() {
-		return;
-	}
+	private List<GameObject> targetList = new List<GameObject>();
 
-	public void Attack(Dictionary<int, Victim> victims) {
+	public override void Attack(Dictionary<int, Victim> victims) {
 		Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+//		if (victims.Count != 0) {
+//			foreach (int id in victims.Keys) {
+//				if (dispatcher.enemyVictims.ContainsKey(id)) {
+//					GameObject targetObj = victims[id].GetGameObject();
+//					Transform target = targetObj.transform;
+//					float distance = Vector3.Distance(target.position, transform.position);
+//					if (range >= distance) {
+//						SilenceTarget(targetObj);
+//					}
+//				}
+//			}
+//		}
 		if (victims.Count != 0) {
 			foreach (int id in victims.Keys) {
 				if (dispatcher.enemyVictims.ContainsKey(id)) {
@@ -21,19 +32,33 @@ public class SilcenceTurret : TurretBase {
 					Transform target = targetObj.transform;
 					float distance = Vector3.Distance(target.position, transform.position);
 					if (range >= distance) {
-						SilenceTarget(targetObj);
+						targetList.Add(targetObj);
 					}
 				}
+			}
+
+			targetList.Sort((x, y) => Vector3.Distance(x.transform.position, transform.position).CompareTo(
+				Vector3.Distance(y.transform.position, transform.position)));
+			for(int i = 0; i < maxTarget; i++) {
+				if(i == targetList.Count)
+					break;
+				SilenceTarget(targetList[i]);
 			}
 		}
 	}
 
 	public void SilenceTarget(GameObject targetObj) {
-		
+		Enemy target = targetObj.GetComponent<Enemy>();
+		target.Silence();
+		(Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject).GetComponent<Laser>().SetTarget(shotSpawn, targetObj.transform);
+
 	}
 
+	public override void SetUpAttributions() {
+		return;
+	}
 	override public void ShotSpawn() {
-		(Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject).GetComponent<TurretBullet>().setTarget(currentTarget);
+		return;
 	}
 	override public void SetShootEnemy(GameObject enemy) {
 		if (enemy != null) {
