@@ -50,6 +50,8 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     private float turretRadius;
     private float turretAngle;
 	private bool isSilenced = false;
+	private float silenceTime = 0;
+	private float slowTime = 0;
 
     public int GetFireInterval() {
         return fireInterval;
@@ -84,8 +86,12 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         maxHealth = health;
         InvokeRepeating("Forwards", 0f, 0.05f);
         InvokeRepeating("RecoverSpeed", 0f, 2f);
-		InvokeRepeating("RecoverFromSilence", 0f, 5f);
     }
+
+	void Update() {
+		RecoverFromSilence();
+		RecoverFromSlow();
+	}
 
     public void RecoverSpeed() {
 		if(isSilenced)
@@ -161,13 +167,32 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     }
 
 	public void Silence() {
-		speed = 0;
+		speed = 10;
 		isSilenced = true;
+		silenceTime = 2.0f;
 	}
 
 	void RecoverFromSilence() {
-		speed = oldSpeed;
-		isSilenced = false;
+		if(!isSilenced)
+			return;
+		if(silenceTime <= 0) {
+			speed = oldSpeed;
+			isSilenced = false;
+			silenceTime = 0;
+		} else {
+			silenceTime -= Time.deltaTime;
+		}
+	}
+
+	void RecoverFromSlow() {
+		if(!isSilenced)
+			return;
+		if(slowTime <= 0 && speed < oldSpeed) {
+			speed = oldSpeed;
+			slowTime = 1;
+		} else {
+			slowTime -= Time.deltaTime;
+		}
 	}
 
     void Victim.SlowDown(float percentage)

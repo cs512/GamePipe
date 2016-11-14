@@ -9,8 +9,6 @@ public class SilcenceTurret : TurretBase {
 	public List<GameObject> shootEnemys = new List<GameObject>();
 	public int maxTarget;
 
-	private List<GameObject> targetList = new List<GameObject>();
-
 	public override void Attack(Dictionary<int, Victim> victims) {
 		Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
 //		if (victims.Count != 0) {
@@ -26,6 +24,7 @@ public class SilcenceTurret : TurretBase {
 //			}
 //		}
 		if (victims.Count != 0) {
+			List<GameObject> targetList = new List<GameObject>();
 			foreach (int id in victims.Keys) {
 				if (dispatcher.enemyVictims.ContainsKey(id)) {
 					GameObject targetObj = victims[id].GetGameObject();
