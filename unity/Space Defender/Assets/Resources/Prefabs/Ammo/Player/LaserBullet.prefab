@@ -116,12 +116,12 @@ LineRenderer:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   m_Parameters:
-    startWidth: 10
-    endWidth: 10
+    startWidth: 3
+    endWidth: 2
     m_StartColor:
       serializedVersion: 2
       rgba: 4290356735
     m_EndColor:
       serializedVersion: 2
-      rgba: 4290356735
+      rgba: 4294905608
   m_UseWorldSpace: 1

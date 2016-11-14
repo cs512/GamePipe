@@ -9,6 +9,7 @@ public class Laser : MonoBehaviour {
 	private Transform start;
 	private Transform target;
 	private float remainTime = 2.0f;
+	private bool allSet = false;
 
 	void Update() {
 		KeepDirection();
@@ -18,11 +19,16 @@ public class Laser : MonoBehaviour {
 	public void SetTarget(Transform start, Transform target) {
 		laser.SetPosition(0, start.position);
 		this.target = target;
+		allSet = true;
+
 	}
 
 	void KeepDirection() {
-		Vector3 des = new Vector3(target.position.x, target.position.y, target.position.z);
-		laser.SetPosition(1, des);
+		if(allSet) {
+			Vector3 des = new Vector3(target.position.x, target.position.y, target.position.z);
+			laser.SetPosition(1, des);
+		}
+
 	}
 
 	void CountTime() {
