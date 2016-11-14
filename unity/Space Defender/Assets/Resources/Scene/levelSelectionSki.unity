@@ -104,7 +104,7 @@ GameObject:
   - 114: {fileID: 154185757}
   - 114: {fileID: 154185756}
   m_Layer: 5
-  m_Name: level3
+  m_Name: level3Ski
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -552,7 +552,7 @@ GameObject:
   - 114: {fileID: 772791117}
   - 114: {fileID: 772791116}
   m_Layer: 5
-  m_Name: level5
+  m_Name: level5Ski
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -692,7 +692,7 @@ GameObject:
   - 114: {fileID: 950052596}
   - 114: {fileID: 950052595}
   m_Layer: 5
-  m_Name: level6
+  m_Name: level6Ski
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1257,7 +1257,7 @@ GameObject:
   - 114: {fileID: 1181997249}
   - 114: {fileID: 1181997248}
   m_Layer: 5
-  m_Name: level4
+  m_Name: level4Ski
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1475,7 +1475,7 @@ GameObject:
   - 114: {fileID: 1377955727}
   - 114: {fileID: 1377955726}
   m_Layer: 5
-  m_Name: level1
+  m_Name: level1Ski
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1831,7 +1831,7 @@ GameObject:
   - 114: {fileID: 1640476478}
   - 114: {fileID: 1640476477}
   m_Layer: 5
-  m_Name: level2
+  m_Name: level2Ski
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2371,7 +2371,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
