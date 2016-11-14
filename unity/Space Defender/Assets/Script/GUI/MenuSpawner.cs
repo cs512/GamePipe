@@ -22,8 +22,14 @@ public class MenuSpawner : MonoBehaviour {
     }
 
     void Awake() {
-        this.SetBuildingMask(Toolbox.FindObjectOfType<LevelManager>().GetCurrentLevel().turretMask);
-
+        int mode = Toolbox.FindObjectOfType<LevelManager>().GetMode ();
+        if (mode== 0) {
+            this.SetBuildingMask(Toolbox.FindObjectOfType<LevelManager>().GetCurrentLevel().turretMask);
+        } else if(mode== 1) {
+            this.SetBuildingMask(Toolbox.FindObjectOfType<LevelManager>().GetCurrentLevelSki().turretMask);
+        } else {
+            return;
+        }
     }
 
     public bool MenuShowing {

@@ -22,6 +22,7 @@ public class WaveManager : MonoBehaviour {
     }
 
     private Level level;
+    private int gameMode;
     private int currentWave = 0;
     private List<GameObject> ebs = new List<GameObject>();
     private float time = 0;
@@ -32,7 +33,16 @@ public class WaveManager : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-        this.level = Toolbox.Instance.GetComponent<LevelManager>().GetCurrentLevel();
+        this.gameMode = Toolbox.Instance.GetComponent<LevelManager>().GetMode();
+        
+        if (this.gameMode == 0) {
+            this.level = Toolbox.Instance.GetComponent<LevelManager>().GetCurrentLevel();
+        }else if(this.gameMode == 1){
+            this.level = Toolbox.Instance.GetComponent<LevelManager>().GetCurrentLevelSki();
+        }
+        else{
+            return ;
+        }
         this.time = Time.time;
         Time.timeScale = 1f;
         this.SetWave(currentWave);
@@ -59,15 +69,20 @@ public class WaveManager : MonoBehaviour {
                 EnemyBuilder eb = go.GetComponent<EnemyBuilder>();
                 eb.nextWaveTime = 3.0f;
                 eb.intervelTime = sp.interval;
-                eb.speed = sp.speed;
-                eb.wave = new EnemyBuilder.WaveComponent[1];
-                eb.wave[0] = new EnemyBuilder.WaveComponent();
-                eb.wave[0].num = sp.number;
-                eb.wave[0].enenmyPrefab = Resources.Load("Prefabs/" + sp.prefab, typeof(GameObject)) as GameObject;
+                eb.speed = sp.speed; 
+                EnemyBuilder.WaveComponent wc = new EnemyBuilder.WaveComponent();
+                if (gameMode == 0) {
+                    wc.enenmyPrefab = Resources.Load("Prefabs/"+sp.prefab, typeof(GameObject)) as GameObject;
+                } else if (gameMode == 1) {
+                    wc.enenmyPrefab = Resources.Load("Prefabs/PathFinding/"+sp.prefab, typeof(GameObject)) as GameObject;
+                }
+                wc.num = sp.number;
+                wc.shooted = 0;
+                eb.wave =wc;
                 ebs.Add(Instantiate(go));
             }
             this.waveDuring = level.waves[n].waveDuring;
-        } else {
+        }else{
             this.wavesCompleted = true;
             this.waveDuring = 0;
         }

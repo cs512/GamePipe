@@ -150,7 +150,6 @@
      <Compile Include="Assets\Script\GUI\UIDirectionControl.cs" />
      <Compile Include="Assets\Script\Manager\Dispatcher.cs" />
      <Compile Include="Assets\Script\Manager\EnemyBuilder.cs" />
-     <Compile Include="Assets\Script\Manager\EnemyBuilderPath.cs" />
      <Compile Include="Assets\Script\Manager\GameInitializator.cs" />
      <Compile Include="Assets\Script\Manager\LevelManager\Level.cs" />
      <Compile Include="Assets\Script\Manager\LevelManager\LevelManager.cs" />

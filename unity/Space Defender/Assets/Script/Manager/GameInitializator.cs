@@ -8,7 +8,6 @@ public class GameInitializator : MonoBehaviour {
         Toolbox tb = Toolbox.Instance;
         tb.RegisterComponent<LevelManager>();
     }
-
     // Update is called once per frame
     void Update() {
 

@@ -84,7 +84,17 @@ public class ScoreBoard : MonoBehaviour {
     void Start() {
         initGame();
         LevelManager lvl = Toolbox.Instance.GetOrAddComponent<LevelManager>();
-        string name = lvl.GetCurrentLevel().name;
+        
+        var mode = Toolbox.Instance.GetComponent<LevelManager>().GetMode();
+        string name;
+        if (mode == 0) {
+            name = Toolbox.Instance.GetComponent<LevelManager>().GetCurrentLevel().name;
+        }else if(mode == 1){
+            name = Toolbox.Instance.GetComponent<LevelManager>().GetCurrentLevelSki().name;
+        }
+        else{
+            return ;
+        }
         if (name == "Level 6") {
             LoseFund(-600);
         }

@@ -1,0 +1,20 @@
+{
+    "waveCount":1,
+    "turretMask": 1,
+    "waves":[
+        {
+            "waveDuring":40,
+            "spawnPointCount":1,
+            "spawnPoints":[
+                {
+                    "position":[-800,20,-500],
+                    "prefab":"Unit",
+                    "interval":1.0,
+                    "number":30,
+                    "damage":10.0,
+                    "speed":3.0
+                }
+            ],
+        }
+    ],
+}
