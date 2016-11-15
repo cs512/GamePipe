@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Ships/AstarAI.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Ships/Enemy.cs">
     <Files>
-      <File FileName="Assets/Script/Ships/AstarAI.cs" Line="5" Column="29" />
-      <File FileName="Assets/Script/Ships/Enemy.cs" Line="14" Column="33" />
+      <File FileName="Assets/Script/Ships/AstarAI.cs" Line="51" Column="20" />
+      <File FileName="Assets/Script/Ships/Enemy.cs" Line="161" Column="43" />
       <File FileName="Assets/Script/Manager/Utility/Victim.cs" Line="9" Column="20" />
       <File FileName="Assets/Script/Manager/Utility/Killer.cs" Line="6" Column="1" />
       <File FileName="Assets/Script/Manager/EnemyBuilder.cs" Line="52" Column="28" />
