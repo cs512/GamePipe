@@ -30,7 +30,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.099976, y: 1414.5614, z: -635.1312}
+  m_LocalPosition: {x: -715.48914, y: 993.58234, z: 319.03354}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -312,14 +312,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4623e913f1714c0795f2b205d0f8653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 200
-  damage: 0
-  health: 0
+  speed: 100
+  damage: 1
+  health: 10
   cost: 0
   explosion: {fileID: 100012, guid: f9800e97fef0e574aa868187988139ad, type: 2}
-  fireInterval: 0
+  fireInterval: 2000
   currentTarget: {fileID: 0}
-  range: 0
+  range: 300
   shot: {fileID: 1000013627078140, guid: f88496f5d46327f40a96678f087465c1, type: 2}
   shotSpawn: {fileID: 4000013469564594}
   healthSlider: {fileID: 114000012183413828}
@@ -327,7 +327,7 @@ MonoBehaviour:
   setPosition: 0
   target: {fileID: 0}
   targetPosition: {x: 0, y: 0, z: 0}
-  speed: 200
+  speed: 100
   nextWaypointDistance: 3
 --- !u!114 &114000011502418922
 MonoBehaviour:
@@ -522,10 +522,10 @@ RectTransform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011543066396}
-  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
+  m_LocalRotation: {x: 0.4999999, y: 0.5000001, z: -0.5000001, w: 0.4999999}
   m_LocalPosition: {x: 0, y: 0, z: -15}
   m_LocalScale: {x: 7.5, y: 15, z: 15}
-  m_LocalEulerAnglesHint: {x: 90, y: -0.000015258789, z: 89.99999}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 89.99999}
   m_Children:
   - {fileID: 224000012574107484}
   m_Father: {fileID: 400000}
