@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Pathfinding;
 
-public class AstarAI : MonoBehaviour {
+public class AstarAI : Enemy {
 	
 	public Transform target;
 	public Vector3 targetPosition;
@@ -20,6 +20,10 @@ public class AstarAI : MonoBehaviour {
         seeker = GetComponent<Seeker>();
         controller = GetComponent<CharacterController>();
 		seeker.StartPath (transform.position,targetPosition, OnPathComplete);
+ 
+        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+        dispatcher.enemyRegisteVictim(this);
+        dispatcher.enemyRegisteKiller(this);
 	}
 	
     public void OnPathComplete (Path p) {
@@ -50,6 +54,9 @@ public class AstarAI : MonoBehaviour {
             currentWaypoint++;
             return;
         }
+    }
+    public override void SetUpDefaultAttributions() {
+
     }
 	
 }

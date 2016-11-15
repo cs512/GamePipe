@@ -62,6 +62,10 @@ public class MenuSpawner : MonoBehaviour {
         Transform parentTransform = transform;
         foreach (Transform child in parentTransform) {
             if (child.tag == "Menu Button") {
+				if (child.GetComponent<TurretHandler>()){
+					GameObject rangeDisplay = child.GetComponent<TurretHandler>().turret.GetComponent<TurretBase>().rangeDisplay;
+					rangeDisplay.SetActive(false);
+				}
                 Destroy(child.gameObject);
             } else {
                 Debug.Log(child.tag);
@@ -106,6 +110,10 @@ public class MenuSpawner : MonoBehaviour {
     }
 
     public void ShowTurretMenu(GameObject turret) {
+
+		GameObject rangeDisplay = turret.GetComponent<TurretBase>().rangeDisplay;
+		rangeDisplay.SetActive(true);
+
         menuShowing = true;
         for (int i = 0; i < turretOptions.Length; i++) {
             Debug.Log("Show icon!");
