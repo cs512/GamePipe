@@ -20,6 +20,10 @@ public class AstarAI : Enemy {
         seeker = GetComponent<Seeker>();
         controller = GetComponent<CharacterController>();
 		seeker.StartPath (transform.position,targetPosition, OnPathComplete);
+ 
+        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+        dispatcher.enemyRegisteVictim(this);
+        dispatcher.enemyRegisteKiller(this);
 	}
 	
     public void OnPathComplete (Path p) {
