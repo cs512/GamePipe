@@ -16,6 +16,7 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     public float health;
     public GameObject explosion;
     public float buildSpeed = 10.0f;
+	public GameObject rangeDisplay;
 
     private Slider healthSlider;
     private Slider levelSlider;
@@ -44,6 +45,10 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
         maxHealth = health;
 		turretCollider = gameObject.GetComponent<Collider>();
 		turretCollider.enabled = false;
+
+		float factor = 2 / rangeDisplay.transform.lossyScale.x;
+		rangeDisplay.transform.localScale += new Vector3(range * factor, range * factor);
+		rangeDisplay.SetActive(false);
     }
 
 	void Update() {
