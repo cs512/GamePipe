@@ -83,6 +83,7 @@ public class TouchControl : MonoBehaviour {
                 if (turret) {
                     spawnMenu.transform.position = turret.transform.position;
                     spawnMenu.ShowTurretMenu(turret);
+					GameObject rangeDisplay = turret.GetComponent<TurretBase>().rangeDisplay;
                 }
             }
         }
