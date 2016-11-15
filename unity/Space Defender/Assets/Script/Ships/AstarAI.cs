@@ -44,7 +44,7 @@ public class AstarAI : Enemy {
         }
         
         Vector3 dir = (path.vectorPath[currentWaypoint]-transform.position).normalized;
-        dir *= speed * Time.fixedDeltaTime;
+        dir *= speed * Time.deltaTime;
         controller.Move (dir);
         Quaternion rotation = Quaternion.LookRotation (dir);
         this.transform.rotation = Quaternion.Lerp (this.transform.rotation, rotation, Time.deltaTime * 5);
