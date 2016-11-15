@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 using Pathfinding;
 
-public class AstarAI : MonoBehaviour {
+public class AstarAI : Enemy {
 	
 	public Transform target;
 	public Vector3 targetPosition;
@@ -50,6 +50,9 @@ public class AstarAI : MonoBehaviour {
             currentWaypoint++;
             return;
         }
+    }
+    public override void SetUpDefaultAttributions() {
+
     }
 	
 }
