@@ -44,6 +44,21 @@ public class TouchControl : MonoBehaviour {
                 if (Input.GetMouseButton(0) && (Input.mousePosition.y < 0.92f * Screen.height)) {
                     HandleTap(Input.mousePosition);
                 }
+                float d = Input.GetAxis("Mouse ScrollWheel");
+                GameObject cam = GameObject.Find("Main Camera");
+                Vector3 pos = cam.transform.position;
+                if (d > 0) {
+                    pos.y += 20;
+                }
+                if (d < 0) {
+                    pos.y -= 20;
+                }
+                if (pos.y > 800)
+                    pos.y = 800;
+                if (pos.y < 400)
+                    pos.y = 400;
+                cam.transform.position = pos;
+
             } else {
                 if (Input.touchCount == 1) {
                     Touch touch = Input.touches[0];
