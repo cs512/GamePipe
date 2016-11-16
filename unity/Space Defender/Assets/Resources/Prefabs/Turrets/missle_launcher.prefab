@@ -20,7 +20,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000011889649352}
   - 33: {fileID: 33000012504574064}
-  - 64: {fileID: 64000010087595988}
   - 23: {fileID: 23000013634732040}
   m_Layer: 0
   m_Name: Range
@@ -251,18 +250,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64000010087595988
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000011176779398}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!82 &82000010755605946
 AudioSource:
   m_ObjectHideFlags: 1
