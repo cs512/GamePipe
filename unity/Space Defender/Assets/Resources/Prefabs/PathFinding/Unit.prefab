@@ -16,6 +16,7 @@ GameObject:
   - 23: {fileID: 23000012741829076}
   - 33: {fileID: 33000011248205166}
   - 54: {fileID: 54000013670995022}
+  - 65: {fileID: 65000010319701644}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Enemy
@@ -280,6 +281,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65000010319701644
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 124.27373, y: 39.375168, z: 86.406876}
+  m_Center: {x: 0, y: -7.146904, z: -18.806154}
 --- !u!114 &114000010364663428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -532,7 +545,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -17, y: 0}
+  m_AnchoredPosition: {x: -17, y: 40}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224000013361713038
