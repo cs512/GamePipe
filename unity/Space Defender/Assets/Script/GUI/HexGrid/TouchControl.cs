@@ -52,7 +52,20 @@ public class TouchControl : MonoBehaviour {
                     if (touch.phase == TouchPhase.Moved && touch.fingerId == dragTouch.Value.fingerId) {
                         hasMove = true;
                         GameObject cam = GameObject.Find("Main Camera");
-                        cam.transform.position += new Vector3(-touch.deltaPosition.x * zoomFactor, 0, -touch.deltaPosition.y * zoomFactor);
+                        Vector3 newPos = cam.transform.position + new Vector3(-touch.deltaPosition.x * zoomFactor, 0, -touch.deltaPosition.y * zoomFactor);
+                        if (newPos.x  < -460) {
+                            newPos.x = -460;
+                        }
+                        if (newPos.x > 460) {
+                            newPos.x = 460;
+                        }
+                        if (newPos.z > 166) {
+                            newPos.z = 166;
+                        }
+                        if (newPos.z < -166) {
+                            newPos.z = -166;
+                        }
+                        cam.transform.position = newPos;
                         return;
                     }
                     if (touch.phase == TouchPhase.Ended && touch.fingerId == dragTouch.Value.fingerId) {
