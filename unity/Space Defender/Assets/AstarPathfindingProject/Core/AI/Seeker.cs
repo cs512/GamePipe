@@ -329,15 +329,19 @@ public class Seeker : MonoBehaviour, ISerializationCallbackReceiver {
 	 *
 	 * \a callback will be called when the path has completed.
 	 * \a Callback will not be called if the path is canceled (e.g when a new path is requested before the previous one has completed)
+	 *
+	 * \version Since 3.8.3 this method works properly if a MultiTargetPath is used.
+	 * It now behaves identically to the StartMultiTargetPath(MultiTargetPath) method.
 	 */
 	public Path StartPath (Path p, OnPathDelegate callback = null, int graphMask = -1) {
+		p.callback += onPathDelegate;
+
 		p.enabledTags = traversableTags;
 		p.tagPenalties = tagPenalties;
-		p.callback += onPathDelegate;
 		p.nnConstraint.graphMask = graphMask;
 
 		StartPathInternal(p, callback);
-		return path;
+		return p;
 	}
 
 	/** Internal method to start a path and mark it as the currently active path */

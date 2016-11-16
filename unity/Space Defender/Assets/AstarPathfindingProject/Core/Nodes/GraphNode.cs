@@ -371,6 +371,8 @@ namespace Pathfinding {
 		 * to get a two-way connection.
 		 */
 		public override void AddConnection (GraphNode node, uint cost) {
+			if (node == null) throw new System.ArgumentNullException();
+
 			// Check if we already have a connection to the node
 			if (connections != null) {
 				for (int i = 0; i < connections.Length; i++) {
@@ -459,7 +461,7 @@ namespace Pathfinding {
 			} else {
 				ctx.writer.Write(connections.Length);
 				for (int i = 0; i < connections.Length; i++) {
-					ctx.writer.Write(ctx.GetNodeIdentifier(connections[i]));
+					ctx.SerializeNodeReference(connections[i]);
 					ctx.writer.Write(connectionCosts[i]);
 				}
 			}
@@ -476,7 +478,7 @@ namespace Pathfinding {
 				connectionCosts = new uint[count];
 
 				for (int i = 0; i < count; i++) {
-					connections[i] = ctx.GetNodeFromIdentifier(ctx.reader.ReadInt32());
+					connections[i] = ctx.DeserializeNodeReference();
 					connectionCosts[i] = ctx.reader.ReadUInt32();
 				}
 			}

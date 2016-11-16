@@ -44,7 +44,7 @@ public class ProceduralGridMover : MonoBehaviour {
 	 * If there are multiple areas in the graph and this
 	 * is not enabled, pathfinding could fail later on.
 	 *
-	 * Enabling it will make the graph updates faster.
+	 * Disabling flood fills will make the graph updates faster.
 	 */
 	public bool floodFill;
 

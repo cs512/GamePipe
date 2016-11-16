@@ -236,7 +236,7 @@ public class AIPath : MonoBehaviour {
 		canSearchAgain = false;
 
 		//Alternative way of requesting the path
-		//ABPath p = ABPath.Construct (GetFeetPosition(),targetPoint,null);
+		//ABPath p = ABPath.Construct (GetFeetPosition(),targetPosition,null);
 		//seeker.StartPath (p);
 
 		//We should search from the current position

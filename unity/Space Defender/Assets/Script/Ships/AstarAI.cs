@@ -11,7 +11,7 @@ public class AstarAI : Enemy {
     private CharacterController controller;
  
     public Path path;
-    public float speed = 200;
+    public float aiSpeed = 200;
     public float nextWaypointDistance = 3;
     private int currentWaypoint = 0;
 	
@@ -24,7 +24,7 @@ public class AstarAI : Enemy {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.enemyRegisteVictim(this);
         dispatcher.enemyRegisteKiller(this);
-        SetOldSpeed (speed);
+        SetOldSpeed (aiSpeed);
         SetMaxHealth (health);
 	}
 	
@@ -46,7 +46,7 @@ public class AstarAI : Enemy {
         }
         
         Vector3 dir = (path.vectorPath[currentWaypoint]-transform.position).normalized;
-        dir *= speed * Time.deltaTime;
+        dir *= aiSpeed * Time.deltaTime;
         controller.Move (dir);
         Quaternion rotation = Quaternion.LookRotation (dir);
         this.transform.rotation = Quaternion.Lerp (this.transform.rotation, rotation, Time.deltaTime * 5);

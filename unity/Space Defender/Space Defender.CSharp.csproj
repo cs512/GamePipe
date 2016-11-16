@@ -94,6 +94,7 @@
     <Compile Include="Assets\AstarPathfindingProject\Core\GraphUpdateScene.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Core\GraphUpdateShape.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\AnimationLink.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\Misc\ArrayPool.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\AstarDebugger.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\AstarEnumFlagAttr.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Core\Misc\BinaryHeap.cs" />
@@ -120,6 +121,7 @@
     <Compile Include="Assets\AstarPathfindingProject\Core\Serialization\JsonSerializer.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Core\Serialization\SimpleJsonReplacement.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Core\Serialization\SimpleZipReplacement.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Core\Serialization\TinyJson.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Core\astarclasses.cs" />
     <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\Example12_Procedural\ProceduralGridMover.cs" />
     <Compile Include="Assets\AstarPathfindingProject\ExampleScenes\Example12_Procedural\ProceduralWorld.cs" />
@@ -134,6 +136,7 @@
     <Compile Include="Assets\AstarPathfindingProject\Generators\GridGenerator.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Generators\NavMeshGenerator.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Generators\NodeClasses\GridNode.cs" />
+    <Compile Include="Assets\AstarPathfindingProject\Generators\NodeClasses\GridNodeBase.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Generators\NodeClasses\PointNode.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Generators\NodeClasses\TriangleMeshNode.cs" />
     <Compile Include="Assets\AstarPathfindingProject\Generators\PointGenerator.cs" />
@@ -166,7 +169,6 @@
     <Compile Include="Assets\Script\Basement\SourcePlanet.cs" />
     <Compile Include="Assets\Script\BulletCollision\BulletCollision.cs" />
     <Compile Include="Assets\Script\Camera\TouchCamera.cs" />
-    <Compile Include="Assets\Script\Camera\TouchCameraBackground.cs" />
     <Compile Include="Assets\Script\GUI\BGM.cs" />
     <Compile Include="Assets\Script\GUI\Final.cs" />
     <Compile Include="Assets\Script\GUI\GameEnd.cs" />
@@ -233,6 +235,7 @@
     <None Include="Assets\AstarPathfindingProject\Readme_upgrading.txt" />
     <None Include="Assets\AstarPathfindingProject\link.xml" />
     <None Include="Assets\Models\Materials\VertexColors.shader" />
+    <None Include="Assets\Movinarc\PackageUninstaller\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

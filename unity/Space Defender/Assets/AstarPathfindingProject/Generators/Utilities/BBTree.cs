@@ -13,5 +13,6 @@ namespace Pathfinding {
 	 */
 	public class BBTree {
 		public void OnDrawGizmos () {}
+		public void OnEnterPool () {}
 	}
 }
