@@ -59,7 +59,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
 
     // Use this for initialization
     void Start() {
-        oldSpeed = speed;
+        oldSpeed = speed; // slow
         this.SetUpDefaultAttributions();
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.enemyRegisteVictim(this);
@@ -83,7 +83,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         float z = target.position.z;
         sourceTarget = new Vector3(x, this.transform.localPosition.y, z);
         
-        maxHealth = health;
+        maxHealth = health; // slider
         InvokeRepeating("Forwards", 0f, 0.05f);
         InvokeRepeating("RecoverSpeed", 0f, 2f);
     }
@@ -92,7 +92,16 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
 		RecoverFromSilence();
 		RecoverFromSlow();
 	}
-
+    
+    public void SetOldSpeed(float curSpeed){
+        oldSpeed = curSpeed;
+    }
+    
+    public void SetMaxHealth(float curHealth){
+        maxHealth = curHealth;
+    }
+        
+    
     public void RecoverSpeed() {
 		if(isSilenced)
 			return;

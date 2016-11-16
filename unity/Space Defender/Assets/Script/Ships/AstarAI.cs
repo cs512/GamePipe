@@ -24,6 +24,8 @@ public class AstarAI : Enemy {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.enemyRegisteVictim(this);
         dispatcher.enemyRegisteKiller(this);
+        SetOldSpeed (speed);
+        SetMaxHealth (health);
 	}
 	
     public void OnPathComplete (Path p) {
