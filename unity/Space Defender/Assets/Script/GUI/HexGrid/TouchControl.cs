@@ -11,12 +11,14 @@ public class TouchControl : MonoBehaviour {
 
     Touch? dragTouch = null;
     int layerMask = 1 << 8;
-    bool hasMove;
+    bool hasMove = false;
+    bool hasZoom = false;
     bool inMenu = false;
+    float distant = 0f;
     float zoomFactor = 1.1f;
 
     void Awake() {
-        
+
     }
 
     void Start() {
@@ -43,17 +45,30 @@ public class TouchControl : MonoBehaviour {
                     HandleTap(Input.mousePosition);
                 }
             } else {
-                foreach (Touch touch in Input.touches) {
+                if (Input.touchCount == 1) {
+                    Touch touch = Input.touches[0];
                     if (touch.phase == TouchPhase.Began && dragTouch == null) {
                         dragTouch = touch;
                         hasMove = false;
+                        hasZoom = false;
                         return;
+                    }
+                    if (touch.phase == TouchPhase.Ended && touch.fingerId == dragTouch.Value.fingerId) {
+                        if (!hasMove && (touch.position.y < 0.92f * Screen.height)) {
+                            HandleTap(touch.position);
+                        }
+                        dragTouch = null;
+                        return;
+                    }
+                    if (hasZoom) {
+                        hasZoom = false;
+                        dragTouch = touch;
                     }
                     if (touch.phase == TouchPhase.Moved && touch.fingerId == dragTouch.Value.fingerId) {
                         hasMove = true;
                         GameObject cam = GameObject.Find("Main Camera");
                         Vector3 newPos = cam.transform.position + new Vector3(-touch.deltaPosition.x * zoomFactor, 0, -touch.deltaPosition.y * zoomFactor);
-                        if (newPos.x  < -460) {
+                        if (newPos.x < -460) {
                             newPos.x = -460;
                         }
                         if (newPos.x > 460) {
@@ -68,13 +83,24 @@ public class TouchControl : MonoBehaviour {
                         cam.transform.position = newPos;
                         return;
                     }
-                    if (touch.phase == TouchPhase.Ended && touch.fingerId == dragTouch.Value.fingerId) {
-                        if (!hasMove && (touch.position.y < 0.92f * Screen.height)) {
-                            HandleTap(touch.position);
-                        }
-                        dragTouch = null;
-                        return;
+                    
+                } else if (Input.touchCount >= 2) {
+                    if (hasZoom) {
+                        float newDist = (Input.touches[0].position - Input.touches[1].position).magnitude;
+                        GameObject cam = GameObject.Find("Main Camera");
+                        Vector3 pos = cam.transform.position;
+                        pos.y -= newDist - distant;
+                        if (pos.y > 800)
+                            pos.y = 800;
+                        if (pos.y < 400)
+                            pos.y = 400;
+                        cam.transform.position = pos;
+                        distant = newDist;
+                    } else {
+                        distant = (Input.touches[0].position - Input.touches[1].position).magnitude;
                     }
+                    hasZoom = true;
+                    hasMove = true;
                 }
             }
         }
@@ -96,7 +122,7 @@ public class TouchControl : MonoBehaviour {
                 if (turret) {
                     spawnMenu.transform.position = turret.transform.position;
                     spawnMenu.ShowTurretMenu(turret);
-					GameObject rangeDisplay = turret.GetComponent<TurretBase>().rangeDisplay;
+                    GameObject rangeDisplay = turret.GetComponent<TurretBase>().rangeDisplay;
                 }
             }
         }
