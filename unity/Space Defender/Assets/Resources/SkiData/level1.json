@@ -5,6 +5,7 @@
         {
             "waveDuring":100,
             "spawnPointCount":1,
+			"terrain":"Level1T",
             "spawnPoints":[
 				{
                     "position":[-800,0,-500],
