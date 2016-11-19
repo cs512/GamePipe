@@ -22,7 +22,7 @@ public class TouchControl : MonoBehaviour {
     }
 
     void Start() {
-        hexGrid.SetBuilding(new Vector3(165.8f, 0f, 60f), null);
+        //hexGrid.SetBuilding(new Vector3(165.8f, 0f, 60f), null);
         enableTouch = true;
     }
 
