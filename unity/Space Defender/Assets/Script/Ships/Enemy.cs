@@ -5,35 +5,27 @@ using System.Collections.Generic;
 
 public abstract class Enemy : MonoBehaviour, Victim, Killer {
 
-    private Transform target;
-    public float speed;
-    private float oldSpeed;
-    public float damage;
-    public float health;
-    public float cost;
+    public Transform target;
+    public float speed = 100f;
+    public float oldSpeed = 0;
+    public float damage = 1f;
+    public float health = 10f;
+    public float cost = 25f;
     public GameObject explosion;
-    public int fireInterval;
+    public int fireInterval = 2000;
     public Transform currentTarget = null;
     public Victim currentVictim = null;
-    public float range;
+    public float range = 300f;
     public GameObject shot;
     public Transform shotSpawn;
     public Slider healthSlider;
     public int flag = 0;//0--target source planet 1--target turret
     public int setPosition = 0;//0--first time 1-- 
 
-    //ship patrol
-    public object[] points;
-    private int destPoint = 0;
-    private Vector3 destination;
-    private int patrolMode;
-
-    enum Patrol { Base, Corner, Circle };
-
     private float radius;
     private float height;
     private float timeCounter = 0;
-    private float maxHealth;
+    public float maxHealth;
     
     float stopTime;
     float moveTime;
@@ -42,61 +34,75 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     int total_frame;
     float timeCounter1;
     float timeCounter2;
-    
-    private Vector3 nextPathNode;
-    private Vector3 sourceTarget;
-    private Vector3 turretTarget;
-    private float framDist;
-    private float turretRadius;
-    private float turretAngle;
-	private bool isSilenced = false;
-	private float silenceTime = 0;
-	private float slowTime = 0;
+
+    public Vector3 nextPathNode;
+    public Vector3 sourceTarget;
+    public Vector3 turretTarget;
+    public float framDist;
+    public float turretRadius;
+    public float turretAngle;
+    public bool isSilenced = false;
+    public float silenceTime = 0;
+    public float slowTime = 0;
 
     public int GetFireInterval() {
         return fireInterval;
     }
 
     // Use this for initialization
-    void Start() {
-        oldSpeed = speed;
+
+    public void Start() {
+        oldSpeed = speed; // slow
         this.SetUpDefaultAttributions();
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.enemyRegisteVictim(this);
         dispatcher.enemyRegisteKiller(this);
 
-        //ship patrol
-        patrolMode = (int)Patrol.Base;   //switch patrol mode
-        points = new object[4];
-        SetPoints(target, points);
-        radius = 200f;
-        height = this.transform.position.y;
-
-        if (patrolMode == (int)Patrol.Corner)
-            GotoNextPoint();
-        else if (patrolMode == (int)Patrol.Base)
-            destination = target.position;
-        else if (patrolMode == (int)Patrol.Circle)
-            destination = target.position;
-
         float x = target.position.x;
         float z = target.position.z;
         sourceTarget = new Vector3(x, this.transform.localPosition.y, z);
         
-        maxHealth = health;
+        maxHealth = health; // slider
         InvokeRepeating("Forwards", 0f, 0.05f);
         InvokeRepeating("RecoverSpeed", 0f, 2f);
+        SetAbility();
     }
 
-	void Update() {
+	public void Update() {
 		RecoverFromSilence();
 		RecoverFromSlow();
 	}
+    
+    public void SetAbility()
+    {
 
+    }
+
+    public void SetOldSpeed(float curSpeed){
+        oldSpeed = curSpeed;
+    }
+    
+    public void SetMaxHealth(float curHealth){
+        maxHealth = curHealth;
+    }
+        
+    
     public void RecoverSpeed() {
 		if(isSilenced)
 			return;
         speed = oldSpeed;
+    }
+
+    public void RecoverHealth()
+    {
+        if (health >= maxHealth)
+            return;
+        health += 100f;
+        print("add blood:" + health);
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
     }
 
     public void Forwards() {
@@ -172,7 +178,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
 		silenceTime = 2.0f;
 	}
 
-	void RecoverFromSilence() {
+	public void RecoverFromSilence() {
 		if(!isSilenced)
 			return;
 		if(silenceTime <= 0) {
@@ -184,7 +190,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
 		}
 	}
 
-	void RecoverFromSlow() {
+	public void RecoverFromSlow() {
 		if(!isSilenced)
 			return;
 		if(slowTime <= 0 && speed < oldSpeed) {
@@ -210,7 +216,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         return;
     }
 
-   public void DestorySelf() {
+   public virtual void DestorySelf() {
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         ScoreBoard sc = GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>();
         sc.LoseFund(-this.cost);
@@ -297,7 +303,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         }
     }
 
-    public void ShotSpawn() {
+    public virtual void ShotSpawn() {
         (Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject).GetComponent<EnemyBullet>().setTarget(currentTarget);
     }
 
@@ -305,29 +311,5 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
         return GetInstanceID();
     }
 
-    void GotoNextPoint() {
-        // Returns if no points have been set up
-        if (points.Length == 0)
-            return;
-
-        // Set the agent to go to the currently selected destination.
-
-        destination = (Vector3)points[destPoint];
-
-        // Choose the next point in the array as the destination,
-        // cycling to the start if necessary.
-        destPoint = (destPoint + 1) % points.Length;
-    }
-
-    static public void SetPoints(Transform target, object[] points) {
-        float x = target.position.x;
-        float y = target.position.y;
-        float z = target.position.z;
-
-        points[0] = new Vector3(x - 150, y, z - 150);
-        points[1] = new Vector3(x + 150, y, z - 150);
-        points[2] = new Vector3(x + 150, y, z + 150);
-        points[3] = new Vector3(x - 150, y, z + 150);
-    }
 
 }
