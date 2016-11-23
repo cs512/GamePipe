@@ -33,6 +33,18 @@ public class HexGrid : MonoBehaviour {
 
     void Start() {
         hexMesh.Triangulate(cells);
+        UnbuildablePathCheck();
+    }
+
+    public void UnbuildablePathCheck()
+    {
+        foreach (HexCell cell in cells)
+        {
+            if (!IsBuildable(cell.transform.position))
+            {
+                ColorCell(cell, Color.magenta);
+            }
+        }
     }
 
     public void ColorCell(Vector3 position, Color color) {
@@ -62,6 +74,7 @@ public class HexGrid : MonoBehaviour {
             int count = 0;
             Vector3 center = cell.transform.position;
             List<Vector3> cornerPoint = new List<Vector3>();
+            cornerPoint.Add(center);
             Vector3 v1 = center + HexMetrics.GetFirstSolidCorner(HexDirection.NE);
             cornerPoint.Add(v1);
             Vector3 v2 = center + HexMetrics.GetFirstSolidCorner(HexDirection.E);
@@ -75,9 +88,9 @@ public class HexGrid : MonoBehaviour {
             Vector3 v6 = center + HexMetrics.GetFirstSolidCorner(HexDirection.NW);
             cornerPoint.Add(v6);
             foreach (Vector3 point in cornerPoint) {
-                Ray ray = Camera.main.ScreenPointToRay(point);
+                Debug.Log(point);
                 RaycastHit hit;
-                if (Physics.Raycast(point, -Vector3.up, out hit, 300)) {
+                if (Physics.Raycast(point, -Vector3.up, out hit, 50)) {
                     Debug.Log(hit.collider.gameObject.name);
                     if (hit.collider.gameObject.name == "level_geometry") {
                         count++;
@@ -85,7 +98,7 @@ public class HexGrid : MonoBehaviour {
                 }
             }
             Debug.Log(count);
-            if (count <= 2) {
+            if (count == 0) {
                 return true;
             } else {
                 return false;

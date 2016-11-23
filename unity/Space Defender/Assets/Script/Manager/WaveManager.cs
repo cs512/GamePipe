@@ -62,6 +62,9 @@ public class WaveManager : MonoBehaviour {
             Destroy(eb);
         }
         this.ebs = new List<GameObject>();
+        if (gameMode == 1) {
+            GameObject AStar = Resources.Load("Prefabs/tera/"+level.terrain, typeof(GameObject)) as GameObject;
+        }
         if (n < level.waves.Count) {
             foreach (Level.Wave.SpawnPoint sp in level.waves[n].spawnPoints) {
                 GameObject go = Resources.Load("Prefabs/EnemySpawnPoint", typeof(GameObject)) as GameObject;

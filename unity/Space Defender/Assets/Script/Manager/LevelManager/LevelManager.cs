@@ -63,6 +63,7 @@ class LevelManager : MonoBehaviour {
                     (Resources.Load("SkiData/" + levelList["levels"][i]["fileName"])
                         as TextAsset).text);
                 level.turretMask = levelConfig["turretMask"].AsInt;
+                level.terrain = levelConfig["terrain"];
                 for (int j = 0; j < levelConfig["waveCount"].AsInt; ++j) {
                     var waveJSON = levelConfig["waves"][j];
                     Level.Wave wave = new Level.Wave();
