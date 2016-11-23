@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System;
+using System.Collections.Generic;
 
 public class HexGrid : MonoBehaviour {
 
@@ -32,6 +33,18 @@ public class HexGrid : MonoBehaviour {
 
     void Start() {
         hexMesh.Triangulate(cells);
+        UnbuildablePathCheck();
+    }
+
+    public void UnbuildablePathCheck()
+    {
+        foreach (HexCell cell in cells)
+        {
+            if (!IsBuildable(cell.transform.position))
+            {
+                ColorCell(cell, Color.magenta);
+            }
+        }
     }
 
     public void ColorCell(Vector3 position, Color color) {
@@ -58,12 +71,38 @@ public class HexGrid : MonoBehaviour {
         if (cell.HasTurret) {
             return false;
         } else {
-            foreach (HexDirection hd in Enum.GetValues(typeof(HexDirection))) {
-                if (cell.GetNeighbor(hd) && cell.GetNeighbor(hd).HasTurret) {
-                    return true;
+            int count = 0;
+            Vector3 center = cell.transform.position;
+            List<Vector3> cornerPoint = new List<Vector3>();
+            cornerPoint.Add(center);
+            Vector3 v1 = center + HexMetrics.GetFirstSolidCorner(HexDirection.NE);
+            cornerPoint.Add(v1);
+            Vector3 v2 = center + HexMetrics.GetFirstSolidCorner(HexDirection.E);
+            cornerPoint.Add(v2);
+            Vector3 v3 = center + HexMetrics.GetFirstSolidCorner(HexDirection.SE);
+            cornerPoint.Add(v3);
+            Vector3 v4 = center + HexMetrics.GetFirstSolidCorner(HexDirection.SW);
+            cornerPoint.Add(v4);
+            Vector3 v5 = center + HexMetrics.GetFirstSolidCorner(HexDirection.W);
+            cornerPoint.Add(v5);
+            Vector3 v6 = center + HexMetrics.GetFirstSolidCorner(HexDirection.NW);
+            cornerPoint.Add(v6);
+            foreach (Vector3 point in cornerPoint) {
+                Debug.Log(point);
+                RaycastHit hit;
+                if (Physics.Raycast(point, -Vector3.up, out hit, 50)) {
+                    Debug.Log(hit.collider.gameObject.name);
+                    if (hit.collider.gameObject.name == "level_geometry") {
+                        count++;
+                    }
                 }
             }
-            return false;
+            Debug.Log(count);
+            if (count == 0) {
+                return true;
+            } else {
+                return false;
+            }
         }
     }
 

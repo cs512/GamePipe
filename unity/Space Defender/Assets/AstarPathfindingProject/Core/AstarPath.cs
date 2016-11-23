@@ -26,7 +26,7 @@ public class AstarPath : MonoBehaviour {
 	 */
 	public static System.Version Version {
 		get {
-			return new System.Version(3, 8, 2);
+			return new System.Version(3, 8, 6);
 		}
 	}
 
@@ -42,10 +42,6 @@ public class AstarPath : MonoBehaviour {
 	 * updates.
 	 */
 	public static readonly string Branch = "master_Free";
-
-	/** Used by the editor to show some Pro specific stuff.
-	 * Note that setting this to true will not grant you any additional features */
-	public static readonly bool HasPro = false;
 
 	/** See Pathfinding.AstarData
 	 * \deprecated
@@ -446,9 +442,9 @@ public class AstarPath : MonoBehaviour {
 	 *  //Unregister from the delegate
 	 *  AstarPath.OnAwakeSettings -= ApplySettings;
 	 *
-	 *  //For example useMultithreading should not be changed after the Awake call
+	 *  //For example threadCount should not be changed after the Awake call
 	 *  //so here's the only place to set it if you create the component during runtime
-	 *  AstarPath.active.useMultithreading = true;
+	 *  AstarPath.active.threadCount = ThreadCount.One;
 	 * }
 	 * \endcode
 	 */
@@ -663,7 +659,10 @@ public class AstarPath : MonoBehaviour {
 		if (active != null) return active.GetTagNames();
 		else {
 			AstarPath a = GameObject.FindObjectOfType(typeof(AstarPath)) as AstarPath;
-			if (a != null) { active = a; return a.GetTagNames(); } else {
+			if (a != null) {
+				active = a;
+				return a.GetTagNames();
+			} else {
 				return new string[1] { "There is no AstarPath component in the scene" };
 			}
 		}
@@ -1140,16 +1139,15 @@ public class AstarPath : MonoBehaviour {
 		}
 	}
 
-	/** Forces graph updates to run.
-	 * This will force all graph updates to run immidiately. Or more correctly, it will block the Unity main thread until graph updates can be performed and then issue them.
+	/** Forces graph updates to complete in a single frame.
 	 * This will force the pathfinding threads to finish calculate the path they are currently calculating (if any) and then pause.
 	 * When all threads have paused, graph updates will be performed.
 	 * \warning Using this very often (many times per second) can reduce your fps due to a lot of threads waiting for one another.
 	 * But you probably wont have to worry about that.
 	 *
-	 * \note This is almost identical to FlushThreadSafeCallbacks, but added for more descriptive name.
+	 * \note This is almost identical to FlushWorkItems, but added for more descriptive name.
 	 * This function will also override any time limit delays for graph updates.
-	 * This is because graph updates are implemented using thread safe callbacks.
+	 * This is because graph updates are implemented using work items.
 	 * So calling this function will also call other thread safe callbacks (if any are waiting).
 	 *
 	 * Will not do anything if there are no graph updates queued (not even call other callbacks).
@@ -1157,8 +1155,13 @@ public class AstarPath : MonoBehaviour {
 	public void FlushGraphUpdates () {
 		if (IsAnyGraphUpdatesQueued) {
 			QueueGraphUpdates();
-			FlushWorkItems(true, true);
+			FlushWorkItems();
 		}
+	}
+
+	/** Forces work items to complete in a single frame */
+	public void FlushWorkItems () {
+		FlushWorkItemsInternal(true);
 	}
 
 	/** Make sure work items are executed.
@@ -1168,13 +1171,28 @@ public class AstarPath : MonoBehaviour {
 	 *              If false, then after this call there might still be work left to do.
 	 *
 	 * \see AddWorkItem
+	 *
+	 * \deprecated Use FlushWorkItems() instead or use FlushWorkItemsInternal if you really need to.
 	 */
-	public void FlushWorkItems (bool unblockOnComplete = true, bool block = false) {
+	[System.Obsolete("Use FlushWorkItems() instead or use FlushWorkItemsInternal if you really need to")]
+	public void FlushWorkItems (bool unblockOnComplete, bool block) {
 		BlockUntilPathQueueBlocked();
 		//Run tasks
 		PerformBlockingActions(block, unblockOnComplete);
 	}
 
+	/** Make sure work items are executed.
+	 * \param unblockOnComplete If true, pathfinding will be allowed to start running immediately after completing all work items.
+	 *
+	 * \warning This is an internal method. Unless you have a very good reason, you should probably not call it.
+	 *
+	 * \see AddWorkItem
+	 */
+	internal void FlushWorkItemsInternal (bool unblockOnComplete) {
+		BlockUntilPathQueueBlocked();
+		// Run tasks
+		PerformBlockingActions(true, unblockOnComplete);
+	}
 	#endregion
 
 	/** Schedules graph updates internally */
@@ -1383,7 +1401,9 @@ public class AstarPath : MonoBehaviour {
 	 * \warning Using this very often (many times per second) can reduce your fps due to a lot of threads waiting for one another.
 	 * But you probably wont have to worry about that
 	 *
-	 * \note This is almost (note almost) identical to FlushGraphUpdates, but added for more appropriate name.
+	 * \note This is almost (note almost) identical to FlushGraphUpdates, but added for more descriptive name.
+	 *
+	 * Will not do anything if there are no thread safe callbacks waiting to run.
 	 */
 	public void FlushThreadSafeCallbacks () {
 		//No callbacks? why wait?
@@ -1650,7 +1670,7 @@ public class AstarPath : MonoBehaviour {
 		BlockUntilPathQueueBlocked();
 
 		euclideanEmbedding.dirty = false;
-		FlushWorkItems(false, true);
+		FlushWorkItemsInternal(false);
 
 		//Don't accept any more path calls to this AstarPath instance.
 		//This will cause all eventual multithreading threads to exit
@@ -2059,7 +2079,7 @@ public class AstarPath : MonoBehaviour {
 		GraphModifier.TriggerEvent(GraphModifier.EventType.PostScan);
 
 		try {
-			FlushWorkItems(false, true);
+			FlushWorkItemsInternal(false);
 		} catch (System.Exception e) {
 			Debug.LogException(e);
 		}
@@ -2766,17 +2786,24 @@ public class AstarPath : MonoBehaviour {
 
 			NNInfo nnInfo;
 			if (fullGetNearestSearch) {
+				// Slower nearest node search
+				// this will try to find a node which is suitable according to the constraint
 				nnInfo = graph.GetNearestForce(position, constraint);
 			} else {
+				// Fast nearest node search
+				// just find a node close to the position without using the constraint that much
+				// (unless that comes essentially 'for free')
 				nnInfo = graph.GetNearest(position, constraint);
 			}
 
 			GraphNode node = nnInfo.node;
 
+			// No node found in this graph
 			if (node == null) {
 				continue;
 			}
 
+			// Distance to the closest point on the node from the requested position
 			float dist = ((Vector3)nnInfo.clampedPosition-position).magnitude;
 
 			if (prioritizeGraphs && dist < prioritizeGraphsLimit) {
@@ -2786,6 +2813,7 @@ public class AstarPath : MonoBehaviour {
 				nearestGraph = i;
 				break;
 			} else {
+				// Choose the best node found so far
 				if (dist < minDist) {
 					minDist = dist;
 					nearestNode = nnInfo;

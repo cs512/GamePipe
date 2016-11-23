@@ -53,6 +53,9 @@ namespace Pathfinding {
 		}
 	}
 
+	/** Connects two TriangleMeshNodes (recast/navmesh graphs) as if they had shared an edge.
+	 * \note Usually you do not want to use this type of link, you want to use NodeLink2 or NodeLink (sorry for the not so descriptive names).
+	 */
 	[AddComponentMenu("Pathfinding/Link3")]
 	[HelpURL("http://arongranberg.com/astar/docs/class_pathfinding_1_1_node_link3.php")]
 	public class NodeLink3 : GraphModifier {
@@ -140,7 +143,6 @@ namespace Pathfinding {
 		}
 
 		public override void OnGraphsPostUpdate () {
-			//if (connectedNode1 != null && connectedNode2 != null) {
 			if (!AstarPath.active.isScanning) {
 				if (connectedNode1 != null && connectedNode1.Destroyed) {
 					connectedNode1 = null;
@@ -161,7 +163,7 @@ namespace Pathfinding {
 		protected override void OnEnable () {
 			base.OnEnable();
 
-			if (AstarPath.active != null && AstarPath.active.astarData != null && AstarPath.active.astarData.pointGraph != null) {
+			if (Application.isPlaying && AstarPath.active != null && AstarPath.active.astarData != null && AstarPath.active.astarData.pointGraph != null) {
 				OnGraphsPostUpdate();
 			}
 		}

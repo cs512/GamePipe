@@ -61,10 +61,14 @@
      <Compile Include="Assets\AstarPathfindingProject\Editor\ModifierEditors\RaycastModifierEditor.cs" />
      <Compile Include="Assets\AstarPathfindingProject\Editor\ModifierEditors\SmoothModifierEditor.cs" />
      <Compile Include="Assets\AstarPathfindingProject\Editor\SeekerEditor.cs" />
+     <Compile Include="Assets\Movinarc\PackageUninstaller\Editor\PUManager.cs" />
+     <Compile Include="Assets\Movinarc\PackageUninstaller\Editor\PUSelection.cs" />
+     <Compile Include="Assets\Movinarc\PackageUninstaller\Editor\TreeNode.cs" />
      <Compile Include="Assets\Script\GUI\HexGrid\Editor\HexCoordinatesDrawer.cs" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.shader" />
      <None Include="Assets\AstarPathfindingProject\Plugins\DotNetZip\DotNetZipLicense.txt" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\Projector Multiply.shader" />
+     <None Include="Assets\Movinarc\PackageUninstaller\README.txt" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\DiffuseAlwaysVisible.shader" />
      <None Include="Assets\AstarPathfindingProject\Plugins\dependencies.txt" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\_Example Scenes.txt" />
@@ -118,12 +122,17 @@
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
  </Reference>
+ <Reference Include="SharpCompress.3.5">
+ <HintPath>/Users/liangruiwen/Desktop/new526/GamePipe/unity/Space Defender/Assets/Movinarc/PackageUninstaller/Editor/SharpCompress.3.5.dll</HintPath>
+ </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
       <Project>{0E529BC0-C473-6895-04BF-90A617C2F387}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{8BEBBDD9-AB20-AB52-2C7C-B318659E42F0}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+    <ProjectReference Include="Assembly-CSharp-Editor-firstpass.csproj">
+      <Project>{C8A7C6A1-99E1-E53A-346E-5960822A990D}</Project>      <Name>Assembly-CSharp-Editor-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

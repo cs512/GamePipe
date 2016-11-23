@@ -71,7 +71,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 4000014032179664}
   - 33: {fileID: 33000011082948150}
-  - 64: {fileID: 64000010948455644}
   - 23: {fileID: 23000012915943522}
   m_Layer: 0
   m_Name: Range
@@ -222,18 +221,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &64000010948455644
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013150659788}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 0
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!82 &82000011182265852
 AudioSource:
   m_ObjectHideFlags: 1
@@ -324,7 +311,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   level: 0
   showRange: 1
-  range: 180
+  range: 300
   turretCost: 125
   health: 30
   explosion: {fileID: 1000012970080796, guid: 5164400c8315b422cb8799f814648cd0, type: 2}
