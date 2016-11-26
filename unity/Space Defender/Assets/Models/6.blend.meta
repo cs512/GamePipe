@@ -1,15 +1,30 @@
 fileFormatVersion: 2
-guid: 3522566665b4548e9925c2c5b49d8d21
-timeCreated: 1478974383
+guid: 2485df99cad8a5a49bfa0c382460e5fd
+timeCreated: 1480118369
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Plane_MeshPart0
+    100004: Plane_MeshPart1
+    100006: Plane_MeshPart2
     400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Plane
+    400002: Plane_MeshPart0
+    400004: Plane_MeshPart1
+    400006: Plane_MeshPart2
+    2300000: Plane_MeshPart0
+    2300002: Plane_MeshPart1
+    2300004: Plane_MeshPart2
+    2300006: //RootNode
+    3300000: Plane_MeshPart0
+    3300002: Plane_MeshPart1
+    3300004: Plane_MeshPart2
+    3300006: //RootNode
+    4300000: Plane_MeshPart0
+    4300002: Plane_MeshPart1
+    4300004: Plane_MeshPart2
+    4300006: Plane
     7400000: Default Take
     9500000: //RootNode
   materials:

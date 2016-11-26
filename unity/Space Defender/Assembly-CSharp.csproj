@@ -173,6 +173,9 @@
      <Compile Include="Assets\Script\Ships\AstarAI.cs" />
      <Compile Include="Assets\Script\Ships\Enemy.cs" />
      <Compile Include="Assets\Script\Ships\Naga.cs" />
+     <Compile Include="Assets\Script\Ships\NagaPowerful.cs" />
+     <Compile Include="Assets\Script\Ships\NagaRepair.cs" />
+     <Compile Include="Assets\Script\Ships\NagaSplit.cs" />
      <Compile Include="Assets\Script\Ships\UnitGoal.cs" />
      <Compile Include="Assets\Script\Testing\TurretActionExample.cs" />
      <Compile Include="Assets\Script\Turret\DoubleBarrels.cs" />

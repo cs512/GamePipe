@@ -91,6 +91,9 @@
  <Reference Include="Pathfinding.JsonFx">
  <HintPath>/Users/liangruiwen/Desktop/new526/GamePipe/unity/Space Defender/Assets/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
  </Reference>
+ <Reference Include="SharpCompress.3.5">
+ <HintPath>/Users/liangruiwen/Desktop/new526/GamePipe/unity/Space Defender/Assets/Movinarc/PackageUninstaller/Editor/SharpCompress.3.5.dll</HintPath>
+ </Reference>
  <Reference Include="ICSharpCode.SharpZipLib">
  <HintPath>/Users/liangruiwen/Desktop/new526/GamePipe/unity/Space Defender/Assets/plugins/ICSharpCode.SharpZipLib.dll</HintPath>
  </Reference>
@@ -102,9 +105,6 @@
  </Reference>
  <Reference Include="UnityEditor.OSXStandalone.Extensions">
  <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
- </Reference>
- <Reference Include="SharpCompress.3.5">
- <HintPath>/Users/liangruiwen/Desktop/new526/GamePipe/unity/Space Defender/Assets/Movinarc/PackageUninstaller/Editor/SharpCompress.3.5.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

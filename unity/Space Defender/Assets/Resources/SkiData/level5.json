@@ -1,6 +1,7 @@
 {
     "waveCount":1,
     "turretMask": 3,
+	"terrain": "Level5T",
     "waves":[
         {
             "waveDuring":20,
