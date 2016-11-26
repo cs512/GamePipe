@@ -1,11 +1,11 @@
 {
   "waveCount": 1,
   "turretMask": 15,
+  "terrain": "Level3T",
   "waves": [
     {
       "waveDuring": 15,
       "spawnPointCount": 2,
-      "terrain": "Level3T",
       "spawnPoints": [
         {
           "position": [ 950, 20, -420 ],

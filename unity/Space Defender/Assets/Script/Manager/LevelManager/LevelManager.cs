@@ -58,13 +58,10 @@ class LevelManager : MonoBehaviour {
                 }
                 this.levels.Add(level);
             
-            } else if (this.mode == 1) {
-                print(1);
-               
+            } else if (this.mode == 1) {   
                 var levelConfig = JSON.Parse(
                     (Resources.Load("SkiData/" + levelList["levels"][i]["fileName"])
                         as TextAsset).text);
-                print(2);
                 level.turretMask = levelConfig["turretMask"].AsInt;
                 level.terrain = levelConfig["terrain"];
                 print(levelList["levels"][i]["fileName"]);
@@ -85,9 +82,7 @@ class LevelManager : MonoBehaviour {
                     }
                     level.waves.Add(wave);
                 }
-                print(3);
                 this.skiLevels.Add(level);
-                print(4);
             }
         }
     }
