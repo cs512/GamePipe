@@ -5,10 +5,10 @@
         {
             "waveDuring":100,
             "spawnPointCount":1,
-			"terrain":"Level1T",
+			"terrain":"Level1T",//only one entrance
             "spawnPoints":[
 				{
-                    "position":[-800,0,-500],
+                    "position":[-950,20,-560],
                     "prefab":"Unit",
                     "interval":2.0,
                     "number":20,

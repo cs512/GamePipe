@@ -1,33 +1,27 @@
 {
-    "waveCount":1,
-    "turretMask": 3,
-    "waves":[
+  "waveCount": 2,
+  "turretMask": 15,
+  "waves": [
+    {
+      "waveDuring": 15,
+      "spawnPointCount": 2,
+      "terrain": "Level3T", //2 entrances
+      "spawnPoints": [
         {
-            "waveDuring":20,
-            "spawnPointCount":3,
-            "spawnPoints":[
-                {
-                    "position":[-820,20,-450],
-                    "prefab":"Unit",
-                    "interval":7.0,
-                    "number":2,
-                    "speed":3.0,
-                },
-				{
-                    "position":[-800,20,-500],
-                    "prefab":"Unit",
-                    "interval":6.0,
-                    "number":2,
-                    "speed":3.0,
-                },
-				{
-                    "position":[-780,20,-400],
-                    "prefab":"Unit",
-                    "interval":8.0,
-                    "number":3,
-                    "speed":3.0,
-                }
-            ],
+          "position": [ 950, 20, -420 ],
+          "prefab": "Naga",
+          "interval": 5.0,
+          "number": 1,
+          "speed": 3.0
+        },
+        {
+          "position": [ 900, 20, 540 ],
+          "prefab": "Naga",
+          "interval": 5.0,
+          "number": 1,
+          "speed": 3.0
         }
-    ],
+      ]
+    }
+  ]
 }
