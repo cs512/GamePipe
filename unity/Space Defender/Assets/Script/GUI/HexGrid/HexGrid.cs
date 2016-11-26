@@ -42,7 +42,7 @@ public class HexGrid : MonoBehaviour {
         {
             if (!IsBuildable(cell.transform.position))
             {
-                ColorCell(cell, Color.magenta);
+                ColorCell(cell, Color.red);
             }
         }
     }
