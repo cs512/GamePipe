@@ -59,11 +59,15 @@ class LevelManager : MonoBehaviour {
                 this.levels.Add(level);
             
             } else if (this.mode == 1) {
+                print(1);
+               
                 var levelConfig = JSON.Parse(
                     (Resources.Load("SkiData/" + levelList["levels"][i]["fileName"])
                         as TextAsset).text);
+                print(2);
                 level.turretMask = levelConfig["turretMask"].AsInt;
                 level.terrain = levelConfig["terrain"];
+                print(levelList["levels"][i]["fileName"]);
                 for (int j = 0; j < levelConfig["waveCount"].AsInt; ++j) {
                     var waveJSON = levelConfig["waves"][j];
                     Level.Wave wave = new Level.Wave();
@@ -72,6 +76,7 @@ class LevelManager : MonoBehaviour {
                         var spJSON = waveJSON["spawnPoints"][k];
                         Level.Wave.SpawnPoint sp = new Level.Wave.SpawnPoint();
                         sp.interval = spJSON["interval"].AsFloat;
+                        print(spJSON);
                         sp.number = spJSON["number"].AsInt;
                         sp.prefab = spJSON["prefab"];
                         sp.speed = spJSON["speed"].AsFloat;
@@ -80,7 +85,9 @@ class LevelManager : MonoBehaviour {
                     }
                     level.waves.Add(wave);
                 }
+                print(3);
                 this.skiLevels.Add(level);
+                print(4);
             }
         }
     }

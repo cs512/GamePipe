@@ -7,6 +7,6 @@
         {"name":"Level 3", "fileName":"level3"},
         {"name":"Level 4", "fileName":"level4"},
         {"name":"Level 5", "fileName":"level5"},
-        {"name":"Level 6", "fileName":"level6"},
-    ],
+        {"name":"Level 6", "fileName":"level6"}
+    ]
 }

@@ -1,27 +1,22 @@
 {
-    "waveCount":1,
-    "turretMask": 3,
-    "waves":[
-      {
-        "waveDuring": 20,
-        "spawnPointCount": 2,
-        "terrain": "Level2T", //two enrances
-        "spawnPoints": [
-          {
-            "position": [ 950, 20, -50 ],
-            "prefab": "Unit",
-            "interval": 7.0,
-            "number": 2,
-            "speed": 3.0
-          },
-          {
-            "position": [ 950, 20, -560 ],
-            "prefab": "Unit",
-            "interval": 6.0,
-            "number": 2,
-            "speed": 3.0
-          }
-        ]
-      }
-    ],
+	"waveCount": 1,
+	"turretMask": 3,
+	"waves": [{
+		"waveDuring": 20,
+		"spawnPointCount": 2,
+		"terrain": "Level2T",
+		"spawnPoints": [{
+			"position": [950, 20, -50],
+			"prefab": "Unit",
+			"interval": 7.0,
+			"number": 2,
+			"speed": 3.0
+		}, {
+			"position": [950, 20, -560],
+			"prefab": "Unit",
+			"interval": 6.0,
+			"number": 2,
+			"speed": 3.0
+		}]
+	}]
 }
