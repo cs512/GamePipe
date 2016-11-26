@@ -88,11 +88,10 @@ public class HexGrid : MonoBehaviour {
             Vector3 v6 = center + HexMetrics.GetFirstSolidCorner(HexDirection.NW);
             cornerPoint.Add(v6);
             foreach (Vector3 point in cornerPoint) {
-                Debug.Log(point);
                 RaycastHit hit;
                 if (Physics.Raycast(point, -Vector3.up, out hit, 50)) {
                     Debug.Log(hit.collider.gameObject.name);
-                    if (hit.collider.gameObject.name == "level_geometry") {
+                    if (hit.collider.gameObject.tag == "Terrain") {
                         count++;
                     }
                 }
