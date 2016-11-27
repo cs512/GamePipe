@@ -64,6 +64,7 @@ public class WaveManager : MonoBehaviour {
         this.ebs = new List<GameObject>();
         if (gameMode == 1) {
             GameObject AStar = Resources.Load("Prefabs/tera/"+level.terrain, typeof(GameObject)) as GameObject;
+            Instantiate(AStar);
         }
         if (n < level.waves.Count) {
             foreach (Level.Wave.SpawnPoint sp in level.waves[n].spawnPoints) {
