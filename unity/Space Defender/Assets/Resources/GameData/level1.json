@@ -8,21 +8,21 @@
             "spawnPoints":[
                 {
                     "position":[-800,44,120],
-                    "prefab":"Naga",
+                    "prefab":"Ships/M_AmarrCrusier",
                     "interval":7.0,
                     "number":2,
                     "speed":3.0,
                 },
 				{
                     "position":[-700,44,-60],
-                    "prefab":"Naga",
+                    "prefab":"Ships/L_GallenteBattleCrusier",
                     "interval":6.0,
                     "number":2,
                     "speed":3.0,
                 },
 				{
                     "position":[-625,44,200],
-                    "prefab":"Naga",
+                    "prefab":"Ships/XL_CaldariDreadnought",
                     "interval":8.0,
                     "number":3,
                     "speed":3.0,
