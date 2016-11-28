@@ -167,7 +167,7 @@
      <Compile Include="Assets\Script\Movement\BulletMover.cs" />
      <Compile Include="Assets\Script\Movement\EnemyBullet.cs" />
      <Compile Include="Assets\Script\Movement\EnemyMovement.cs" />
-     <Compile Include="Assets\Script\Movement\Laser.cs" />
+     <Compile Include="Assets\Script\Movement\LaserBullet.cs" />
      <Compile Include="Assets\Script\Movement\RandomFly.cs" />
      <Compile Include="Assets\Script\Movement\TurretBullet.cs" />
      <Compile Include="Assets\Script\Scene\loadSceneSelection.cs" />
@@ -177,9 +177,14 @@
      <Compile Include="Assets\Script\Ships\NagaPowerful.cs" />
      <Compile Include="Assets\Script\Ships\NagaRepair.cs" />
      <Compile Include="Assets\Script\Ships\NagaSplit.cs" />
+     <Compile Include="Assets\Script\Ships\Powerful.cs" />
+     <Compile Include="Assets\Script\Ships\Repair.cs" />
+     <Compile Include="Assets\Script\Ships\Split.cs" />
+     <Compile Include="Assets\Script\Ships\TestEnemy.cs" />
+     <Compile Include="Assets\Script\Ships\TestNaga.cs" />
      <Compile Include="Assets\Script\Ships\UnitGoal.cs" />
-     <Compile Include="Assets\Script\Testing\TurretActionExample.cs" />
      <Compile Include="Assets\Script\Turret\DoubleBarrels.cs" />
+     <Compile Include="Assets\Script\Turret\LaserTurret.cs" />
      <Compile Include="Assets\Script\Turret\ShieldGenerator.cs" />
      <Compile Include="Assets\Script\Turret\SilcenceTurret.cs" />
      <Compile Include="Assets\Script\Turret\SingleBarrel.cs" />
