@@ -95,6 +95,7 @@
     <None Include="Assets\AstarPathfindingProject\Readme_upgrading.txt" />
     <None Include="Assets\AstarPathfindingProject\link.xml" />
     <None Include="Assets\Models\Materials\VertexColors.shader" />
+    <None Include="Assets\Models\Materials\Wireframe.shader" />
     <None Include="Assets\Movinarc\PackageUninstaller\README.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
