@@ -306,8 +306,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41bd6768056c9544aef632eb04cfaad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireInterval: 1500
-  rotateSpeed: 5
+  fireInterval: 800
+  rotateSpeed: 20
   currentTarget: {fileID: 0}
   level: 0
   showRange: 1
