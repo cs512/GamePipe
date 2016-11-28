@@ -110,7 +110,7 @@ GameObject:
   - 114: {fileID: 114000010909464688}
   - 143: {fileID: 143000011771080638}
   m_Layer: 0
-  m_Name: XL_CaldariDreadnought
+  m_Name: L_Powerful
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -230,8 +230,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013666554212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 196, y: 0, z: 783}
-  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
+  m_LocalPosition: {x: -387, y: 0, z: 783}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013987598848}
