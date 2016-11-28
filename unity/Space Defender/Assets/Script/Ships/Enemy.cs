@@ -154,7 +154,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
             healthSlider.value = health / maxHealth * 100;
     }
 
-    void OnTriggerEnter(Collider colliderObject) {
+    public virtual void OnTriggerEnter(Collider colliderObject) {
         if (colliderObject.tag == "Planet") {
             Victim victim = colliderObject.gameObject.GetComponent<SourcePlanet>();
             victim.DealDamage(this.damage);
