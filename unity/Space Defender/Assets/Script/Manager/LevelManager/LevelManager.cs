@@ -129,17 +129,16 @@ class LevelManager : MonoBehaviour {
     public bool JumpToNextLevel() {
         if (this.mode == 0)
         {
-            if (this.level+1 >= this.levels.Count)
+            if (this.level >= this.levels.Count)
                 return false;
             else
             {
                 this.JumpLevel(this.level+1);
-                return true;
             }
         }
         else
         {
-            if (this.skiLevel+1 >= this.skiLevels.Count)
+            if (this.skiLevel >= this.skiLevels.Count)
                 return false;
             else
             {
