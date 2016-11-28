@@ -9,10 +9,10 @@ public class loadSceneSelection : MonoBehaviour {
         } else if (gameObject.name == "tutorial") {
             SceneManager.LoadScene("Tutorial");
         } else if (gameObject.name == "Story") {
-            Toolbox.Instance.GetComponent<LevelManager>().LoadData(1);
-            SceneManager.LoadScene("levelSelectionSki");
+            Toolbox.Instance.GetComponent<LevelManager>().SetMode(1);
+            GameObject.Find("Main Camera").GetComponent<GameInitializator>().PerformSenceTransit();
         } else if(gameObject.name == "Ski"){
-            Toolbox.Instance.GetComponent<LevelManager>().LoadData(0);
+            Toolbox.Instance.GetComponent<LevelManager>().SetMode(0);
             Toolbox.Instance.GetComponent<LevelManager>().JumpLevel(1);
         } else if (gameObject.name == "level1Ski") {
             Toolbox.Instance.GetComponent<LevelManager>().JumpLevelSki(1);
