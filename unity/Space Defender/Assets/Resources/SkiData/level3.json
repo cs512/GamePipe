@@ -9,14 +9,14 @@
       "spawnPoints": [
         {
           "position": [ 950, 20, -420 ],
-          "prefab": "Naga",
+          "prefab": "Unit",
           "interval": 5.0,
           "number": 1,
           "speed": 3.0
         },
         {
           "position": [ 900, 20, 540 ],
-          "prefab": "Naga",
+          "prefab": "Unit",
           "interval": 5.0,
           "number": 1,
           "speed": 3.0
