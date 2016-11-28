@@ -8,6 +8,8 @@ public class SilcenceTurret : TurretBase {
 	public GameObject shot;
 	public List<GameObject> shootEnemys = new List<GameObject>();
 	public int maxTarget;
+	public float damage = 10.0f;
+	public float durationTime = 2.0f;
 
 	public override void Attack(Dictionary<int, Victim> victims) {
 		Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
@@ -37,7 +39,9 @@ public class SilcenceTurret : TurretBase {
 	public void SilenceTarget(GameObject targetObj) {
 		Enemy target = targetObj.GetComponent<Enemy>();
 		target.Silence();
-		(Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject).GetComponent<Laser>().SetTarget(shotSpawn, targetObj.transform);
+		(Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject).GetComponent<LaserBullet>().SetTarget(
+			shotSpawn, targetObj.transform, currentVictim, damage, durationTime
+		);
 
 	}
 

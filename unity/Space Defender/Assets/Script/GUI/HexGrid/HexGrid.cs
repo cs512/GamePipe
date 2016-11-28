@@ -42,9 +42,11 @@ public class HexGrid : MonoBehaviour {
         {
             if (!IsBuildable(cell.transform.position))
             {
-                ColorCell(cell, Color.red);
+                cell.inner = new Color(1, 0, 1, 0.3f);
+                cell.color = new Color(1, 1, 1, 0.5f);
             }
         }
+        hexMesh.Triangulate(cells);
     }
 
     public void ColorCell(Vector3 position, Color color) {
@@ -58,7 +60,7 @@ public class HexGrid : MonoBehaviour {
     }
 
     private void ColorCell(HexCell cell, Color color) {
-        //print(color);
+        //print(color);W
         cell.color = color;
         hexMesh.Triangulate(cells);
     }
@@ -68,41 +70,71 @@ public class HexGrid : MonoBehaviour {
         HexCoordinates coordinates = HexCoordinates.FromPosition(position);
         int index = coordinates.X + coordinates.Z * width + coordinates.Z / 2;
         HexCell cell = cells[index];
-        if (cell.HasTurret) {
-            return false;
-        } else {
-            int count = 0;
-            Vector3 center = cell.transform.position;
-            List<Vector3> cornerPoint = new List<Vector3>();
-            cornerPoint.Add(center);
-            Vector3 v1 = center + HexMetrics.GetFirstSolidCorner(HexDirection.NE);
-            cornerPoint.Add(v1);
-            Vector3 v2 = center + HexMetrics.GetFirstSolidCorner(HexDirection.E);
-            cornerPoint.Add(v2);
-            Vector3 v3 = center + HexMetrics.GetFirstSolidCorner(HexDirection.SE);
-            cornerPoint.Add(v3);
-            Vector3 v4 = center + HexMetrics.GetFirstSolidCorner(HexDirection.SW);
-            cornerPoint.Add(v4);
-            Vector3 v5 = center + HexMetrics.GetFirstSolidCorner(HexDirection.W);
-            cornerPoint.Add(v5);
-            Vector3 v6 = center + HexMetrics.GetFirstSolidCorner(HexDirection.NW);
-            cornerPoint.Add(v6);
-            foreach (Vector3 point in cornerPoint) {
-                RaycastHit hit;
-                if (Physics.Raycast(point, -Vector3.up, out hit, 50)) {
-                    Debug.Log(hit.collider.gameObject.name);
-                    if (hit.collider.gameObject.tag == "Terrain") {
-                        count++;
+
+        Boolean isSkiMode = Toolbox.FindObjectOfType<LevelManager>().GetMode() != 0;
+        if (!isSkiMode)
+        {
+            if (cell.HasTurret)
+            {
+                return false;
+            }
+            else
+            {
+                foreach (HexDirection hd in Enum.GetValues(typeof(HexDirection)))
+                {
+                    if (cell.GetNeighbor(hd) && cell.GetNeighbor(hd).HasTurret)
+                    {
+                        return true;
                     }
                 }
-            }
-            Debug.Log(count);
-            if (count == 0) {
-                return true;
-            } else {
                 return false;
             }
         }
+        else
+        {
+            if (cell.HasTurret)
+            {
+                return false;
+            }
+            else
+            {
+                int count = 0;
+                Vector3 center = cell.transform.position;
+                List<Vector3> cornerPoint = new List<Vector3>();
+                cornerPoint.Add(center);
+                Vector3 v1 = center + HexMetrics.GetFirstSolidCorner(HexDirection.NE);
+                cornerPoint.Add(v1);
+                Vector3 v2 = center + HexMetrics.GetFirstSolidCorner(HexDirection.E);
+                cornerPoint.Add(v2);
+                Vector3 v3 = center + HexMetrics.GetFirstSolidCorner(HexDirection.SE);
+                cornerPoint.Add(v3);
+                Vector3 v4 = center + HexMetrics.GetFirstSolidCorner(HexDirection.SW);
+                cornerPoint.Add(v4);
+                Vector3 v5 = center + HexMetrics.GetFirstSolidCorner(HexDirection.W);
+                cornerPoint.Add(v5);
+                Vector3 v6 = center + HexMetrics.GetFirstSolidCorner(HexDirection.NW);
+                cornerPoint.Add(v6);
+                foreach (Vector3 point in cornerPoint)
+                {
+                    RaycastHit hit;
+                    if (Physics.Raycast(point + new Vector3(0, 50, 0), -Vector3.up, out hit, 50, 1 << 10))
+                    {
+                        Debug.Log(hit.collider.gameObject.name);
+                        count++;
+                    }
+                }
+                Debug.Log(count);
+                if (count == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        
     }
 
     public GameObject IsUpgradeable(Vector3 position) {
