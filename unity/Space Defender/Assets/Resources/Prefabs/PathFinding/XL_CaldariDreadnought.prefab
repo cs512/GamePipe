@@ -104,12 +104,11 @@ GameObject:
   - 54: {fileID: 54000012758347896}
   - 82: {fileID: 82000013105763360}
   - 23: {fileID: 23000011900030248}
-  - 33: {fileID: 33000012697562702}
   - 65: {fileID: 65000010278220396}
   - 114: {fileID: 114000011560942846}
-  - 143: {fileID: 143000012587585232}
   - 114: {fileID: 114000010571588456}
   - 114: {fileID: 114000010909464688}
+  - 143: {fileID: 143000011771080638}
   m_Layer: 0
   m_Name: XL_CaldariDreadnought
   m_TagString: Enemy
@@ -230,9 +229,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013666554212}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 200, y: 0, z: 20.7}
-  m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 196, y: 0, z: 783}
+  m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 4000013987598848}
@@ -351,7 +350,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_MotionVectors: 0
+  m_MotionVectors: 1
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
@@ -378,13 +377,6 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000011714340702}
-  m_Mesh: {fileID: 4300002, guid: 36044fc6f7be45146b40bd573d4f5e38, type: 3}
---- !u!33 &33000012697562702
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013666554212}
   m_Mesh: {fileID: 4300002, guid: 36044fc6f7be45146b40bd573d4f5e38, type: 3}
 --- !u!33 &33000012852179310
 MeshFilter:
@@ -730,7 +722,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 0
---- !u!143 &143000012587585232
+--- !u!143 &143000011771080638
 CharacterController:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -740,10 +732,10 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 812.4325
-  m_Radius: 1669.217
+  m_Height: 2
+  m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.3
+  m_StepOffset: 0.001
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
