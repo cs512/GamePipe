@@ -115,7 +115,8 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
 
     bool IsFacingTarget() {
 		RaycastHit[] hits;
-		hits = Physics.RaycastAll(transform.position, transform.forward, range);
+        Vector3 lowerPosition = new Vector3 (transform.position.x, 20, transform.position.z);
+        hits = Physics.RaycastAll(lowerPosition, transform.forward, range);
 		foreach(RaycastHit hit in hits) {
 			if(currentTarget == hit.transform){
 				return true;
