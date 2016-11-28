@@ -33,7 +33,10 @@ public class HexGrid : MonoBehaviour {
 
     void Start() {
         hexMesh.Triangulate(cells);
-        UnbuildablePathCheck();
+        Boolean isSkiMode = Toolbox.FindObjectOfType<LevelManager>().GetMode() != 0;
+        if (isSkiMode) {
+            UnbuildablePathCheck();
+        }
     }
 
     public void UnbuildablePathCheck()
@@ -42,7 +45,7 @@ public class HexGrid : MonoBehaviour {
         {
             if (!IsBuildable(cell.transform.position))
             {
-                cell.inner = new Color(1, 0, 1, 0.3f);
+                cell.inner = new Color(1, 0.8f, 0.016f, 0.2f);
                 cell.color = new Color(1, 1, 1, 0.5f);
             }
         }
