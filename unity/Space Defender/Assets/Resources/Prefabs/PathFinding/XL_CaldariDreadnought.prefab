@@ -608,6 +608,10 @@ MonoBehaviour:
   isSilenced: 0
   silenceTime: 0
   slowTime: 0
+  target: {fileID: 0}
+  targetPosition: {x: 0, y: 0, z: 0}
+  aiSpeed: 200
+  nextWaypointDistance: 3
 --- !u!114 &114000013544463980
 MonoBehaviour:
   m_ObjectHideFlags: 1
