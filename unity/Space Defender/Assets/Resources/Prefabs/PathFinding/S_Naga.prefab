@@ -18,7 +18,7 @@ GameObject:
   - 54: {fileID: 54000013670995022}
   - 65: {fileID: 65000010319701644}
   m_Layer: 0
-  m_Name: Unit
+  m_Name: S_Naga
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

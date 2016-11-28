@@ -161,7 +161,7 @@ GameObject:
   - 114: {fileID: 114000012764826054}
   - 114: {fileID: 114000012685797650}
   m_Layer: 0
-  m_Name: M_AmarrCrusier
+  m_Name: M_Repair
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
