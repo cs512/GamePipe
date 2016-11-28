@@ -1,17 +1,21 @@
-﻿<Properties StartupItem="Space Defender.CSharp.Plugins.csproj">
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Manager/LevelManager/LevelManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/Ships/AstarAI.cs">
     <Files>
-      <File FileName="Assets/Script/Manager/LevelManager/LevelManager.cs" Line="39" Column="46" />
-      <File FileName="Assets/Script/Ships/AstarAI.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/GUI/HexGrid/TouchControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/GUI/HexGrid/HexGrid.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Manager/EnemyBuilder.cs" Line="1" Column="1" />
-      <File FileName="Assets/Script/Ships/Enemy.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/SkiData/level1.json" Line="20" Column="2" />
+      <File FileName="Assets/Script/Turret/SingleBarrel.cs" Line="4" Column="1" />
+      <File FileName="Assets/Script/Ships/AstarAI.cs" Line="32" Column="24" />
+      <File FileName="Assets/Resources/SkiData/level2.json" Line="1" Column="1" />
+      <File FileName="Assets/Script/Ships/Enemy.cs" Line="171" Column="10" />
+      <File FileName="Assets/Script/Basement/SourcePlanet.cs" Line="42" Column="25" />
+      <File FileName="Assets/Script/Ships/Naga.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/liangruiwen/Desktop/new526/GamePipe/unity/Space Defender/Assets/Script/Ships/Enemy.cs" line="222" column="1" />
+      <Breakpoint file="/Users/liangruiwen/Desktop/new526/GamePipe/unity/Space Defender/Assets/Script/Ships/Enemy.cs" line="158" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="Assets/Script/Manager/LevelManager/LevelManager.cs" line="107" offsetX="343" offsetY="1590" expression="this.levels" liveUpdate="False" />

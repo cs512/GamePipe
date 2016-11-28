@@ -4,7 +4,6 @@ using Pathfinding;
 
 public class AstarAI : Enemy {
 	
-	public Transform target;
 	public Vector3 targetPosition;
 	
     private Seeker seeker;
@@ -41,7 +40,6 @@ public class AstarAI : Enemy {
         }
         
         if (currentWaypoint >= path.vectorPath.Count) {
-            Debug.Log ("End Of Path Reached");
             return;
         }
         

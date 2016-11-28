@@ -114,9 +114,13 @@ public abstract class TurretBase : MonoBehaviour, Killer, Victim {
     abstract public void ReduceShield(float damage, Vector3 hittingPoint);
 
     bool IsFacingTarget() {
-		RaycastHit[] hits;
-		hits = Physics.RaycastAll(transform.position, transform.forward, range);
-		foreach(RaycastHit hit in hits) {
+        RaycastHit[] hits;
+//        Vector3 lowerPosition = new Vector3 (transform.position.x, 20, transform.position.z);
+//        Vector3 higherPosition = new Vector3 (transform.position.x, 44, transform.position.z);
+//        hitsSki = Physics.RaycastAll(lowerPosition, transform.forward, range);
+//        hitsStory = Physics.RaycastAll(lowerPosition, transform.forward, range);
+        hits = Physics.RaycastAll(transform.position, transform.forward, range);
+        foreach(RaycastHit hit in hits) {
 			if(currentTarget == hit.transform){
 				return true;
 			}

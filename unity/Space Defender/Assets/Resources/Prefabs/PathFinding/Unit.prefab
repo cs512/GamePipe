@@ -31,7 +31,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -332.9081, y: 74.2, z: -21.16625}
+  m_LocalPosition: {x: -187.1, y: -12, z: -54.2}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -322,8 +322,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 124.27373, y: 39.375168, z: 86.406876}
-  m_Center: {x: 0, y: -7.146904, z: -18.806154}
+  m_Size: {x: 124.27373, y: 300, z: 86.406876}
+  m_Center: {x: 0, y: 0, z: -18.806154}
 --- !u!114 &114000010364663428
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -356,7 +356,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4623e913f1714c0795f2b205d0f8653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   speed: 100
+  oldSpeed: 0
   damage: 1
   health: 10
   cost: 0
@@ -369,7 +371,16 @@ MonoBehaviour:
   healthSlider: {fileID: 114000012183413828}
   flag: 0
   setPosition: 0
-  target: {fileID: 0}
+  maxHealth: 0
+  nextPathNode: {x: 0, y: 0, z: 0}
+  sourceTarget: {x: 0, y: 0, z: 0}
+  turretTarget: {x: 0, y: 0, z: 0}
+  framDist: 0
+  turretRadius: 0
+  turretAngle: 0
+  isSilenced: 0
+  silenceTime: 0
+  slowTime: 0
   targetPosition: {x: 0, y: 0, z: 0}
   aiSpeed: 200
   nextWaypointDistance: 3
