@@ -27,7 +27,6 @@ class NagaSplit : Enemy, Victim
         SetAbility();
     }*/
 
-    public Transform target;
     public Vector3 targetPosition;
 
     private Seeker seeker;
