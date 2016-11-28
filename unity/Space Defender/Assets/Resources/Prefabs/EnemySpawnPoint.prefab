@@ -73,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010674800406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -950, y: 20, z: -560}
+  m_LocalPosition: {x: -945, y: 20, z: -560}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -152,7 +152,7 @@ MonoBehaviour:
   intervelTime: 2
   speed: 1
   wave:
-    enenmyPrefab: {fileID: 1000011485737208, guid: 5f846a248d8a00e408ab92559be27c06,
+    enenmyPrefab: {fileID: 1000014133927180, guid: d984544a1726adc458952b9d4f54b039,
       type: 2}
     num: 20
     shooted: 0

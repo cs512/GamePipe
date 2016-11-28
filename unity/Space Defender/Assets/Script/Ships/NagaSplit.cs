@@ -33,7 +33,7 @@ class NagaSplit : Enemy, Victim
     private CharacterController controller;
 
     public Path path;
-    public float aiSpeed = 200;
+    public float aiSpeed = 50;
     public float nextWaypointDistance = 3;
     private int currentWaypoint = 0;
 
@@ -85,6 +85,33 @@ class NagaSplit : Enemy, Victim
             currentWaypoint++;
             return;
         }
+    }
+
+    public override void OnTriggerEnter(Collider colliderObject)
+    {
+        if (colliderObject.tag == "Planet")
+        {
+            Victim victim = colliderObject.gameObject.GetComponent<SourcePlanet>();
+            victim.DealDamage(this.damage);
+            this.Destroy();
+        }
+        //        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+        //        dispatcher.RegisteVictim(this);
+    }
+
+    public void Destroy()
+    {
+        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+        ScoreBoard sc = GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>();
+        sc.LoseFund(-this.cost);
+        dispatcher.enemyDeregisteVictim(this);
+        dispatcher.enemyDeregisteKiller(this);
+        AudioSource audio = GameObject.Find("EnemyDestorySound").GetComponent<AudioSource>();
+        audio.Play();
+        //Debug.Log("booooom!");
+        GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+        Destroy(gameObject);
+        Destroy(boom, 2);
     }
 
     public override void DestorySelf()

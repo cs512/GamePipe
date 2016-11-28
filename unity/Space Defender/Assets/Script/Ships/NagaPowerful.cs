@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Pathfinding;
 
-public class NagaPowerful : Enemy {
+public class NagaPowerful : Enemy,Victim {
     /*public new void Start()
     {
         oldSpeed = speed; // slow
