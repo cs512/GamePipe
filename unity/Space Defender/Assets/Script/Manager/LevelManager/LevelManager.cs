@@ -17,7 +17,11 @@ class LevelManager : MonoBehaviour {
     void Awake() {
         //print("LevelManager Start");
     }
-    
+
+    public void SetMode(int mode)
+    {
+        this.mode = mode;
+    }
     public void LoadData(int modeName){
         TextAsset text;
         if (modeName==0) {

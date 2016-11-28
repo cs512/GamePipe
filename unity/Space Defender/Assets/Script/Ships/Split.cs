@@ -27,9 +27,19 @@ class Split : Enemy, Victim
 		SetAbility();
 	}
 
+    public override void OnTriggerEnter(Collider colliderObject)
+    {
+        if (colliderObject.tag == "Planet")
+        {
+            Victim victim = colliderObject.gameObject.GetComponent<SourcePlanet>();
+            victim.DealDamage(this.damage);
+            this.Destroy();
+        }
+        //        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+        //        dispatcher.RegisteVictim(this);
+    }
 
-
-	public override void DestorySelf()
+    public override void DestorySelf()
 	{
 		Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
 		ScoreBoard sc = GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>();
@@ -52,9 +62,22 @@ class Split : Enemy, Victim
 		Destroy(boom, 2);       
 	}
 
+    public void Destroy()
+    {
+        Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
+        ScoreBoard sc = GameObject.Find("ScoreBoard").GetComponent<ScoreBoard>();
+        sc.LoseFund(-this.cost);
+        dispatcher.enemyDeregisteVictim(this);
+        dispatcher.enemyDeregisteKiller(this);
+        AudioSource audio = GameObject.Find("EnemyDestorySound").GetComponent<AudioSource>();
+        audio.Play();
+        //Debug.Log("booooom!");
+        GameObject boom = Instantiate(explosion, transform.position, transform.rotation) as GameObject;
+        Destroy(gameObject);
+        Destroy(boom, 2);
+    }
 
-
-	public override void SetUpDefaultAttributions() {
+    public override void SetUpDefaultAttributions() {
 
 	}
 }
