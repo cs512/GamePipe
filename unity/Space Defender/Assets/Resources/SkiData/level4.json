@@ -5,28 +5,35 @@
     "waves":[
         {
             "waveDuring":20,
-            "spawnPointCount":3,
+            "spawnPointCount":4,
             "spawnPoints":[
                 {
-                    "position":[-820,20,-450],
+                    "position":[990,20,600],
                     "prefab":"Unit",
                     "interval":7.0,
                     "number":2,
-                    "speed":3.0,
+                    "speed":3.0
                 },
 				{
-                    "position":[-800,20,-500],
+                    "position":[990,20,-580],
                     "prefab":"Unit",
                     "interval":6.0,
                     "number":2,
-                    "speed":3.0,
+                    "speed":3.0
                 },
-				{
-                    "position":[-780,20,-400],
+              {
+                "position": [ 60, 20, -580 ],
+                "prefab": "Unit",
+                "interval": 8.0,
+                "number": 3,
+                "speed": 3.0
+              },
+                {
+                    "position":[-970,20,-580],
                     "prefab":"Unit",
                     "interval":8.0,
                     "number":3,
-                    "speed":3.0,
+                    "speed":3.0
                 }
             ]
         }

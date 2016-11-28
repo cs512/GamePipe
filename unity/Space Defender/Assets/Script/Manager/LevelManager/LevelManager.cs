@@ -114,7 +114,12 @@ class LevelManager : MonoBehaviour {
         return this.skiLevels[this.skiLevel];
     }
     public void ReloadLevel() {
-        this.JumpLevel(this.level);
+        if (this.mode == 0)
+        {
+            this.JumpLevel(this.level);
+        }
+        else
+            this.JumpLevelSki(this.skiLevel);
     }
     
     public void ReloadLevelSki() {
@@ -122,11 +127,25 @@ class LevelManager : MonoBehaviour {
     }
 
     public bool JumpToNextLevel() {
-        if (this.level >= this.levels.Count)
-            return false;
-        else {
-            this.JumpLevel(this.level);
-            return true;
+        if (this.mode == 0)
+        {
+            if (this.level >= this.levels.Count)
+                return false;
+            else
+            {
+                this.JumpLevel(this.level+1);
+            }
+        }
+        else
+        {
+            if (this.skiLevel >= this.skiLevels.Count)
+                return false;
+            else
+            {
+                this.JumpLevelSki(this.skiLevel+1);
+                return true;
+            }
+
         }
     }
     
