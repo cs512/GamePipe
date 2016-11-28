@@ -24,11 +24,11 @@ public class Powerful : Enemy {
         SetAbility();
     }
 
-    public new void SetAbility()
+    /*public new void SetAbility()
     {
         float damage = (Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject).GetComponent<EnemyBullet>().getDamage() * 100f;
         (Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject).GetComponent<EnemyBullet>().setDamage(damage);
-    }
+    }*/
 
 	public override void ShotSpawn()
 	{
