@@ -97,7 +97,7 @@ public abstract class Enemy : MonoBehaviour, Victim, Killer {
     {
         if (health >= maxHealth)
             return;
-        health += 100f;
+        health += 2f;
         print("add blood:" + health);
         if (health > maxHealth)
         {

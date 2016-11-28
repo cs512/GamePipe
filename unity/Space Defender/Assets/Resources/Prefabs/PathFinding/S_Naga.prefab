@@ -18,7 +18,7 @@ GameObject:
   - 54: {fileID: 54000013670995022}
   - 65: {fileID: 65000010319701644}
   m_Layer: 0
-  m_Name: Unit
+  m_Name: S_Naga
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,8 +360,8 @@ MonoBehaviour:
   speed: 30
   oldSpeed: 0
   damage: 1
-  health: 10
-  cost: 0
+  health: 4
+  cost: 25
   explosion: {fileID: 100012, guid: f9800e97fef0e574aa868187988139ad, type: 2}
   fireInterval: 2000
   currentTarget: {fileID: 0}
@@ -382,7 +382,7 @@ MonoBehaviour:
   silenceTime: 0
   slowTime: 0
   targetPosition: {x: 0, y: 0, z: 0}
-  aiSpeed: 200
+  aiSpeed: 100
   nextWaypointDistance: 3
 --- !u!114 &114000011502418922
 MonoBehaviour:

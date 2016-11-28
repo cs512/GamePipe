@@ -143,7 +143,7 @@ GameObject:
   - 114: {fileID: 114000012284907436}
   - 114: {fileID: 114000013234176656}
   m_Layer: 0
-  m_Name: L_GallenteBattleCrusier
+  m_Name: XL_Split
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -582,8 +582,8 @@ MonoBehaviour:
   speed: 100
   oldSpeed: 0
   damage: 1
-  health: 10
-  cost: 25
+  health: 30
+  cost: 10
   explosion: {fileID: 1000012970080796, guid: 767167072980b194481944cbb3f21023, type: 2}
   fireInterval: 2000
   currentTarget: {fileID: 0}

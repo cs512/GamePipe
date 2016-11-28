@@ -37,7 +37,11 @@ public class GamePause : MonoBehaviour
     public void BackToLevelSelection()
     {//go back to the Level Selection
         Time.timeScale = 1;
-        SceneManager.LoadScene("levelSelectionSki");
+        if (lvlMgr.GetMode() == 0) {
+            SceneManager.LoadScene("opeing");
+        }
+        else
+            SceneManager.LoadScene("levelSelectionSki");
     }
     public void HidePauseMenu()
     {

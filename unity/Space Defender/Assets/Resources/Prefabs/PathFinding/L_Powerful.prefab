@@ -635,7 +635,7 @@ MonoBehaviour:
   oldSpeed: 0
   damage: 1
   health: 10
-  cost: 25
+  cost: 40
   explosion: {fileID: 1000012970080796, guid: 767167072980b194481944cbb3f21023, type: 2}
   fireInterval: 2000
   currentTarget: {fileID: 0}
@@ -656,7 +656,7 @@ MonoBehaviour:
   silenceTime: 0
   slowTime: 0
   targetPosition: {x: 0, y: 0, z: 0}
-  aiSpeed: 200
+  aiSpeed: 100
   nextWaypointDistance: 3
 --- !u!114 &114000013544463980
 MonoBehaviour:

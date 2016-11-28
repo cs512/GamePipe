@@ -125,7 +125,7 @@ GameObject:
   - 65: {fileID: 65000011482394650}
   - 114: {fileID: 114000010572990632}
   m_Layer: 0
-  m_Name: Powerful_AStar
+  m_Name: Powerful
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
