@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Pathfinding;
 
-public class NagaRepair : Enemy {
+public class NagaRepair : Enemy,Victim {
     /*public void Start()
     {
         oldSpeed = speed; // slow
@@ -24,7 +24,7 @@ public class NagaRepair : Enemy {
         SetAbility();
     }*/
 
-    public Transform target;
+    
     public Vector3 targetPosition;
 
     private Seeker seeker;

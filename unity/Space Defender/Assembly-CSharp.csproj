@@ -127,6 +127,7 @@
      <Compile Include="Assets\AstarPathfindingProject\Utilities\UnityReferenceHelper.cs" />
      <Compile Include="Assets\AstarPathfindingProject\changelog.cs" />
      <Compile Include="Assets\ChangeBackground.cs" />
+     <Compile Include="Assets\FloatingLogo.cs" />
      <Compile Include="Assets\PaueMenu.cs" />
      <Compile Include="Assets\Script\Basement\SourcePlanet.cs" />
      <Compile Include="Assets\Script\BulletCollision\BulletCollision.cs" />
@@ -189,8 +190,10 @@
      <Compile Include="Assets\Script\Turret\SilcenceTurret.cs" />
      <Compile Include="Assets\Script\Turret\SingleBarrel.cs" />
      <Compile Include="Assets\Script\Turret\TurretBase.cs" />
+     <Compile Include="Assets\WireframeRender.cs" />
      <None Include="Assets\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.shader" />
      <None Include="Assets\AstarPathfindingProject\Plugins\DotNetZip\DotNetZipLicense.txt" />
+     <None Include="Assets\Models\Materials\Wireframe.shader" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\Projector Multiply.shader" />
      <None Include="Assets\Movinarc\PackageUninstaller\README.txt" />
      <None Include="Assets\AstarPathfindingProject\ExampleScenes\Materials\DiffuseAlwaysVisible.shader" />
@@ -211,13 +214,13 @@
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.Ionic.Zip.Reduced">
- <HintPath>/Users/RadioMad/Desktop/GamePipe/GamePipe/unity/Space Defender/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+ <HintPath>/Users/liangruiwen/Desktop/new526/GamePipe/unity/Space Defender/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
  </Reference>
  <Reference Include="Pathfinding.JsonFx">
- <HintPath>/Users/RadioMad/Desktop/GamePipe/GamePipe/unity/Space Defender/Assets/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
+ <HintPath>/Users/liangruiwen/Desktop/new526/GamePipe/unity/Space Defender/Assets/AstarPathfindingProject/Plugins/JsonFx/Pathfinding.JsonFx.dll</HintPath>
  </Reference>
  <Reference Include="ICSharpCode.SharpZipLib">
- <HintPath>/Users/RadioMad/Desktop/GamePipe/GamePipe/unity/Space Defender/Assets/plugins/ICSharpCode.SharpZipLib.dll</HintPath>
+ <HintPath>/Users/liangruiwen/Desktop/new526/GamePipe/unity/Space Defender/Assets/plugins/ICSharpCode.SharpZipLib.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

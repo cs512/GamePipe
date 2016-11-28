@@ -5,11 +5,32 @@
     "waves":[
         {
             "waveDuring":100,
-            "spawnPointCount":1,
+            "spawnPointCount":4,
             "spawnPoints":[
 				{
-                    "position":[-950,20,-560],
+                    "position":[-950,20,-550],
                     "prefab":"L_GallenteBattleCrusier",
+                    "interval":2.0,
+                    "number":20,
+                    "speed":1
+                },
+				{
+                    "position":[-950,20,-565],
+                    "prefab":"XL_CaldariDreadnought",
+                    "interval":2.0,
+                    "number":20,
+                    "speed":1
+                },
+				{
+                    "position":[-950,20,-560],
+                    "prefab":"Unit",
+                    "interval":2.0,
+                    "number":20,
+                    "speed":1
+                },
+				{
+                    "position":[-945,20,-560],
+                    "prefab":"M_AmarrCrusier",
                     "interval":2.0,
                     "number":20,
                     "speed":1
