@@ -38,14 +38,14 @@ public class GameEnd : MonoBehaviour {
             {
                 lvlMgr.JumpLevel(1);
             }
-            else
-                lvlMgr.JumpToNextLevel();
+            //else
+                //lvlMgr.JumpToNextLevel();
         }
 
     }
     public void Back() {//go back to the Level Selection
         Time.timeScale = 1;
-        SceneManager.LoadScene("levelSelection");
+        SceneManager.LoadScene("levelSelectionSki");
     }
     public void HideEnd() {
         gameEnd.sizeDelta = new Vector2(0, 0);
