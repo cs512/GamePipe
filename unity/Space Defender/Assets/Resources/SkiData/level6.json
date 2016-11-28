@@ -8,8 +8,8 @@
             "spawnPointCount":6,
           "spawnPoints": [
             {
-              "position": [ 980, 20, -90],
-              "prefab": "Unit",
+              "position": [ 980, 20, -90 ],
+              "prefab": "M_AmarrCrusier",
               "interval": 7.0,
               "number": 2,
               "speed": 3.0
