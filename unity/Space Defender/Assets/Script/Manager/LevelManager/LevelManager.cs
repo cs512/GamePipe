@@ -134,6 +134,7 @@ class LevelManager : MonoBehaviour {
             else
             {
                 this.JumpLevel(this.level+1);
+                return true;
             }
         }
         else
