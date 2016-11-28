@@ -30,7 +30,6 @@ public class NagaPowerful : Enemy {
         (Instantiate(shot, shotSpawn.position, shotSpawn.rotation) as GameObject).GetComponent<EnemyBullet>().setDamage(damage);
     }*/
 
-    public Transform target;
     public Vector3 targetPosition;
 
     private Seeker seeker;
