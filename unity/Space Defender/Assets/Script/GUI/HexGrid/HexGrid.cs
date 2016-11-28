@@ -42,7 +42,7 @@ public class HexGrid : MonoBehaviour {
         {
             if (!IsBuildable(cell.transform.position))
             {
-                ColorCell(cell, Color.magenta);
+                ColorCell(cell, Color.red);
             }
         }
     }
@@ -129,8 +129,9 @@ public class HexGrid : MonoBehaviour {
         cell.HasTurret = flag;
         cell.Turret = turret;
         this.SetColor(cell);
+        Boolean isSkiMode = Toolbox.FindObjectOfType<LevelManager>().GetMode() != 0;
         foreach (HexDirection hd in Enum.GetValues(typeof(HexDirection))) {
-            if (cell.GetNeighbor(hd))
+            if (cell.GetNeighbor(hd) && !isSkiMode)
                 this.SetColor(cell.GetNeighbor(hd));
         }
         return cell;
