@@ -42,9 +42,11 @@ public class HexGrid : MonoBehaviour {
         {
             if (!IsBuildable(cell.transform.position))
             {
-                ColorCell(cell, Color.grey);
+                cell.inner = new Color(1, 0, 1, 0.3f);
+                cell.color = new Color(1, 1, 1, 0.5f);
             }
         }
+        hexMesh.Triangulate(cells);
     }
 
     public void ColorCell(Vector3 position, Color color) {
@@ -58,7 +60,7 @@ public class HexGrid : MonoBehaviour {
     }
 
     private void ColorCell(HexCell cell, Color color) {
-        //print(color);
+        //print(color);W
         cell.color = color;
         hexMesh.Triangulate(cells);
     }
@@ -115,13 +117,10 @@ public class HexGrid : MonoBehaviour {
                 foreach (Vector3 point in cornerPoint)
                 {
                     RaycastHit hit;
-                    if (Physics.Raycast(point, -Vector3.up, out hit, 50))
+                    if (Physics.Raycast(point + new Vector3(0, 50, 0), -Vector3.up, out hit, 50, 1 << 10))
                     {
                         Debug.Log(hit.collider.gameObject.name);
-                        if (hit.collider.gameObject.tag == "Terrain")
-                        {
-                            count++;
-                        }
+                        count++;
                     }
                 }
                 Debug.Log(count);

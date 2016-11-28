@@ -4,6 +4,7 @@ public class HexCell : MonoBehaviour {
 
     public HexCoordinates coordinates;
     public Color color;
+    public Color inner = new Color(0, 0, 0, 0);
     public bool HasTurret {
         get {
             return hasTurret;
