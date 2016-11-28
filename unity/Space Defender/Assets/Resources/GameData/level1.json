@@ -8,21 +8,21 @@
             "spawnPoints":[
                 {
                     "position":[-800,44,120],
-                    "prefab":"Ships/Split_Story",
+                    "prefab":"Ships/Split",
                     "interval":7.0,
                     "number":2,
                     "speed":3.0,
                 },
 				{
                     "position":[-700,44,-60],
-                    "prefab":"Ships/Repair_Story",
+                    "prefab":"Ships/Repair",
                     "interval":6.0,
                     "number":2,
                     "speed":3.0,
                 },
 				{
                     "position":[-625,44,200],
-                    "prefab":"Ships/Powerful_Story",
+                    "prefab":"Ships/Powerful",
                     "interval":8.0,
                     "number":3,
                     "speed":3.0,
