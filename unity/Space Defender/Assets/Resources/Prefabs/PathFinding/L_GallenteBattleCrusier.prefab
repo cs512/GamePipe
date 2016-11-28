@@ -413,7 +413,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -605,7 +605,7 @@ MonoBehaviour:
   slowTime: 0
   ng: {fileID: 100000, guid: 9e54303a5cddd4f1a91ca3634d11a127, type: 2}
   targetPosition: {x: 0, y: 0, z: 0}
-  aiSpeed: 200
+  aiSpeed: 50
   nextWaypointDistance: 3
 --- !u!114 &114000014005479322
 MonoBehaviour:
