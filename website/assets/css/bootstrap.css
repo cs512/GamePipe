@@ -525,7 +525,7 @@ h4 small {
 	font-size: 14px;
 }
 h2 .firstword {
-	border-bottom: 2px solid #b1ebb5;
+	border-bottom: 2px solid #991B1E;
 }
 .page-header {
 	margin: 20px 0 60px;
@@ -3196,7 +3196,8 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 .navbar .nav > li > a {
 	float: none;
 	padding: 10px 15px 10px;
-	color: #2D2D2D;
+	color: #fff;
+	font-weight: bold;
 	text-decoration: none;
 }
 .navbar .nav .dropdown-toggle .caret {
@@ -3204,12 +3205,12 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 	vertical-align: middle;
 }
 .navbar .nav > li > a:focus, .navbar .nav > li > a:hover {
-	color: #61c168;
+	color: #FFCC00;
 	text-decoration: none;
 	background-color: transparent;
 }
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
-	color: #61c168;
+	color: #FFCC00;
 	text-decoration: none;
 }
 .navbar .btn-navbar {
@@ -3273,7 +3274,7 @@ button.btn.btn-mini, input[type="submit"].btn.btn-mini {
 	border-bottom: 0;
 }
 .navbar .nav li.dropdown.open > .dropdown-toggle, .navbar .nav li.dropdown.active > .dropdown-toggle, .navbar .nav li.dropdown.open.active > .dropdown-toggle {
-	color: #61c168;
+	color: #fc0;
 }
 .navbar .nav li.dropdown > .dropdown-toggle .caret {
 	border-top-color: #777777;
