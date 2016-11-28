@@ -9,10 +9,10 @@
             "spawnPoints":[
 				{
                     "position":[-950,20,-560],
-                    "prefab":"Unit",
+                    "prefab":"L_GallenteBattleCrusier",
                     "interval":2.0,
                     "number":20,
-                    "speed":200
+                    "speed":1
                 }
             ],
         }
