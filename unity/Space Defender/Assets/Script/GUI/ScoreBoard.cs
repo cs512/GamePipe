@@ -109,6 +109,18 @@ public class ScoreBoard : MonoBehaviour {
         if (name == "Level 2") {
             LoseFund(-200);
         }
+        if (name == "Level 3")
+        {
+            LoseFund(-300);
+        }
+        if (name == "Level 4")
+        {
+            LoseFund(-400);
+        }
+        if (name == "Level 5")
+        {
+            LoseFund(-500);
+        }
         if (name == "Level 6")
         {
             LoseFund(-600);
