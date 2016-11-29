@@ -1,43 +1,117 @@
 {
-    "waveCount":1,
-    "turretMask": 5,
+    "waveCount":3,
+    "turretMask": 31,
 	"terrain": "Level5T",
     "waves":[
         {
             "waveDuring":20,
-            "spawnPointCount":5,
+            "spawnPointCount":4,
           "spawnPoints": [
             {
               "position": [ -970, 20, -580 ],
-              "prefab": "Unit",
+              "prefab": "S_Naga",
               "interval": 7.0,
               "number": 2,
               "speed": 3.0
             },
             {
               "position": [ 975, 20, -580 ],
-              "prefab": "Unit",
+              "prefab": "S_Naga",
               "interval": 6.0,
               "number": 2,
               "speed": 3.0
             },
             {
               "position": [ 975, 20, 560 ],
-              "prefab": "Unit",
+              "prefab": "S_Naga",
               "interval": 8.0,
               "number": 3,
               "speed": 3.0
             },
             {
               "position": [ 120, 20, 570 ],
-              "prefab": "Unit",
+              "prefab": "S_Naga",
+              "interval": 8.0,
+              "number": 3,
+              "speed": 3.0
+            }
+          ]
+        }，
+		{
+            "waveDuring":20,
+            "spawnPointCount":5,
+          "spawnPoints": [
+            {
+              "position": [ -970, 20, -580 ],
+              "prefab": "L_Powerful",
+              "interval": 7.0,
+              "number": 2,
+              "speed": 3.0
+            },
+            {
+              "position": [ 975, 20, -580 ],
+              "prefab": "S_Naga",
+              "interval": 6.0,
+              "number": 2,
+              "speed": 3.0
+            },
+            {
+              "position": [ 975, 20, 560 ],
+              "prefab": "S_Naga",
+              "interval": 8.0,
+              "number": 3,
+              "speed": 3.0
+            },
+            {
+              "position": [ 120, 20, 570 ],
+              "prefab": "L_Powerful",
               "interval": 8.0,
               "number": 3,
               "speed": 3.0
             },
             {
               "position": [ 120, 20, -60 ],
-              "prefab": "Unit",
+              "prefab": "S_Naga",
+              "interval": 8.0,
+              "number": 3,
+              "speed": 3.0
+            }
+          ]
+        }，{
+            "waveDuring":30,
+            "spawnPointCount":5,
+          "spawnPoints": [
+            {
+              "position": [ -970, 20, -580 ],
+              "prefab": "S_Naga",
+              "interval": 4.0,
+              "number": 7,
+              "speed": 3.0
+            },
+            {
+              "position": [ 975, 20, -580 ],
+              "prefab": "L_Powerful",
+              "interval": 6.0,
+              "number": 5,
+              "speed": 3.0
+            },
+            {
+              "position": [ 975, 20, 560 ],
+              "prefab": "M_Repair",
+              "interval": 8.0,
+              "number": 3,
+              "speed": 3.0
+            },
+            {
+              "position": [ 120, 20, 570 ],
+              "prefab": "M_Repair",
+              "interval": 7.0,
+              "number": 4,
+              "speed": 3.0
+            },
+            {
+              "position": [ 120, 20, -60 ],
+              "prefab": "S_Naga",
               "interval": 8.0,
               "number": 3,
               "speed": 3.0
