@@ -1117,8 +1117,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 562963192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 66, y: 0, z: -79}
-  m_LocalScale: {x: 400, y: 400, z: 400}
+  m_LocalPosition: {x: 12, y: 0, z: -12}
+  m_LocalScale: {x: 200, y: 200, z: 200}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 978870308}
@@ -1136,7 +1136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 5
-  health: 30
+  health: 300
   shockHit: {fileID: 1000010625944992, guid: f0de793a7ec816a4a95770e6739aef29, type: 2}
   explosion: {fileID: 1000013698003144, guid: b08355c93078f1d46814ab68f871a26c, type: 2}
   fund: 0
@@ -2174,7 +2174,7 @@ Transform:
   m_GameObject: {fileID: 978870307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -858, y: 0, z: 478}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 562963193}
