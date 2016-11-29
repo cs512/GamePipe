@@ -27,7 +27,7 @@ public class SourcePlanet : MonoBehaviour, Victim {
 
     // Update is called once per frame
     void Update() {
-        transform.Rotate(Vector3.forward * Time.deltaTime * rotateSpeed, Space.World);
+		transform.Rotate(Vector3.up * Time.deltaTime * rotateSpeed, Space.World);
     }
 
     void OnEnable() {
