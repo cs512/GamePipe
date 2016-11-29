@@ -692,8 +692,8 @@ hr.soften2 {
 -------------------------------------------------- */
 
 .marketing {
-	text-align: center;
-	color: #5a5a5a;
+	text-align: left;
+	color: #FFF;
 }
 .marketing h1 {
 	margin: 60px 0 10px;
@@ -839,10 +839,9 @@ footer .copyright {
 	box-shadow: inset 0px 1px 0px rgba(255,255,255,0.6);
 }
 .footer {
-	margin-top: 70px;
-	border-top: 1px solid #e5e5e5;
-	background: url(../img/bg_footer.png);
-	padding: 60px 0 0 0;
+	margin-top: 30px;
+	border-top: 0px solid #e5e5e5;
+	padding: 30px 0 0 0;
 	color: #919191;
 }
 .footer a {
