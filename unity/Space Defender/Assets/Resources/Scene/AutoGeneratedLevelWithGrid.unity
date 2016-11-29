@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.451496, g: 0.50137466, b: 0.57466584, a: 1}
+  m_IndirectSpecularColor: {r: 0.45149583, g: 0.50137436, b: 0.57466537, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -202,6 +202,8 @@ MonoBehaviour:
   retry: {fileID: 621777900}
   nextLevel: {fileID: 1686089848}
   goBack: {fileID: 336022524}
+  cong: {fileID: 1112390417}
+  nex: {fileID: 1686089849}
 --- !u!114 &179683721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2970,7 +2972,7 @@ MonoBehaviour:
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1686089850}
   m_OnClick:
     m_PersistentCalls:
