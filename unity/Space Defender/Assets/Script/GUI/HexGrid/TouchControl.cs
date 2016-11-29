@@ -85,8 +85,8 @@ public class TouchControl : MonoBehaviour {
                     if (touch.phase == TouchPhase.Moved && touch.fingerId == dragTouch.Value.fingerId) {
                         hasMove = true;
                         GameObject cam = GameObject.Find("Main Camera");
-                        int borderx = (int)(1401.5f - 0.18f * cam.transform.position.y);
-                        int bordery = (int)(620f - 0.29f * cam.transform.position.y);
+                        int borderx = (int)(1262.85f - 1.143f * cam.transform.position.y);
+                        int bordery = (int)(670f - 0.5f * cam.transform.position.y);
                         Vector3 newPos = cam.transform.position + new Vector3(-touch.deltaPosition.x * zoomFactor, 0, -touch.deltaPosition.y * zoomFactor);
                         if (newPos.x < -borderx) {
                             newPos.x = -borderx;

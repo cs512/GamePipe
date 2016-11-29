@@ -1,81 +1,1199 @@
 {
-    "waveCount":2,
-    "turretMask": 3,
-    "waves":[
+    "waveCount":25,
+    "turretMask": 63,
+  "waves": [
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 3,
+      "spawnPoints": [
         {
-            "waveDuring":20,
-            "spawnPointCount":3,
-            "spawnPoints":[
-                {
-                    "position":[-800,44,120],
-                    "prefab":"Ships/Split",
-                    "interval":7.0,
-                    "number":2,
-                    "speed":3.0
-                },
-				{
-                    "position":[-700,44,-60],
-                    "prefab":"Ships/Repair",
-                    "interval":6.0,
-                    "number":2,
-                    "speed":3.0
-                },
-				{
-                    "position":[-625,44,200],
-                    "prefab":"Ships/Powerful",
-                    "interval":8.0,
-                    "number":3,
-                    "speed":3.0
-                }
-            ],
+          "position": [ -800, 44, 120 ],
+          "prefab": "Naga",
+          "interval": 7.0,
+          "number": 2,
+          "speed": 3.0
         },
         {
-            "waveDuring":20,
-            "spawnPointCount":6,
-            "spawnPoints":[
-                {
-                    "position":[-800,44,300],
-                    "prefab":"Naga",
-                    "interval":7,
-                    "number":3,
-                    "speed":3.0
-                },
-				{
-                    "position":[-650,44,-250],
-                    "prefab":"Naga",
-                    "interval":5,
-                    "number":2,
-                    "speed":3.0
-                },
-				{
-                    "position":[-500,44,-100],
-                    "prefab":"Naga",
-                    "interval":8,
-                    "number":3,
-                    "speed":3.0
-                },
-				{
-                    "position":[-750,44,400],
-                    "prefab":"Naga",
-                    "interval":6,
-                    "number":3,
-                    "speed":3.0
-                },
-				{
-                    "position":[-400,44,200],
-                    "prefab":"Naga",
-                    "interval":7,
-                    "number":2,
-                    "speed":3.0
-                },
-				{
-                    "position":[-550,44,50],
-                    "prefab":"Naga",
-                    "interval":6.0,
-                    "number":1,
-                    "speed":3.0
-                }
-            ],
+          "position": [ -700, 44, -60 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -625, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 8.0,
+          "number": 3,
+          "speed": 3.0
         }
-    ],
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Ships/Split",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Ships/Split",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Ships/Split",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Ships/Repair",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Ships/Repair",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Ships/Powerful",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Ships/Powerful",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Ships/Powerful",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Ships/Powerful",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 8,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 200 ],
+          "prefab": "Ships/Powerful",
+          "interval": 4,
+          "number": 4,
+          "speed": 3.0
+        },
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 4,
+          "number": 5,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 10 ],
+          "prefab": "Ships/Split",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 4,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Ships/Repair",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    },
+    {
+      "waveDuring": 20,
+      "spawnPointCount": 6,
+      "spawnPoints": [
+        {
+          "position": [ -800, 44, 300 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -650, 44, -250 ],
+          "prefab": "Naga",
+          "interval": 5,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -500, 44, -100 ],
+          "prefab": "Naga",
+          "interval": 8,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -750, 44, 400 ],
+          "prefab": "Naga",
+          "interval": 6,
+          "number": 3,
+          "speed": 3.0
+        },
+        {
+          "position": [ -400, 44, 200 ],
+          "prefab": "Naga",
+          "interval": 7,
+          "number": 2,
+          "speed": 3.0
+        },
+        {
+          "position": [ -550, 44, 50 ],
+          "prefab": "Naga",
+          "interval": 6.0,
+          "number": 1,
+          "speed": 3.0
+        }
+      ]
+    }
+  ]
 }
