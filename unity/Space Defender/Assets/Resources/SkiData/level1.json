@@ -10,8 +10,8 @@
 				{
                     "position":[-945,20,-560],
                     "prefab":"S_Naga",
-                    "interval":1,
-                    "number":8,
+                    "interval":2,
+                    "number":5,
                     "speed":1
                 }
             ]
@@ -23,15 +23,15 @@
 				{
                     "position":[-945,20,-560],
                     "prefab":"S_Naga",
-                    "interval":1.5,
-                    "number":20,
+                    "interval":3,
+                    "number":15,
                     "speed":1
                 },
 				{
                     "position":[-790,20,-560],
                     "prefab":"S_Naga",
-                    "interval":1.5,
-                    "number":20,
+                    "interval":3,
+                    "number":15,
                     "speed":1
                 }
             ],
