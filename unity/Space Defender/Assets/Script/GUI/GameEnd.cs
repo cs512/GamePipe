@@ -81,13 +81,15 @@ public class GameEnd : MonoBehaviour {
             float temp = Time.time - timeS;
             int time = (int)temp;
             print(time);
-            cong.text =  time.ToString()+"s";
+            cong.fontSize = 24;
+            cong.text = "You Survived "+time.ToString()+"s!";
             gameEnd.sizeDelta = new Vector2(600, 320);
-            retry.localPosition = new Vector3(-160, -50, -6);
-            goBack.localPosition = new Vector3(160, -50, -6);
+            retry.localPosition = new Vector3(-60, -50, -6);
+            goBack.localPosition = new Vector3(60, -50, -6);
+            nextLevel.localPosition = new Vector3(0, 50, -6);
             retry.sizeDelta = new Vector2(120, 80);
             goBack.sizeDelta = new Vector2(120, 80);
-            nextLevel.sizeDelta = new Vector2(120, 80);
+            nextLevel.sizeDelta = new Vector2(240, 100);
             nex.onClick.RemoveListener(Next);
         }
         //if (SceneManager.GetActiveScene().name == "Tutorial")
