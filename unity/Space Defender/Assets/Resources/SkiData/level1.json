@@ -1,37 +1,36 @@
 {
-    "waveCount":1,
+    "waveCount":2,
     "turretMask": 3,
 	"terrain":"Level1T",
     "waves":[
-        {
-            "waveDuring":100,
-            "spawnPointCount":4,
+		{
+            "waveDuring":10,
+            "spawnPointCount":1,
             "spawnPoints":[
-				{
-                    "position":[-950,20,-550],
-                    "prefab":"XL_Split",
-                    "interval":6.0,
-                    "number":20,
-                    "speed":1
-                },
-				{
-                    "position":[-950,20,-565],
-                    "prefab":"L_Powerful",
-                    "interval":4.0,
-                    "number":20,
-                    "speed":1
-                },
-				{
-                    "position":[-950,20,-560],
-                    "prefab":"M_Repair",
-                    "interval":3.0,
-                    "number":20,
-                    "speed":1
-                },
 				{
                     "position":[-945,20,-560],
                     "prefab":"S_Naga",
-                    "interval":1.0,
+                    "interval":1,
+                    "number":8,
+                    "speed":1
+                }
+            ]
+        },
+        {
+            "waveDuring":30,
+            "spawnPointCount":2,
+            "spawnPoints":[
+				{
+                    "position":[-945,20,-560],
+                    "prefab":"S_Naga",
+                    "interval":1.5,
+                    "number":20,
+                    "speed":1
+                },
+				{
+                    "position":[-790,20,-560],
+                    "prefab":"S_Naga",
+                    "interval":1.5,
                     "number":20,
                     "speed":1
                 }
