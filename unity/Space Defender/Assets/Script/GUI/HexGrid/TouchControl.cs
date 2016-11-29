@@ -16,7 +16,7 @@ public class TouchControl : MonoBehaviour {
     bool hasZoom = false;
     bool inMenu = false;
     float distant = 0f;
-    float zoomFactor = 1.1f;
+    float zoomFactor = 1.4f;
 
     void Awake() {
 
@@ -56,10 +56,10 @@ public class TouchControl : MonoBehaviour {
                 if (d < 0) {
                     pos.y -= 20;
                 }
-                if (pos.y > 800)
-                    pos.y = 800;
-                if (pos.y < 400)
-                    pos.y = 400;
+                if (pos.y > 1000)
+                    pos.y = 1000;
+                if (pos.y < 300)
+                    pos.y = 300;
                 cam.transform.position = pos;
 
             } else {
@@ -85,18 +85,20 @@ public class TouchControl : MonoBehaviour {
                     if (touch.phase == TouchPhase.Moved && touch.fingerId == dragTouch.Value.fingerId) {
                         hasMove = true;
                         GameObject cam = GameObject.Find("Main Camera");
+                        int borderx = (int)(1401.5f - 0.18f * cam.transform.position.y);
+                        int bordery = (int)(620f - 0.29f * cam.transform.position.y);
                         Vector3 newPos = cam.transform.position + new Vector3(-touch.deltaPosition.x * zoomFactor, 0, -touch.deltaPosition.y * zoomFactor);
-                        if (newPos.x < -460) {
-                            newPos.x = -460;
+                        if (newPos.x < -borderx) {
+                            newPos.x = -borderx;
                         }
-                        if (newPos.x > 460) {
-                            newPos.x = 460;
+                        if (newPos.x > borderx) {
+                            newPos.x = borderx;
                         }
-                        if (newPos.z > 166) {
-                            newPos.z = 166;
+                        if (newPos.z > bordery) {
+                            newPos.z = bordery;
                         }
-                        if (newPos.z < -166) {
-                            newPos.z = -166;
+                        if (newPos.z < -bordery) {
+                            newPos.z = -bordery;
                         }
                         cam.transform.position = newPos;
                         return;
@@ -108,10 +110,10 @@ public class TouchControl : MonoBehaviour {
                         GameObject cam = GameObject.Find("Main Camera");
                         Vector3 pos = cam.transform.position;
                         pos.y -= newDist - distant;
-                        if (pos.y > 800)
-                            pos.y = 800;
-                        if (pos.y < 400)
-                            pos.y = 400;
+                        if (pos.y > 1000)
+                            pos.y = 1000;
+                        if (pos.y < 300)
+                            pos.y = 300;
                         cam.transform.position = pos;
                         distant = newDist;
                     } else {
