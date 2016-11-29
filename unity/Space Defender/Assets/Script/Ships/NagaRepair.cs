@@ -28,20 +28,18 @@ public class NagaRepair : Enemy,Victim {
     public Vector3 targetPosition;
 
     private Seeker seeker;
-    private CharacterController controller;
 
     public Path path;
     public float aiSpeed = 200;
     public float nextWaypointDistance = 3;
     private int currentWaypoint = 0;
+	public bool debug = false;
 
     public void Start()
     {
         targetPosition = target.transform.position;
         seeker = GetComponent<Seeker>();
-        controller = GetComponent<CharacterController>();
         seeker.StartPath(transform.position, targetPosition, OnPathComplete);
-
         Dispatcher dispatcher = GameObject.Find("Dispatcher").GetComponent<Dispatcher>();
         dispatcher.enemyRegisteVictim(this);
         dispatcher.enemyRegisteKiller(this);
@@ -73,17 +71,19 @@ public class NagaRepair : Enemy,Victim {
         }
 
         Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+
         dir *= aiSpeed * Time.deltaTime;
-        controller.Move(dir);
-        Quaternion rotation = Quaternion.LookRotation(dir);
+		//controller.Move(dir);
+		this.transform.position += dir;
+		Quaternion rotation = Quaternion.LookRotation(dir);
         this.transform.rotation = Quaternion.Lerp(this.transform.rotation, rotation, Time.deltaTime * 5);
 
+		if (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]) < nextWaypointDistance)
+		{
+			currentWaypoint++;
+			return;
+		}
 
-        if (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]) < nextWaypointDistance)
-        {
-            currentWaypoint++;
-            return;
-        }
     }
 
     public new void SetAbility()

@@ -606,7 +606,7 @@ MonoBehaviour:
   ng: {fileID: 100000, guid: 9e54303a5cddd4f1a91ca3634d11a127, type: 2}
   targetPosition: {x: 0, y: 0, z: 0}
   aiSpeed: 50
-  nextWaypointDistance: 3
+  nextWaypointDistance: 5
 --- !u!114 &114000014005479322
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -37,7 +37,7 @@ public class NagaPowerful : Enemy,Victim {
 
     public Path path;
     public float aiSpeed = 200;
-    public float nextWaypointDistance = 3;
+    public float nextWaypointDistance = 10;
     private int currentWaypoint = 0;
 
     public void Start()
@@ -76,18 +76,20 @@ public class NagaPowerful : Enemy,Victim {
             return;
         }
 
-        Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-        dir *= aiSpeed * Time.deltaTime;
-        controller.Move(dir);
-        Quaternion rotation = Quaternion.LookRotation(dir);
-        this.transform.rotation = Quaternion.Lerp(this.transform.rotation, rotation, Time.deltaTime * 5);
+		Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
 
+		dir *= aiSpeed * Time.deltaTime;
+		//controller.Move(dir);
+		this.transform.position += dir;
+		Quaternion rotation = Quaternion.LookRotation(dir);
+		this.transform.rotation = Quaternion.Lerp(this.transform.rotation, rotation, Time.deltaTime * 5);
 
-        if (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]) < nextWaypointDistance)
-        {
-            currentWaypoint++;
-            return;
-        }
+		if (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]) < nextWaypointDistance)
+		{
+			currentWaypoint++;
+			return;
+		}
+        
     }
 
     public override void ShotSpawn()

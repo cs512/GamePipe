@@ -43,17 +43,19 @@ public class AstarAI : Enemy {
             return;
         }
         
-        Vector3 dir = (path.vectorPath[currentWaypoint]-transform.position).normalized;
-        dir *= aiSpeed * Time.deltaTime;
-        controller.Move (dir);
-        Quaternion rotation = Quaternion.LookRotation (dir);
-        this.transform.rotation = Quaternion.Lerp (this.transform.rotation, rotation, Time.deltaTime * 5);
-        
-        
-        if (Vector3.Distance (transform.position,path.vectorPath[currentWaypoint]) < nextWaypointDistance) {
-            currentWaypoint++;
-            return;
-        }
+		Vector3 dir = (path.vectorPath[currentWaypoint] - transform.position).normalized;
+
+		dir *= aiSpeed * Time.deltaTime;
+		//controller.Move(dir);
+		this.transform.position += dir;
+		Quaternion rotation = Quaternion.LookRotation(dir);
+		this.transform.rotation = Quaternion.Lerp(this.transform.rotation, rotation, Time.deltaTime * 5);
+
+		if (Vector3.Distance(transform.position, path.vectorPath[currentWaypoint]) < nextWaypointDistance)
+		{
+			currentWaypoint++;
+			return;
+		}
     }
     public override void SetUpDefaultAttributions() {
 

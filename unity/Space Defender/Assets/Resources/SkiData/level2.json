@@ -4,7 +4,7 @@
 	"terrain": "Level2T",
 	"waves":[
 		{
-			"waveDuring": 16,
+			"waveDuring": 12,
 			"spawnPointCount": 4,
 			"spawnPoints": [
 				{
@@ -32,48 +32,48 @@
 					"position": [950, 20, -560],
 					"prefab": "S_Naga",
 					"interval": 3,
-					"number": 5,
+					"number": 3,
 					"speed": 3.0
 				}
 			]
 		},
 		{
-			"waveDuring": 50,
+			"waveDuring": 40,
 			"spawnPointCount": 5,
 			"spawnPoints": [
 				{
 					"position": [870, 20, -50],
 					"prefab": "M_Repair",
-					"interval": 5,
+					"interval": 4,
 					"number": 10,
 					"speed": 3.0
 				}, 
 				{
 					"position": [950, 20, -50],
 					"prefab": "S_Naga",
-					"interval": 4,
-					"number": 10,
+					"interval": 3,
+					"number": 13,
 					"speed": 3.0
 				}, 
 				{
 					"position": [994, 20, -44],
 					"prefab": "S_Naga",
 					"interval": 3,
-					"number": 12,
+					"number": 13,
 					"speed": 3.0
 				}, 
 				{
 					"position": [950, 20, -560],
 					"prefab": "S_Naga",
 					"interval": 3,
-					"number": 12,
+					"number": 13,
 					"speed": 3.0
 				},
 				{
 					"position": [950, 20, -560],
 					"prefab": "M_Repair",
 					"interval": 4,
-					"number": 7,
+					"number": 10,
 					"speed": 3.0
 				}
 			]
