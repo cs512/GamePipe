@@ -1,8 +1,43 @@
 {
-    "waveCount":2,
-    "turretMask": 3,
+    "waveCount":3,
+    "turretMask": 63,
 	"terrain": "Level6T",
     "waves":[
+		  {
+          "waveDuring":20,
+          "spawnPointCount":4,
+          "spawnPoints": [
+            {
+              "position": [-914, 17.5, -44],
+              "prefab": "S_Repair",
+              "interval": 5,
+              "number": 4,
+              "speed": 3.0
+            },
+			{
+              "position": [958, 20, -157],
+              "prefab": "S_Naga",
+              "interval": 4,
+              "number": 5,
+              "speed": 3.0
+            },
+
+            {
+              "position": [866, 19, -93],
+              "prefab": "M_Repair",
+              "interval": 5,
+              "number": 4,
+              "speed": 3.0
+            },
+            {
+              "position": [980, 20, -480],
+              "prefab": "S_Naga",
+              "interval": 4,
+              "number": 5,
+              "speed": 3.0
+            }
+          ]
+        },
         {
           "waveDuring":30,
           "spawnPointCount":5,
