@@ -3,41 +3,41 @@
     "turretMask": 63,
   "waves": [
     {
-      "waveDuring": 20,
+      "waveDuring": 30,
       "spawnPointCount": 3,
       "spawnPoints": [
         {
           "position": [ -800, 44, 120 ],
           "prefab": "Naga",
           "interval": 7.0,
-          "number": 2,
+          "number": 3,
           "speed": 3.0
         },
         {
           "position": [ -700, 44, -60 ],
           "prefab": "Naga",
-          "interval": 6.0,
-          "number": 2,
+          "interval": 7.0,
+          "number": 4,
           "speed": 3.0
         },
         {
           "position": [ -625, 44, 200 ],
           "prefab": "Naga",
           "interval": 8.0,
-          "number": 3,
+          "number":3,
           "speed": 3.0
         }
       ]
     },
     {
-      "waveDuring": 20,
+      "waveDuring": 15,
       "spawnPointCount": 6,
       "spawnPoints": [
         {
           "position": [ -800, 44, 300 ],
           "prefab": "Naga",
           "interval": 7,
-          "number": 3,
+          "number": 2,
           "speed": 3.0
         },
         {
@@ -48,14 +48,14 @@
           "speed": 3.0
         },
         {
-          "position": [ -500, 44, -100 ],
+          "position": [ 500, 44, -100 ],
           "prefab": "Naga",
           "interval": 8,
           "number": 3,
           "speed": 3.0
         },
         {
-          "position": [ -750, 44, 400 ],
+          "position": [ 750, 44, 400 ],
           "prefab": "Naga",
           "interval": 6,
           "number": 3,
@@ -82,7 +82,7 @@
       "spawnPointCount": 6,
       "spawnPoints": [
         {
-          "position": [ -800, 44, 300 ],
+          "position": [ 800, 44, 300 ],
           "prefab": "Ships/Split",
           "interval": 7,
           "number": 3,
@@ -97,7 +97,7 @@
         },
         {
           "position": [ -500, 44, -100 ],
-          "prefab": "Ships/Split",
+          "prefab": "Ships/Repair",
           "interval": 8,
           "number": 3,
           "speed": 3.0
@@ -117,7 +117,7 @@
           "speed": 3.0
         },
         {
-          "position": [ -550, 44, 50 ],
+          "position": [ 550, 44, 50 ],
           "prefab": "Ships/Split",
           "interval": 6.0,
           "number": 1,
@@ -226,7 +226,7 @@
       "spawnPointCount": 8,
       "spawnPoints": [
         {
-          "position": [ -800, 44, 200 ],
+          "position": [ 800, 44, 200 ],
           "prefab": "Ships/Powerful",
           "interval": 4,
           "number": 4,
@@ -254,7 +254,7 @@
           "speed": 3.0
         },
         {
-          "position": [ -500, 44, -100 ],
+          "position": [ 500, 44, -100 ],
           "prefab": "Naga",
           "interval": 8,
           "number": 3,
@@ -288,7 +288,7 @@
       "spawnPointCount": 6,
       "spawnPoints": [
         {
-          "position": [ -800, 44, 300 ],
+          "position": [ 800, 44, 300 ],
           "prefab": "Naga",
           "interval": 7,
           "number": 3,
@@ -316,14 +316,14 @@
           "speed": 3.0
         },
         {
-          "position": [ -400, 44, 200 ],
+          "position": [ 400, 44, 200 ],
           "prefab": "Naga",
           "interval": 7,
           "number": 2,
           "speed": 3.0
         },
         {
-          "position": [ -550, 44, 50 ],
+          "position": [ 550, 44, 50 ],
           "prefab": "Naga",
           "interval": 6.0,
           "number": 1,
@@ -604,7 +604,7 @@
           "speed": 3.0
         },
         {
-          "position": [ -400, 44, 200 ],
+          "position": [ 400, 44, 200 ],
           "prefab": "Naga",
           "interval": 7,
           "number": 2,
