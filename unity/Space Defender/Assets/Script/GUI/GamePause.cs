@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -37,7 +38,12 @@ public class GamePause : MonoBehaviour
     public void BackToLevelSelection()
     {//go back to the Level Selection
         Time.timeScale = 1;
-        SceneManager.LoadScene("levelSelection");
+        Boolean isSkiMode = Toolbox.FindObjectOfType<LevelManager>().GetMode() != 0;
+        if (isSkiMode) {
+            SceneManager.LoadScene("levelSelectionSki");
+        } else {
+            SceneManager.LoadScene("opeing");
+        }
     }
     public void HidePauseMenu()
     {

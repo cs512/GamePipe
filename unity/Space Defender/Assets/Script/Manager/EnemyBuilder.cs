@@ -57,9 +57,9 @@ public class EnemyBuilder : MonoBehaviour {
                     Enemy b = enemyGO.GetComponent<Enemy>();
                     b.SetTarget(sourcePlanet);
                 }else if(this.gameMode == 1){
-                    GameObject go = (GameObject)Instantiate(this.wave.enenmyPrefab, this.transform.position, this.transform.rotation);
-                    //go.GetComponent<AstarAI>().target = sourcePlanet;
-                    go.GetComponent<NagaPowerful>().target = sourcePlanet;
+					GameObject go = (GameObject)Instantiate(this.wave.enenmyPrefab, this.transform.position, new Quaternion(0f, 0f, 0f, 0f));
+                    go.GetComponent<Enemy>().target = sourcePlanet;
+                    //go.GetComponent<NagaPowerful>().target = sourcePlanet;
                 }
             }
             if (finised == true) {

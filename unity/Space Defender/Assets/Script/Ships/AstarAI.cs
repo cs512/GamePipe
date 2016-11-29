@@ -10,7 +10,7 @@ public class AstarAI : Enemy {
     private CharacterController controller;
  
     public Path path;
-    public float aiSpeed = 200;
+    public float aiSpeed = 70;
     public float nextWaypointDistance = 3;
     private int currentWaypoint = 0;
 	

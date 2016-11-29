@@ -38,9 +38,15 @@ public class ScoreBoard : MonoBehaviour {
         tFunds.color = x;
     }
     public void setWaves() {
-        WaveManager waveMgr = GameObject.Find("WaveManager").GetComponent<WaveManager>();
-        wave = waveMgr.GetRemainedWave();
-        tWaves.text = "Remaining Waves: " + wave.ToString();
+        var mode = Toolbox.Instance.GetComponent<LevelManager>().GetMode();
+        if (mode == 0) {
+            tWaves.text = "Remaining Waves: Never End!";
+        }
+        else {
+            WaveManager waveMgr = GameObject.Find("WaveManager").GetComponent<WaveManager>();
+            wave = waveMgr.GetRemainedWave();
+            tWaves.text = "Remaining Waves: " + wave.ToString();
+        }
     }
     public void setWaveColor(Color x)
     {
@@ -91,11 +97,12 @@ public class ScoreBoard : MonoBehaviour {
             name = Toolbox.Instance.GetComponent<LevelManager>().GetCurrentLevel().name;
         }else if(mode == 1){
             name = Toolbox.Instance.GetComponent<LevelManager>().GetCurrentLevelSki().name;
+            print(name);
         }
         else{
             return ;
         }
-        if (name == "Level 6") {
+        if (name == "Level 2") {
             LoseFund(-600);
         }
     }

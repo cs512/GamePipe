@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class GameEnd : MonoBehaviour {
     public RectTransform gameEnd;
@@ -38,14 +37,20 @@ public class GameEnd : MonoBehaviour {
             {
                 lvlMgr.JumpLevel(1);
             }
-            else
-                lvlMgr.JumpToNextLevel();
+            //else
+                //lvlMgr.JumpToNextLevel();
         }
 
     }
-    public void Back() {//go back to the Level Selection
+    public void Back() {
+        //go back to the Level Selection
         Time.timeScale = 1;
-        SceneManager.LoadScene("levelSelection");
+        Boolean isSkiMode = Toolbox.FindObjectOfType<LevelManager>().GetMode() != 0;
+        if (isSkiMode) {
+            SceneManager.LoadScene("levelSelectionSki");
+        } else {
+            SceneManager.LoadScene("opeing");
+        }
     }
     public void HideEnd() {
         gameEnd.sizeDelta = new Vector2(0, 0);
@@ -61,6 +66,7 @@ public class GameEnd : MonoBehaviour {
     }
     public void ShowEnd(float some) {
         Time.timeScale = 0;
+        Boolean isSkiMode = Toolbox.FindObjectOfType<LevelManager>().GetMode() != 0;
         if (SceneManager.GetActiveScene().name == "Tutorial")
         {
             gameEnd.sizeDelta = new Vector2(600, 320);
@@ -90,21 +96,27 @@ public class GameEnd : MonoBehaviour {
                 tTrishade1.localPosition = new Vector3(-100, 50, -7);
                 tTrishade2.localPosition = new Vector3(0, 50, -7);
                 //tTrishade3.position = new Vector3(80, -6, 30);
-                nextLevel.sizeDelta = new Vector2(120, 80);
+                if (isSkiMode) {
+                    nextLevel.sizeDelta = new Vector2(120, 80);
+                }
             }
             if (some == 2)
             {//good
                 tTrishade1.localPosition = new Vector3(-100, 50, -7);
                 //tTrishade2.position = new Vector3(0, -6, 30);
                 //tTrishade3.position = new Vector3(80, -6, 30);
-                nextLevel.sizeDelta = new Vector2(120, 80);
+                if (isSkiMode) {
+                    nextLevel.sizeDelta = new Vector2(120, 80);
+                }
             }
             if (some == 3)
             {//execllent
              //tTrishade1.position = new Vector3(-80, -6, 30);
              //tTrishade2.position = new Vector3(0, -6, 30);
              //tTrishade3.position = new Vector3(80, -6, 30);
-                nextLevel.sizeDelta = new Vector2(120, 80);
+                if (isSkiMode) {
+                    nextLevel.sizeDelta = new Vector2(120, 80);
+                }
             }
         }
         else
@@ -135,21 +147,27 @@ public class GameEnd : MonoBehaviour {
                 tTrishade1.localPosition = new Vector3(-100, 50, -7);
                 tTrishade2.localPosition = new Vector3(0, 50, -7);
                 //tTrishade3.position = new Vector3(80, -6, 30);
-                nextLevel.sizeDelta = new Vector2(120, 80);
+                if (isSkiMode) {
+                    nextLevel.sizeDelta = new Vector2(120, 80);
+                }
             }
             if (some == 2)
             {//good
                 tTrishade1.localPosition = new Vector3(-100, 50, -7);
                 //tTrishade2.position = new Vector3(0, -6, 30);
                 //tTrishade3.position = new Vector3(80, -6, 30);
-                nextLevel.sizeDelta = new Vector2(120, 80);
+                if (isSkiMode) {
+                    nextLevel.sizeDelta = new Vector2(120, 80);
+                }
             }
             if (some == 3)
             {//execllent
              //tTrishade1.position = new Vector3(-80, -6, 30);
              //tTrishade2.position = new Vector3(0, -6, 30);
              //tTrishade3.position = new Vector3(80, -6, 30);
-                nextLevel.sizeDelta = new Vector2(120, 80);
+                if (isSkiMode) {
+                    nextLevel.sizeDelta = new Vector2(120, 80);
+                }
             }
         }
     }

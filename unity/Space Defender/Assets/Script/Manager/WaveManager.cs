@@ -43,6 +43,10 @@ public class WaveManager : MonoBehaviour {
         else{
             return ;
         }
+		if (gameMode == 1) {
+			GameObject AStar = Resources.Load("Prefabs/tera/"+level.terrain, typeof(GameObject)) as GameObject;
+			Instantiate(AStar);
+		}
         this.time = Time.time;
         Time.timeScale = 1f;
         this.SetWave(currentWave);
@@ -62,10 +66,7 @@ public class WaveManager : MonoBehaviour {
             Destroy(eb);
         }
         this.ebs = new List<GameObject>();
-        if (gameMode == 1) {
-            GameObject AStar = Resources.Load("Prefabs/tera/"+level.terrain, typeof(GameObject)) as GameObject;
-            Instantiate(AStar);
-        }
+
         if (n < level.waves.Count) {
             foreach (Level.Wave.SpawnPoint sp in level.waves[n].spawnPoints) {
                 GameObject go = Resources.Load("Prefabs/EnemySpawnPoint", typeof(GameObject)) as GameObject;
