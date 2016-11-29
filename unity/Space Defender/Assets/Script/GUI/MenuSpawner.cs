@@ -123,7 +123,7 @@ public class MenuSpawner : MonoBehaviour {
             float xPos = Mathf.Sin(theta);
             float yPos = Mathf.Cos(theta);
             newButton.transform.localScale += new Vector3(5f, 5f, 5f);
-            newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * 50f;
+            newButton.transform.localPosition = new Vector3(xPos, yPos, 0f) * 70f;
             newButton.transform.localPosition -= new Vector3(0f, 0f, 15f);
             newButton.icon.sprite = turretOptions[i].sprite;
             newButton.title = turretOptions[i].title;
