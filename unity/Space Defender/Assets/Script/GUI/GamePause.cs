@@ -16,6 +16,7 @@ public class GamePause : MonoBehaviour
     LevelManager lvlMgr;
     public void Retry()
     {// that is a reloading of this scene
+        GameObject.Find("LoadingImage").GetComponent<Image>().enabled = true;
         try
         {
             Time.timeScale = 1;
@@ -40,8 +41,10 @@ public class GamePause : MonoBehaviour
         Time.timeScale = 1;
         Boolean isSkiMode = Toolbox.FindObjectOfType<LevelManager>().GetMode() != 0;
         if (isSkiMode) {
+            GameObject.Find("LoadingImage").GetComponent<Image>().enabled = true;
             SceneManager.LoadScene("levelSelectionSki");
         } else {
+            GameObject.Find("LoadingImage").GetComponent<Image>().enabled = true;
             SceneManager.LoadScene("opeing");
         }
     }
@@ -79,6 +82,7 @@ public class GamePause : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        GameObject.Find("LoadingImage").GetComponent<Image>().enabled = false;
         lvlMgr = Toolbox.Instance.GetOrAddComponent<LevelManager>();
         HidePauseMenu();
         menuShowed = false;

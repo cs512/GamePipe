@@ -8,12 +8,14 @@ public class loadSceneSelection : MonoBehaviour {
         if (gameObject.name == "mainMenu") {
             SceneManager.LoadScene("opeing");
         } else if (gameObject.name == "Tutorial") {
+            GameObject.Find("LoadingImage").GetComponent<Image>().enabled = true;
             SceneManager.LoadScene("TutorialTrue");
         } else if (gameObject.name == "Story") {
+            GameObject.Find("LoadingImage").GetComponent<Image>().enabled = true;
             Toolbox.Instance.GetComponent<LevelManager>().SetMode(1);
             GameObject.Find("Main Camera").GetComponent<GameInitializator>().PerformSenceTransit();
         } else if(gameObject.name == "Ski") {
-            //GameObject.Find("LoadingImage").GetComponent<Image>().enabled = true;
+            GameObject.Find("LoadingImage").GetComponent<Image>().enabled = true;
             Toolbox.Instance.GetComponent<LevelManager>().SetMode(0);
             Toolbox.Instance.GetComponent<LevelManager>().JumpLevel(1);
         } else if (gameObject.name == "level1Ski") {

@@ -29,6 +29,7 @@ public class GameEnd : MonoBehaviour {
         }
     }
     public void Next() {//To the next level.
+        GameObject.Find("LoadingImage").GetComponent<Image>().enabled = true;
         if (lvlMgr.JumpToNextLevel() == false) {
             Time.timeScale = 1;
             Debug.Log("No Next Level!");
@@ -49,8 +50,10 @@ public class GameEnd : MonoBehaviour {
         Time.timeScale = 1;
         Boolean isSkiMode = Toolbox.FindObjectOfType<LevelManager>().GetMode() != 0;
         if (isSkiMode) {
+            GameObject.Find("LoadingImage").GetComponent<Image>().enabled = true;
             SceneManager.LoadScene("levelSelectionSki");
         } else {
+            GameObject.Find("LoadingImage").GetComponent<Image>().enabled = true;
             SceneManager.LoadScene("opeing");
         }
     }
@@ -92,58 +95,6 @@ public class GameEnd : MonoBehaviour {
             nextLevel.sizeDelta = new Vector2(240, 100);
             nex.onClick.RemoveListener(Next);
         }
-        //if (SceneManager.GetActiveScene().name == "Tutorial")
-        //{
-        //    gameEnd.sizeDelta = new Vector2(600, 320);
-        //    triShade1.GetComponent<Renderer>().enabled = true;
-        //    triShade2.GetComponent<Renderer>().enabled = true;
-        //    triShade3.GetComponent<Renderer>().enabled = true;
-        //    tri1.GetComponent<Renderer>().enabled = true;
-        //    tri2.GetComponent<Renderer>().enabled = true;
-        //    tri3.GetComponent<Renderer>().enabled = true;
-        //    nextLevel.localPosition = new Vector3(-160, -50, -6);
-        //    //retry.localPosition = new Vector3(-160, -50, -6);
-        //    goBack.localPosition = new Vector3(160, -50, -6);
-        //    retry.sizeDelta = new Vector2(0, 0);
-        //    //nextLevel.sizeDelta = new Vector2(80, 60);
-        //    goBack.sizeDelta = new Vector2(120, 80);
-        //    if (some == 0)
-        //    {//u shall not pass
-        //        print("no nono1");
-        //        tri1.GetComponent<Renderer>().enabled = false;
-        //        tTrishade1.localPosition = new Vector3(-100, 50, -7);
-        //        tTrishade2.localPosition = new Vector3(0, 50, -7);
-        //        tTrishade3.localPosition = new Vector3(100, 50, -7);
-        //        //nextLevel.sizeDelta = new Vector2(80, 30);
-        //    }
-        //    if (some == 1)
-        //    {//ok
-        //        tTrishade1.localPosition = new Vector3(-100, 50, -7);
-        //        tTrishade2.localPosition = new Vector3(0, 50, -7);
-        //        //tTrishade3.position = new Vector3(80, -6, 30);
-        //        if (isSkiMode) {
-        //            nextLevel.sizeDelta = new Vector2(120, 80);
-        //        }
-        //    }
-        //    if (some == 2)
-        //    {//good
-        //        tTrishade1.localPosition = new Vector3(-100, 50, -7);
-        //        //tTrishade2.position = new Vector3(0, -6, 30);
-        //        //tTrishade3.position = new Vector3(80, -6, 30);
-        //        if (isSkiMode) {
-        //            nextLevel.sizeDelta = new Vector2(120, 80);
-        //        }
-        //    }
-        //    if (some == 3)
-        //    {//execllent
-        //     //tTrishade1.position = new Vector3(-80, -6, 30);
-        //     //tTrishade2.position = new Vector3(0, -6, 30);
-        //     //tTrishade3.position = new Vector3(80, -6, 30);
-        //        if (isSkiMode) {
-        //            nextLevel.sizeDelta = new Vector2(120, 80);
-        //        }
-        //    }
-        //}
         else
         {
             gameEnd.sizeDelta = new Vector2(600, 320);
@@ -199,6 +150,7 @@ public class GameEnd : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
+        GameObject.Find("LoadingImage").GetComponent<Image>().enabled = false;
         lvlMgr = Toolbox.Instance.GetOrAddComponent<LevelManager>();
         HideEnd();
         timeS = Time.time;
