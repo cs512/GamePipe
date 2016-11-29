@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   drawGizmos: 1
-  detailedGizmos: 0
+  detailedGizmos: 1
   startEndModifier:
     addPoints: 0
     exactStartPoint: 1
@@ -361,7 +361,7 @@ MonoBehaviour:
   oldSpeed: 0
   damage: 1
   health: 4
-  cost: 25
+  cost: 20
   explosion: {fileID: 100012, guid: f9800e97fef0e574aa868187988139ad, type: 2}
   fireInterval: 2000
   currentTarget: {fileID: 0}

@@ -82,7 +82,7 @@ public class ScoreBoard : MonoBehaviour {
                 GameObject.Find ("GameEnd").GetComponent<GameEnd> ().ShowEnd (1);
             }
         }
-        else if(live == 0) {
+        else if(live <= 0) {
             GameObject.Find("GameEnd").GetComponent<GameEnd>().ShowEnd(0);
         }
     }
