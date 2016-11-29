@@ -590,6 +590,7 @@ MonoBehaviour:
   targetPosition: {x: 0, y: 0, z: 0}
   aiSpeed: 100
   nextWaypointDistance: 3
+  debug: 0
 --- !u!114 &114000013991770412
 MonoBehaviour:
   m_ObjectHideFlags: 1
