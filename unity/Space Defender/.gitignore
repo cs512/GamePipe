@@ -1,5 +1,6 @@
 Temp
 .vs/**
 *.csproj.user
+*.csproj
 *.suo
 obj/**
