@@ -4,49 +4,58 @@
 	"terrain": "Level6T",
     "waves":[
         {
-            "waveDuring":20,
-            "spawnPointCount":6,
+          "waveDuring":20,
+          "spawnPointCount":7,
           "spawnPoints": [
             {
-              "position": [ 980, 20, -90 ],
-              "prefab": "M_AmarrCrusier",
-              "interval": 7.0,
-              "number": 2,
+              "position": [-914, 17.5, -44],
+              "prefab": "M_Repair",
+              "interval": 4,
+              "number": 7,
+              "speed": 3.0
+            },
+			{
+              "position": [-912.5, 21, -150.5],
+              "prefab": "S_Naga",
+              "interval": 4,
+              "number": 7,
+              "speed": 3.0
+            },
+
+            {
+              "position": [963, 19, -45],
+              "prefab": "L_Powerful",
+              "interval": 6,
+              "number": 5,
+              "speed": 3.0
+            },
+			{
+              "position": [866, 19, -93],
+              "prefab": "S_Naga",
+              "interval": 6,
+              "number": 5,
               "speed": 3.0
             },
             {
-              "position": [ 980, 20, -550 ],
-              "prefab": "Unit",
-              "interval": 6.0,
-              "number": 2,
+              "position": [958, 20, -157],
+              "prefab": "S_Naga",
+              "interval": 4,
+              "number": 7,
               "speed": 3.0
             },
-            {
-              "position": [ 980, 20, -480 ],
-              "prefab": "Unit",
-              "interval": 8.0,
-              "number": 3,
+
+			{
+              "position": [980, 20, -480],
+              "prefab": "S_Naga",
+              "interval": 3,
+              "number": 10,
               "speed": 3.0
             },
-            {
-              "position": [ 110, 20, -110 ],
-              "prefab": "Unit",
-              "interval": 8.0,
-              "number": 3,
-              "speed": 3.0
-            },
-            {
-              "position": [ -960, 20, -110 ],
-              "prefab": "Unit",
-              "interval": 8.0,
-              "number": 3,
-              "speed": 3.0
-            },
-            {
-              "position": [ 125, 20, 6000 ],
-              "prefab": "Unit",
-              "interval": 8.0,
-              "number": 3,
+			{
+              "position": [980, 20, -550],
+              "prefab": "S_Naga",
+              "interval": 3,
+              "number": 10,
               "speed": 3.0
             }
           ]
