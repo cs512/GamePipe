@@ -171,8 +171,8 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010294562698}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -334,6 +334,8 @@ MonoBehaviour:
   shot: {fileID: 1000012468149708, guid: f7d806d18c4fd4599b853fe45e277e3f, type: 2}
   shootEnemys: []
   maxTarget: 5
+  damage: 10
+  durationTime: 2
 --- !u!135 &135000014193473858
 SphereCollider:
   m_ObjectHideFlags: 1
