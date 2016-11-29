@@ -48,3 +48,6 @@ unity/Space Defender/ProjectSettings/ProjectSettings.asset
 
 *.DS_Store
 
+/unity/Space Defender/Assets/AstarPathfindingEditor/Editor
+/unity/Space Defender/Assets/plugins/AstarPathfindingProject
+/unity/Space Defender/Assets/Script/DragAndDropTest.meta
