@@ -1,0 +1,12 @@
+a#game-pipe-link {
+    color:#991b1e;
+    text-shadow:
+        1px 0px 3px #EEE,
+        -1px 0px 3px #EEE,
+        0px -1px 3px #EEE,
+        0px 1px 3px #EEE;
+}
+
+.rcorners1 {
+    border-radius: 25px;
+}
